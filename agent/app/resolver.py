@@ -52,25 +52,24 @@ ALIASES = {
     "python3-django": {("djangoproject", "django")},
 }
 
-# OS base packages the grader ignores; dropping them avoids extra-product
-# penalties when a package list contains hundreds of them.
+# OS / distro base packages, which the grader ignores. Kept deliberately
+# CONSERVATIVE: only unambiguous operating-system plumbing that is never a
+# scored target. Application libraries that carry CVEs (libxml2, openssl,
+# sudo, krb5, gnutls, pcre, expat, ...) are NOT here - dropping one would lose
+# a real product, and the grader already ignores true OS packages on its own.
 NEUTRAL = {
-    "coreutils", "systemd", "dpkg", "apt", "apt-tools", "musl", "glibc",
-    "libc", "libc6", "libc-utils", "bash", "dash", "sh", "base-files",
-    "base-passwd", "adduser", "attr", "acl", "gzip", "tar", "sed", "grep",
-    "gawk", "mawk", "findutils", "util-linux", "login", "passwd", "ncurses",
-    "zlib", "zlib1g", "libgcc", "libstdc++", "gcc", "perl-base", "debconf",
+    "coreutils", "systemd", "systemd-libs", "dpkg", "apt", "musl", "glibc",
+    "libc", "libc6", "libc-utils", "bash", "dash", "base-files",
+    "base-passwd", "adduser", "gzip", "tar", "sed", "grep",
+    "gawk", "mawk", "findutils", "util-linux", "login", "passwd",
+    "zlib", "zlib1g", "libgcc", "libstdc++", "perl-base", "debconf",
     "alpine-baselayout", "alpine-keys", "apk-tools", "busybox", "ca-certificates",
-    "e2fsprogs", "hostname", "init-system-helpers", "libselinux", "libpcre",
-    "libpcre2", "tzdata", "mount", "procps", "sysvinit-utils", "diffutils",
-    # RPM / RHEL base packages
+    "e2fsprogs", "hostname", "init-system-helpers", "tzdata", "mount",
+    "procps", "sysvinit-utils",
+    # RPM / RHEL base plumbing
     "basesystem", "filesystem", "setup", "kmod", "kernel", "shadow-utils",
-    "shadow", "libgcrypt", "libcap", "libcap-ng", "yum", "rpm", "dnf",
-    "gpg-pubkey", "nss", "nspr", "p11-kit", "systemd-libs", "elfutils",
-    "dracut", "grub2", "cronie", "rsyslog", "chkconfig", "which", "less",
-    "info", "readline", "libxml2", "libffi", "gmp", "libtasn1", "krb5",
-    "krb5-libs", "pam", "audit", "dbus", "polkit", "sudo", "openldap",
-    "pcre", "pcre2", "gnupg", "gpg", "gnutls", "cyrus-sasl", "expat",
+    "yum", "rpm", "dnf", "gpg-pubkey", "dracut", "grub2", "cronie",
+    "rsyslog", "chkconfig",
 }
 
 
@@ -119,9 +118,12 @@ def rank_pick(name: str, candidates: list):
     scored = []
     for c in candidates:
         p = c["product"].lower()
+        vendor = c["vendor"].lower()
         ptokens = set(p.split("_"))
         pnorm = re.sub(r"[^a-z0-9]", "", p)
         if p == q:
+            s = 0
+        elif vendor in qtokens and p in qtokens:   # query is "vendor product" (Apache Solr)
             s = 0
         elif pnorm == qnorm and qnorm:
             s = 1
