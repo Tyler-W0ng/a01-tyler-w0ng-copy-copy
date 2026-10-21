@@ -1,0 +1,273 @@
+{
+ "dataset": "train",
+ "database": {
+  "snapshot": "2026-10-12",
+  "built_at": "2026-10-13T04:52:23+00:00",
+  "years": "2026",
+  "cpe_dictionary": "cve",
+  "nvd_feed_timestamp": "2026-10-12T03:00:38-04:00",
+  "kev_catalog_version": "2026.10.08"
+ },
+ "weights": {
+  "products": 0.4,
+  "cves": 0.4,
+  "cwe": 0.2
+ },
+ "overall": {
+  "documents": 10,
+  "products": 0.8833,
+  "cves": 0.9,
+  "cwe": 0.9,
+  "score": 89.33
+ },
+ "by_format": {
+  "apk-info": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "fs-listing": {
+   "documents": 1,
+   "products": 0.3333,
+   "cves": 0.0,
+   "cwe": 0.0,
+   "score": 13.33
+  },
+  "html": {
+   "documents": 1,
+   "products": 0.5,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 80.0
+  },
+  "http-headers": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "nmap-normal": {
+   "documents": 2,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "rpm-qa": {
+   "documents": 2,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "version-commands": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "whatweb": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  }
+ },
+ "missing_outputs": [],
+ "documents": {
+  "doc-001.txt": {
+   "format": "http-headers",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "extra product eclipse:hudson:1.395"
+   ],
+   "counts": {
+    "expected_products": 4,
+    "found_products": 4,
+    "extra_products": 1,
+    "required_cves": 34,
+    "reported_cves": 34,
+    "correct_cves": 34
+   }
+  },
+  "doc-002.txt": {
+   "format": "fs-listing",
+   "metrics": {
+    "products": 0.3333333333333333,
+    "cves": 0.0,
+    "cwe": 0.0
+   },
+   "failures": [
+    "missed libxml2 2.9.4",
+    "missed XZ Utils 5.6.0"
+   ],
+   "counts": {
+    "expected_products": 3,
+    "found_products": 1,
+    "extra_products": 0,
+    "required_cves": 0,
+    "reported_cves": 0,
+    "correct_cves": 0
+   }
+  },
+  "doc-003.txt": {
+   "format": "nmap-normal",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "extra product ca:advantage_data_transport:5.17.5"
+   ],
+   "counts": {
+    "expected_products": 3,
+    "found_products": 3,
+    "extra_products": 1,
+    "required_cves": 27,
+    "reported_cves": 27,
+    "correct_cves": 27
+   }
+  },
+  "doc-004.txt": {
+   "format": "html",
+   "metrics": {
+    "products": 0.5,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "missed Apache Solr 7.7.2",
+    "extra product ingo_renner:apache_solr:7.7.2"
+   ],
+   "counts": {
+    "expected_products": 2,
+    "found_products": 1,
+    "extra_products": 1,
+    "required_cves": 1,
+    "reported_cves": 1,
+    "correct_cves": 1
+   }
+  },
+  "doc-005.txt": {
+   "format": "nmap-normal",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "extra product mysql:mysql:5.5.5-10.5.15-MariaDB",
+    "extra product ca:advantage_data_transport:5.15.3"
+   ],
+   "counts": {
+    "expected_products": 4,
+    "found_products": 4,
+    "extra_products": 2,
+    "required_cves": 37,
+    "reported_cves": 37,
+    "correct_cves": 37
+   }
+  },
+  "doc-006.txt": {
+   "format": "rpm-qa",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "4 reported CVE(s) do not apply"
+   ],
+   "counts": {
+    "expected_products": 5,
+    "found_products": 5,
+    "extra_products": 0,
+    "required_cves": 27,
+    "reported_cves": 31,
+    "correct_cves": 27
+   }
+  },
+  "doc-007.txt": {
+   "format": "rpm-qa",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 4,
+    "found_products": 4,
+    "extra_products": 0,
+    "required_cves": 13,
+    "reported_cves": 13,
+    "correct_cves": 13
+   }
+  },
+  "doc-008.txt": {
+   "format": "whatweb",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 3,
+    "found_products": 3,
+    "extra_products": 0,
+    "required_cves": 66,
+    "reported_cves": 66,
+    "correct_cves": 66
+   }
+  },
+  "doc-009.txt": {
+   "format": "apk-info",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "extra product openssl:openssl:1.34.1"
+   ],
+   "counts": {
+    "expected_products": 3,
+    "found_products": 3,
+    "extra_products": 1,
+    "required_cves": 2,
+    "reported_cves": 2,
+    "correct_cves": 2
+   }
+  },
+  "doc-010.txt": {
+   "format": "version-commands",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "extra product goforandroid:go_bookmark_widget:1.17.10"
+   ],
+   "counts": {
+    "expected_products": 4,
+    "found_products": 4,
+    "extra_products": 1,
+    "required_cves": 28,
+    "reported_cves": 28,
+    "correct_cves": 28
+   }
+  }
+ }
+}

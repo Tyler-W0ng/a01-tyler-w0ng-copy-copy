@@ -1,0 +1,26 @@
+{
+  "id": "doc-004.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:wordpress:wordpress:5.4.2:*:*:*:*:*:*:*",
+      "evidence": [
+        "<meta name=\"generator\" content=\"WordPress 5.4.2\" />"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-87902",
+          "cwes": [
+            "CWE-98"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:ingo_renner:apache_solr:7.7.2:*:*:*:*:*:*:*",
+      "evidence": [
+        "\"solr-spec-version\": \"7.7.2\""
+      ],
+      "cves": []
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "id": "doc-003.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:mongodb:mongodb:4.4.6:*:*:*:*:*:*:*",
+      "evidence": [
+        "27017/tcp open  mongodb     MongoDB 4.4.6"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-11933",
+          "cwes": [
+            "CWE-787",
+            "CWE-416"
+          ]
+        },
+        {
+          "id": "CVE-2026-9753",
+          "cwes": [
+            "CWE-1287",
+            "CWE-787"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:ca:advantage_data_transport:5.17.5:*:*:*:*:*:*:*",
+      "evidence": [
+        "61616/tcp open  apachemq    ActiveMQ OpenWire transport 5.17.5"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:webmin:webmin:1.920:*:*:*:*:*:*:*",
+      "evidence": [
+        "10000/tcp open  http        MiniServ 1.920 (Webmin httpd)"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-22678",
+          "cwes": [
+            "CWE-79"
+          ]
+        },
+        {
+          "id": "CVE-2026-56022",
+          "cwes": [
+            "CWE-308"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:apache:activemq:5.17.5:*:*:*:*:*:*:*",
+      "evidence": [
+        "61616/tcp open  apachemq    ActiveMQ OpenWire transport 5.17.5"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-33227",
+          "cwes": [
+            "CWE-22"
+          ]
+        },
+        {
+          "id": "CVE-2026-34197",
+          "cwes": [
+            "CWE-20",
+            "CWE-94",
+            "CWE-78"
+          ]
+        },
+        {
+          "id": "CVE-2026-39304",
+          "cwes": [
+            "CWE-400",
+            "CWE-770"
+          ]
+        },
+        {
+          "id": "CVE-2026-40466",
+          "cwes": [
+            "CWE-20",
+            "CWE-94"
+          ]
+        },
+        {
+          "id": "CVE-2026-41043",
+          "cwes": [
+            "CWE-79",
+            "CWE-915"
+          ]
+        },
+        {
+          "id": "CVE-2026-41044",
+          "cwes": [
+            "CWE-20",
+            "CWE-94"
+          ]
+        },
+        {
+          "id": "CVE-2026-42253",
+          "cwes": [
+            "CWE-79"
+          ]
+        },
+        {
+          "id": "CVE-2026-42588",
+          "cwes": [
+            "CWE-20",
+            "CWE-94"
+          ]
+        },
+        {
+          "id": "CVE-2026-45505",
+          "cwes": [
+            "CWE-20",
+            "CWE-94"
+          ]
+        },
+        {
+          "id": "CVE-2026-46605",
+          "cwes": [
+            "CWE-285"
+          ]
+        },
+        {
+          "id": "CVE-2026-49157",
+          "cwes": [
+            "CWE-276"
+          ]
+        },
+        {
+          "id": "CVE-2026-49270",
+          "cwes": [
+            "CWE-1230"
+          ]
+        },
+        {
+          "id": "CVE-2026-49432",
+          "cwes": [
+            "CWE-20"
+          ]
+        },
+        {
+          "id": "CVE-2026-49434",
+          "cwes": [
+            "CWE-20"
+          ]
+        },
+        {
+          "id": "CVE-2026-49877",
+          "cwes": [
+            "CWE-285"
+          ]
+        },
+        {
+          "id": "CVE-2026-50734",
+          "cwes": [
+            "CWE-789"
+          ]
+        },
+        {
+          "id": "CVE-2026-52760",
+          "cwes": [
+            "CWE-79"
+          ]
+        },
+        {
+          "id": "CVE-2026-53916",
+          "cwes": [
+            "CWE-789"
+          ]
+        },
+        {
+          "id": "CVE-2026-53917",
+          "cwes": [
+            "CWE-789"
+          ]
+        },
+        {
+          "id": "CVE-2026-54475",
+          "cwes": [
+            "CWE-862"
+          ]
+        },
+        {
+          "id": "CVE-2026-59878",
+          "cwes": [
+            "CWE-20"
+          ]
+        },
+        {
+          "id": "CVE-2026-61487",
+          "cwes": [
+            "CWE-285"
+          ]
+        },
+        {
+          "id": "CVE-2026-74761",
+          "cwes": [
+            "CWE-20"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+ Image agentlab/agent:latest Building 
+ Image agentlab/agent:latest Built 
+docker compose run --rm agent doc-001.txt doc-002.txt doc-003.txt doc-004.txt doc-005.txt doc-006.txt doc-007.txt doc-008.txt doc-009.txt doc-010.txt
+ Container agentlab-mcp-1 Running 
+ Container agentlab-gateway-1 Running 
+ Container agentlab-mock-llm-1 Running 
+ Container agentlab-mock-llm-1 Waiting 
+ Container agentlab-mock-llm-1 Healthy 
+ Container agentlab-gateway-1 Waiting 
+ Container agentlab-mcp-1 Waiting 
+ Container agentlab-gateway-1 Healthy 
+ Container agentlab-mcp-1 Healthy 
+ Container agentlab-agent-run-b3045fed262d Creating 
+ Container agentlab-agent-run-b3045fed262d Created 
+21:23:52 INFO    agent  mode: pipeline + processing server
+21:23:52 INFO    agent  model: external via http://gateway:4000/v1
+21:23:52 INFO    agent  tracing: off
+21:23:53 INFO    app.clients  mcp: local io offers list_inputs, read_input, write_output
+21:23:53 INFO    app.clients  mcp: http://mcp:8000/mcp offers db_info, get_capec, get_cve, get_cwe, get_kev, list_versions, search_products, vulnerabilities_for
+21:23:53 INFO    app.graph  inputs: doc-001.txt, doc-002.txt, doc-003.txt, doc-004.txt, doc-005.txt, doc-006.txt, doc-007.txt, doc-008.txt, doc-009.txt, doc-010.txt
+21:23:58 INFO    app.graph  doc-001.txt [text]: 6 candidate(s)
+21:23:59 INFO    app.graph  item doc-001.txt      text 6 product(s), 42 CVE(s)
+21:24:02 INFO    app.graph  doc-002.txt [text]: 7 candidate(s)
+21:24:05 INFO    app.graph  item doc-002.txt      text 3 product(s), 1 CVE(s)
+21:24:07 INFO    app.graph  doc-003.txt [text]: 7 candidate(s)
+21:24:09 INFO    app.graph  item doc-003.txt      text 4 product(s), 27 CVE(s)
+21:24:11 INFO    app.graph  doc-004.txt [text]: 3 candidate(s)
+21:24:11 INFO    app.graph  item doc-004.txt      text 2 product(s), 1 CVE(s)
+21:24:13 INFO    app.graph  doc-005.txt [text]: 8 candidate(s)
+21:24:15 INFO    app.graph  item doc-005.txt      text 6 product(s), 37 CVE(s)
+21:24:16 INFO    app.graph  doc-006.txt [text]: 22 candidate(s)
+21:24:20 INFO    app.graph  item doc-006.txt      text 7 product(s), 31 CVE(s)
+21:24:20 INFO    app.graph  doc-007.txt [text]: 14 candidate(s)
+21:24:22 INFO    app.graph  item doc-007.txt      text 5 product(s), 13 CVE(s)
+21:24:24 INFO    app.graph  doc-008.txt [text]: 3 candidate(s)
+21:24:25 INFO    app.graph  item doc-008.txt      text 3 product(s), 66 CVE(s)
+21:24:25 INFO    app.graph  doc-009.txt [text]: 13 candidate(s)
+21:24:31 INFO    app.graph  item doc-009.txt      text 4 product(s), 2 CVE(s)
+21:24:33 INFO    app.graph  doc-010.txt [text]: 7 candidate(s)
+21:24:35 INFO    app.graph  item doc-010.txt      text 6 product(s), 35 CVE(s)
+
+item               kind     source      status  summary
+------------------------------------------------------------------------------
+doc-001.txt        text     ok          ok      6 product(s), 42 CVE(s)
+doc-002.txt        text     ok          ok      3 product(s), 1 CVE(s)
+doc-003.txt        text     ok          ok      4 product(s), 27 CVE(s)
+doc-004.txt        text     ok          ok      2 product(s), 1 CVE(s)
+doc-005.txt        text     ok          ok      6 product(s), 37 CVE(s)
+doc-006.txt        text     ok          ok      7 product(s), 31 CVE(s)
+doc-007.txt        text     ok          ok      5 product(s), 13 CVE(s)
+doc-008.txt        text     ok          ok      3 product(s), 66 CVE(s)
+doc-009.txt        text     ok          ok      4 product(s), 2 CVE(s)
+doc-010.txt        text     ok          ok      6 product(s), 35 CVE(s)
+
+  written to /work/output/items/ and run.json
+

@@ -1,0 +1,46 @@
+{
+  "id": "doc-009.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:git_project:git:2.25.1:*:*:*:*:*:*:*",
+      "evidence": [
+        "git-2.25.1-r20"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:openssl:openssl:1.0.1f:*:*:*:*:*:*:*",
+      "evidence": [
+        "libssl1.0.0-1.0.1f-r15"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:memcached:memcached:1.5.6:*:*:*:*:*:*:*",
+      "evidence": [
+        "memcached-1.5.6-r16"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-47783",
+          "cwes": [
+            "CWE-208"
+          ]
+        },
+        {
+          "id": "CVE-2026-47784",
+          "cwes": [
+            "CWE-208"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:openssl:openssl:1.34.1:*:*:*:*:*:*:*",
+      "evidence": [
+        "ssl_client-1.34.1-r3"
+      ],
+      "cves": []
+    }
+  ]
+}

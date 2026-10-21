@@ -1,0 +1,33 @@
+{
+  "id": "doc-002.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:acl:acl:1.1.2253:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/lib/x86_64-linux-gnu/libacl.so.1.1.2253"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:systemd_project:systemd:0.28.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/lib/x86_64-linux-gnu/libsystemd.so.0.28.0"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-40225",
+          "cwes": [
+            "CWE-669"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:pocoo:jinja2:3.1.2:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/local/lib/python3.8/site-packages/Jinja2-3.1.2.dist-info/METADATA"
+      ],
+      "cves": []
+    }
+  ]
+}
