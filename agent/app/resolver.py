@@ -61,18 +61,15 @@ ALIASES = {
 # sudo, krb5, gnutls, pcre, expat, ...) are NOT here - dropping one would lose
 # a real product, and the grader already ignores true OS packages on its own.
 NEUTRAL = {
-    "coreutils", "systemd", "systemd-libs", "dpkg", "apt", "musl", "glibc",
-    "libc", "libc6", "libc-utils", "bash", "dash", "base-files",
-    "base-passwd", "adduser", "gzip", "tar", "sed", "grep",
-    "gawk", "mawk", "findutils", "util-linux", "login", "passwd",
-    "zlib", "zlib1g", "libgcc", "libstdc++", "perl-base", "debconf",
-    "alpine-baselayout", "alpine-keys", "apk-tools", "busybox", "ca-certificates",
-    "e2fsprogs", "hostname", "init-system-helpers", "tzdata", "mount",
-    "procps", "sysvinit-utils",
-    # RPM / RHEL base plumbing
-    "basesystem", "filesystem", "setup", "kmod", "kernel", "shadow-utils",
-    "yum", "rpm", "dnf", "gpg-pubkey", "dracut", "grub2", "cronie",
-    "rsyslog", "chkconfig",
+    "coreutils", "systemd", "dpkg", "apt", "musl", "libc", "libc-utils",
+    "dash", "base-files", "base-passwd", "adduser", "gzip", "tar", "sed",
+    "grep", "gawk", "mawk", "findutils", "util-linux", "login", "passwd",
+    "perl-base", "debconf", "alpine-baselayout", "alpine-keys", "apk-tools",
+    "busybox", "ca-certificates", "e2fsprogs", "hostname",
+    "init-system-helpers", "tzdata", "mount", "procps", "sysvinit-utils",
+    # RPM / RHEL base plumbing (package managers and distro scaffolding only)
+    "basesystem", "filesystem", "setup", "kmod", "shadow-utils",
+    "yum", "rpm", "dnf", "cronie", "rsyslog",
 }
 
 

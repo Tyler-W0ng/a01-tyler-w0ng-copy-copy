@@ -41,6 +41,7 @@ def normalize_version(v: str) -> str:
     v = v.strip()
     if re.match(r"^\d+:", v):            # epoch, e.g. "1:7.6p1-4ubuntu0.7"
         v = v.split(":", 1)[1]
+    v = re.sub(r"[.+~]dfsg.*$", "", v)   # Debian repack marker: "1.2.12.dfsg" -> "1.2.12"
     v = _PKG_SUFFIX.sub("", v)            # "16.13.0-r4" -> "16.13.0"
     return v
 
@@ -136,6 +137,19 @@ def _parse_lines(text):
         m = re.match(r"([A-Za-z0-9._-]+)==([0-9][\w.]*)", s)
         if m:
             cands.append(_cand(m.group(1), m.group(2), s))
+            continue
+        # apt version pins : "name=version" (apt-get install, Dockerfiles).
+        # Require a dotted, digit-led value so ENV assignments
+        # ("DEBIAN_FRONTEND=noninteractive") and flags are not mistaken for it.
+        matched_pin = False
+        for name, val in re.findall(r"([A-Za-z][A-Za-z0-9.+_-]*)=([^\s\\]+)", s):
+            if name.isupper() or name.lower() in _STOP:
+                continue
+            core = val.split(":", 1)[-1]               # drop a Debian epoch
+            if core[:1].isdigit() and "." in core.split("-")[0]:
+                cands.append(_cand(name, val, s))
+                matched_pin = True
+        if matched_pin:
             continue
         # apk info -vv / generic "name-1.2.3-r0"
         m = re.match(r"([a-z0-9][a-z0-9._+-]*?)-(\d[\w.]*(?:-r\d+)?)\s*$", s)
