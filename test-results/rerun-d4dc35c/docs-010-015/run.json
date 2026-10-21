@@ -1,0 +1,57 @@
+{
+  "finished_at": "2026-10-21T22:04:46.659657+00:00",
+  "seconds": 28.34,
+  "model": "external",
+  "capabilities": [],
+  "trace_url": null,
+  "items": [
+    {
+      "id": "doc-010.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "5 product(s), 35 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-011.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "5 product(s), 2 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-012.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "6 product(s), 16 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-013.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "6 product(s), 8 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-014.xml",
+      "kind": "xml",
+      "source": "ok",
+      "status": "ok",
+      "summary": "4 product(s), 1 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-015.xml",
+      "kind": "xml",
+      "source": "ok",
+      "status": "ok",
+      "summary": "4 product(s), 0 CVE(s)",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "id": "doc-013.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:pocoo:jinja2:2.11.2:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/local/lib/python3.8/site-packages/Jinja2-2.11.2.dist-info/METADATA"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:pyyaml:pyyaml:5.3.1:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/local/lib/python3.8/site-packages/PyYAML-5.3.1.dist-info/METADATA"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:phpmyadmin:phpmyadmin:4.8.1:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/share/phpMyAdmin-4.8.1-all-languages/index.php"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:gnupg:libgcrypt:20.2.5:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/lib/x86_64-linux-gnu/libgcrypt.so.20.2.5"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:gmplib:gmp:10.4.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/lib/x86_64-linux-gnu/libgmp.so.10.4.0"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:python:python:3.8:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/local/lib/python3.8/site-packages/Jinja2-2.11.2.dist-info/METADATA"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-0864",
+          "cwes": [
+            "CWE-74"
+          ]
+        },
+        {
+          "id": "CVE-2026-15308",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-3087",
+          "cwes": [
+            "CWE-22"
+          ]
+        },
+        {
+          "id": "CVE-2026-3644",
+          "cwes": [
+            "CWE-20",
+            "CWE-116"
+          ]
+        },
+        {
+          "id": "CVE-2026-4224",
+          "cwes": [
+            "CWE-674"
+          ]
+        },
+        {
+          "id": "CVE-2026-4519",
+          "cwes": [
+            "CWE-20",
+            "CWE-88"
+          ]
+        },
+        {
+          "id": "CVE-2026-6019",
+          "cwes": [
+            "CWE-150",
+            "CWE-116"
+          ]
+        },
+        {
+          "id": "CVE-2026-7210",
+          "cwes": [
+            "CWE-331"
+          ]
+        }
+      ]
+    }
+  ]
+}

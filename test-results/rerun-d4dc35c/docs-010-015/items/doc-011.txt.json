@@ -1,0 +1,54 @@
+{
+  "id": "doc-011.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:libevent_project:libevent:2.1.11-stable:*:*:*:*:*:*:*",
+      "evidence": [
+        "STAT libevent 2.1.11-stable"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:public_project:public:10.0.0.1:*:*:*:*:*:*:*",
+      "evidence": [
+        "$ snmpget -v2c -c public 10.0.0.1 SNMPv2-MIB::sysDescr.0"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:microsoft:internet_information_services:10.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "Server: Microsoft-IIS/10.0",
+        "Server: Microsoft-IIS/10.0"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:memcached:memcached:1.6.9:*:*:*:*:*:*:*",
+      "evidence": [
+        "STAT version 1.6.9"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-47783",
+          "cwes": [
+            "CWE-208"
+          ]
+        },
+        {
+          "id": "CVE-2026-47784",
+          "cwes": [
+            "CWE-208"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:net-snmp:net-snmp:5.7.3:*:*:*:*:*:*:*",
+      "evidence": [
+        "NET-SNMP-AGENT-MIB::nsVersion.0 = STRING: \"5.7.3\""
+      ],
+      "cves": []
+    }
+  ]
+}

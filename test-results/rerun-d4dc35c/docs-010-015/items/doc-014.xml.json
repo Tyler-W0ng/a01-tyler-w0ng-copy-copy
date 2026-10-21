@@ -1,0 +1,40 @@
+{
+  "id": "doc-014.xml",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:elastic:elasticsearch:5.6.16:*:*:*:*:*:*:*",
+      "evidence": [
+        "<service name=\"http\" product=\"Elasticsearch REST API\" version=\"5.6.16\" extrainfo=\"name: node-1; cluster: prod; Lucene 8.7.0\" method=\"probed\" conf=\"10\"><cpe>cpe:/a:elastic:elasticsearch:5.6.16</cpe></s"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-72683",
+          "cwes": [
+            "CWE-674"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:apache:lucene:8.7.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "<service name=\"http\" product=\"Elasticsearch REST API\" version=\"5.6.16\" extrainfo=\"name: node-1; cluster: prod; Lucene 8.7.0\" method=\"probed\" conf=\"10\">"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:mysql:mysql:5.7.33:*:*:*:*:*:*:*",
+      "evidence": [
+        "<service name=\"mysql\" product=\"MySQL\" version=\"5.7.33-0ubuntu0.18.04.1\" method=\"probed\" conf=\"10\"><cpe>cpe:/a:oracle:mysql:5.7.33-0ubuntu0.18.04.1</cpe></service>"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:lighttpd:lighttpd:1.4.55:*:*:*:*:*:*:*",
+      "evidence": [
+        "<service name=\"http\" product=\"lighttpd\" version=\"1.4.55\" method=\"probed\" conf=\"10\"><cpe>cpe:/a:lighttpd:lighttpd:1.4.55</cpe></service>"
+      ],
+      "cves": []
+    }
+  ]
+}

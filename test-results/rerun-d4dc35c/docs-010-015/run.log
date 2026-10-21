@@ -1,0 +1,44 @@
+ Image agentlab/agent:latest Building 
+ Image agentlab/agent:latest Built 
+docker compose run --rm agent doc-010.txt doc-011.txt doc-012.txt doc-013.txt doc-014.xml doc-015.xml
+ Container agentlab-gateway-1 Running 
+ Container agentlab-mock-llm-1 Running 
+ Container agentlab-mcp-1 Running 
+ Container agentlab-mock-llm-1 Waiting 
+ Container agentlab-mock-llm-1 Healthy 
+ Container agentlab-gateway-1 Waiting 
+ Container agentlab-mcp-1 Waiting 
+ Container agentlab-mcp-1 Healthy 
+ Container agentlab-gateway-1 Healthy 
+ Container agentlab-agent-run-1b6cc15a373b Creating 
+ Container agentlab-agent-run-1b6cc15a373b Created 
+22:04:18 INFO    agent  mode: pipeline + processing server
+22:04:18 INFO    agent  model: external via http://gateway:4000/v1
+22:04:18 INFO    agent  tracing: off
+22:04:19 INFO    app.clients  mcp: local io offers list_inputs, read_input, write_output
+22:04:19 INFO    app.clients  mcp: http://mcp:8000/mcp offers db_info, get_capec, get_cve, get_cwe, get_kev, list_versions, search_products, vulnerabilities_for
+22:04:19 INFO    app.graph  inputs: doc-010.txt, doc-011.txt, doc-012.txt, doc-013.txt, doc-014.xml, doc-015.xml
+22:04:23 INFO    app.graph  doc-010.txt [text]: 6 candidate(s)
+22:04:24 INFO    app.graph  item doc-010.txt      text 5 product(s), 35 CVE(s)
+22:04:26 INFO    app.graph  doc-011.txt [text]: 10 candidate(s)
+22:04:28 INFO    app.graph  item doc-011.txt      text 5 product(s), 2 CVE(s)
+22:04:28 INFO    app.graph  doc-012.txt [text]: 8 candidate(s)
+22:04:31 INFO    app.graph  item doc-012.txt      text 6 product(s), 16 CVE(s)
+22:04:34 INFO    app.graph  doc-013.txt [text]: 7 candidate(s)
+22:04:36 INFO    app.graph  item doc-013.txt      text 6 product(s), 8 CVE(s)
+22:04:39 INFO    app.graph  doc-014.xml [xml]: 5 candidate(s)
+22:04:40 INFO    app.graph  item doc-014.xml      xml 4 product(s), 1 CVE(s)
+22:04:42 INFO    app.graph  doc-015.xml [xml]: 6 candidate(s)
+22:04:46 INFO    app.graph  item doc-015.xml      xml 4 product(s), 0 CVE(s)
+
+item               kind     source      status  summary
+------------------------------------------------------------------------------
+doc-010.txt        text     ok          ok      5 product(s), 35 CVE(s)
+doc-011.txt        text     ok          ok      5 product(s), 2 CVE(s)
+doc-012.txt        text     ok          ok      6 product(s), 16 CVE(s)
+doc-013.txt        text     ok          ok      6 product(s), 8 CVE(s)
+doc-014.xml        xml      ok          ok      4 product(s), 1 CVE(s)
+doc-015.xml        xml      ok          ok      4 product(s), 0 CVE(s)
+
+  written to /work/output/items/ and run.json
+

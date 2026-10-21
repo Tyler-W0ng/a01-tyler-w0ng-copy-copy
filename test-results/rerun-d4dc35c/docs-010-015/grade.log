@@ -1,0 +1,24 @@
+
+format               docs  products      cves       cwe   score
+---------------------------------------------------------------
+banners                 1     1.000     1.000     1.000  100.00
+fs-listing              1     1.000       nan       nan  100.00
+maven-pom               1     0.500       nan       nan   50.00
+nmap-xml                1     0.667     1.000     1.000   86.67
+pip                     1     1.000     1.000     1.000  100.00
+version-commands        1     1.000     1.000     1.000  100.00
+---------------------------------------------------------------
+OVERALL                 6     0.861     1.000     1.000   94.44
+
+  doc-011.txt (banners):
+      - extra product public_project:public:10.0.0.1
+  doc-012.txt (pip):
+      - extra product ibm:packaging_utility:21.3
+  doc-014.xml (nmap-xml):
+      - missed MySQL 5.7.33
+      - extra product mysql:mysql:5.7.33
+  doc-015.xml (maven-pom):
+      - missed Apache Commons Collections 4.0
+      - extra product powertekpdus:smart_pom:4.0.0
+  SCORE 94.44 / 100
+

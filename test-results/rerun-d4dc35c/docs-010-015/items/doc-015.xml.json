@@ -1,0 +1,33 @@
+{
+  "id": "doc-015.xml",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:powertekpdus:smart_pom:4.0.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "<project xmlns=\"http://maven.apache.org/POM/4.0.0\">"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:apache:commons_text:1.8:*:*:*:*:*:*:*",
+      "evidence": [
+        "<commons-text.version>1.8</commons-text.version>"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:jenkins:junit:4.13.2:*:*:*:*:*:*:*",
+      "evidence": [
+        "<artifactId>junit</artifactId>\n      <version>4.13.2</version>"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:slf4j:slf4j-api:1.7.36:*:*:*:*:*:*:*",
+      "evidence": [
+        "<artifactId>slf4j-api</artifactId>\n      <version>1.7.36</version>"
+      ],
+      "cves": []
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+ Image agentlab/agent:latest Building 
+ Image agentlab/agent:latest Built 
+docker compose run --rm agent doc-002.txt doc-004.txt
+ Container agentlab-mock-llm-1 Running 
+ Container agentlab-mcp-1 Running 
+ Container agentlab-gateway-1 Running 
+ Container agentlab-mock-llm-1 Waiting 
+ Container agentlab-mock-llm-1 Healthy 
+ Container agentlab-gateway-1 Waiting 
+ Container agentlab-mcp-1 Waiting 
+ Container agentlab-gateway-1 Healthy 
+ Container agentlab-mcp-1 Healthy 
+ Container agentlab-agent-run-240260550521 Creating 
+ Container agentlab-agent-run-240260550521 Created 
+22:02:05 INFO    agent  mode: pipeline + processing server
+22:02:05 INFO    agent  model: external via http://gateway:4000/v1
+22:02:05 INFO    agent  tracing: off
+22:02:06 INFO    app.clients  mcp: local io offers list_inputs, read_input, write_output
+22:02:06 INFO    app.clients  mcp: http://mcp:8000/mcp offers db_info, get_capec, get_cve, get_cwe, get_kev, list_versions, search_products, vulnerabilities_for
+22:02:06 INFO    app.graph  inputs: doc-002.txt, doc-004.txt
+22:02:10 INFO    app.graph  doc-002.txt [text]: 7 candidate(s)
+22:02:15 INFO    app.graph  item doc-002.txt      text 6 product(s), 16 CVE(s)
+22:02:17 INFO    app.graph  doc-004.txt [text]: 3 candidate(s)
+22:02:17 INFO    app.graph  item doc-004.txt      text 2 product(s), 2 CVE(s)
+
+item               kind     source      status  summary
+------------------------------------------------------------------------------
+doc-002.txt        text     ok          ok      6 product(s), 16 CVE(s)
+doc-004.txt        text     ok          ok      2 product(s), 2 CVE(s)
+
+  written to /work/output/items/ and run.json
+

@@ -1,0 +1,146 @@
+{
+  "id": "doc-002.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:gnupg:libgcrypt:20.2.5:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/lib/x86_64-linux-gnu/libgcrypt.so.20.2.5"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:acl:acl:1.1.2253:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/lib/x86_64-linux-gnu/libacl.so.1.1.2253"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:pcre:pcre2:0.9.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.9.0"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-89156",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-89158",
+          "cwes": [
+            "CWE-190"
+          ]
+        },
+        {
+          "id": "CVE-2026-89161",
+          "cwes": [
+            "CWE-590"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:systemd_project:systemd:0.28.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/lib/x86_64-linux-gnu/libsystemd.so.0.28.0"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-40225",
+          "cwes": [
+            "CWE-669"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:xmlsoft:libxml2:2.9.4:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-0989",
+          "cwes": [
+            "CWE-674"
+          ]
+        },
+        {
+          "id": "CVE-2026-0990",
+          "cwes": [
+            "CWE-674"
+          ]
+        },
+        {
+          "id": "CVE-2026-0992",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-11979",
+          "cwes": [
+            "CWE-121"
+          ]
+        },
+        {
+          "id": "CVE-2026-86137",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-86138",
+          "cwes": [
+            "CWE-190"
+          ]
+        },
+        {
+          "id": "CVE-2026-86139",
+          "cwes": [
+            "CWE-190"
+          ]
+        },
+        {
+          "id": "CVE-2026-86140",
+          "cwes": [
+            "CWE-121"
+          ]
+        },
+        {
+          "id": "CVE-2026-86141",
+          "cwes": [
+            "CWE-252"
+          ]
+        },
+        {
+          "id": "CVE-2026-86142",
+          "cwes": [
+            "CWE-122"
+          ]
+        },
+        {
+          "id": "CVE-2026-86143",
+          "cwes": [
+            "CWE-192"
+          ]
+        },
+        {
+          "id": "CVE-2026-86144",
+          "cwes": [
+            "CWE-669"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:pocoo:jinja2:3.1.2:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/local/lib/python3.8/site-packages/Jinja2-3.1.2.dist-info/METADATA"
+      ],
+      "cves": []
+    }
+  ]
+}

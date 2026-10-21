@@ -1,0 +1,25 @@
+{
+  "finished_at": "2026-10-21T22:02:17.881890+00:00",
+  "seconds": 11.99,
+  "model": "external",
+  "capabilities": [],
+  "trace_url": null,
+  "items": [
+    {
+      "id": "doc-002.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "6 product(s), 16 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-004.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "2 product(s), 2 CVE(s)",
+      "error": null
+    }
+  ]
+}
