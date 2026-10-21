@@ -1,13 +1,12 @@
 FROM python:3.13-slim
-
-# MCP Python SDK 2.x, where the server class is MCPServer, at
-# mcp.server.mcpserver. 1.x called it FastMCP and put it elsewhere.
-# Pillow is the image parser - the reason this server is in a box at all.
-RUN pip install --no-cache-dir "mcp>=2.2,<3" "pillow>=11" \
+# The vulnerability knowledge server. It parses the feed snapshot (JSON, gzip,
+# tar, zip, XML) with the standard library only; the sole dependency is the
+# MCP SDK (2.x: the server class is MCPServer, at mcp.server.mcpserver).
+RUN pip install --no-cache-dir "mcp>=2.2,<3" \
  && useradd --create-home --uid 1000 mcp
-
 WORKDIR /app
-COPY server.py .
+COPY server.py loader.py version.py ./
 USER mcp
 EXPOSE 8000
+# python is on PATH for the compose healthcheck (GET /health).
 CMD ["python", "server.py"]

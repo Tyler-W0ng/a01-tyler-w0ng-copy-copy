@@ -1,0 +1,77 @@
+"""The two places the agent asks the model, both about naming only.
+
+  extract_products(text)  - read a messy document and list software+versions
+  suggest_name(raw)       - clean a product name search could not resolve
+
+The model never produces CVEs or CWEs; those come from the MCP server. Every
+call is best-effort: a refusal, a budget error or an unparseable reply raises,
+and the caller falls back to what deterministic code already found. We parse
+the first JSON value in the reply, because Claude may wrap it in prose or a
+code fence (handout section 3).
+"""
+
+import json
+import logging
+
+from langchain_openai import ChatOpenAI
+
+from app import config
+
+log = logging.getLogger(__name__)
+
+_EXTRACT_PROMPT = (
+    "You are a security analyst reading one reconnaissance artifact (a scan, "
+    "an SBOM, banners, or notes). List the software products that appear WITH "
+    "A CONCRETE VERSION. Ignore operating-system base packages (libc, systemd, "
+    "coreutils, ...) and anything without a version. Reply with ONLY a JSON "
+    "array of objects: [{\"name\": \"...\", \"version\": \"...\", "
+    "\"evidence\": \"the line you saw it on\"}]. Empty array if none."
+)
+
+_SUGGEST_PROMPT = (
+    "Give the canonical upstream product name for this software, as it would "
+    "appear in the NVD CPE dictionary (lowercase, one or two words, no version, "
+    "no distro prefix). Reply with ONLY the name."
+)
+
+
+def _model() -> ChatOpenAI:
+    return ChatOpenAI(model=config.MODEL, base_url=config.BASE_URL,
+                      api_key=config.API_KEY, temperature=0, timeout=60,
+                      max_retries=1)
+
+
+def _first_json(text: str):
+    """The first JSON array/object in a string, or None."""
+    dec = json.JSONDecoder()
+    for i, ch in enumerate(text):
+        if ch in "[{":
+            try:
+                value, _ = dec.raw_decode(text[i:])
+                return value
+            except json.JSONDecodeError:
+                continue
+    return None
+
+
+async def extract_products(text: str, run_config) -> list:
+    reply = await _model().ainvoke(
+        [{"role": "system", "content": _EXTRACT_PROMPT},
+         {"role": "user", "content": text[:8000]}], run_config)
+    value = _first_json(reply.content)
+    if not isinstance(value, list):
+        return []
+    out = []
+    for item in value:
+        if isinstance(item, dict) and item.get("name") and item.get("version"):
+            out.append({"name": str(item["name"]).strip(),
+                        "version": str(item["version"]).strip(),
+                        "evidence": str(item.get("evidence", ""))[:200]})
+    return out
+
+
+async def suggest_name(raw: str, run_config) -> str:
+    reply = await _model().ainvoke(
+        [{"role": "system", "content": _SUGGEST_PROMPT},
+         {"role": "user", "content": raw}], run_config)
+    return reply.content.strip().split("\n")[0].strip().lower()[:60]

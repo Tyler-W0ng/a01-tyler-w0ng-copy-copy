@@ -122,9 +122,9 @@ from mcp import Client
 async def main():
     async with Client('http://mcp:8000/mcp') as c:
         names = {t.name for t in (await c.list_tools()).tools}
-    sys.exit(0 if {'process_text','process_image','process_binary'} <= names else 1)
+    sys.exit(0 if {'search_products','vulnerabilities_for','get_cve'} <= names else 1)
 asyncio.run(main())"; then
-        ok "agent finds process_text/image/binary on the processing server"
+        ok "agent finds the vulnerability tools on the MCP server"
     else
         bad "agent cannot list tools at http://mcp:8000/mcp - docker compose logs mcp"
     fi

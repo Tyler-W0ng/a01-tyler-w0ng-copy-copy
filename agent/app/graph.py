@@ -1,31 +1,23 @@
-"""The pipeline: a LangGraph state machine that processes input/ one item at a time.
+"""The triage pipeline: a LangGraph state machine, one document at a time.
 
     START -> list_inputs -> read_next --(none left)--> END
                                |   ^
                      (unreadable)  |
-                               |   +------------------------------- write
-                               v                                      ^
-                            classify -> recall --(remembered)---------+
-                                           |                          |
-                         (by kind)  text_agent | image_agent | binary_agent
-                                           |                          |
-                                           +--------> remember -------+
+                               |   +-------------------------------- write
+                               v                                       ^
+                            extract -> resolve -> lookup --------------+
 
-Who decides what, which is the point of drawing it:
+Who decides what:
 
-  * the GRAPH decides the order, the routing and the output ID. classify is
-    plain code over magic numbers; the conditional edges read its answer;
-    write_output always uses the input's own ID. None of that is negotiable
-    by a model or by the content of a file.
-  * the SPECIALISTS decide how to process one item - an LLM agent each, with
-    one tool (app/specialists.py).
-  * the MCP SERVERS do the work: the local one (stdio) reads and writes, the
-    remote one (HTTP, in its own container) measures and hashes.
+  * the GRAPH decides order and the output ID (the input's own name). Not
+    negotiable by a model or by a file's content.
+  * CODE does the deterministic work: parse the document (parsers.py), map
+    names to CPE identities (resolver.py), and ask the MCP server for the
+    CVEs (lookup). The vulnerability facts come only from the server.
+  * the MODEL helps with naming only, inside extract (read a messy document)
+    and resolve (clean a name search could not place). It never emits a CVE.
 
-The item's bytes are not in the graph state. State carries the item's ID,
-size, hash and kind; the bytes sit in `blobs` below, one item at a time. That
-keeps base64 out of every checkpoint and every trace, and it is the same rule
-the specialists follow: pass references, not payloads.
+The document's bytes stay out of the graph state, in `blobs`, one at a time.
 """
 
 import base64
@@ -37,188 +29,156 @@ from typing import Annotated, Any, TypedDict
 
 from langchain_core.runnables import RunnableConfig
 from langgraph.graph import END, START, StateGraph
-from mcp import Client
 
-from app import classify as classifier
-from app import clients, kb, specialists
+from app import clients, llm, parsers, resolver
 from app import config as settings
 
 log = logging.getLogger(__name__)
 
-AGENTS = {"text": "text_agent", "image": "image_agent", "binary": "binary_agent"}
-
-# Graph steps per item: read_next, classify, recall, agent, remember, write.
-STEPS_PER_ITEM = 6
-
-
-class Item(TypedDict, total=False):
-    id: str
-    bytes: int
-    sha256: str
-    kind: str
+# Graph steps per item: read_next, extract, resolve, lookup, write.
+STEPS_PER_ITEM = 5
 
 
 class State(TypedDict, total=False):
-    queue: list[str]                 # IDs still to process
-    item: Item | None                # the one in hand
-    result: dict | None              # what the tool found
-    summary: str | None              # what the specialist said about it
-    source: str | None               # "specialist" | "memory" | "error"
+    queue: list[str]
+    item: dict | None
+    fmt: str | None
+    candidates: list[dict]        # [{name, version, evidence, aliases?}]
+    products: list[dict]          # [{cpe, evidence, cves}]
+    source: str | None
     error: str | None
-    transcript: list[dict]           # the specialist's conversation
-    done: Annotated[list[dict], operator.add]   # one line per finished item
+    done: Annotated[list[dict], operator.add]
 
 
 def recursion_limit() -> int:
-    """The graph-level bound, derived from the item cap - see config.MAX_ITEMS."""
     return STEPS_PER_ITEM * settings.MAX_ITEMS + 10
 
 
-def build(local: Client, remote: Client, only: set[str] | None = None):
-    blobs: dict[str, bytes] = {}
+def _cpe(aliases: set, version: str) -> str:
+    vendor, product = sorted(aliases)[0]
+    return f"cpe:2.3:a:{vendor}:{product}:{version or '*'}:*:*:*:*:*:*:*"
 
-    # --- I/O, through the local MCP server --------------------------------
+
+def build(local, remote, only: set[str] | None = None):
+    blobs: dict[str, bytes] = {}
 
     async def list_inputs(state: State) -> dict:
         ids = (await clients.call(local, "list_inputs", {}))["ids"]
         if only:
-            missing = only - set(ids)
-            if missing:
-                log.warning("no such input: %s", ", ".join(sorted(missing)))
             ids = [i for i in ids if i in only]
         if len(ids) > settings.MAX_ITEMS:
-            log.warning("%d items; processing the first %d (AGENT_MAX_ITEMS)",
-                        len(ids), settings.MAX_ITEMS)
+            log.warning("%d items; processing the first %d", len(ids), settings.MAX_ITEMS)
             ids = ids[:settings.MAX_ITEMS]
         log.info("inputs: %s", ", ".join(ids) or "none")
         return {"queue": ids}
 
     async def read_next(state: State) -> dict:
-        blobs.clear()                    # one item's bytes in memory at a time
+        blobs.clear()
         queue = state.get("queue") or []
         if not queue:
             return {"item": None}
         item_id, rest = queue[0], queue[1:]
-        fresh = {"queue": rest, "result": None, "summary": None, "source": None,
-                 "error": None, "transcript": []}
+        fresh = {"queue": rest, "fmt": None, "candidates": [], "products": [],
+                 "source": None, "error": None}
         reply = await clients.call(local, "read_input", {"id": item_id})
         if "error" in reply:
             return {**fresh, "source": "error", "error": reply["error"],
-                    "item": {"id": item_id, "bytes": 0, "sha256": "", "kind": "unreadable"}}
-        data = base64.b64decode(reply["data"])
-        blobs[item_id] = data
-        return {**fresh, "item": {"id": item_id, "bytes": len(data),
-                                  "sha256": hashlib.sha256(data).hexdigest()}}
+                    "item": {"id": item_id}}
+        blobs[item_id] = base64.b64decode(reply["data"])
+        return {**fresh, "item": {"id": item_id}}
+
+    async def extract(state: State, config: RunnableConfig) -> dict:
+        item = state["item"]
+        text = blobs[item["id"]].decode("utf-8", "replace")
+        fmt, cands, structured = parsers.extract(text)
+        # For loose text, also ask the model - it reads what regex cannot.
+        if not structured:
+            try:
+                cands = parsers._dedup(cands + await llm.extract_products(text, config))
+            except Exception as exc:                    # noqa: BLE001
+                log.warning("%s: llm extract failed: %s", item["id"], exc)
+        log.info("%s [%s]: %d candidate(s)", item["id"], fmt, len(cands))
+        return {"fmt": fmt, "candidates": cands}
+
+    async def resolve(state: State, config: RunnableConfig) -> dict:
+        for c in state["candidates"]:
+            if resolver.is_neutral(c["name"]):
+                c["aliases"] = set()
+                continue
+            aliases = resolver.table(c["name"])
+            if not aliases:
+                hits = (await clients.call(
+                    remote, "search_products", {"query": c["name"]}))["candidates"]
+                if not hits:
+                    try:
+                        kw = await llm.suggest_name(c["name"], config)
+                        if kw and kw != c["name"].lower():
+                            hits = (await clients.call(
+                                remote, "search_products", {"query": kw}))["candidates"]
+                    except Exception as exc:            # noqa: BLE001
+                        log.warning("%s: llm suggest failed: %s", c["name"], exc)
+                aliases = resolver.rank_pick(c["name"], hits)
+            c["aliases"] = aliases
+        return {"candidates": state["candidates"]}
+
+    async def lookup(state: State) -> dict:
+        products = []
+        for c in state["candidates"]:
+            aliases = c.get("aliases") or set()
+            if not aliases:
+                continue
+            version = parsers.normalize_version(c["version"])
+            cves: dict[str, list] = {}
+            for vendor, product in aliases:
+                reply = await clients.call(remote, "vulnerabilities_for",
+                                           {"vendor": vendor, "product": product,
+                                            "version": version})
+                for cve in reply.get("cves", []):
+                    cves[cve["id"]] = cve.get("cwes", [])
+            products.append({
+                "cpe": _cpe(aliases, version),
+                "evidence": [c["evidence"]],
+                "cves": [{"id": cid, "cwes": cwes} for cid, cwes in cves.items()],
+            })
+        return {"products": products, "source": "ok"}
 
     async def write(state: State) -> dict:
-        item, result = state["item"], state.get("result")
-        error = state.get("error") or (result or {}).get("error")
-        record = {
-            "id": item["id"],
-            "kind": item.get("kind"),
-            "bytes": item.get("bytes"),
-            "sha256": item.get("sha256"),
-            "source": state.get("source"),
-            "status": "error" if error else "ok",
-            "result": result,
-            "summary": state.get("summary"),
-            "error": error,
-            "model": settings.MODEL if state.get("source") == "specialist" else None,
-            "transcript": state.get("transcript") or [],
-        }
-        reply = await clients.call(local, "write_output",
-                                   {"id": item["id"], "content": json.dumps(record, indent=2)})
-        if "error" in reply:
-            record.update(status="error", error=f"write failed: {reply['error']}")
-        log.info("item %-16s %-7s %-10s %s", item["id"], item.get("kind"),
-                 record["source"], record["error"] or record["summary"])
-        return {"done": [{k: record[k] for k in
-                          ("id", "kind", "source", "status", "summary", "error")}]}
-
-    # --- routing: plain code, not a model ---------------------------------
-
-    def classify(state: State) -> dict:
         item = state["item"]
-        return {"item": {**item, "kind": classifier.classify(blobs[item["id"]])}}
-
-    # --- memory, when there is a knowledge base ---------------------------
-
-    async def recall(state: State) -> dict:
-        if not settings.KB_ENABLED:
-            return {}
-        item = state["item"]
-        hit = await kb.recall(item["sha256"])
-        if hit is None or hit["kind"] != item["kind"]:
-            return {}
-        return {"result": hit["result"], "summary": hit["summary"], "source": "memory"}
-
-    async def remember(state: State) -> dict:
-        result = state.get("result")
-        if (settings.KB_ENABLED and state.get("source") == "specialist"
-                and result and "error" not in result):
-            item = state["item"]
-            await kb.remember(item["sha256"], item["kind"], result,
-                              state.get("summary") or "", item["id"])
-        return {}
-
-    # --- the specialists --------------------------------------------------
-
-    def specialist(kind: str):
-        # `config` is LangGraph's per-call config - callbacks included - and
-        # passing it on is what puts the specialist's trace inside this one.
-        async def node(state: State, config: RunnableConfig) -> dict:
-            item = state["item"]
-            try:
-                out = await specialists.run(kind, item, blobs[item["id"]],
-                                            remote, config)
-            except Exception as exc:              # noqa: BLE001
-                # One item failing must not take the batch down, and must not
-                # vanish: it is written out with its error, like any other.
-                # One line here; the traceback only at AGENT_LOG_LEVEL=DEBUG.
-                log.error("item %s: %s specialist failed: %s: %s", item["id"], kind,
-                          type(exc).__name__, str(exc)[:160])
-                log.debug("traceback", exc_info=True)
-                return {"source": "error", "error": f"{type(exc).__name__}: {exc}"}
-            return {"result": out["result"], "summary": out["summary"],
-                    "transcript": out["transcript"], "source": "specialist",
-                    "error": None if out["result"] is not None
-                    else "the specialist never called its tool"}
-        node.__name__ = AGENTS[kind]
-        return node
-
-    # --- the wiring -------------------------------------------------------
+        products = state.get("products") or []
+        record = {"id": item["id"], "products": products}
+        await clients.call(local, "write_output",
+                           {"id": item["id"], "content": json.dumps(record, indent=2)})
+        n_cve = sum(len(p["cves"]) for p in products)
+        summary = f"{len(products)} product(s), {n_cve} CVE(s)"
+        log.info("item %-16s %s %s", item["id"], state.get("fmt") or "-",
+                 state.get("error") or summary)
+        return {"done": [{"id": item["id"], "kind": state.get("fmt"),
+                          "source": state.get("source") or "error",
+                          "status": "error" if state.get("error") else "ok",
+                          "summary": summary, "error": state.get("error")}]}
 
     def after_read(state: State) -> str:
         if state.get("item") is None:
             return END
-        return "write" if state.get("source") == "error" else "classify"
-
-    def after_recall(state: State) -> str:
-        return "write" if state.get("source") == "memory" \
-            else AGENTS[state["item"]["kind"]]
+        return "write" if state.get("source") == "error" else "extract"
 
     graph = StateGraph(State)
     graph.add_node("list_inputs", list_inputs)
     graph.add_node("read_next", read_next)
-    graph.add_node("classify", classify)
-    graph.add_node("recall", recall)
-    for kind, name in AGENTS.items():
-        graph.add_node(name, specialist(kind))
-    graph.add_node("remember", remember)
+    graph.add_node("extract", extract)
+    graph.add_node("resolve", resolve)
+    graph.add_node("lookup", lookup)
     graph.add_node("write", write)
 
     graph.add_edge(START, "list_inputs")
     graph.add_edge("list_inputs", "read_next")
-    graph.add_conditional_edges("read_next", after_read, [END, "write", "classify"])
-    graph.add_edge("classify", "recall")
-    graph.add_conditional_edges("recall", after_recall, ["write", *AGENTS.values()])
-    for name in AGENTS.values():
-        graph.add_edge(name, "remember")
-    graph.add_edge("remember", "write")
+    graph.add_conditional_edges("read_next", after_read, [END, "write", "extract"])
+    graph.add_edge("extract", "resolve")
+    graph.add_edge("resolve", "lookup")
+    graph.add_edge("lookup", "write")
     graph.add_edge("write", "read_next")
-    return graph.compile(name="pipeline")
+    return graph.compile(name="triage")
 
 
 def summarise(done: list[dict[str, Any]]) -> str:
-    """One line per item, for the trace's output and the terminal."""
     return "\n".join(f"{d['id']}: {d['error'] or d['summary']}" for d in done)

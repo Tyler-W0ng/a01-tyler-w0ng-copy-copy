@@ -8,7 +8,7 @@
 # not the agent's - has any route to it at all. The cost is that the two
 # start, stop and fail together, which for a key store that is useless
 # without its proxy is the behaviour you want anyway.
-FROM ghcr.io/berriai/litellm:main-stable
+FROM ghcr.io/berriai/litellm:v1.106.1@sha256:1acf80698f7eb47021b0bf5aed01ba9e80098cf74cdb3e588515bdd48a129fa6
 
 # Wolfi's Postgres 17 pulls in a newer libcrypto whose package also ships
 # /etc/ssl/openssl.cnf and ca.cnf, which the image's OpenSSL 3.6 already owns.

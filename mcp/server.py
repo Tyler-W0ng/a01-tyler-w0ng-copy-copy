@@ -1,119 +1,178 @@
-"""The processing server: three tools behind MCP, in a container of their own.
+"""The vulnerability knowledge MCP server (A01).
 
-The agent's specialists call these over Streamable HTTP at
-http://mcp:8000/mcp. Each tool receives an item's content and returns a fact
-about it:
+Replaces AgentLab's processing server. On startup it loads the five frozen
+feeds in $VULNDB_FEEDS into an in-memory SQLite database (loader.py), then
+answers questions about CVEs, CWEs, CAPEC, KEV and CPE over MCP.
 
-    process_text(text)                 how many characters
-    process_image(data)                width, height and format
-    process_binary(data, algorithm)    a hash of the bytes
+The data is loaded *before* the HTTP server starts, so the healthcheck's
+GET /health only succeeds once the server is answering - which is exactly
+"healthy means ready" (handout section 2). The seven tools the autograder's
+probe requires are here, plus a couple that help a model map names to CPE
+products and list versions.
 
-Why is this a separate container rather than three functions in the agent?
-Because two of these tools *parse untrusted input*. An image decoder is one of
-the classic places a malicious file turns into code execution, and every item
-in input/ is untrusted. So the parsing happens here, in a process that has no
-mounts, a read-only filesystem, no Linux capabilities, no route to the
-internet and no credentials of any kind - see `mcp:` in compose.yaml. If a
-crafted PNG ever owns Pillow, it owns a box with nothing in it.
-
-Bytes cross the wire as base64 inside the JSON-RPC call. They never pass
-through a language model: the agent's specialist decides *to* call a tool, and
-the graph supplies the bytes (agent/app/specialists.py).
+No vulnerability data is baked into this image; it all comes from /feeds.
 """
 
-import base64
-import binascii
-import hashlib
-import io
-from typing import Literal
+import json
+import threading
 
 from mcp.server.mcpserver import MCPServer
-from PIL import Image, UnidentifiedImageError
 from starlette.requests import Request
 from starlette.responses import JSONResponse
 
-# In mcp 2.x this class is MCPServer; it was called FastMCP in 1.x.
-server = MCPServer(name="agentlab-processors", version="2.0.0")
+import loader
+import version as vercmp
 
-# A cap on what one call may ask this server to hold in memory. Inputs are
-# untrusted; so is their size.
-MAX_BYTES = 8 * 1024 * 1024
+server = MCPServer(name="vulndb", version="1.0.0")
 
-
-def _decode(data: str) -> bytes | dict:
-    """base64 -> bytes, or an error dict the caller can return as-is."""
-    try:
-        raw = base64.b64decode(data, validate=True)
-    except (binascii.Error, ValueError) as exc:
-        return {"error": f"data is not valid base64: {exc}"}
-    if len(raw) > MAX_BYTES:
-        return {"error": f"item is {len(raw)} bytes; the limit is {MAX_BYTES}"}
-    return raw
+DB = None                      # set by loader.load() at startup
+LOCK = threading.Lock()        # sqlite connection is shared across threads
 
 
-@server.tool()
-def process_text(text: str) -> dict:
-    """Count the characters in a piece of text.
+def _q(sql: str, args=()) -> list:
+    with LOCK:
+        return DB.execute(sql, args).fetchall()
 
-    Characters, not bytes: 'café' is 4 characters and 5 bytes of UTF-8.
 
-    Args:
-        text: The text to measure.
-    """
-    return {"characters": len(text),
-            "bytes": len(text.encode("utf-8")),
-            "lines": text.count("\n") + (1 if text and not text.endswith("\n") else 0)}
+def _cwes_for(cve_id: str) -> list:
+    return [r["cwe_id"] for r in
+            _q("SELECT cwe_id FROM cve_cwe WHERE cve_id = ?", (cve_id,))]
 
 
 @server.tool()
-def process_image(data: str) -> dict:
-    """Report an image's size in pixels, and its format.
-
-    Args:
-        data: The image file's bytes, base64-encoded.
-    """
-    raw = _decode(data)
-    if isinstance(raw, dict):
-        return raw
-    try:
-        # `open` reads the header only, which is all the size needs - and is
-        # why a decompression bomb costs nothing here until someone calls
-        # .load(). Pillow's MAX_IMAGE_PIXELS guard backs that up.
-        with Image.open(io.BytesIO(raw)) as image:
-            width, height = image.size
-            return {"width": width, "height": height,
-                    "format": image.format, "mode": image.mode,
-                    "bytes": len(raw)}
-    except (UnidentifiedImageError, OSError, Image.DecompressionBombError) as exc:
-        return {"error": f"not a readable image: {exc}", "bytes": len(raw)}
+def db_info() -> dict:
+    """When the data was built and which feeds it came from."""
+    meta = {r["key"]: r["value"] for r in _q("SELECT key, value FROM meta")}
+    counts = {
+        "cves": _q("SELECT COUNT(*) c FROM cve")[0]["c"],
+        "cpe_products": _q("SELECT COUNT(*) c FROM cpe_product")[0]["c"],
+        "kev": _q("SELECT COUNT(*) c FROM kev")[0]["c"],
+    }
+    return {"snapshot": meta.get("snapshot"), "built_at": meta.get("snapshot"),
+            "feeds": json.loads(meta.get("feeds", "[]")), "counts": counts}
 
 
 @server.tool()
-def process_binary(data: str,
-                   algorithm: Literal["sha256", "sha1", "md5"] = "sha256") -> dict:
-    """Hash a block of binary data.
+def get_cve(cve_id: str) -> dict:
+    """Description, CVSS score, CWE id(s), and whether the CVE is in KEV."""
+    rows = _q("SELECT * FROM cve WHERE id = ?", (cve_id.strip().upper(),))
+    if not rows:
+        return {"id": cve_id, "error": "no such CVE in the 2026 feed"}
+    r = rows[0]
+    return {"id": r["id"], "description": r["description"],
+            "cvss": r["cvss"], "cvss_version": r["cvss_version"],
+            "cwes": _cwes_for(r["id"]), "kev": bool(r["in_kev"])}
 
-    Args:
-        data: The bytes to hash, base64-encoded.
-        algorithm: Which hash. Defaults to sha256; md5 and sha1 are offered
-            for matching older systems, not for anything that must resist
-            tampering.
-    """
-    raw = _decode(data)
-    if isinstance(raw, dict):
-        return raw
-    return {"algorithm": algorithm,
-            "hash": hashlib.new(algorithm, raw).hexdigest(),
-            "bytes": len(raw)}
+
+@server.tool()
+def get_cwe(cwe_id: str) -> dict:
+    """A CWE's name and description, and the CAPEC patterns related to it."""
+    cid = cwe_id.strip().upper()
+    if not cid.startswith("CWE-"):
+        cid = "CWE-" + cid
+    rows = _q("SELECT * FROM cwe WHERE id = ?", (cid,))
+    if not rows:
+        return {"id": cid, "error": "no such CWE"}
+    r = rows[0]
+    capecs = [x["capec_id"] for x in
+              _q("SELECT capec_id FROM cwe_capec WHERE cwe_id = ?", (cid,))]
+    return {"id": r["id"], "name": r["name"], "description": r["description"],
+            "related_capec": capecs}
+
+
+@server.tool()
+def get_capec(capec_id: str) -> dict:
+    """A CAPEC pattern's name and description, and the CWEs it targets."""
+    cid = capec_id.strip().upper()
+    if not cid.startswith("CAPEC-"):
+        cid = "CAPEC-" + cid
+    rows = _q("SELECT * FROM capec WHERE id = ?", (cid,))
+    if not rows:
+        return {"id": cid, "error": "no such CAPEC"}
+    r = rows[0]
+    cwes = [x["cwe_id"] for x in
+            _q("SELECT cwe_id FROM capec_cwe WHERE capec_id = ?", (cid,))]
+    return {"id": r["id"], "name": r["name"], "description": r["description"],
+            "related_cwe": cwes}
+
+
+@server.tool()
+def get_kev(cve_id: str) -> dict:
+    """The KEV catalog entry for a CVE, or that there is none."""
+    cid = cve_id.strip().upper()
+    rows = _q("SELECT * FROM kev WHERE cve_id = ?", (cid,))
+    if not rows:
+        return {"cve_id": cid, "in_kev": False}
+    r = rows[0]
+    return {"cve_id": r["cve_id"], "in_kev": True, "date_added": r["date_added"],
+            "vendor": r["vendor"], "product": r["product"], "name": r["name"]}
+
+
+@server.tool()
+def search_products(query: str) -> dict:
+    """CPE vendor:product candidates whose name or title matches `query`."""
+    q = query.strip().lower()
+    like = f"%{q}%"
+    rows = _q("""SELECT vendor, product, title FROM cpe_product
+                 WHERE product LIKE ? OR vendor LIKE ? OR LOWER(title) LIKE ?
+                 LIMIT 200""", (like, like, like))
+
+    def score(r):
+        p = r["product"].lower()
+        if p == q:
+            return 0
+        if p.startswith(q) or q in p.split("_"):
+            return 1
+        if q in p:
+            return 2
+        return 3
+
+    ranked = sorted(rows, key=score)[:25]
+    return {"query": query,
+            "candidates": [{"vendor": r["vendor"], "product": r["product"],
+                            "title": r["title"]} for r in ranked]}
+
+
+@server.tool()
+def list_versions(vendor: str, product: str) -> dict:
+    """Known versions of a product (only kept where a 2026 CVE applies)."""
+    rows = _q("SELECT DISTINCT version FROM cpe_version WHERE vendor = ? AND product = ?",
+              (vendor.strip().lower(), product.strip().lower()))
+    return {"vendor": vendor, "product": product,
+            "versions": sorted(r["version"] for r in rows)}
+
+
+@server.tool()
+def vulnerabilities_for(vendor: str, product: str, version: str) -> dict:
+    """The 2026 CVEs that apply to an exact vendor/product/version."""
+    vendor, product = vendor.strip().lower(), product.strip().lower()
+    rows = _q("""SELECT cve_id, exact, v_start, start_incl, v_end, end_incl
+                 FROM cve_match WHERE vendor = ? AND product = ?""",
+              (vendor, product))
+    hits = {}
+    for r in rows:
+        if vercmp.matches(version, r["exact"], r["v_start"], r["start_incl"],
+                          r["v_end"], r["end_incl"]):
+            hits.setdefault(r["cve_id"], None)
+    cves = []
+    for cid in sorted(hits):
+        crow = _q("SELECT cvss, in_kev FROM cve WHERE id = ?", (cid,))
+        cvss = crow[0]["cvss"] if crow else None
+        kev = bool(crow[0]["in_kev"]) if crow else False
+        cves.append({"id": cid, "cwes": _cwes_for(cid), "cvss": cvss, "kev": kev})
+    return {"vendor": vendor, "product": product, "version": version, "cves": cves}
 
 
 @server.custom_route("/health", methods=["GET"])
 async def health(request: Request) -> JSONResponse:
-    """For the compose healthcheck. Not part of MCP, and not an MCP tool."""
     return JSONResponse({"status": "ok"})
 
 
 if __name__ == "__main__":
-    # 0.0.0.0 because the agent reaches it as `mcp`, from another container.
-    # Its exposure is set by compose.yaml: `internal` only, no published port.
+    # Load the feeds BEFORE serving, so the port only opens once we are ready:
+    # the healthcheck gets connection-refused during the load (tolerated by
+    # the 300s start_period) and 200 afterwards.
+    print("vulndb: loading feeds...", flush=True)
+    DB = loader.load()
+    print("vulndb: ready", flush=True)
     server.run("streamable-http", host="0.0.0.0", port=8000)
