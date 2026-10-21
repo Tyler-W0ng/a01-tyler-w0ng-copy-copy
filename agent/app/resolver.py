@@ -42,6 +42,8 @@ ALIASES = {
     "libssl": {("openssl", "openssl")},
     "libssl1.1": {("openssl", "openssl")},
     "libssl3": {("openssl", "openssl")},
+    # liblzma is the library shipped by XZ Utils; its CPE product is "xz".
+    "liblzma": {("tukaani", "xz"), ("xz_project", "xz")},
     # curl's library package name, and the historical "haxx" vendor.
     "libcurl": {("haxx", "curl"), ("curl", "curl")},
     # Node's CPE product is "node.js"; the bare word "node" shares no token.

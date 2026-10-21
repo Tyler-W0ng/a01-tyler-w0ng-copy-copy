@@ -152,9 +152,16 @@ _STOP = {"http", "https", "date", "content", "x", "ver", "version", "nmap",
          "ports", "name", "cluster", "node-", "protocol", "server", "connection"}
 
 
+# Shared-library files in a filesystem listing: "liblzma.so.5.6.0" -> (liblzma, 5.6.0).
+# The dotted .so suffix is not matched by _NAME_VER, so handle it explicitly.
+_SO_FILE = re.compile(r"(lib[a-z0-9_+-]+)\.so\.(\d+(?:\.\d+)+)")
+
+
 def _parse_text(text):
     cands = []
     for line in text.splitlines():
+        for name, ver in _SO_FILE.findall(line):
+            cands.append(_cand(name, ver, line.strip()))
         for name, ver in _NAME_VER.findall(line):
             if name.lower() in _STOP:
                 continue
@@ -253,8 +260,14 @@ def extract(text):
             if cands:
                 return "maven-pom", cands, True
 
+    # A pure package dump (dpkg/rpm/pip/apk) is fully handled by code. But a
+    # document can MIX a package excerpt with scan output or prose (host
+    # reports), so only skip the model when the package lines account for most
+    # of the content; otherwise combine them and let the model read the rest.
+    content = [l for l in text.splitlines()
+               if l.strip() and not l.strip().startswith("#")]
     line_cands = _parse_lines(text)
-    if line_cands:
+    if line_cands and len(line_cands) >= 0.5 * max(1, len(content)):
         return fmt, line_cands, True
 
-    return fmt, _parse_text(text), False
+    return fmt, _dedup(line_cands + _parse_text(text)), False
