@@ -1,0 +1,177 @@
+{
+ "dataset": "train",
+ "database": {
+  "snapshot": "2026-10-12",
+  "built_at": "2026-10-13T04:52:23+00:00",
+  "years": "2026",
+  "cpe_dictionary": "cve",
+  "nvd_feed_timestamp": "2026-10-12T03:00:38-04:00",
+  "kev_catalog_version": "2026.10.08"
+ },
+ "weights": {
+  "products": 0.4,
+  "cves": 0.4,
+  "cwe": 0.2
+ },
+ "overall": {
+  "documents": 6,
+  "products": 0.9167,
+  "cves": 1.0,
+  "cwe": 1.0,
+  "score": 96.67
+ },
+ "by_format": {
+  "host-report": {
+   "documents": 1,
+   "products": 0.5,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 80.0
+  },
+  "maven-pom": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": null,
+   "cwe": null,
+   "score": 100.0
+  },
+  "ps-aux": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": null,
+   "cwe": null,
+   "score": 100.0
+  },
+  "version-commands": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "whatweb": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "windows-inventory": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  }
+ },
+ "missing_outputs": [],
+ "documents": {
+  "doc-015.xml": {
+   "format": "maven-pom",
+   "metrics": {
+    "products": 1.0,
+    "cves": null,
+    "cwe": null
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 2,
+    "found_products": 2,
+    "extra_products": 0,
+    "required_cves": 0,
+    "reported_cves": 0,
+    "correct_cves": 0
+   }
+  },
+  "doc-016.txt": {
+   "format": "windows-inventory",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "extra product info-zip_project:zip:21.07",
+    "extra product nuance:visual_c++_runtime_for_dragon_naturallyspeaking:14.29.30133"
+   ],
+   "counts": {
+    "expected_products": 2,
+    "found_products": 2,
+    "extra_products": 2,
+    "required_cves": 15,
+    "reported_cves": 15,
+    "correct_cves": 15
+   }
+  },
+  "doc-017.txt": {
+   "format": "version-commands",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 3,
+    "found_products": 3,
+    "extra_products": 0,
+    "required_cves": 13,
+    "reported_cves": 13,
+    "correct_cves": 13
+   }
+  },
+  "doc-018.txt": {
+   "format": "ps-aux",
+   "metrics": {
+    "products": 1.0,
+    "cves": null,
+    "cwe": null
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 0,
+    "found_products": 0,
+    "extra_products": 0,
+    "required_cves": 0,
+    "reported_cves": 0,
+    "correct_cves": 0
+   }
+  },
+  "doc-019.txt": {
+   "format": "whatweb",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 5,
+    "found_products": 5,
+    "extra_products": 0,
+    "required_cves": 68,
+    "reported_cves": 68,
+    "correct_cves": 68
+   }
+  },
+  "doc-020.txt": {
+   "format": "host-report",
+   "metrics": {
+    "products": 0.5,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "missed Elasticsearch 5.6.16"
+   ],
+   "counts": {
+    "expected_products": 2,
+    "found_products": 1,
+    "extra_products": 0,
+    "required_cves": 11,
+    "reported_cves": 11,
+    "correct_cves": 11
+   }
+  }
+ }
+}

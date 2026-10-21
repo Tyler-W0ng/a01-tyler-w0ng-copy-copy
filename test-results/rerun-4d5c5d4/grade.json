@@ -1,0 +1,102 @@
+{
+ "dataset": "train",
+ "database": {
+  "snapshot": "2026-10-12",
+  "built_at": "2026-10-13T04:52:23+00:00",
+  "years": "2026",
+  "cpe_dictionary": "cve",
+  "nvd_feed_timestamp": "2026-10-12T03:00:38-04:00",
+  "kev_catalog_version": "2026.10.08"
+ },
+ "weights": {
+  "products": 0.4,
+  "cves": 0.4,
+  "cwe": 0.2
+ },
+ "overall": {
+  "documents": 3,
+  "products": 0.8889,
+  "cves": 1.0,
+  "cwe": 1.0,
+  "score": 95.56
+ },
+ "by_format": {
+  "fs-listing": {
+   "documents": 1,
+   "products": 0.6667,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 86.67
+  },
+  "maven-pom": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": null,
+   "cwe": null,
+   "score": 100.0
+  },
+  "nmap-xml": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  }
+ },
+ "missing_outputs": [],
+ "documents": {
+  "doc-002.txt": {
+   "format": "fs-listing",
+   "metrics": {
+    "products": 0.6666666666666666,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "missed XZ Utils 5.6.0"
+   ],
+   "counts": {
+    "expected_products": 3,
+    "found_products": 2,
+    "extra_products": 0,
+    "required_cves": 12,
+    "reported_cves": 12,
+    "correct_cves": 12
+   }
+  },
+  "doc-014.xml": {
+   "format": "nmap-xml",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 3,
+    "found_products": 3,
+    "extra_products": 0,
+    "required_cves": 1,
+    "reported_cves": 1,
+    "correct_cves": 1
+   }
+  },
+  "doc-015.xml": {
+   "format": "maven-pom",
+   "metrics": {
+    "products": 1.0,
+    "cves": null,
+    "cwe": null
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 2,
+    "found_products": 2,
+    "extra_products": 0,
+    "required_cves": 0,
+    "reported_cves": 0,
+    "correct_cves": 0
+   }
+  }
+ }
+}

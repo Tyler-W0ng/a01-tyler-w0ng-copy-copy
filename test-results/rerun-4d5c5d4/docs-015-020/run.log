@@ -1,0 +1,44 @@
+ Image agentlab/agent:latest Building 
+ Image agentlab/agent:latest Built 
+docker compose run --rm agent doc-015.xml doc-016.txt doc-017.txt doc-018.txt doc-019.txt doc-020.txt
+ Container agentlab-mock-llm-1 Running 
+ Container agentlab-mcp-1 Running 
+ Container agentlab-gateway-1 Running 
+ Container agentlab-mock-llm-1 Waiting 
+ Container agentlab-mock-llm-1 Healthy 
+ Container agentlab-gateway-1 Waiting 
+ Container agentlab-mcp-1 Waiting 
+ Container agentlab-mcp-1 Healthy 
+ Container agentlab-gateway-1 Healthy 
+ Container agentlab-agent-run-9916499e8e17 Creating 
+ Container agentlab-agent-run-9916499e8e17 Created 
+22:50:36 INFO    agent  mode: pipeline + processing server
+22:50:36 INFO    agent  model: external via http://gateway:4000/v1
+22:50:36 INFO    agent  tracing: off
+22:50:37 INFO    app.clients  mcp: local io offers list_inputs, read_input, write_output
+22:50:37 INFO    app.clients  mcp: http://mcp:8000/mcp offers db_info, get_capec, get_cve, get_cwe, get_kev, list_versions, search_products, vulnerabilities_for
+22:50:37 INFO    app.graph  inputs: doc-015.xml, doc-016.txt, doc-017.txt, doc-018.txt, doc-019.txt, doc-020.txt
+22:50:37 INFO    app.graph  doc-015.xml [maven-pom]: 2 candidate(s)
+22:50:37 INFO    app.graph  item doc-015.xml      maven-pom 2 product(s), 0 CVE(s)
+22:50:40 INFO    app.graph  doc-016.txt [text]: 5 candidate(s)
+22:50:44 INFO    app.graph  item doc-016.txt      text 5 product(s), 22 CVE(s)
+22:50:45 INFO    app.graph  doc-017.txt [text]: 4 candidate(s)
+22:50:47 INFO    app.graph  item doc-017.txt      text 3 product(s), 13 CVE(s)
+22:50:49 INFO    app.graph  doc-018.txt [text]: 0 candidate(s)
+22:50:49 INFO    app.graph  item doc-018.txt      text 0 product(s), 0 CVE(s)
+22:50:52 INFO    app.graph  doc-019.txt [text]: 6 candidate(s)
+22:50:54 INFO    app.graph  item doc-019.txt      text 5 product(s), 68 CVE(s)
+22:50:54 INFO    app.graph  doc-020.txt [text]: 5 candidate(s)
+22:50:57 INFO    app.graph  item doc-020.txt      text 3 product(s), 11 CVE(s)
+
+item               kind     source      status  summary
+------------------------------------------------------------------------------
+doc-015.xml        maven-pom ok          ok      2 product(s), 0 CVE(s)
+doc-016.txt        text     ok          ok      5 product(s), 22 CVE(s)
+doc-017.txt        text     ok          ok      3 product(s), 13 CVE(s)
+doc-018.txt        text     ok          ok      0 product(s), 0 CVE(s)
+doc-019.txt        text     ok          ok      5 product(s), 68 CVE(s)
+doc-020.txt        text     ok          ok      3 product(s), 11 CVE(s)
+
+  written to /work/output/items/ and run.json
+

@@ -1,0 +1,19 @@
+
+format               docs  products      cves       cwe   score
+---------------------------------------------------------------
+host-report             1     0.500     1.000     1.000   80.00
+maven-pom               1     1.000       nan       nan  100.00
+ps-aux                  1     1.000       nan       nan  100.00
+version-commands        1     1.000     1.000     1.000  100.00
+whatweb                 1     1.000     1.000     1.000  100.00
+windows-inventory       1     1.000     1.000     1.000  100.00
+---------------------------------------------------------------
+OVERALL                 6     0.917     1.000     1.000   96.67
+
+  doc-016.txt (windows-inventory):
+      - extra product info-zip_project:zip:21.07
+      - extra product nuance:visual_c++_runtime_for_dragon_naturallyspeaking:14.29.30133
+  doc-020.txt (host-report):
+      - missed Elasticsearch 5.6.16
+  SCORE 96.67 / 100
+

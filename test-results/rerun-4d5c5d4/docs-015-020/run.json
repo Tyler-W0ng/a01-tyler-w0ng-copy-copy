@@ -1,0 +1,57 @@
+{
+  "finished_at": "2026-10-21T22:50:58.013439+00:00",
+  "seconds": 21.43,
+  "model": "external",
+  "capabilities": [],
+  "trace_url": null,
+  "items": [
+    {
+      "id": "doc-015.xml",
+      "kind": "maven-pom",
+      "source": "ok",
+      "status": "ok",
+      "summary": "2 product(s), 0 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-016.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "5 product(s), 22 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-017.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "3 product(s), 13 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-018.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "0 product(s), 0 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-019.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "5 product(s), 68 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-020.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "3 product(s), 11 CVE(s)",
+      "error": null
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "doc-015.xml",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:apache:commons_collections:4.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "commons-collections 4.0"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:apache:commons_text:1.8:*:*:*:*:*:*:*",
+      "evidence": [
+        "commons-text 1.8"
+      ],
+      "cves": []
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "id": "doc-016.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:info-zip_project:zip:21.07:*:*:*:*:*:*:*",
+      "evidence": [
+        "7-Zip 21.07 (x64)                                                        21.07              Igor Pavlov"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:nuance:visual_c\\+\\+_runtime_for_dragon_naturallyspeaking:14.29.30133:*:*:*:*:*:*:*",
+      "evidence": [
+        "Microsoft Visual C++ 2015-2019 Redistributable (x64) - 14.29.30133       14.29.30133        Microsoft Corporation"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:notepad-plus-plus:notepad\\+\\+:8.4.1:*:*:*:*:*:*:*",
+      "evidence": [
+        "Notepad++ (64-bit x64)                                                   8.4.1              Notepad++ Team"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-25926",
+          "cwes": [
+            "CWE-426"
+          ]
+        },
+        {
+          "id": "CVE-2026-48770",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-48778",
+          "cwes": [
+            "CWE-78"
+          ]
+        },
+        {
+          "id": "CVE-2026-48800",
+          "cwes": [
+            "CWE-78"
+          ]
+        },
+        {
+          "id": "CVE-2026-52885",
+          "cwes": [
+            "CWE-367"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:7-zip:7-zip:21.07:*:*:*:*:*:*:*",
+      "evidence": [
+        "7-Zip 21.07 (x64)                                                        21.07              Igor Pavlov"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-14266",
+          "cwes": [
+            "CWE-122"
+          ]
+        },
+        {
+          "id": "CVE-2026-48092",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-48095",
+          "cwes": [
+            "CWE-190",
+            "CWE-787"
+          ]
+        },
+        {
+          "id": "CVE-2026-48101",
+          "cwes": [
+            "CWE-908"
+          ]
+        },
+        {
+          "id": "CVE-2026-48102",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-48103",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-48104",
+          "cwes": [
+            "CWE-125",
+            "CWE-908"
+          ]
+        },
+        {
+          "id": "CVE-2026-48111",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-48112",
+          "cwes": [
+            "CWE-125",
+            "CWE-190"
+          ]
+        },
+        {
+          "id": "CVE-2026-58052",
+          "cwes": [
+            "CWE-693"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:microsoft:teams:1.5.0.30767:*:*:*:*:*:*:*",
+      "evidence": [
+        "Teams Machine-Wide Installer                                             1.5.0.30767        Microsoft Corporation"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-21535",
+          "cwes": [
+            "CWE-284"
+          ]
+        },
+        {
+          "id": "CVE-2026-26133",
+          "cwes": [
+            "CWE-77"
+          ]
+        },
+        {
+          "id": "CVE-2026-33823",
+          "cwes": [
+            "CWE-285"
+          ]
+        },
+        {
+          "id": "CVE-2026-62896",
+          "cwes": [
+            "CWE-287"
+          ]
+        },
+        {
+          "id": "CVE-2026-62918",
+          "cwes": [
+            "CWE-347"
+          ]
+        },
+        {
+          "id": "CVE-2026-65667",
+          "cwes": [
+            "CWE-862"
+          ]
+        },
+        {
+          "id": "CVE-2026-65769",
+          "cwes": [
+            "CWE-200"
+          ]
+        }
+      ]
+    }
+  ]
+}
