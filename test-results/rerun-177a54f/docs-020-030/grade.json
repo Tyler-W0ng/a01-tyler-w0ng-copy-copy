@@ -1,0 +1,286 @@
+{
+ "dataset": "train",
+ "database": {
+  "snapshot": "2026-10-12",
+  "built_at": "2026-10-13T04:52:23+00:00",
+  "years": "2026",
+  "cpe_dictionary": "cve",
+  "nvd_feed_timestamp": "2026-10-12T03:00:38-04:00",
+  "kev_catalog_version": "2026.10.08"
+ },
+ "weights": {
+  "products": 0.4,
+  "cves": 0.4,
+  "cwe": 0.2
+ },
+ "overall": {
+  "documents": 11,
+  "products": 0.9545,
+  "cves": 1.0,
+  "cwe": 1.0,
+  "score": 98.18
+ },
+ "by_format": {
+  "analyst-notes": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": null,
+   "cwe": null,
+   "score": 100.0
+  },
+  "banners": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "dockerfile": {
+   "documents": 2,
+   "products": 0.75,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 90.0
+  },
+  "fs-listing": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "host-report": {
+   "documents": 2,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "html": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "spdx-json": {
+   "documents": 2,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "version-commands": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  }
+ },
+ "missing_outputs": [],
+ "documents": {
+  "doc-020.txt": {
+   "format": "host-report",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 2,
+    "found_products": 2,
+    "extra_products": 0,
+    "required_cves": 12,
+    "reported_cves": 12,
+    "correct_cves": 12
+   }
+  },
+  "doc-021.txt": {
+   "format": "version-commands",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "1 reported CVE(s) do not apply"
+   ],
+   "counts": {
+    "expected_products": 3,
+    "found_products": 3,
+    "extra_products": 0,
+    "required_cves": 3,
+    "reported_cves": 4,
+    "correct_cves": 3
+   }
+  },
+  "doc-022.txt": {
+   "format": "dockerfile",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 2,
+    "found_products": 2,
+    "extra_products": 0,
+    "required_cves": 21,
+    "reported_cves": 21,
+    "correct_cves": 21
+   }
+  },
+  "doc-023.txt": {
+   "format": "dockerfile",
+   "metrics": {
+    "products": 0.5,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "missed GNU C Library 2.31",
+    "missed SQLite 3.22.0",
+    "missed zlib 1.2.12"
+   ],
+   "counts": {
+    "expected_products": 6,
+    "found_products": 3,
+    "extra_products": 0,
+    "required_cves": 13,
+    "reported_cves": 13,
+    "correct_cves": 13
+   }
+  },
+  "doc-024.txt": {
+   "format": "html",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 3,
+    "found_products": 3,
+    "extra_products": 0,
+    "required_cves": 25,
+    "reported_cves": 25,
+    "correct_cves": 25
+   }
+  },
+  "doc-025.txt": {
+   "format": "fs-listing",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 2,
+    "found_products": 2,
+    "extra_products": 0,
+    "required_cves": 1,
+    "reported_cves": 1,
+    "correct_cves": 1
+   }
+  },
+  "doc-026.json": {
+   "format": "spdx-json",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "4 reported CVE(s) do not apply"
+   ],
+   "counts": {
+    "expected_products": 3,
+    "found_products": 3,
+    "extra_products": 0,
+    "required_cves": 45,
+    "reported_cves": 49,
+    "correct_cves": 45
+   }
+  },
+  "doc-027.txt": {
+   "format": "analyst-notes",
+   "metrics": {
+    "products": 1.0,
+    "cves": null,
+    "cwe": null
+   },
+   "failures": [
+    "extra product cisco:80-7111-01_for_the_unity-svrx255-1a:10.23.13.0"
+   ],
+   "counts": {
+    "expected_products": 0,
+    "found_products": 0,
+    "extra_products": 1,
+    "required_cves": 0,
+    "reported_cves": 0,
+    "correct_cves": 0
+   }
+  },
+  "doc-028.json": {
+   "format": "spdx-json",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "extra product openssl:openssl:1.34.1"
+   ],
+   "counts": {
+    "expected_products": 2,
+    "found_products": 2,
+    "extra_products": 1,
+    "required_cves": 11,
+    "reported_cves": 11,
+    "correct_cves": 11
+   }
+  },
+  "doc-029.txt": {
+   "format": "host-report",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 3,
+    "found_products": 3,
+    "extra_products": 0,
+    "required_cves": 25,
+    "reported_cves": 25,
+    "correct_cves": 25
+   }
+  },
+  "doc-030.txt": {
+   "format": "banners",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "extra product public_project:public:10.0.0.1",
+    "extra product jorisvm:jvm_gutenberg_rich_text_icons:11.0.19"
+   ],
+   "counts": {
+    "expected_products": 5,
+    "found_products": 5,
+    "extra_products": 2,
+    "required_cves": 49,
+    "reported_cves": 49,
+    "correct_cves": 49
+   }
+  }
+ }
+}

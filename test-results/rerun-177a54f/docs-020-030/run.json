@@ -1,0 +1,97 @@
+{
+  "finished_at": "2026-10-21T23:09:38.337570+00:00",
+  "seconds": 57.7,
+  "model": "external",
+  "capabilities": [],
+  "trace_url": null,
+  "items": [
+    {
+      "id": "doc-020.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "5 product(s), 12 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-021.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "4 product(s), 5 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-022.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "2 product(s), 21 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-023.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "3 product(s), 13 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-024.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "3 product(s), 25 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-025.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "7 product(s), 5 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-026.json",
+      "kind": "json",
+      "source": "ok",
+      "status": "ok",
+      "summary": "7 product(s), 52 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-027.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "1 product(s), 0 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-028.json",
+      "kind": "json",
+      "source": "ok",
+      "status": "ok",
+      "summary": "5 product(s), 12 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-029.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "4 product(s), 28 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-030.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "8 product(s), 49 CVE(s)",
+      "error": null
+    }
+  ]
+}

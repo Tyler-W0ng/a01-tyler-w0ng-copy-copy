@@ -1,0 +1,31 @@
+
+format               docs  products      cves       cwe   score
+---------------------------------------------------------------
+analyst-notes           1     1.000       nan       nan  100.00
+banners                 1     1.000     1.000     1.000  100.00
+dockerfile              2     0.750     1.000     1.000   90.00
+fs-listing              1     1.000     1.000     1.000  100.00
+host-report             2     1.000     1.000     1.000  100.00
+html                    1     1.000     1.000     1.000  100.00
+spdx-json               2     1.000     1.000     1.000  100.00
+version-commands        1     1.000     1.000     1.000  100.00
+---------------------------------------------------------------
+OVERALL                11     0.955     1.000     1.000   98.18
+
+  doc-021.txt (version-commands):
+      - 1 reported CVE(s) do not apply
+  doc-023.txt (dockerfile):
+      - missed GNU C Library 2.31
+      - missed SQLite 3.22.0
+      - missed zlib 1.2.12
+  doc-026.json (spdx-json):
+      - 4 reported CVE(s) do not apply
+  doc-027.txt (analyst-notes):
+      - extra product cisco:80-7111-01_for_the_unity-svrx255-1a:10.23.13.0
+  doc-028.json (spdx-json):
+      - extra product openssl:openssl:1.34.1
+  doc-030.txt (banners):
+      - extra product public_project:public:10.0.0.1
+      - extra product jorisvm:jvm_gutenberg_rich_text_icons:11.0.19
+  SCORE 98.18 / 100
+

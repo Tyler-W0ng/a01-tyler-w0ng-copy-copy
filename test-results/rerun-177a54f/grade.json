@@ -1,0 +1,76 @@
+{
+ "dataset": "train",
+ "database": {
+  "snapshot": "2026-10-12",
+  "built_at": "2026-10-13T04:52:23+00:00",
+  "years": "2026",
+  "cpe_dictionary": "cve",
+  "nvd_feed_timestamp": "2026-10-12T03:00:38-04:00",
+  "kev_catalog_version": "2026.10.08"
+ },
+ "weights": {
+  "products": 0.4,
+  "cves": 0.4,
+  "cwe": 0.2
+ },
+ "overall": {
+  "documents": 2,
+  "products": 1.0,
+  "cves": 1.0,
+  "cwe": 1.0,
+  "score": 100.0
+ },
+ "by_format": {
+  "fs-listing": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "host-report": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  }
+ },
+ "missing_outputs": [],
+ "documents": {
+  "doc-002.txt": {
+   "format": "fs-listing",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 3,
+    "found_products": 3,
+    "extra_products": 0,
+    "required_cves": 13,
+    "reported_cves": 13,
+    "correct_cves": 13
+   }
+  },
+  "doc-020.txt": {
+   "format": "host-report",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 2,
+    "found_products": 2,
+    "extra_products": 0,
+    "required_cves": 12,
+    "reported_cves": 12,
+    "correct_cves": 12
+   }
+  }
+ }
+}

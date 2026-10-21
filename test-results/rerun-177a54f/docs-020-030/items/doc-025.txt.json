@@ -1,0 +1,88 @@
+{
+  "id": "doc-025.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:acl:acl:1.1.2253:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/lib/x86_64-linux-gnu/libacl.so.1.1.2253"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:gnupg:libgcrypt:20.2.5:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/lib/x86_64-linux-gnu/libgcrypt.so.20.2.5"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:gmplib:gmp:10.4.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/lib/x86_64-linux-gnu/libgmp.so.10.4.0"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:pcre:pcre2:0.9.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.9.0",
+        "/usr/lib/x86_64-linux-gnu/libpcre2-8.so.0.9.0"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-89156",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-89158",
+          "cwes": [
+            "CWE-190"
+          ]
+        },
+        {
+          "id": "CVE-2026-89161",
+          "cwes": [
+            "CWE-590"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:systemd_project:systemd:0.28.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/lib/x86_64-linux-gnu/libsystemd.so.0.28.0"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-40225",
+          "cwes": [
+            "CWE-669"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:pyyaml:pyyaml:5.1:*:*:*:*:*:*:*",
+      "evidence": [
+        "/usr/local/lib/python3.8/site-packages/PyYAML-5.1.dist-info/METADATA"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:wordpress:wordpress:5.4.2:*:*:*:*:*:*:*",
+      "evidence": [
+        "/var/www/html/wp-content/upgrade/wordpress-5.4.2.zip"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-87902",
+          "cwes": [
+            "CWE-98"
+          ]
+        }
+      ]
+    }
+  ]
+}
