@@ -90,6 +90,10 @@ def _parse_json(text):
 
 # --- line-oriented package listings ---------------------------------------
 
+# RPM package arch suffixes, to recognise "rpm -qa" lines (name-version-release.arch)
+_RPM_ARCH = re.compile(r"\.(x86_64|noarch|i686|i386|aarch64|armv7hl|s390x|ppc64le)$")
+
+
 def _parse_lines(text):
     cands = []
     for line in text.splitlines():
@@ -99,6 +103,16 @@ def _parse_lines(text):
         if m and line[:2] in ("ii", "rc", "hi"):
             cands.append(_cand(m.group(1).split(":")[0], m.group(2), s))
             continue
+        # rpm -qa : "name-version-release.arch" (e.g. sqlite-libs-3.22.0-11.el8.x86_64).
+        # Strip the last '-' segment (release.arch), then split name/version at
+        # the first '-<digit>' so names and versions that contain '-' survive
+        # (net-snmp-5.7.3, runc-1.0.0-rc6).
+        if _RPM_ARCH.search(s):
+            nv = s.rpartition("-")[0]
+            m = re.match(r"^(.+?)-(\d[\w.+~-]*)$", nv)
+            if m:
+                cands.append(_cand(m.group(1), m.group(2), s))
+                continue
         # pip freeze : "name==1.2.3"
         m = re.match(r"([A-Za-z0-9._-]+)==([0-9][\w.]*)", s)
         if m:

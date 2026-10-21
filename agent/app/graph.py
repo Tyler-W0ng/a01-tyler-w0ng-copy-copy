@@ -54,9 +54,18 @@ def recursion_limit() -> int:
     return STEPS_PER_ITEM * settings.MAX_ITEMS + 10
 
 
-def _cpe(aliases: set, version: str) -> str:
-    vendor, product = sorted(aliases)[0]
+def _cpe(alias: tuple, version: str) -> str:
+    vendor, product = alias
     return f"cpe:2.3:a:{vendor}:{product}:{version or '*'}:*:*:*:*:*:*:*"
+
+
+def _pick_alias(aliases: set, counts: dict) -> tuple:
+    """Which CPE identity to report: the one with the most CVEs, then the
+    canonical vendor==product form, then alphabetical - so a product resolves
+    to the name NVD actually files its CVEs under (webmin:webmin, not
+    gentoo:webmin)."""
+    return min(aliases, key=lambda a: (-counts.get(a, 0),
+                                       0 if a[0] == a[1] else 1, a[0]))
 
 
 def build(local, remote, only: set[str] | None = None):
@@ -107,40 +116,50 @@ def build(local, remote, only: set[str] | None = None):
                 continue
             aliases = resolver.table(c["name"])
             if not aliases:
+                query = resolver.clean_name(c["name"])
                 hits = (await clients.call(
-                    remote, "search_products", {"query": c["name"]}))["candidates"]
+                    remote, "search_products", {"query": query}))["candidates"]
                 if not hits:
                     try:
                         kw = await llm.suggest_name(c["name"], config)
-                        if kw and kw != c["name"].lower():
+                        if kw and kw != query:
                             hits = (await clients.call(
                                 remote, "search_products", {"query": kw}))["candidates"]
+                            query = kw
                     except Exception as exc:            # noqa: BLE001
                         log.warning("%s: llm suggest failed: %s", c["name"], exc)
-                aliases = resolver.rank_pick(c["name"], hits)
+                aliases = resolver.rank_pick(query, hits)
             c["aliases"] = aliases
         return {"candidates": state["candidates"]}
 
     async def lookup(state: State) -> dict:
-        products = []
+        products: dict[str, dict] = {}       # keyed by cpe, to merge duplicates
         for c in state["candidates"]:
             aliases = c.get("aliases") or set()
             if not aliases:
                 continue
             version = parsers.normalize_version(c["version"])
             cves: dict[str, list] = {}
+            counts: dict[tuple, int] = {}
             for vendor, product in aliases:
                 reply = await clients.call(remote, "vulnerabilities_for",
                                            {"vendor": vendor, "product": product,
                                             "version": version})
-                for cve in reply.get("cves", []):
+                found = reply.get("cves", [])
+                counts[(vendor, product)] = len(found)
+                for cve in found:
                     cves[cve["id"]] = cve.get("cwes", [])
-            products.append({
-                "cpe": _cpe(aliases, version),
-                "evidence": [c["evidence"]],
-                "cves": [{"id": cid, "cwes": cwes} for cid, cwes in cves.items()],
-            })
-        return {"products": products, "source": "ok"}
+            cpe = _cpe(_pick_alias(aliases, counts), version)
+            if cpe in products:                          # same product seen twice
+                products[cpe]["_cves"].update(cves)
+                products[cpe]["evidence"].append(c["evidence"])
+            else:
+                products[cpe] = {"cpe": cpe, "evidence": [c["evidence"]],
+                                 "_cves": dict(cves)}
+        out = [{"cpe": p["cpe"], "evidence": p["evidence"],
+                "cves": [{"id": cid, "cwes": cwes} for cid, cwes in p["_cves"].items()]}
+               for p in products.values()]
+        return {"products": out, "source": "ok"}
 
     async def write(state: State) -> dict:
         item = state["item"]
