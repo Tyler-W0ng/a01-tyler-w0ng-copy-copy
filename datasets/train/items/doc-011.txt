@@ -1,0 +1,23 @@
+# banner grabs against 192.168.15.236, 2026-02-26
+$ nc -nv 192.168.15.236 11211
+Connection to 192.168.15.236 11211 port [tcp/memcache] succeeded!
+stats
+STAT pid 2489
+STAT uptime 86400
+STAT version 1.6.9
+STAT libevent 2.1.11-stable
+STAT pointer_size 64
+END
+
+$ snmpget -v2c -c public 10.0.0.1 SNMPv2-MIB::sysDescr.0
+SNMPv2-MIB::sysDescr.0 = STRING: Linux gw01 5.4.0-150-generic #167-Ubuntu SMP x86_64
+$ snmpwalk -v2c -c public 10.0.0.1 NET-SNMP-AGENT-MIB::nsVersion
+NET-SNMP-AGENT-MIB::nsVersion.0 = STRING: "5.7.3"
+
+$ curl -sI http://192.168.15.236/
+HTTP/1.1 200 OK
+Date: Mon, 07 Sep 2026 03:46:12 GMT
+Server: Microsoft-IIS/10.0
+Content-Type: text/html; charset=UTF-8
+Content-Length: 1392
+Connection: keep-alive

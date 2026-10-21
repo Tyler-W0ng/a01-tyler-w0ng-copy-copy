@@ -1,0 +1,8 @@
+Assessment notes - vpn08.corp.example (192.168.7.58)
+Analyst: lchen, 2026-02-08
+
+No credentials were provided, so all observations are unauthenticated. TLS on the web ports used a self-signed certificate for vpn08.corp.example. `ldd --version | head -1` on the box prints version 2.31 for GNU C Library.
+
+The package manager lists Apache Commons Collections at 3.2.1. Port 3306 answers with a banner that identifies it as MySQL 8.0.32.
+
+Scope for this engagement was the 192.168.18.0/24 segment; testing window 2026-09-10 15:41-09:06 UTC. The host responded to ICMP and had a TTL of 64, consistent with Linux.

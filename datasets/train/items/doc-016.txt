@@ -1,0 +1,8 @@
+PS C:\> Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*, HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion, Publisher | Format-Table -AutoSize
+
+DisplayName                                                              DisplayVersion     Publisher
+-----------                                                              --------------     ---------
+Microsoft Visual C++ 2015-2019 Redistributable (x64) - 14.29.30133       14.29.30133        Microsoft Corporation
+Notepad++ (64-bit x64)                                                   8.4.1              Notepad++ Team
+7-Zip 21.07 (x64)                                                        21.07              Igor Pavlov
+Teams Machine-Wide Installer                                             1.5.0.30767        Microsoft Corporation

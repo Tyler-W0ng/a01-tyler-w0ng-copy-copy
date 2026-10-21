@@ -1,0 +1,13 @@
+# syntax=docker/dockerfile:1
+FROM nginx:1.14.0
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libc6=2.31-0ubuntu9.5 \
+    libsqlite3-0=3.22.0-9ubuntu0.14 \
+    zlib1g=1:1.2.12.dfsg-8ubuntu1.20 \
+ && rm -rf /var/lib/apt/lists/*
+RUN pip install --no-cache-dir Flask==2.2.4 PyYAML==3.13
+WORKDIR /srv/app
+COPY . .
+EXPOSE 8080
+CMD ["./entrypoint.sh"]

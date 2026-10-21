@@ -1,0 +1,32 @@
+$ curl -s http://edge03.int.example.org/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Welcome</title>
+<title>phpMyAdmin</title>
+<link rel="stylesheet" type="text/css" href="./themes/pmahomme/css/theme.css?v=5.1.1&nocache=4652486383ltr&server=1" />
+<script data-cfasync="false" type="text/javascript" src="js/messages.php?l=en&v=5.1.1"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+</head>
+<body>
+<div id="app">Loading…</div>
+</body>
+</html>
+
+$ curl -s http://edge03.int.example.org:9200/
+{
+  "name" : "node-1",
+  "cluster_name" : "prod",
+  "version" : {
+    "number" : "5.6.16",
+    "build_flavor" : "default",
+    "lucene_version" : "8.7.0"
+  },
+  "tagline" : "You Know, for Search"
+}
+
+$ curl -s http://edge03.int.example.org/CHANGELOG.txt | head -4
+Drupal 8.5.0, 2018-02-21
+-----------------------
+- Fixed security issues (multiple vulnerabilities). See SA-CORE-2018-001.

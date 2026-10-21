@@ -1,0 +1,22 @@
+# Nmap 7.94SVN scan initiated 2026-03-13 08:24 as: nmap -sV -T4 -oN scan.txt 172.21.11.0/24
+Nmap scan report for api10.lab.example (10.1.42.87)
+Host is up (0.0015ms latency).
+Not shown: 997 closed tcp ports (reset)
+PORT      STATE SERVICE     VERSION
+123/tcp   open  ntp         NTP v4
+3306/tcp  open  mysql       MySQL 5.5.5-10.5.15-MariaDB-0ubuntu0.20.04.1
+5000/tcp  open  upnp?
+Service Info: Host: localhost; OS: Unix
+
+Nmap scan report for stage12.lab.example (172.31.232.224)
+Host is up (0.0010ms latency).
+Not shown: 995 closed tcp ports (reset)
+PORT      STATE SERVICE     VERSION
+21/tcp    open  ftp         vsftpd 3.0.2
+80/tcp    open  http        nginx 1.16.1
+514/tcp   open  tcpwrapped
+49152/tcp open  unknown
+61616/tcp open  apachemq    ActiveMQ OpenWire transport 5.15.3
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at 2026-08-28 -- 256 IP addresses (2 hosts up) scanned in 194.24 seconds

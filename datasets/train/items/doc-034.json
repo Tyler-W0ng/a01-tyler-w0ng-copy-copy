@@ -1,0 +1,323 @@
+{
+ "artifacts": [
+  {
+   "id": "d14038776c144927",
+   "name": "musl-utils",
+   "version": "1.2.2-r7",
+   "type": "apk",
+   "foundBy": "apk-db-cataloger",
+   "locations": [
+    {
+     "path": "/lib/apk/db/installed",
+     "layerID": "sha256:0229e93a0377dde937ba02a8dd1abbe40229e93a0377dde937ba02a8dd1abbe4"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:musl-utils:musl-utils:1.2.2-r7:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:apk/alpine/musl-utils@1.2.2-r7?arch=x86_64&distro=alpine-3.15"
+  },
+  {
+   "id": "0e95164eb80c4d37",
+   "name": "busybox",
+   "version": "1.34.1-r3",
+   "type": "apk",
+   "foundBy": "apk-db-cataloger",
+   "locations": [
+    {
+     "path": "/lib/apk/db/installed",
+     "layerID": "sha256:a1aaacdc0d36981aeeffa1ce052689fea1aaacdc0d36981aeeffa1ce052689fe"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:busybox:busybox:1.34.1-r3:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:apk/alpine/busybox@1.34.1-r3?arch=x86_64&distro=alpine-3.15"
+  },
+  {
+   "id": "bdb2d384d83f14c2",
+   "name": "musl",
+   "version": "1.2.2-r7",
+   "type": "apk",
+   "foundBy": "apk-db-cataloger",
+   "locations": [
+    {
+     "path": "/lib/apk/db/installed",
+     "layerID": "sha256:ed17b0ff4d67522a8e5a399d9b3f69d7ed17b0ff4d67522a8e5a399d9b3f69d7"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:musl:musl:1.2.2-r7:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:apk/alpine/musl@1.2.2-r7?arch=x86_64&distro=alpine-3.15"
+  },
+  {
+   "id": "388cc1364e92f3de",
+   "name": "alpine-keys",
+   "version": "2.4-r1",
+   "type": "apk",
+   "foundBy": "apk-db-cataloger",
+   "locations": [
+    {
+     "path": "/lib/apk/db/installed",
+     "layerID": "sha256:e10e62e6584a0a1b976a1bf18bb3ddbce10e62e6584a0a1b976a1bf18bb3ddbc"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:alpine-keys:alpine-keys:2.4-r1:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:apk/alpine/alpine-keys@2.4-r1?arch=x86_64&distro=alpine-3.15"
+  },
+  {
+   "id": "11659164b532c379",
+   "name": "redis",
+   "version": "5.0.7-r19",
+   "type": "apk",
+   "foundBy": "apk-db-cataloger",
+   "locations": [
+    {
+     "path": "/lib/apk/db/installed",
+     "layerID": "sha256:0dd82c501461821f385396c73c76eeaf0dd82c501461821f385396c73c76eeaf"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:redis:redis:5.0.7-r19:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:apk/alpine/redis@5.0.7-r19?arch=x86_64&distro=alpine-3.15"
+  },
+  {
+   "id": "255c886b687626e3",
+   "name": "zlib",
+   "version": "1.2.11-r14",
+   "type": "apk",
+   "foundBy": "apk-db-cataloger",
+   "locations": [
+    {
+     "path": "/lib/apk/db/installed",
+     "layerID": "sha256:83e080d1703c614fac08204e7f648c7283e080d1703c614fac08204e7f648c72"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:zlib:zlib:1.2.11-r14:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:apk/alpine/zlib@1.2.11-r14?arch=x86_64&distro=alpine-3.15"
+  },
+  {
+   "id": "b7938ca162dc648a",
+   "name": "alpine-baselayout",
+   "version": "3.2.0-r18",
+   "type": "apk",
+   "foundBy": "apk-db-cataloger",
+   "locations": [
+    {
+     "path": "/lib/apk/db/installed",
+     "layerID": "sha256:8f9d2a2aa12030de1c9dd7f42094d9f68f9d2a2aa12030de1c9dd7f42094d9f6"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:alpine-baselayout:alpine-baselayout:3.2.0-r18:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:apk/alpine/alpine-baselayout@3.2.0-r18?arch=x86_64&distro=alpine-3.15"
+  },
+  {
+   "id": "b0a4289ec79eb1b1",
+   "name": "ssl_client",
+   "version": "1.34.1-r3",
+   "type": "apk",
+   "foundBy": "apk-db-cataloger",
+   "locations": [
+    {
+     "path": "/lib/apk/db/installed",
+     "layerID": "sha256:d6cfd7ef178907778bc6f110c4d57d1cd6cfd7ef178907778bc6f110c4d57d1c"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:ssl_client:ssl_client:1.34.1-r3:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:apk/alpine/ssl_client@1.34.1-r3?arch=x86_64&distro=alpine-3.15"
+  },
+  {
+   "id": "ca1bab34c87f2696",
+   "name": "scanelf",
+   "version": "1.3.3-r0",
+   "type": "apk",
+   "foundBy": "apk-db-cataloger",
+   "locations": [
+    {
+     "path": "/lib/apk/db/installed",
+     "layerID": "sha256:12df99b3cf3cd8d8451c2415f7fb14ca12df99b3cf3cd8d8451c2415f7fb14ca"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:scanelf:scanelf:1.3.3-r0:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:apk/alpine/scanelf@1.3.3-r0?arch=x86_64&distro=alpine-3.15"
+  },
+  {
+   "id": "83e04f2674f52e9c",
+   "name": "apk-tools",
+   "version": "2.12.7-r3",
+   "type": "apk",
+   "foundBy": "apk-db-cataloger",
+   "locations": [
+    {
+     "path": "/lib/apk/db/installed",
+     "layerID": "sha256:7f744edd9a6524da5857ef0c51ab90737f744edd9a6524da5857ef0c51ab9073"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:apk-tools:apk-tools:2.12.7-r3:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:apk/alpine/apk-tools@2.12.7-r3?arch=x86_64&distro=alpine-3.15"
+  },
+  {
+   "id": "1017d15975e78c68",
+   "name": "lighttpd",
+   "version": "1.4.35-r4",
+   "type": "apk",
+   "foundBy": "apk-db-cataloger",
+   "locations": [
+    {
+     "path": "/lib/apk/db/installed",
+     "layerID": "sha256:ef4068949696cbc579e2552fb6c0eb04ef4068949696cbc579e2552fb6c0eb04"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:lighttpd:lighttpd:1.4.35-r4:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:apk/alpine/lighttpd@1.4.35-r4?arch=x86_64&distro=alpine-3.15"
+  },
+  {
+   "id": "3fcb5272d7d4f213",
+   "name": "libc-utils",
+   "version": "0.7.2-r3",
+   "type": "apk",
+   "foundBy": "apk-db-cataloger",
+   "locations": [
+    {
+     "path": "/lib/apk/db/installed",
+     "layerID": "sha256:827275a321b05b3478a9f431ef89c6e3827275a321b05b3478a9f431ef89c6e3"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:libc-utils:libc-utils:0.7.2-r3:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:apk/alpine/libc-utils@0.7.2-r3?arch=x86_64&distro=alpine-3.15"
+  },
+  {
+   "id": "c7da015ee1fb3762",
+   "name": "libssl3",
+   "version": "3.0.2-r1",
+   "type": "apk",
+   "foundBy": "apk-db-cataloger",
+   "locations": [
+    {
+     "path": "/lib/apk/db/installed",
+     "layerID": "sha256:ffd7fa1dcd1d9be999e1fd8375a4f74bffd7fa1dcd1d9be999e1fd8375a4f74b"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:libssl3:libssl3:3.0.2-r1:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:apk/alpine/libssl3@3.0.2-r1?arch=x86_64&distro=alpine-3.15"
+  }
+ ],
+ "artifactRelationships": [],
+ "source": {
+  "id": "sha256:b277409013bbd4281bcc855fb24fbefbb277409013bbd4281bcc855fb24fbefb",
+  "name": "harbor.int.example.org/platform/gateway",
+  "version": "4.21.4",
+  "type": "image",
+  "metadata": {
+   "userInput": "harbor.int.example.org/platform/gateway:4.21.4",
+   "imageID": "sha256:62683bbc9f93aca9f1756b5e33b56b9362683bbc9f93aca9f1756b5e33b56b93",
+   "manifestDigest": "sha256:236ce3530e517adb0bea45fa2485ed29236ce3530e517adb0bea45fa2485ed29",
+   "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+   "tags": [
+    "harbor.int.example.org/platform/gateway:4.21.4"
+   ],
+   "labels": {
+    "org.opencontainers.image.source": "https://git.corp.example/platform/app"
+   }
+  }
+ },
+ "distro": {
+  "prettyName": "Alpine 3.15",
+  "name": "alpine",
+  "id": "alpine",
+  "versionID": "3.15"
+ },
+ "descriptor": {
+  "name": "syft",
+  "version": "1.14.0"
+ },
+ "schema": {
+  "version": "16.0.18",
+  "url": "https://raw.githubusercontent.com/anchore/syft/main/schema/json/schema-16.0.18.json"
+ }
+}

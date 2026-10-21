@@ -1,0 +1,4 @@
+# Nmap 7.94SVN scan initiated 2026-07-23 09:26 as: nmap -sV -oG - 10.0.0.0/24
+Host: 10.29.205.22 (vpn12.lab.example)	Status: Up
+Host: 10.29.205.22 (vpn12.lab.example)	Ports: 25/open/tcp//smtp//Postfix smtpd/, 53/open/tcp//domain//ISC BIND 9.16.1/, 49152/open/tcp//unknown///, 9100/open/tcp//jetdirect?///	Ignored State: closed (996)
+# Nmap done at 2026-03-08 -- 256 IP addresses (1 hosts up) scanned in 97.31 seconds

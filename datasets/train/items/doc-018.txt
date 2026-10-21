@@ -1,0 +1,15 @@
+$ ps auxww
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+syslog        34  0.6  8.7 980289  9617 ?        Ss   Sep01   0:24 /usr/sbin/rsyslogd -n -iNONE
+root          58  0.6  8.0 942199 17295 ?        Ss   Sep01   0:57 [kworker/0:1-events]
+root         210  0.7  7.2 999754 90780 ?        Ss   Sep01   0:50 /usr/sbin/cron -f
+systemd+     372  0.7  5.1 864209 65177 ?        Ss   Sep01   0:18 /lib/systemd/systemd-resolved
+root          50  0.1  9.0 612891 31253 ?        Ss   Sep01   0:19 /lib/systemd/systemd-logind
+root         444  0.6  7.4 922635 74123 ?        Ss   Sep01   0:39 [kthreadd]
+root         392  0.2  9.8 365964 76319 ?        Ss   Sep01   0:13 /sbin/agetty -o -p -- \u --noclear tty1 linux
+root         288  0.4  8.2 559492 24563 ?        Ss   Sep01   0:33 /lib/systemd/systemd-udevd
+root         243  0.4  5.8 662497 57729 ?        Ss   Sep01   0:22 /sbin/init splash
+message+     950  0.1  7.2 164690  4936 ?        Ss   Sep01   0:59 /usr/bin/dbus-daemon --system --address=systemd: --nofork
+php          110  0.5  6.5 524211 59448 ?        Ss   Sep01   0:39 php-fpm: master process (/etc/php/php-fpm.conf)
+app           36  0.7  2.2 351578 38747 ?        Ss   Sep01   0:24 /usr/sbin/smbd --foreground --no-process-group
+root        1222  0.9  8.2 440106 76918 ?        Ss   Sep01   0:58 /usr/sbin/dovecot -F

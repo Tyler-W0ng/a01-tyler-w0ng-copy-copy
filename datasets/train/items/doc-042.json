@@ -1,0 +1,485 @@
+{
+ "artifacts": [
+  {
+   "id": "40186c4c1a65b213",
+   "name": "libgmp10",
+   "version": "2:6.2.0+dfsg-4",
+   "type": "deb",
+   "foundBy": "dpkg-db-cataloger",
+   "locations": [
+    {
+     "path": "/var/lib/dpkg/status",
+     "layerID": "sha256:f9d95ab3147ff39eccbcd66aafa682eef9d95ab3147ff39eccbcd66aafa682ee"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:libgmp10:libgmp10:2\\:6.2.0+dfsg-4:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:deb/ubuntu/libgmp10@2:6.2.0+dfsg-4?arch=amd64&distro=ubuntu-18.04"
+  },
+  {
+   "id": "53b485fabd954e1a",
+   "name": "Flask",
+   "version": "0.12.2",
+   "type": "python",
+   "foundBy": "python-installed-package-cataloger",
+   "locations": [
+    {
+     "path": "/usr/local/lib/python3.8/site-packages/Flask-0.12.2.dist-info/METADATA",
+     "layerID": "sha256:71f4f832fe495884d81a160228b263f671f4f832fe495884d81a160228b263f6"
+    }
+   ],
+   "licenses": [],
+   "language": "python",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:flask:flask:0.12.2:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:pypi/flask@0.12.2"
+  },
+  {
+   "id": "30ed967b2f1aa49c",
+   "name": "tqdm",
+   "version": "4.62.3",
+   "type": "python",
+   "foundBy": "python-installed-package-cataloger",
+   "locations": [
+    {
+     "path": "/usr/local/lib/python3.8/site-packages/tqdm-4.62.3.dist-info/METADATA",
+     "layerID": "sha256:bf160f77d53300bdd33db93bd0129aeabf160f77d53300bdd33db93bd0129aea"
+    }
+   ],
+   "licenses": [],
+   "language": "python",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:tqdm:tqdm:4.62.3:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:pypi/tqdm@4.62.3"
+  },
+  {
+   "id": "54109731793ff044",
+   "name": "libpcre2-8-0",
+   "version": "10.34-7ubuntu0.1",
+   "type": "deb",
+   "foundBy": "dpkg-db-cataloger",
+   "locations": [
+    {
+     "path": "/var/lib/dpkg/status",
+     "layerID": "sha256:a12e5b2ffce4dcfce07a41106351d613a12e5b2ffce4dcfce07a41106351d613"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:libpcre2-8-0:libpcre2-8-0:10.34-7ubuntu0.1:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:deb/ubuntu/libpcre2-8-0@10.34-7ubuntu0.1?arch=amd64&distro=ubuntu-18.04"
+  },
+  {
+   "id": "f95d5eb07a2d73a6",
+   "name": "postgresql-13",
+   "version": "13.2-1.pgdg20.04+7",
+   "type": "deb",
+   "foundBy": "dpkg-db-cataloger",
+   "locations": [
+    {
+     "path": "/var/lib/dpkg/status",
+     "layerID": "sha256:15ebe82e783469db546825074fd38ac815ebe82e783469db546825074fd38ac8"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:postgresql-13:postgresql-13:13.2-1.pgdg20.04+7:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:deb/ubuntu/postgresql-13@13.2-1.pgdg20.04+7?arch=amd64&distro=ubuntu-18.04"
+  },
+  {
+   "id": "0ba1ec273ee9e6d4",
+   "name": "gpgv",
+   "version": "2.2.19-3ubuntu2.2",
+   "type": "deb",
+   "foundBy": "dpkg-db-cataloger",
+   "locations": [
+    {
+     "path": "/var/lib/dpkg/status",
+     "layerID": "sha256:39d81447eb185e83932d2a84fc5d1f1739d81447eb185e83932d2a84fc5d1f17"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:gpgv:gpgv:2.2.19-3ubuntu2.2:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:deb/ubuntu/gpgv@2.2.19-3ubuntu2.2?arch=amd64&distro=ubuntu-18.04"
+  },
+  {
+   "id": "fe8d33113ff6461e",
+   "name": "findutils",
+   "version": "4.7.0-1ubuntu1",
+   "type": "deb",
+   "foundBy": "dpkg-db-cataloger",
+   "locations": [
+    {
+     "path": "/var/lib/dpkg/status",
+     "layerID": "sha256:5e4a68a424302a22fe02dd6fbf54a5925e4a68a424302a22fe02dd6fbf54a592"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:findutils:findutils:4.7.0-1ubuntu1:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:deb/ubuntu/findutils@4.7.0-1ubuntu1?arch=amd64&distro=ubuntu-18.04"
+  },
+  {
+   "id": "467089f619778c46",
+   "name": "pytz",
+   "version": "2021.3",
+   "type": "python",
+   "foundBy": "python-installed-package-cataloger",
+   "locations": [
+    {
+     "path": "/usr/local/lib/python3.8/site-packages/pytz-2021.3.dist-info/METADATA",
+     "layerID": "sha256:c9c2e8dd02aa501e52b42555866c7145c9c2e8dd02aa501e52b42555866c7145"
+    }
+   ],
+   "licenses": [],
+   "language": "python",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:pytz:pytz:2021.3:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:pypi/pytz@2021.3"
+  },
+  {
+   "id": "4a67c217f9c85b62",
+   "name": "dpkg",
+   "version": "1.19.7ubuntu3.2",
+   "type": "deb",
+   "foundBy": "dpkg-db-cataloger",
+   "locations": [
+    {
+     "path": "/var/lib/dpkg/status",
+     "layerID": "sha256:b930cb3e5b865cc7ea4c754209a91dfdb930cb3e5b865cc7ea4c754209a91dfd"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:dpkg:dpkg:1.19.7ubuntu3.2:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:deb/ubuntu/dpkg@1.19.7ubuntu3.2?arch=amd64&distro=ubuntu-18.04"
+  },
+  {
+   "id": "f9d4c2489487f324",
+   "name": "libudev1",
+   "version": "245.4-4ubuntu3.22",
+   "type": "deb",
+   "foundBy": "dpkg-db-cataloger",
+   "locations": [
+    {
+     "path": "/var/lib/dpkg/status",
+     "layerID": "sha256:9110303b8b8e64d2384fb7fe2f268ab09110303b8b8e64d2384fb7fe2f268ab0"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:libudev1:libudev1:245.4-4ubuntu3.22:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:deb/ubuntu/libudev1@245.4-4ubuntu3.22?arch=amd64&distro=ubuntu-18.04"
+  },
+  {
+   "id": "05563462af3ca8e2",
+   "name": "struts2-core",
+   "version": "2.3.31",
+   "type": "java-archive",
+   "foundBy": "java-archive-cataloger",
+   "locations": [
+    {
+     "path": "/opt/app/lib/struts2-core-2.3.31.jar",
+     "layerID": "sha256:539949b30a3e83326608f933afeee9f0539949b30a3e83326608f933afeee9f0"
+    }
+   ],
+   "licenses": [],
+   "language": "java",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:struts2-core:struts2-core:2.3.31:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:maven/org.apache.struts/struts2-core@2.3.31",
+   "metadata": {
+    "virtualPath": "/opt/app/lib/struts2-core-2.3.31.jar",
+    "pomProperties": {
+     "groupId": "org.apache.struts",
+     "artifactId": "struts2-core",
+     "version": "2.3.31"
+    }
+   }
+  },
+  {
+   "id": "7e5a2bd363c67bf4",
+   "name": "debianutils",
+   "version": "4.9.1",
+   "type": "deb",
+   "foundBy": "dpkg-db-cataloger",
+   "locations": [
+    {
+     "path": "/var/lib/dpkg/status",
+     "layerID": "sha256:e3fb92c04ac90082e0f41cc8ddfc754ee3fb92c04ac90082e0f41cc8ddfc754e"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:debianutils:debianutils:4.9.1:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:deb/ubuntu/debianutils@4.9.1?arch=amd64&distro=ubuntu-18.04"
+  },
+  {
+   "id": "42767212b98dd388",
+   "name": "libgnutls30",
+   "version": "3.6.13-2ubuntu1.8",
+   "type": "deb",
+   "foundBy": "dpkg-db-cataloger",
+   "locations": [
+    {
+     "path": "/var/lib/dpkg/status",
+     "layerID": "sha256:b1c6df776c8bbeb423b2bd40594595a1b1c6df776c8bbeb423b2bd40594595a1"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:libgnutls30:libgnutls30:3.6.13-2ubuntu1.8:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:deb/ubuntu/libgnutls30@3.6.13-2ubuntu1.8?arch=amd64&distro=ubuntu-18.04"
+  },
+  {
+   "id": "0a7009432e4e7815",
+   "name": "tomcat9",
+   "version": "9.0.30-5",
+   "type": "deb",
+   "foundBy": "dpkg-db-cataloger",
+   "locations": [
+    {
+     "path": "/var/lib/dpkg/status",
+     "layerID": "sha256:146854f828b8c35ee8911c9b0342e069146854f828b8c35ee8911c9b0342e069"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:tomcat9:tomcat9:9.0.30-5:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:deb/ubuntu/tomcat9@9.0.30-5?arch=amd64&distro=ubuntu-18.04"
+  },
+  {
+   "id": "16b9c1776bad792c",
+   "name": "postfix",
+   "version": "3.6.4-1ubuntu15",
+   "type": "deb",
+   "foundBy": "dpkg-db-cataloger",
+   "locations": [
+    {
+     "path": "/var/lib/dpkg/status",
+     "layerID": "sha256:6d161273f026dc9190144c81fb31dfa76d161273f026dc9190144c81fb31dfa7"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:postfix:postfix:3.6.4-1ubuntu15:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:deb/ubuntu/postfix@3.6.4-1ubuntu15?arch=amd64&distro=ubuntu-18.04"
+  },
+  {
+   "id": "07d5f523b661f59e",
+   "name": "pyparsing",
+   "version": "3.0.6",
+   "type": "python",
+   "foundBy": "python-installed-package-cataloger",
+   "locations": [
+    {
+     "path": "/usr/local/lib/python3.8/site-packages/pyparsing-3.0.6.dist-info/METADATA",
+     "layerID": "sha256:170bec46baf687194a49f105a1bc4dd9170bec46baf687194a49f105a1bc4dd9"
+    }
+   ],
+   "licenses": [],
+   "language": "python",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:pyparsing:pyparsing:3.0.6:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:pypi/pyparsing@3.0.6"
+  },
+  {
+   "id": "23d42ab71c4e050b",
+   "name": "mawk",
+   "version": "1.3.4.20200120-2",
+   "type": "deb",
+   "foundBy": "dpkg-db-cataloger",
+   "locations": [
+    {
+     "path": "/var/lib/dpkg/status",
+     "layerID": "sha256:f28308c920d95c5d7054c6747aa2e44ef28308c920d95c5d7054c6747aa2e44e"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:mawk:mawk:1.3.4.20200120-2:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:deb/ubuntu/mawk@1.3.4.20200120-2?arch=amd64&distro=ubuntu-18.04"
+  },
+  {
+   "id": "801b979b67001661",
+   "name": "debconf",
+   "version": "1.5.73",
+   "type": "deb",
+   "foundBy": "dpkg-db-cataloger",
+   "locations": [
+    {
+     "path": "/var/lib/dpkg/status",
+     "layerID": "sha256:addce6953faefe0abd0c4194dfacce62addce6953faefe0abd0c4194dfacce62"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:debconf:debconf:1.5.73:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:deb/ubuntu/debconf@1.5.73?arch=amd64&distro=ubuntu-18.04"
+  },
+  {
+   "id": "80fd8b4382558109",
+   "name": "liblz4-1",
+   "version": "1.9.2-2ubuntu0.20.04.1",
+   "type": "deb",
+   "foundBy": "dpkg-db-cataloger",
+   "locations": [
+    {
+     "path": "/var/lib/dpkg/status",
+     "layerID": "sha256:675a2a1413a8ca2b0883dd6255720b1d675a2a1413a8ca2b0883dd6255720b1d"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:liblz4-1:liblz4-1:1.9.2-2ubuntu0.20.04.1:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:deb/ubuntu/liblz4-1@1.9.2-2ubuntu0.20.04.1?arch=amd64&distro=ubuntu-18.04"
+  },
+  {
+   "id": "a54bf8dd8f901055",
+   "name": "base-files",
+   "version": "11ubuntu5.6",
+   "type": "deb",
+   "foundBy": "dpkg-db-cataloger",
+   "locations": [
+    {
+     "path": "/var/lib/dpkg/status",
+     "layerID": "sha256:b9b6abc3dbfdb3de4f4f1f2de334fc2eb9b6abc3dbfdb3de4f4f1f2de334fc2e"
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:base-files:base-files:11ubuntu5.6:*:*:*:*:*:*:*",
+     "source": "syft-generated"
+    }
+   ],
+   "purl": "pkg:deb/ubuntu/base-files@11ubuntu5.6?arch=amd64&distro=ubuntu-18.04"
+  }
+ ],
+ "artifactRelationships": [],
+ "source": {
+  "id": "sha256:1fce08ae1736e797724f1fabc903902a1fce08ae1736e797724f1fabc903902a",
+  "name": "harbor.int.example.org/platform/gateway",
+  "version": "4.17.6",
+  "type": "image",
+  "metadata": {
+   "userInput": "harbor.int.example.org/platform/gateway:4.17.6",
+   "imageID": "sha256:b549758cbb081b4dc80a823a363eaad4b549758cbb081b4dc80a823a363eaad4",
+   "manifestDigest": "sha256:cd35636bab0c7a0a284c81c1b6f45107cd35636bab0c7a0a284c81c1b6f45107",
+   "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+   "tags": [
+    "harbor.int.example.org/platform/gateway:4.17.6"
+   ],
+   "labels": {
+    "org.opencontainers.image.source": "https://git.corp.example/platform/app"
+   }
+  }
+ },
+ "distro": {
+  "prettyName": "Ubuntu 18.04",
+  "name": "ubuntu",
+  "id": "ubuntu",
+  "versionID": "18.04"
+ },
+ "descriptor": {
+  "name": "syft",
+  "version": "1.14.0"
+ },
+ "schema": {
+  "version": "16.0.18",
+  "url": "https://raw.githubusercontent.com/anchore/syft/main/schema/json/schema-16.0.18.json"
+ }
+}

@@ -1,0 +1,15 @@
+$ rpm -qa
+pcre-8.32-17.el7.x86_64
+ntp-4.2.8p10-18.el7.x86_64
+ncurses-base-5.9-14.20130511.el7_4.x86_64
+setup-2.8.71-11.el7.x86_64
+rpm-4.11.3-48.el7_9.x86_64
+grep-2.20-3.el7.x86_64
+libselinux-2.5-15.el7.x86_64
+kmod-20-28.el7.x86_64
+gzip-1.5-11.el7_9.x86_64
+net-snmp-5.7.3-4.el7.x86_64
+squid-5.2-10.el7.x86_64
+nodejs-10.19.0-3.el8.x86_64
+e2fsprogs-1.42.9-19.el7.x86_64
+systemd-219-78.el7_9.7.x86_64

@@ -1,0 +1,209 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:a89af188-59b6-49d7-3f1d-da9eca26b3ae",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-01-10T21:43:00Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "author": "anchore",
+          "name": "syft",
+          "version": "1.14.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "image",
+      "type": "container",
+      "name": "registry.corp.example/shop/api",
+      "version": "1.20.0"
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:pypi/six@1.16.0",
+      "type": "library",
+      "name": "six",
+      "version": "1.16.0",
+      "purl": "pkg:pypi/six@1.16.0"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/sysvinit-utils@2.96-2.1ubuntu1?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "sysvinit-utils",
+      "version": "2.96-2.1ubuntu1",
+      "purl": "pkg:deb/ubuntu/sysvinit-utils@2.96-2.1ubuntu1?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/libsqlite3-0@3.22.0-9ubuntu0.17?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "libsqlite3-0",
+      "version": "3.22.0-9ubuntu0.17",
+      "purl": "pkg:deb/ubuntu/libsqlite3-0@3.22.0-9ubuntu0.17?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/bsdutils@1:2.34-0.1ubuntu9.3?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "bsdutils",
+      "version": "1:2.34-0.1ubuntu9.3",
+      "purl": "pkg:deb/ubuntu/bsdutils@1:2.34-0.1ubuntu9.3?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/libseccomp2@2.5.1-1ubuntu1~20.04.2?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "libseccomp2",
+      "version": "2.5.1-1ubuntu1~20.04.2",
+      "purl": "pkg:deb/ubuntu/libseccomp2@2.5.1-1ubuntu1~20.04.2?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/login@1:4.8.1-1ubuntu5.20.04.4?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "login",
+      "version": "1:4.8.1-1ubuntu5.20.04.4",
+      "purl": "pkg:deb/ubuntu/login@1:4.8.1-1ubuntu5.20.04.4?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:pypi/pillow@8.0.0",
+      "type": "library",
+      "name": "Pillow",
+      "version": "8.0.0",
+      "purl": "pkg:pypi/pillow@8.0.0"
+    },
+    {
+      "bom-ref": "pkg:pypi/django@2.2.10",
+      "type": "library",
+      "name": "Django",
+      "version": "2.2.10",
+      "purl": "pkg:pypi/django@2.2.10"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/base-passwd@3.5.47?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "base-passwd",
+      "version": "3.5.47",
+      "purl": "pkg:deb/ubuntu/base-passwd@3.5.47?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/libtasn1-6@4.16.0-2?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "libtasn1-6",
+      "version": "4.16.0-2",
+      "purl": "pkg:deb/ubuntu/libtasn1-6@4.16.0-2?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/gpgv@2.2.19-3ubuntu2.2?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "gpgv",
+      "version": "2.2.19-3ubuntu2.2",
+      "purl": "pkg:deb/ubuntu/gpgv@2.2.19-3ubuntu2.2?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/tar@1.30+dfsg-7ubuntu0.20.04.3?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "tar",
+      "version": "1.30+dfsg-7ubuntu0.20.04.3",
+      "purl": "pkg:deb/ubuntu/tar@1.30+dfsg-7ubuntu0.20.04.3?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/libattr1@1:2.4.48-5?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "libattr1",
+      "version": "1:2.4.48-5",
+      "purl": "pkg:deb/ubuntu/libattr1@1:2.4.48-5?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/sed@4.7-1?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "sed",
+      "version": "4.7-1",
+      "purl": "pkg:deb/ubuntu/sed@4.7-1?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/apt@2.0.9?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "apt",
+      "version": "2.0.9",
+      "purl": "pkg:deb/ubuntu/apt@2.0.9?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/libzstd1@1.4.4+dfsg-3ubuntu0.1?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "libzstd1",
+      "version": "1.4.4+dfsg-3ubuntu0.1",
+      "purl": "pkg:deb/ubuntu/libzstd1@1.4.4+dfsg-3ubuntu0.1?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/libncurses6@6.2-0ubuntu2.1?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "libncurses6",
+      "version": "6.2-0ubuntu2.1",
+      "purl": "pkg:deb/ubuntu/libncurses6@6.2-0ubuntu2.1?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/tzdata@2024a-0ubuntu0.20.04?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "tzdata",
+      "version": "2024a-0ubuntu0.20.04",
+      "purl": "pkg:deb/ubuntu/tzdata@2024a-0ubuntu0.20.04?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/libblkid1@2.34-0.1ubuntu9.3?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "libblkid1",
+      "version": "2.34-0.1ubuntu9.3",
+      "purl": "pkg:deb/ubuntu/libblkid1@2.34-0.1ubuntu9.3?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/curl@8.3.0-1ubuntu1.7?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "curl",
+      "version": "8.3.0-1ubuntu1.7",
+      "purl": "pkg:deb/ubuntu/curl@8.3.0-1ubuntu1.7?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:pypi/click@7.1.2",
+      "type": "library",
+      "name": "click",
+      "version": "7.1.2",
+      "purl": "pkg:pypi/click@7.1.2"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/libgcrypt20@1.8.5-5ubuntu1.1?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "libgcrypt20",
+      "version": "1.8.5-5ubuntu1.1",
+      "purl": "pkg:deb/ubuntu/libgcrypt20@1.8.5-5ubuntu1.1?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/init-system-helpers@1.57?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "init-system-helpers",
+      "version": "1.57",
+      "purl": "pkg:deb/ubuntu/init-system-helpers@1.57?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/base-files@11ubuntu5.6?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "base-files",
+      "version": "11ubuntu5.6",
+      "purl": "pkg:deb/ubuntu/base-files@11ubuntu5.6?arch=amd64&distro=ubuntu-18.04"
+    },
+    {
+      "bom-ref": "pkg:pypi/markupsafe@1.1.1",
+      "type": "library",
+      "name": "MarkupSafe",
+      "version": "1.1.1",
+      "purl": "pkg:pypi/markupsafe@1.1.1"
+    },
+    {
+      "bom-ref": "pkg:deb/ubuntu/phpmyadmin@4:4.9.0.1+dfsg1-3?arch=amd64&distro=ubuntu-18.04",
+      "type": "library",
+      "name": "phpmyadmin",
+      "version": "4:4.9.0.1+dfsg1-3",
+      "purl": "pkg:deb/ubuntu/phpmyadmin@4:4.9.0.1+dfsg1-3?arch=amd64&distro=ubuntu-18.04"
+    }
+  ]
+}

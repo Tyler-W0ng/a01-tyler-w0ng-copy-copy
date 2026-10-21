@@ -1,0 +1,14 @@
+user@edge08:~$ uname -a
+Linux edge08 5.4.0-158-generic #129-Ubuntu SMP x86_64 GNU/Linux
+user@edge08:~$ mysqld --version
+/usr/sbin/mysqld  Ver 5.7.33-0ubuntu0.18.04.1 for Linux on x86_64 ((Ubuntu))
+user@edge08:~$ runc --version
+runc version 1.0.0-rc6
+commit: v1.0.0-rc6-0-g5fd4c4d1
+spec: 1.0.2-dev
+go: go1.17.10
+user@edge08:~$ node -v
+v14.15.0
+user@edge08:~$ curl --version | head -2
+curl 7.68.0 (x86_64-pc-linux-gnu) libcurl/7.68.0
+Release-Date: 2020-01-08

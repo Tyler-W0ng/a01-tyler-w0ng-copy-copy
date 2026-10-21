@@ -1,0 +1,13 @@
+# banner grabs against 10.17.148.5, 2026-07-22
+$ nc -nv 10.17.148.5 25
+Connection to 10.17.148.5 25 port [tcp/smtp] succeeded!
+220 mail.corp.example ESMTP Postfix (Ubuntu)
+
+$ ntpq -c rv timesrv
+associd=0 status=0615 leap_none, sync_ntp, 1 event, clock_sync,
+version="ntpd 4.2.6p5@1.2483-o Fri Mar 13 2020 UTC (1)",
+processor="x86_64", system="Linux/5.4.0-150-generic", leap=00, stratum=3
+
+$ nc -nv 10.17.148.5 21
+Connection to 10.17.148.5 21 port [tcp/ftp] succeeded!
+220 (vsFTPd 3.0.3)

@@ -1,0 +1,125 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:2d5fce43-9317-3ac4-99a3-d18ef4e8ae09",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-07-24T21:08:00Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "author": "anchore",
+          "name": "syft",
+          "version": "1.14.0"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "image",
+      "type": "container",
+      "name": "ghcr.io/example/worker",
+      "version": "4.15.8"
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "pkg:apk/alpine/nodejs@16.13.0-r4?arch=x86_64&distro=alpine-3.18",
+      "type": "library",
+      "name": "nodejs",
+      "version": "16.13.0-r4",
+      "purl": "pkg:apk/alpine/nodejs@16.13.0-r4?arch=x86_64&distro=alpine-3.18"
+    },
+    {
+      "bom-ref": "pkg:apk/alpine/libc-utils@0.7.2-r3?arch=x86_64&distro=alpine-3.18",
+      "type": "library",
+      "name": "libc-utils",
+      "version": "0.7.2-r3",
+      "purl": "pkg:apk/alpine/libc-utils@0.7.2-r3?arch=x86_64&distro=alpine-3.18"
+    },
+    {
+      "bom-ref": "pkg:apk/alpine/musl@1.2.2-r7?arch=x86_64&distro=alpine-3.18",
+      "type": "library",
+      "name": "musl",
+      "version": "1.2.2-r7",
+      "purl": "pkg:apk/alpine/musl@1.2.2-r7?arch=x86_64&distro=alpine-3.18"
+    },
+    {
+      "bom-ref": "pkg:apk/alpine/ssl_client@1.34.1-r3?arch=x86_64&distro=alpine-3.18",
+      "type": "library",
+      "name": "ssl_client",
+      "version": "1.34.1-r3",
+      "purl": "pkg:apk/alpine/ssl_client@1.34.1-r3?arch=x86_64&distro=alpine-3.18"
+    },
+    {
+      "bom-ref": "pkg:apk/alpine/alpine-baselayout@3.2.0-r18?arch=x86_64&distro=alpine-3.18",
+      "type": "library",
+      "name": "alpine-baselayout",
+      "version": "3.2.0-r18",
+      "purl": "pkg:apk/alpine/alpine-baselayout@3.2.0-r18?arch=x86_64&distro=alpine-3.18"
+    },
+    {
+      "bom-ref": "pkg:apk/alpine/ca-certificates-bundle@20211220-r0?arch=x86_64&distro=alpine-3.18",
+      "type": "library",
+      "name": "ca-certificates-bundle",
+      "version": "20211220-r0",
+      "purl": "pkg:apk/alpine/ca-certificates-bundle@20211220-r0?arch=x86_64&distro=alpine-3.18"
+    },
+    {
+      "bom-ref": "pkg:apk/alpine/libssl1.0.2@1.0.2k-r7?arch=x86_64&distro=alpine-3.18",
+      "type": "library",
+      "name": "libssl1.0.2",
+      "version": "1.0.2k-r7",
+      "purl": "pkg:apk/alpine/libssl1.0.2@1.0.2k-r7?arch=x86_64&distro=alpine-3.18"
+    },
+    {
+      "bom-ref": "pkg:apk/alpine/openvpn@2.4.4-r3?arch=x86_64&distro=alpine-3.18",
+      "type": "library",
+      "name": "openvpn",
+      "version": "2.4.4-r3",
+      "purl": "pkg:apk/alpine/openvpn@2.4.4-r3?arch=x86_64&distro=alpine-3.18"
+    },
+    {
+      "bom-ref": "pkg:apk/alpine/apk-tools@2.12.7-r3?arch=x86_64&distro=alpine-3.18",
+      "type": "library",
+      "name": "apk-tools",
+      "version": "2.12.7-r3",
+      "purl": "pkg:apk/alpine/apk-tools@2.12.7-r3?arch=x86_64&distro=alpine-3.18"
+    },
+    {
+      "bom-ref": "pkg:apk/alpine/scanelf@1.3.3-r0?arch=x86_64&distro=alpine-3.18",
+      "type": "library",
+      "name": "scanelf",
+      "version": "1.3.3-r0",
+      "purl": "pkg:apk/alpine/scanelf@1.3.3-r0?arch=x86_64&distro=alpine-3.18"
+    },
+    {
+      "bom-ref": "pkg:apk/alpine/busybox@1.34.1-r3?arch=x86_64&distro=alpine-3.18",
+      "type": "library",
+      "name": "busybox",
+      "version": "1.34.1-r3",
+      "purl": "pkg:apk/alpine/busybox@1.34.1-r3?arch=x86_64&distro=alpine-3.18"
+    },
+    {
+      "bom-ref": "pkg:apk/alpine/memcached@1.5.6-r20?arch=x86_64&distro=alpine-3.18",
+      "type": "library",
+      "name": "memcached",
+      "version": "1.5.6-r20",
+      "purl": "pkg:apk/alpine/memcached@1.5.6-r20?arch=x86_64&distro=alpine-3.18"
+    },
+    {
+      "bom-ref": "pkg:apk/alpine/alpine-keys@2.4-r1?arch=x86_64&distro=alpine-3.18",
+      "type": "library",
+      "name": "alpine-keys",
+      "version": "2.4-r1",
+      "purl": "pkg:apk/alpine/alpine-keys@2.4-r1?arch=x86_64&distro=alpine-3.18"
+    },
+    {
+      "bom-ref": "pkg:apk/alpine/musl-utils@1.2.2-r7?arch=x86_64&distro=alpine-3.18",
+      "type": "library",
+      "name": "musl-utils",
+      "version": "1.2.2-r7",
+      "purl": "pkg:apk/alpine/musl-utils@1.2.2-r7?arch=x86_64&distro=alpine-3.18"
+    }
+  ]
+}

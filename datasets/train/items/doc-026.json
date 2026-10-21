@@ -1,0 +1,233 @@
+{
+ "spdxVersion": "SPDX-2.3",
+ "dataLicense": "CC0-1.0",
+ "SPDXID": "SPDXRef-DOCUMENT",
+ "name": "ghcr.io/example/worker:4.15.5",
+ "documentNamespace": "https://anchore.com/syft/image/ghcr.io/example/worker-4.15.5-ab832e55-264e-540d-f80d-86a51d02dab8",
+ "creationInfo": {
+  "licenseListVersion": "3.24",
+  "creators": [
+   "Organization: Anchore, Inc",
+   "Tool: syft-1.14.0"
+  ],
+  "created": "2026-01-12T21:22:00Z"
+ },
+ "packages": [
+  {
+   "name": "libsystemd0",
+   "SPDXID": "SPDXRef-Package-deb-libsystemd0-0",
+   "versionInfo": "245.4-4ubuntu3.22",
+   "supplier": "NOASSERTION",
+   "downloadLocation": "NOASSERTION",
+   "filesAnalyzed": false,
+   "licenseConcluded": "NOASSERTION",
+   "licenseDeclared": "NOASSERTION",
+   "copyrightText": "NOASSERTION",
+   "externalRefs": [
+    {
+     "referenceCategory": "PACKAGE-MANAGER",
+     "referenceType": "purl",
+     "referenceLocator": "pkg:deb/ubuntu/libsystemd0@245.4-4ubuntu3.22?arch=amd64&distro=ubuntu-20.04"
+    }
+   ]
+  },
+  {
+   "name": "lodash",
+   "SPDXID": "SPDXRef-Package-npm-lodash-1",
+   "versionInfo": "4.17.15",
+   "supplier": "NOASSERTION",
+   "downloadLocation": "NOASSERTION",
+   "filesAnalyzed": false,
+   "licenseConcluded": "NOASSERTION",
+   "licenseDeclared": "NOASSERTION",
+   "copyrightText": "NOASSERTION",
+   "externalRefs": [
+    {
+     "referenceCategory": "PACKAGE-MANAGER",
+     "referenceType": "purl",
+     "referenceLocator": "pkg:npm/lodash@4.17.15"
+    }
+   ]
+  },
+  {
+   "name": "adduser",
+   "SPDXID": "SPDXRef-Package-deb-adduser-2",
+   "versionInfo": "3.118ubuntu2",
+   "supplier": "NOASSERTION",
+   "downloadLocation": "NOASSERTION",
+   "filesAnalyzed": false,
+   "licenseConcluded": "NOASSERTION",
+   "licenseDeclared": "NOASSERTION",
+   "copyrightText": "NOASSERTION",
+   "externalRefs": [
+    {
+     "referenceCategory": "PACKAGE-MANAGER",
+     "referenceType": "purl",
+     "referenceLocator": "pkg:deb/ubuntu/adduser@3.118ubuntu2?arch=amd64&distro=ubuntu-20.04"
+    }
+   ]
+  },
+  {
+   "name": "bytes",
+   "SPDXID": "SPDXRef-Package-npm-bytes-3",
+   "versionInfo": "3.1.2",
+   "supplier": "NOASSERTION",
+   "downloadLocation": "NOASSERTION",
+   "filesAnalyzed": false,
+   "licenseConcluded": "NOASSERTION",
+   "licenseDeclared": "NOASSERTION",
+   "copyrightText": "NOASSERTION",
+   "externalRefs": [
+    {
+     "referenceCategory": "PACKAGE-MANAGER",
+     "referenceType": "purl",
+     "referenceLocator": "pkg:npm/bytes@3.1.2"
+    }
+   ]
+  },
+  {
+   "name": "vary",
+   "SPDXID": "SPDXRef-Package-npm-vary-4",
+   "versionInfo": "1.1.2",
+   "supplier": "NOASSERTION",
+   "downloadLocation": "NOASSERTION",
+   "filesAnalyzed": false,
+   "licenseConcluded": "NOASSERTION",
+   "licenseDeclared": "NOASSERTION",
+   "copyrightText": "NOASSERTION",
+   "externalRefs": [
+    {
+     "referenceCategory": "PACKAGE-MANAGER",
+     "referenceType": "purl",
+     "referenceLocator": "pkg:npm/vary@1.1.2"
+    }
+   ]
+  },
+  {
+   "name": "libzstd1",
+   "SPDXID": "SPDXRef-Package-deb-libzstd1-5",
+   "versionInfo": "1.4.4+dfsg-3ubuntu0.1",
+   "supplier": "NOASSERTION",
+   "downloadLocation": "NOASSERTION",
+   "filesAnalyzed": false,
+   "licenseConcluded": "NOASSERTION",
+   "licenseDeclared": "NOASSERTION",
+   "copyrightText": "NOASSERTION",
+   "externalRefs": [
+    {
+     "referenceCategory": "PACKAGE-MANAGER",
+     "referenceType": "purl",
+     "referenceLocator": "pkg:deb/ubuntu/libzstd1@1.4.4+dfsg-3ubuntu0.1?arch=amd64&distro=ubuntu-20.04"
+    }
+   ]
+  },
+  {
+   "name": "grep",
+   "SPDXID": "SPDXRef-Package-deb-grep-6",
+   "versionInfo": "3.4-1",
+   "supplier": "NOASSERTION",
+   "downloadLocation": "NOASSERTION",
+   "filesAnalyzed": false,
+   "licenseConcluded": "NOASSERTION",
+   "licenseDeclared": "NOASSERTION",
+   "copyrightText": "NOASSERTION",
+   "externalRefs": [
+    {
+     "referenceCategory": "PACKAGE-MANAGER",
+     "referenceType": "purl",
+     "referenceLocator": "pkg:deb/ubuntu/grep@3.4-1?arch=amd64&distro=ubuntu-20.04"
+    }
+   ]
+  },
+  {
+   "name": "mime",
+   "SPDXID": "SPDXRef-Package-npm-mime-7",
+   "versionInfo": "1.6.0",
+   "supplier": "NOASSERTION",
+   "downloadLocation": "NOASSERTION",
+   "filesAnalyzed": false,
+   "licenseConcluded": "NOASSERTION",
+   "licenseDeclared": "NOASSERTION",
+   "copyrightText": "NOASSERTION",
+   "externalRefs": [
+    {
+     "referenceCategory": "PACKAGE-MANAGER",
+     "referenceType": "purl",
+     "referenceLocator": "pkg:npm/mime@1.6.0"
+    }
+   ]
+  },
+  {
+   "name": "hostname",
+   "SPDXID": "SPDXRef-Package-deb-hostname-8",
+   "versionInfo": "3.23",
+   "supplier": "NOASSERTION",
+   "downloadLocation": "NOASSERTION",
+   "filesAnalyzed": false,
+   "licenseConcluded": "NOASSERTION",
+   "licenseDeclared": "NOASSERTION",
+   "copyrightText": "NOASSERTION",
+   "externalRefs": [
+    {
+     "referenceCategory": "PACKAGE-MANAGER",
+     "referenceType": "purl",
+     "referenceLocator": "pkg:deb/ubuntu/hostname@3.23?arch=amd64&distro=ubuntu-20.04"
+    }
+   ]
+  },
+  {
+   "name": "openssh-server",
+   "SPDXID": "SPDXRef-Package-deb-openssh-server-9",
+   "versionInfo": "1:9.3p1-5ubuntu0.8",
+   "supplier": "NOASSERTION",
+   "downloadLocation": "NOASSERTION",
+   "filesAnalyzed": false,
+   "licenseConcluded": "NOASSERTION",
+   "licenseDeclared": "NOASSERTION",
+   "copyrightText": "NOASSERTION",
+   "externalRefs": [
+    {
+     "referenceCategory": "PACKAGE-MANAGER",
+     "referenceType": "purl",
+     "referenceLocator": "pkg:deb/ubuntu/openssh-server@1:9.3p1-5ubuntu0.8?arch=amd64&distro=ubuntu-20.04"
+    }
+   ]
+  },
+  {
+   "name": "axios",
+   "SPDXID": "SPDXRef-Package-npm-axios-10",
+   "versionInfo": "1.5.1",
+   "supplier": "NOASSERTION",
+   "downloadLocation": "NOASSERTION",
+   "filesAnalyzed": false,
+   "licenseConcluded": "NOASSERTION",
+   "licenseDeclared": "NOASSERTION",
+   "copyrightText": "NOASSERTION",
+   "externalRefs": [
+    {
+     "referenceCategory": "PACKAGE-MANAGER",
+     "referenceType": "purl",
+     "referenceLocator": "pkg:npm/axios@1.5.1"
+    }
+   ]
+  },
+  {
+   "name": "libgcrypt20",
+   "SPDXID": "SPDXRef-Package-deb-libgcrypt20-11",
+   "versionInfo": "1.8.5-5ubuntu1.1",
+   "supplier": "NOASSERTION",
+   "downloadLocation": "NOASSERTION",
+   "filesAnalyzed": false,
+   "licenseConcluded": "NOASSERTION",
+   "licenseDeclared": "NOASSERTION",
+   "copyrightText": "NOASSERTION",
+   "externalRefs": [
+    {
+     "referenceCategory": "PACKAGE-MANAGER",
+     "referenceType": "purl",
+     "referenceLocator": "pkg:deb/ubuntu/libgcrypt20@1.8.5-5ubuntu1.1?arch=amd64&distro=ubuntu-20.04"
+    }
+   ]
+  }
+ ]
+}

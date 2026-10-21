@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<nmaprun scanner="nmap" args="nmap -sV -oX - 172.16.100.46" start="1754390286" version="7.94SVN" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="1000" services="1-1000"/>
+<host starttime="1726000000" endtime="1726000042"><status state="up" reason="echo-reply" reason_ttl="63"/>
+<address addr="172.16.100.46" addrtype="ipv4"/>
+<hostnames><hostname name="intranet08.corp.example" type="PTR"/></hostnames>
+<ports><extraports state="closed" count="994"><extrareasons reason="reset" count="994" proto="tcp"/></extraports>
+<port protocol="tcp" portid="9200"><state state="open" reason="syn-ack" reason_ttl="63"/><service name="http" product="Elasticsearch REST API" version="5.6.16" extrainfo="name: node-1; cluster: prod; Lucene 8.7.0" method="probed" conf="10"><cpe>cpe:/a:elastic:elasticsearch:5.6.16</cpe></service></port>
+<port protocol="tcp" portid="3306"><state state="open" reason="syn-ack" reason_ttl="63"/><service name="mysql" product="MySQL" version="5.7.33-0ubuntu0.18.04.1" method="probed" conf="10"><cpe>cpe:/a:oracle:mysql:5.7.33-0ubuntu0.18.04.1</cpe></service></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="63"/><service name="http" product="lighttpd" version="1.4.55" method="probed" conf="10"><cpe>cpe:/a:lighttpd:lighttpd:1.4.55</cpe></service></port>
+<port protocol="tcp" portid="143"><state state="open" reason="syn-ack" reason_ttl="63"/><service name="imap" product="Dovecot imapd" method="probed" conf="10"><cpe>cpe:/a:dovecot:dovecot</cpe></service></port>
+<port protocol="tcp" portid="8443"><state state="open" reason="syn-ack" reason_ttl="63"/><service name="ssl/https-alt" method="table" conf="3"/></port>
+<port protocol="tcp" portid="49152"><state state="open" reason="syn-ack" reason_ttl="63"/><service name="unknown" method="table" conf="3"/></port>
+</ports>
+</host>
+<runstats><finished time="1726000042" elapsed="42.10" summary="Nmap done; 1 IP address (1 host up) scanned in 42.10 seconds" exit="success"/></runstats>
+</nmaprun>

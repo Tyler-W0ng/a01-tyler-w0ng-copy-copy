@@ -1,0 +1,29 @@
+# banner grabs against 192.168.7.160, 2026-07-16
+$ nc -nv 192.168.7.160 61616
+Connection to 192.168.7.160 61616 port [tcp/apachemq] succeeded!
+\x00\x00\x01\x0c\x01ActiveMQ\x00\x00\x00\x0c\x01...ProviderName\x09\x00\x08ActiveMQ...ProviderVersion\x09\x00\x065.18.2..PlatformDetails\x09\x00\x2bJVM: 11.0.19
+
+$ smbclient -L //fileserver -N
+Anonymous login successful
+Domain=[WORKGROUP] OS=[Windows 6.1] Server=[Samba 4.13.17]
+
+	Sharename       Type      Comment
+	---------       ----      -------
+	public          Disk      Public share
+	IPC$            IPC       IPC Service
+
+$ snmpget -v2c -c public 10.0.0.1 SNMPv2-MIB::sysDescr.0
+SNMPv2-MIB::sysDescr.0 = STRING: Linux gw01 5.4.0-150-generic #167-Ubuntu SMP x86_64
+$ snmpwalk -v2c -c public 10.0.0.1 NET-SNMP-AGENT-MIB::nsVersion
+NET-SNMP-AGENT-MIB::nsVersion.0 = STRING: "5.7.3"
+
+$ curl -sI http://192.168.7.160/
+HTTP/1.1 200 OK
+Date: Mon, 07 Sep 2026 04:26:12 GMT
+Server: lighttpd/1.4.35
+X-Jenkins: 2.441
+X-Hudson: 1.395
+X-Jenkins-Session: a1b2c3d4
+Content-Type: text/html; charset=UTF-8
+Content-Length: 4906
+Vary: Accept-Encoding

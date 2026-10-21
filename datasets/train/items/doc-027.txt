@@ -1,0 +1,10 @@
+Assessment notes - gw06.prod.example.net (192.168.15.69)
+Analyst: rgarcia, 2026-08-06
+
+There are signs of vsftpd (config files and a service account), version unknown.
+
+Scope for this engagement was the 10.23.13.0/24 segment; testing window 2026-03-25 08:15-21:54 UTC. Default credentials were tried on the admin interfaces and rejected.
+
+Something on port 80 looks like nginx, but it would not give us a version. We saw WinRAR running, but could not determine which release.
+
+Several ports were filtered by a host firewall; we did not attempt to bypass it.

@@ -1,0 +1,17 @@
+HOST REPORT: web03.prod.example.net
+Collected 2026-04-15
+
+== External scan (web03.prod.example.net) ==
+80/tcp open http nginx 1.14.0
+143/tcp open imap Dovecot imapd
+
+== dpkg -l (excerpt) ==
+ii  python3-django               2:2.2.10-1ubuntu0.7            amd64
+ii  exim4-daemon-light           4.87-1ubuntu1                  amd64
+ii  findutils                    4.7.0-1ubuntu1                 amd64
+ii  tar                          1.30+dfsg-7ubuntu0.20.04.3     amd64
+ii  base-files                   11ubuntu5.6                    amd64
+ii  bsdutils                     1:2.34-0.1ubuntu9.3            amd64
+
+== Operator comments ==
+Host is scheduled for patching next quarter.

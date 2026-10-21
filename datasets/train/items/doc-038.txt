@@ -1,0 +1,8 @@
+Assessment notes - vpn04.lab.example (10.23.8.131)
+Analyst: apatel, 2026-05-04
+
+Judging by the install directory, the deployed Microsoft IIS is probably 7.5.
+
+The host responded to ICMP and had a TTL of 64, consistent with Linux. The package manager lists Node.js at 10.19.0.
+
+There are signs of Net-SNMP (config files and a service account), version unknown. No credentials were provided, so all observations are unauthenticated.

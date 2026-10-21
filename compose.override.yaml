@@ -1,0 +1,40 @@
+# CS279 A01. Docker Compose reads this file after compose.yaml.
+#
+# It makes your stack run the way the course grader runs it:
+#
+# - mounts the course's feed snapshot (feeds/) into your MCP server, read-only,
+#   with a 6 GB memory limit;
+# - runs your agent as built, without AgentLab's live mount of its code;
+# - lets the gateway reach a model through one of LiteLLM's native providers,
+#   not only over the OpenAI API. To develop against the grading model, set
+#   in .env:
+#
+#     EXTERNAL_LITELLM_MODEL=anthropic/claude-sonnet-5-5
+#     EXTERNAL_BASE_URL=https://api.anthropic.com
+#     EXTERNAL_API_KEY=<your Anthropic key>
+#
+#   Without EXTERNAL_LITELLM_MODEL the gateway reaches EXTERNAL_MODEL over the
+#   OpenAI API, as `make connect` sets it up.
+#
+# The grader uses its own copy of AgentLab: this file is for your machine.
+services:
+  # Your MCP server loads the course's feed snapshot at startup, read-only,
+  # with the grader's memory limit (handout section 2).
+  mcp:
+    volumes:
+      - ./feeds:/feeds:ro
+    environment:
+      VULNDB_FEEDS: /feeds
+    healthcheck:
+      start_period: 300s
+    mem_limit: 6g
+  # Your agent runs as built, as in grading: AgentLab mounts ./agent/app live,
+  # which would hide a file your Dockerfile forgets to copy. `make run`
+  # rebuilds the image, so edits still take effect.
+  agent:
+    volumes: !override
+      - ./input:/work/input:ro
+      - ./output:/work/output
+  gateway:
+    environment:
+      EXTERNAL_LITELLM_MODEL: ${EXTERNAL_LITELLM_MODEL:-openai/${EXTERNAL_MODEL:-gpt-4o-mini}}

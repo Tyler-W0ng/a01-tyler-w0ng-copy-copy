@@ -1,0 +1,6 @@
+# Nmap 7.94SVN scan initiated 2026-03-06 12:38 as: nmap -sV -oG - 10.0.0.0/24
+Host: 10.29.142.46 (files07.int.example.org)	Status: Up
+Host: 10.29.142.46 (files07.int.example.org)	Ports: 80/open/tcp//http//lighttpd 1.4.35/, 9200/open/tcp//http//Elasticsearch REST API 1.4.2 (name: node-1; cluster: prod; Lucene 8.7.0)/, 53/open/tcp//domain//ISC BIND 9.16.1/	Ignored State: closed (997)
+Host: 172.27.78.247 (app10.int.example.org)	Status: Up
+Host: 172.27.78.247 (app10.int.example.org)	Ports: 22/open/tcp//ssh//OpenSSH 8.2p1 (protocol 2.0)/, 80/open/tcp//http//Microsoft IIS httpd 10.0/, 49152/open/tcp//unknown///	Ignored State: closed (997)
+# Nmap done at 2026-04-06 -- 256 IP addresses (2 hosts up) scanned in 97.31 seconds

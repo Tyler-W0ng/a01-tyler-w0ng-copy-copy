@@ -1,0 +1,27 @@
+$ curl -sI http://files08.prod.example.net/
+HTTP/1.1 200 OK
+Date: Mon, 07 Sep 2026 15:11:12 GMT
+Server: nginx/1.10.3
+Content-Type: text/html; charset=UTF-8
+Content-Length: 37565
+Vary: Accept-Encoding
+
+$ curl -sI http://vpn12.lab.example/
+HTTP/1.1 200 OK
+Date: Mon, 07 Sep 2026 03:09:12 GMT
+Server: Microsoft-IIS/8.5
+X-Generator: Drupal 9 (https://www.drupal.org)
+Content-Type: text/html; charset=UTF-8
+Content-Length: 22992
+Cache-Control: no-cache
+
+$ curl -sI http://mon04.lab.example/
+HTTP/1.1 200 OK
+Date: Mon, 07 Sep 2026 14:31:12 GMT
+Server: lighttpd/1.4.55
+X-Jenkins: 2.150
+X-Hudson: 1.395
+X-Jenkins-Session: a1b2c3d4
+Content-Type: text/html; charset=UTF-8
+Content-Length: 11826
+Cache-Control: no-cache

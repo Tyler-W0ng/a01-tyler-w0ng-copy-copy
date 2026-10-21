@@ -1,0 +1,5660 @@
+{
+ "dataset": "train",
+ "database": {
+  "snapshot": "2026-10-12",
+  "built_at": "2026-10-13T04:52:23+00:00",
+  "years": "2026",
+  "cpe_dictionary": "cve",
+  "nvd_feed_timestamp": "2026-10-12T03:00:38-04:00",
+  "kev_catalog_version": "2026.10.08"
+ },
+ "cve_years": [
+  2026
+ ],
+ "rules": {
+  "cves": "NVD CPE applicability (vulnerable cpeMatch entries) for the version: exact, in a range, or every version; required when the strict and simple readings agree, optional when only one finds it",
+  "ignored": "per document: products shown without a version, ignored",
+  "cve_years": "the CVE-YYYY-* years the key covers; reported CVEs from other years are ignored",
+  "neutral_products": "reported products with these CPE product names are ignored",
+  "tolerated": "per document: incidental software, ignored like neutral products"
+ },
+ "neutral_products": [
+  ".net_framework",
+  "accepts",
+  "acl",
+  "adduser",
+  "alpine-baselayout",
+  "alpine-keys",
+  "alpine_baselayout",
+  "alpine_keys",
+  "alpine_linux",
+  "apk",
+  "apk-tools",
+  "apk_tools",
+  "apt",
+  "attr",
+  "attrs",
+  "audit",
+  "awk",
+  "base",
+  "base-files",
+  "base-passwd",
+  "base_files",
+  "base_passwd",
+  "basesystem",
+  "bash-completion",
+  "bash_completion",
+  "berkeley_db",
+  "bsdutils",
+  "busybox",
+  "bytes",
+  "bzip2",
+  "ca-certificates",
+  "ca-certificates-bundle",
+  "ca_certificates_bundle",
+  "centos",
+  "certifi",
+  "chardet",
+  "click",
+  "cookie",
+  "coreutils",
+  "cracklib",
+  "cron",
+  "cronie",
+  "cyrus-sasl",
+  "dash",
+  "dateutil",
+  "dbus",
+  "debconf",
+  "debian_linux",
+  "debianutils",
+  "debug",
+  "depd",
+  "diffutils",
+  "dmidecode",
+  "dnf",
+  "dpkg",
+  "e2fsprogs",
+  "edge",
+  "edge_chromium",
+  "elfutils",
+  "enterprise_linux",
+  "expat",
+  "fedora",
+  "file",
+  "filesystem",
+  "findutils",
+  "gawk",
+  "gcc",
+  "gcc-10-base",
+  "gcc_10_base",
+  "gmp",
+  "gnupg",
+  "gnutls",
+  "gpgv",
+  "grep",
+  "gzip",
+  "hostname",
+  "idna",
+  "inherits",
+  "init-system-helpers",
+  "init_system_helpers",
+  "internet_explorer",
+  "iproute2",
+  "iputils",
+  "itsdangerous",
+  "java",
+  "javax.servlet-api",
+  "javax.servlet_api",
+  "javax_servlet-api",
+  "javax_servlet_api",
+  "jdk",
+  "jre",
+  "junit",
+  "jvm",
+  "kerberos_5",
+  "keyutils",
+  "kmod",
+  "krb5",
+  "less",
+  "libacl",
+  "libacl1",
+  "libarchive",
+  "libattr",
+  "libattr1",
+  "libaudit",
+  "libaudit1",
+  "libblkid",
+  "libblkid1",
+  "libc",
+  "libc-utils",
+  "libc_utils",
+  "libcap",
+  "libcap-ng",
+  "libcap-ng0",
+  "libcap_ng",
+  "libcap_ng0",
+  "libffi",
+  "libgcrypt",
+  "libgcrypt20",
+  "libgmp",
+  "libgmp10",
+  "libgnutls",
+  "libgnutls30",
+  "libgpg-error",
+  "libidn2",
+  "liblz4-1",
+  "liblz4_1",
+  "libmount",
+  "libmount1",
+  "libncurses",
+  "libncurses6",
+  "libnsl",
+  "libpcre2-8-0",
+  "libpcre2_8_0",
+  "libseccomp",
+  "libseccomp2",
+  "libselinux",
+  "libselinux1",
+  "libsemanage",
+  "libsepol",
+  "libsmartcols",
+  "libsolv",
+  "libssh",
+  "libsystemd",
+  "libsystemd0",
+  "libtasn1",
+  "libtasn1-6",
+  "libtasn1_6",
+  "libtirpc",
+  "libudev",
+  "libudev1",
+  "libunistring",
+  "libuuid",
+  "libxcrypt",
+  "libzstd",
+  "libzstd1",
+  "linux-pam",
+  "linux_kernel",
+  "login",
+  "logrotate",
+  "lombok",
+  "lsb-base",
+  "lucene",
+  "lz4",
+  "markupsafe",
+  "maven",
+  "mawk",
+  "microsoft edge",
+  "microsoft onedrive",
+  "microsoft update health tools",
+  "microsoft visual c++ 2015-2019 redistributable (x64) - 14.29.30133",
+  "microsoft visual c++ 2015-2019 redistributable (x64) - 14_29_30133",
+  "microsoft visual c++ 2015_2019 redistributable (x64) _ 14.29.30133",
+  "microsoft visual c++ 2015_2019 redistributable (x64) _ 14_29_30133",
+  "mime",
+  "mockito",
+  "mockito-core",
+  "mockito_core",
+  "mount",
+  "ms",
+  "musl",
+  "musl-utils",
+  "musl_utils",
+  "nano",
+  "ncurses",
+  "ncurses-base",
+  "ncurses_base",
+  "net-tools",
+  "nettle",
+  "nfs-utils",
+  "npm",
+  "nss",
+  "onedrive",
+  "openjdk",
+  "openldap_libs",
+  "p11-kit",
+  "packaging",
+  "passwd",
+  "pcre",
+  "pcre2",
+  "perl",
+  "perl-base",
+  "perl_base",
+  "pip",
+  "powershell",
+  "procps",
+  "procps-ng",
+  "procps_ng",
+  "pyparsing",
+  "python-dateutil",
+  "python_dateutil",
+  "pytz",
+  "readline",
+  "rpcbind",
+  "rpm",
+  "rsyslog",
+  "safe-buffer",
+  "safe_buffer",
+  "scanelf",
+  "sed",
+  "sensible",
+  "sensible-utils",
+  "sensible_utils",
+  "setup",
+  "setuptools",
+  "shadow",
+  "shadow-utils",
+  "shadow_utils",
+  "six",
+  "slf4j-api",
+  "slf4j_api",
+  "ssl-client",
+  "ssl_client",
+  "statuses",
+  "systemd",
+  "sysvinit",
+  "sysvinit-utils",
+  "sysvinit_utils",
+  "tar",
+  "teams",
+  "teams machine-wide installer",
+  "teams machine_wide installer",
+  "tqdm",
+  "tzdata",
+  "ubuntu_linux",
+  "update_health_tools",
+  "util-linux",
+  "util_linux",
+  "vary",
+  "vim",
+  "visual_c\\+\\+",
+  "visual_studio",
+  "wheel",
+  "windows",
+  "windows_10",
+  "windows_11",
+  "windows_7",
+  "windows_server_2008",
+  "windows_server_2016",
+  "windows_server_2019",
+  "xz_utils",
+  "yarn",
+  "yum",
+  "zoneinfo",
+  "zstandard",
+  "zstd"
+ ],
+ "items": {
+  "doc-001.txt": {
+   "format": "http-headers",
+   "products": [
+    {
+     "name": "nginx",
+     "cpe": [
+      "f5:nginx",
+      "nginx:nginx",
+      "f5:nginx_open_source"
+     ],
+     "version": "1.10.3",
+     "evidence": "Server: nginx/1.10.3",
+     "cves": {
+      "CVE-2026-1642": [
+       "CWE-345",
+       "CWE-349"
+      ],
+      "CVE-2026-27651": [
+       "CWE-476"
+      ],
+      "CVE-2026-27654": [
+       "CWE-120",
+       "CWE-122"
+      ],
+      "CVE-2026-27784": [
+       "CWE-190"
+      ],
+      "CVE-2026-28753": [
+       "CWE-93"
+      ],
+      "CVE-2026-32647": [
+       "CWE-125"
+      ],
+      "CVE-2026-42055": [
+       "CWE-122",
+       "CWE-131",
+       "CWE-787"
+      ],
+      "CVE-2026-42934": [
+       "CWE-125"
+      ],
+      "CVE-2026-42945": [
+       "CWE-122",
+       "CWE-131"
+      ],
+      "CVE-2026-42946": [
+       "CWE-789",
+       "CWE-823"
+      ],
+      "CVE-2026-48142": [
+       "CWE-125"
+      ],
+      "CVE-2026-9256": [
+       "CWE-122"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Microsoft IIS",
+     "cpe": [
+      "microsoft:internet_information_services"
+     ],
+     "version": "8.5",
+     "evidence": "Server: Microsoft-IIS/8.5",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "lighttpd",
+     "cpe": [
+      "lighttpd:lighttpd"
+     ],
+     "version": "1.4.55",
+     "evidence": "Server: lighttpd/1.4.55",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "Jenkins",
+     "cpe": [
+      "jenkins:jenkins"
+     ],
+     "version": "2.150",
+     "evidence": "X-Jenkins: 2.150; X-Hudson: 1.395; X-Jenkins-Session: a1b2c3d4",
+     "cves": {
+      "CVE-2026-27100": [
+       "CWE-200"
+      ],
+      "CVE-2026-33001": [
+       "CWE-22",
+       "CWE-59"
+      ],
+      "CVE-2026-53435": [
+       "CWE-502"
+      ],
+      "CVE-2026-53436": [
+       "CWE-601"
+      ],
+      "CVE-2026-53437": [
+       "CWE-601"
+      ],
+      "CVE-2026-53438": [
+       "CWE-862"
+      ],
+      "CVE-2026-53439": [
+       "CWE-862"
+      ],
+      "CVE-2026-53440": [
+       "CWE-601"
+      ],
+      "CVE-2026-53442": [
+       "CWE-311"
+      ],
+      "CVE-2026-70427": [
+       "CWE-59"
+      ],
+      "CVE-2026-70428": [
+       "CWE-22"
+      ],
+      "CVE-2026-70429": [
+       "CWE-178"
+      ],
+      "CVE-2026-70430": [
+       "CWE-284"
+      ],
+      "CVE-2026-84645": [
+       "CWE-915",
+       "CWE-94"
+      ],
+      "CVE-2026-84646": [
+       "CWE-502"
+      ],
+      "CVE-2026-84648": [
+       "CWE-79"
+      ],
+      "CVE-2026-84650": [
+       "CWE-502",
+       "CWE-566"
+      ],
+      "CVE-2026-84651": [
+       "CWE-284"
+      ],
+      "CVE-2026-84652": [
+       "CWE-384"
+      ],
+      "CVE-2026-84655": [
+       "CWE-116"
+      ],
+      "CVE-2026-84656": [
+       "CWE-862"
+      ],
+      "CVE-2026-84657": [
+       "CWE-862"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [
+    {
+     "name": "Drupal",
+     "cpe": [
+      "drupal:drupal"
+     ],
+     "evidence": "X-Generator: Drupal 9 (https://www.drupal.org)"
+    }
+   ],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-002.txt": {
+   "format": "fs-listing",
+   "products": [
+    {
+     "name": "Jinja2",
+     "cpe": [
+      "palletsprojects:jinja",
+      "pocoo:jinja2"
+     ],
+     "version": "3.1.2",
+     "evidence": "/usr/local/lib/python3.8/site-packages/Jinja2-3.1.2.dist-info/METADATA",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "libxml2",
+     "cpe": [
+      "xmlsoft:libxml2"
+     ],
+     "version": "2.9.4",
+     "evidence": "/usr/lib/x86_64-linux-gnu/libxml2.so.2.9.4",
+     "cves": {
+      "CVE-2026-0989": [
+       "CWE-674"
+      ],
+      "CVE-2026-0990": [
+       "CWE-674"
+      ],
+      "CVE-2026-0992": [
+       "CWE-400"
+      ],
+      "CVE-2026-11979": [
+       "CWE-121"
+      ],
+      "CVE-2026-86137": [
+       "CWE-125"
+      ],
+      "CVE-2026-86138": [
+       "CWE-190"
+      ],
+      "CVE-2026-86139": [
+       "CWE-190"
+      ],
+      "CVE-2026-86140": [
+       "CWE-121"
+      ],
+      "CVE-2026-86141": [
+       "CWE-252"
+      ],
+      "CVE-2026-86142": [
+       "CWE-122"
+      ],
+      "CVE-2026-86143": [
+       "CWE-192"
+      ],
+      "CVE-2026-86144": [
+       "CWE-669"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "XZ Utils",
+     "cpe": [
+      "tukaani:xz",
+      "xz_project:xz"
+     ],
+     "version": "5.6.0",
+     "evidence": "/usr/lib/x86_64-linux-gnu/liblzma.so.5.6.0",
+     "cves": {
+      "CVE-2026-34743": [
+       "CWE-122"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [
+    {
+     "name": "polkit",
+     "cpe": [
+      "polkit_project:polkit",
+      "freedesktop:polkit"
+     ],
+     "evidence": "/usr/bin/pkexec"
+    },
+    {
+     "name": "sudo",
+     "cpe": [
+      "sudo_project:sudo",
+      "todd_miller:sudo"
+     ],
+     "evidence": "/usr/bin/sudo"
+    }
+   ],
+   "tolerated": [
+    "python"
+   ],
+   "note": ""
+  },
+  "doc-003.txt": {
+   "format": "nmap-normal",
+   "products": [
+    {
+     "name": "Webmin",
+     "cpe": [
+      "webmin:webmin"
+     ],
+     "version": "1.920",
+     "evidence": "10000/tcp open http MiniServ 1.920 (Webmin httpd)",
+     "cves": {
+      "CVE-2026-22678": [
+       "CWE-79"
+      ],
+      "CVE-2026-56022": [
+       "CWE-308"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "MongoDB",
+     "cpe": [
+      "mongodb:mongodb"
+     ],
+     "version": "4.4.6",
+     "evidence": "27017/tcp open mongodb MongoDB 4.4.6",
+     "cves": {
+      "CVE-2026-11933": [
+       "CWE-416",
+       "CWE-787"
+      ],
+      "CVE-2026-9753": [
+       "CWE-1287",
+       "CWE-787"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Apache ActiveMQ",
+     "cpe": [
+      "apache:activemq",
+      "apache:activemq_broker"
+     ],
+     "version": "5.17.5",
+     "evidence": "61616/tcp open apachemq ActiveMQ OpenWire transport 5.17.5",
+     "cves": {
+      "CVE-2026-33227": [
+       "CWE-22"
+      ],
+      "CVE-2026-34197": [
+       "CWE-20",
+       "CWE-78",
+       "CWE-94"
+      ],
+      "CVE-2026-39304": [
+       "CWE-400",
+       "CWE-770"
+      ],
+      "CVE-2026-40466": [
+       "CWE-20",
+       "CWE-94"
+      ],
+      "CVE-2026-41043": [
+       "CWE-79",
+       "CWE-915"
+      ],
+      "CVE-2026-41044": [
+       "CWE-20",
+       "CWE-94"
+      ],
+      "CVE-2026-42253": [
+       "CWE-79"
+      ],
+      "CVE-2026-42588": [
+       "CWE-20",
+       "CWE-94"
+      ],
+      "CVE-2026-45505": [
+       "CWE-20",
+       "CWE-94"
+      ],
+      "CVE-2026-46605": [
+       "CWE-285"
+      ],
+      "CVE-2026-49157": [
+       "CWE-276"
+      ],
+      "CVE-2026-49270": [
+       "CWE-1230"
+      ],
+      "CVE-2026-49432": [
+       "CWE-20"
+      ],
+      "CVE-2026-49434": [
+       "CWE-20"
+      ],
+      "CVE-2026-49877": [
+       "CWE-285"
+      ],
+      "CVE-2026-50734": [
+       "CWE-789"
+      ],
+      "CVE-2026-52760": [
+       "CWE-79"
+      ],
+      "CVE-2026-53916": [
+       "CWE-789"
+      ],
+      "CVE-2026-53917": [
+       "CWE-789"
+      ],
+      "CVE-2026-54475": [
+       "CWE-862"
+      ],
+      "CVE-2026-59878": [
+       "CWE-20"
+      ],
+      "CVE-2026-61487": [
+       "CWE-285"
+      ],
+      "CVE-2026-74761": [
+       "CWE-20"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [
+    {
+     "name": "Postfix",
+     "cpe": [
+      "postfix:postfix"
+     ],
+     "evidence": "25/tcp open smtp Postfix smtpd"
+    }
+   ],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-004.txt": {
+   "format": "html",
+   "products": [
+    {
+     "name": "Apache Solr",
+     "cpe": [
+      "apache:solr"
+     ],
+     "version": "7.7.2",
+     "evidence": "{\n  \"solr-spec-version\": \"7.7.2\",\n  \"solr-impl-version\": \"7.7.2 31d7ec7bbfdcd2c4cc61d9d35e962165410b65fe - ivera - 2019-07-19 15:11:04\",\n  \"lucene-spec-version\": \"7.7.2\"\n}",
+     "cves": {
+      "CVE-2026-22022": [
+       "CWE-285"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "WordPress",
+     "cpe": [
+      "wordpress:wordpress"
+     ],
+     "version": "5.4.2",
+     "evidence": "<meta name=\"generator\" content=\"WordPress 5.4.2\" />\n<link rel=\"stylesheet\" href=\"/wp-includes/css/dist/block-library/style.min.css?ver=5.4.2\" />",
+     "cves": {
+      "CVE-2026-87902": [
+       "CWE-98"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [
+    "gutenberg"
+   ],
+   "note": ""
+  },
+  "doc-005.txt": {
+   "format": "nmap-normal",
+   "products": [
+    {
+     "name": "MariaDB",
+     "cpe": [
+      "mariadb:mariadb"
+     ],
+     "version": "10.5.15",
+     "evidence": "3306/tcp open mysql MySQL 5.5.5-10.5.15-MariaDB-0ubuntu0.20.04.1",
+     "cves": {
+      "CVE-2026-3494": [
+       "CWE-778"
+      ],
+      "CVE-2026-35549": [
+       "CWE-789"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Apache ActiveMQ",
+     "cpe": [
+      "apache:activemq",
+      "apache:activemq_broker"
+     ],
+     "version": "5.15.3",
+     "evidence": "61616/tcp open apachemq ActiveMQ OpenWire transport 5.15.3",
+     "cves": {
+      "CVE-2026-33227": [
+       "CWE-22"
+      ],
+      "CVE-2026-34197": [
+       "CWE-20",
+       "CWE-78",
+       "CWE-94"
+      ],
+      "CVE-2026-39304": [
+       "CWE-400",
+       "CWE-770"
+      ],
+      "CVE-2026-40466": [
+       "CWE-20",
+       "CWE-94"
+      ],
+      "CVE-2026-41043": [
+       "CWE-79",
+       "CWE-915"
+      ],
+      "CVE-2026-41044": [
+       "CWE-20",
+       "CWE-94"
+      ],
+      "CVE-2026-42253": [
+       "CWE-79"
+      ],
+      "CVE-2026-42588": [
+       "CWE-20",
+       "CWE-94"
+      ],
+      "CVE-2026-45505": [
+       "CWE-20",
+       "CWE-94"
+      ],
+      "CVE-2026-46605": [
+       "CWE-285"
+      ],
+      "CVE-2026-49157": [
+       "CWE-276"
+      ],
+      "CVE-2026-49270": [
+       "CWE-1230"
+      ],
+      "CVE-2026-49432": [
+       "CWE-20"
+      ],
+      "CVE-2026-49434": [
+       "CWE-20"
+      ],
+      "CVE-2026-49877": [
+       "CWE-285"
+      ],
+      "CVE-2026-50734": [
+       "CWE-789"
+      ],
+      "CVE-2026-52760": [
+       "CWE-79"
+      ],
+      "CVE-2026-53916": [
+       "CWE-789"
+      ],
+      "CVE-2026-53917": [
+       "CWE-789"
+      ],
+      "CVE-2026-54475": [
+       "CWE-862"
+      ],
+      "CVE-2026-59878": [
+       "CWE-20"
+      ],
+      "CVE-2026-61487": [
+       "CWE-285"
+      ],
+      "CVE-2026-74761": [
+       "CWE-20"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "nginx",
+     "cpe": [
+      "f5:nginx",
+      "nginx:nginx",
+      "f5:nginx_open_source"
+     ],
+     "version": "1.16.1",
+     "evidence": "80/tcp open http nginx 1.16.1",
+     "cves": {
+      "CVE-2026-1642": [
+       "CWE-345",
+       "CWE-349"
+      ],
+      "CVE-2026-27651": [
+       "CWE-476"
+      ],
+      "CVE-2026-27654": [
+       "CWE-120",
+       "CWE-122"
+      ],
+      "CVE-2026-27784": [
+       "CWE-190"
+      ],
+      "CVE-2026-28753": [
+       "CWE-93"
+      ],
+      "CVE-2026-32647": [
+       "CWE-125"
+      ],
+      "CVE-2026-42055": [
+       "CWE-122",
+       "CWE-131",
+       "CWE-787"
+      ],
+      "CVE-2026-42934": [
+       "CWE-125"
+      ],
+      "CVE-2026-42945": [
+       "CWE-122",
+       "CWE-131"
+      ],
+      "CVE-2026-42946": [
+       "CWE-789",
+       "CWE-823"
+      ],
+      "CVE-2026-48142": [
+       "CWE-125"
+      ],
+      "CVE-2026-9256": [
+       "CWE-122"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "vsftpd",
+     "cpe": [
+      "vsftpd_project:vsftpd",
+      "beasts:vsftpd"
+     ],
+     "version": "3.0.2",
+     "evidence": "21/tcp open ftp vsftpd 3.0.2",
+     "cves": {},
+     "optional_cves": []
+    }
+   ],
+   "ignored": [
+    {
+     "name": "NTP",
+     "cpe": [
+      "ntp:ntp"
+     ],
+     "evidence": "123/tcp open ntp NTP v4"
+    }
+   ],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-006.txt": {
+   "format": "rpm-qa",
+   "products": [
+    {
+     "name": "SQLite",
+     "cpe": [
+      "sqlite:sqlite"
+     ],
+     "version": "3.22.0",
+     "evidence": "sqlite-libs-3.22.0-11.el8.x86_64",
+     "cves": {
+      "CVE-2026-11822": [
+       "CWE-122"
+      ],
+      "CVE-2026-11824": [
+       "CWE-122"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Git",
+     "cpe": [
+      "git-scm:git",
+      "git_project:git"
+     ],
+     "version": "2.34.1",
+     "evidence": "git-2.34.1-10.el8.x86_64",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "OpenSSH",
+     "cpe": [
+      "openbsd:openssh"
+     ],
+     "version": "7.4p1",
+     "evidence": "openssh-server-7.4p1-3.el7.x86_64",
+     "cves": {
+      "CVE-2026-106587": [
+       "CWE-843"
+      ],
+      "CVE-2026-35385": [
+       "CWE-281"
+      ],
+      "CVE-2026-35387": [
+       "CWE-670"
+      ],
+      "CVE-2026-35388": [
+       "CWE-420"
+      ],
+      "CVE-2026-35414": [
+       "CWE-670"
+      ],
+      "CVE-2026-59995": [
+       "CWE-23"
+      ],
+      "CVE-2026-59996": [
+       "CWE-23"
+      ],
+      "CVE-2026-59997": [
+       "CWE-1284"
+      ],
+      "CVE-2026-59998": [
+       "CWE-573"
+      ],
+      "CVE-2026-59999": [
+       "CWE-348"
+      ],
+      "CVE-2026-60000": [
+       "CWE-770"
+      ],
+      "CVE-2026-60001": [
+       "CWE-770"
+      ],
+      "CVE-2026-60002": [
+       "CWE-416"
+      ],
+      "CVE-2026-73281": [
+       "CWE-669"
+      ],
+      "CVE-2026-73282": [
+       "CWE-416"
+      ],
+      "CVE-2026-73283": [
+       "CWE-670"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Node.js",
+     "cpe": [
+      "nodejs:node.js"
+     ],
+     "version": "10.19.0",
+     "evidence": "nodejs-10.19.0-16.el8.x86_64",
+     "cves": {
+      "CVE-2026-21637": [
+       "CWE-400"
+      ],
+      "CVE-2026-21710": [
+       "CWE-770",
+       "CWE-843"
+      ],
+      "CVE-2026-21711": [
+       "CWE-284"
+      ],
+      "CVE-2026-21713": [
+       "CWE-208"
+      ],
+      "CVE-2026-21714": [
+       "CWE-401"
+      ],
+      "CVE-2026-21715": [
+       "CWE-732"
+      ],
+      "CVE-2026-21716": [
+       "CWE-862"
+      ],
+      "CVE-2026-21717": [
+       "CWE-328"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "runc",
+     "cpe": [
+      "linuxfoundation:runc"
+     ],
+     "version": "1.0.0-rc6",
+     "evidence": "runc-1.0.0-rc6-17.el8.x86_64",
+     "cves": {
+      "CVE-2026-41579": [
+       "CWE-61"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-007.txt": {
+   "format": "rpm-qa",
+   "products": [
+    {
+     "name": "NTP",
+     "cpe": [
+      "ntp:ntp"
+     ],
+     "version": "4.2.8p10",
+     "evidence": "ntp-4.2.8p10-18.el7.x86_64",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "Net-SNMP",
+     "cpe": [
+      "net-snmp:net-snmp"
+     ],
+     "version": "5.7.3",
+     "evidence": "net-snmp-5.7.3-4.el7.x86_64",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "Squid",
+     "cpe": [
+      "squid-cache:squid"
+     ],
+     "version": "5.2",
+     "evidence": "squid-5.2-10.el7.x86_64",
+     "cves": {
+      "CVE-2026-32748": [
+       "CWE-413",
+       "CWE-416",
+       "CWE-826"
+      ],
+      "CVE-2026-33515": [
+       "CWE-125",
+       "CWE-1289"
+      ],
+      "CVE-2026-33526": [
+       "CWE-416",
+       "CWE-825",
+       "CWE-826"
+      ],
+      "CVE-2026-47729": [
+       "CWE-125",
+       "CWE-1289"
+      ],
+      "CVE-2026-50012": [
+       "CWE-122",
+       "CWE-20"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Node.js",
+     "cpe": [
+      "nodejs:node.js"
+     ],
+     "version": "10.19.0",
+     "evidence": "nodejs-10.19.0-3.el8.x86_64",
+     "cves": {
+      "CVE-2026-21637": [
+       "CWE-400"
+      ],
+      "CVE-2026-21710": [
+       "CWE-770",
+       "CWE-843"
+      ],
+      "CVE-2026-21711": [
+       "CWE-284"
+      ],
+      "CVE-2026-21713": [
+       "CWE-208"
+      ],
+      "CVE-2026-21714": [
+       "CWE-401"
+      ],
+      "CVE-2026-21715": [
+       "CWE-732"
+      ],
+      "CVE-2026-21716": [
+       "CWE-862"
+      ],
+      "CVE-2026-21717": [
+       "CWE-328"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-008.txt": {
+   "format": "whatweb",
+   "products": [
+    {
+     "name": "nginx",
+     "cpe": [
+      "f5:nginx",
+      "nginx:nginx",
+      "f5:nginx_open_source"
+     ],
+     "version": "1.18.0",
+     "evidence": "nginx[1.18.0] HTTPServer[nginx/1.18.0]",
+     "cves": {
+      "CVE-2026-1642": [
+       "CWE-345",
+       "CWE-349"
+      ],
+      "CVE-2026-27651": [
+       "CWE-476"
+      ],
+      "CVE-2026-27654": [
+       "CWE-120",
+       "CWE-122"
+      ],
+      "CVE-2026-27784": [
+       "CWE-190"
+      ],
+      "CVE-2026-28753": [
+       "CWE-93"
+      ],
+      "CVE-2026-32647": [
+       "CWE-125"
+      ],
+      "CVE-2026-42055": [
+       "CWE-122",
+       "CWE-131",
+       "CWE-787"
+      ],
+      "CVE-2026-42934": [
+       "CWE-125"
+      ],
+      "CVE-2026-42945": [
+       "CWE-122",
+       "CWE-131"
+      ],
+      "CVE-2026-42946": [
+       "CWE-789",
+       "CWE-823"
+      ],
+      "CVE-2026-48142": [
+       "CWE-125"
+      ],
+      "CVE-2026-9256": [
+       "CWE-122"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Jenkins",
+     "cpe": [
+      "jenkins:jenkins"
+     ],
+     "version": "2.441",
+     "evidence": "Jenkins[2.441]",
+     "cves": {
+      "CVE-2026-27100": [
+       "CWE-200"
+      ],
+      "CVE-2026-33001": [
+       "CWE-22",
+       "CWE-59"
+      ],
+      "CVE-2026-33002": [
+       "CWE-350"
+      ],
+      "CVE-2026-53435": [
+       "CWE-502"
+      ],
+      "CVE-2026-53436": [
+       "CWE-601"
+      ],
+      "CVE-2026-53437": [
+       "CWE-601"
+      ],
+      "CVE-2026-53438": [
+       "CWE-862"
+      ],
+      "CVE-2026-53439": [
+       "CWE-862"
+      ],
+      "CVE-2026-53440": [
+       "CWE-601"
+      ],
+      "CVE-2026-53442": [
+       "CWE-311"
+      ],
+      "CVE-2026-70427": [
+       "CWE-59"
+      ],
+      "CVE-2026-70428": [
+       "CWE-22"
+      ],
+      "CVE-2026-70429": [
+       "CWE-178"
+      ],
+      "CVE-2026-70430": [
+       "CWE-284"
+      ],
+      "CVE-2026-84645": [
+       "CWE-915",
+       "CWE-94"
+      ],
+      "CVE-2026-84646": [
+       "CWE-502"
+      ],
+      "CVE-2026-84648": [
+       "CWE-79"
+      ],
+      "CVE-2026-84650": [
+       "CWE-502",
+       "CWE-566"
+      ],
+      "CVE-2026-84651": [
+       "CWE-284"
+      ],
+      "CVE-2026-84652": [
+       "CWE-384"
+      ],
+      "CVE-2026-84653": [
+       "CWE-862"
+      ],
+      "CVE-2026-84655": [
+       "CWE-116"
+      ],
+      "CVE-2026-84656": [
+       "CWE-862"
+      ],
+      "CVE-2026-84657": [
+       "CWE-862"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Apache Tomcat",
+     "cpe": [
+      "apache:tomcat"
+     ],
+     "version": "9.0.43",
+     "evidence": "Apache-Tomcat[9.0.43]",
+     "cves": {
+      "CVE-2026-24733": [
+       "CWE-20"
+      ],
+      "CVE-2026-24880": [
+       "CWE-444"
+      ],
+      "CVE-2026-25854": [
+       "CWE-601"
+      ],
+      "CVE-2026-29146": [
+       "CWE-1240",
+       "CWE-209",
+       "CWE-642"
+      ],
+      "CVE-2026-34483": [
+       "CWE-116"
+      ],
+      "CVE-2026-34487": [
+       "CWE-532"
+      ],
+      "CVE-2026-41284": [
+       "CWE-770"
+      ],
+      "CVE-2026-41293": [
+       "CWE-20"
+      ],
+      "CVE-2026-42498": [
+       "CWE-200"
+      ],
+      "CVE-2026-43512": [
+       "CWE-592"
+      ],
+      "CVE-2026-43513": [
+       "CWE-178"
+      ],
+      "CVE-2026-43514": [
+       "CWE-208"
+      ],
+      "CVE-2026-43515": [
+       "CWE-285"
+      ],
+      "CVE-2026-50229": [
+       "CWE-80"
+      ],
+      "CVE-2026-53404": [
+       "CWE-670"
+      ],
+      "CVE-2026-55276": [
+       "CWE-670"
+      ],
+      "CVE-2026-55955": [
+       "CWE-287"
+      ],
+      "CVE-2026-55956": [
+       "CWE-285"
+      ],
+      "CVE-2026-55957": [
+       "CWE-304"
+      ],
+      "CVE-2026-59083": [
+       "CWE-177"
+      ],
+      "CVE-2026-59084": [
+       "CWE-1059"
+      ],
+      "CVE-2026-65182": [
+       "CWE-284",
+       "CWE-863"
+      ],
+      "CVE-2026-65183": [
+       "CWE-367"
+      ],
+      "CVE-2026-65905": [
+       "CWE-294"
+      ],
+      "CVE-2026-65927": [
+       "CWE-193"
+      ],
+      "CVE-2026-66422": [
+       "CWE-285"
+      ],
+      "CVE-2026-68525": [
+       "CWE-863"
+      ],
+      "CVE-2026-68569": [
+       "CWE-287"
+      ],
+      "CVE-2026-68763": [
+       "CWE-400"
+      ],
+      "CVE-2026-73180": [
+       "CWE-613"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-009.txt": {
+   "format": "apk-info",
+   "products": [
+    {
+     "name": "Git",
+     "cpe": [
+      "git-scm:git",
+      "git_project:git"
+     ],
+     "version": "2.25.1",
+     "evidence": "git-2.25.1-r20",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "Memcached",
+     "cpe": [
+      "memcached:memcached"
+     ],
+     "version": "1.5.6",
+     "evidence": "memcached-1.5.6-r16",
+     "cves": {
+      "CVE-2026-47783": [
+       "CWE-208"
+      ],
+      "CVE-2026-47784": [
+       "CWE-208"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "OpenSSL",
+     "cpe": [
+      "openssl:openssl"
+     ],
+     "version": "1.0.1f",
+     "evidence": "libssl1.0.0-1.0.1f-r15",
+     "cves": {},
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-010.txt": {
+   "format": "version-commands",
+   "products": [
+    {
+     "name": "MySQL",
+     "cpe": [
+      "oracle:mysql",
+      "oracle:mysql_server",
+      "mysql_project:mysql"
+     ],
+     "version": "5.7.33",
+     "evidence": "mysqld --version: /usr/sbin/mysqld  Ver 5.7.33-0ubuntu0.18.04.1 for Linux on x86_64 ((Ubuntu))",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "runc",
+     "cpe": [
+      "linuxfoundation:runc"
+     ],
+     "version": "1.0.0-rc6",
+     "evidence": "runc --version: runc version 1.0.0-rc6",
+     "cves": {
+      "CVE-2026-41579": [
+       "CWE-61"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Node.js",
+     "cpe": [
+      "nodejs:node.js"
+     ],
+     "version": "14.15.0",
+     "evidence": "node -v: v14.15.0",
+     "cves": {
+      "CVE-2026-21637": [
+       "CWE-400"
+      ],
+      "CVE-2026-21710": [
+       "CWE-770",
+       "CWE-843"
+      ],
+      "CVE-2026-21711": [
+       "CWE-284"
+      ],
+      "CVE-2026-21713": [
+       "CWE-208"
+      ],
+      "CVE-2026-21714": [
+       "CWE-401"
+      ],
+      "CVE-2026-21715": [
+       "CWE-732"
+      ],
+      "CVE-2026-21716": [
+       "CWE-862"
+      ],
+      "CVE-2026-21717": [
+       "CWE-328"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "curl",
+     "cpe": [
+      "haxx:curl",
+      "curl_project:curl"
+     ],
+     "version": "7.68.0",
+     "evidence": "curl --version | head -2: curl 7.68.0 (x86_64-pc-linux-gnu) libcurl/7.68.0",
+     "cves": {
+      "CVE-2026-11856": [
+       "CWE-294"
+      ],
+      "CVE-2026-18924": [
+       "CWE-416"
+      ],
+      "CVE-2026-1965": [
+       "CWE-305"
+      ],
+      "CVE-2026-19931": [
+       "CWE-488"
+      ],
+      "CVE-2026-3783": [
+       "CWE-522"
+      ],
+      "CVE-2026-3784": [
+       "CWE-305"
+      ],
+      "CVE-2026-4873": [
+       "CWE-295",
+       "CWE-319"
+      ],
+      "CVE-2026-5545": [
+       "CWE-305",
+       "CWE-613"
+      ],
+      "CVE-2026-5773": [
+       "CWE-488",
+       "CWE-918"
+      ],
+      "CVE-2026-6253": [
+       "CWE-522"
+      ],
+      "CVE-2026-6429": [
+       "CWE-200"
+      ],
+      "CVE-2026-7168": [
+       "CWE-294"
+      ],
+      "CVE-2026-80230": [
+       "CWE-295"
+      ],
+      "CVE-2026-82209": [
+       "CWE-201"
+      ],
+      "CVE-2026-8286": [
+       "CWE-295"
+      ],
+      "CVE-2026-8458": [
+       "CWE-488"
+      ],
+      "CVE-2026-8924": [
+       "CWE-201"
+      ],
+      "CVE-2026-8927": [
+       "CWE-294"
+      ],
+      "CVE-2026-8932": [
+       "CWE-305"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [
+    "go"
+   ],
+   "note": ""
+  },
+  "doc-011.txt": {
+   "format": "banners",
+   "products": [
+    {
+     "name": "Memcached",
+     "cpe": [
+      "memcached:memcached"
+     ],
+     "version": "1.6.9",
+     "evidence": "stats STAT pid 2489 STAT uptime 86400 STAT version 1.6.9 STAT libevent 2.1.11-stable STAT pointer_size 64 END",
+     "cves": {
+      "CVE-2026-47783": [
+       "CWE-208"
+      ],
+      "CVE-2026-47784": [
+       "CWE-208"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Net-SNMP",
+     "cpe": [
+      "net-snmp:net-snmp"
+     ],
+     "version": "5.7.3",
+     "evidence": "$ snmpget -v2c -c public 10.0.0.1 SNMPv2-MIB::sysDescr.0 SNMPv2-MIB::sysDescr.0 = STRING: Linux gw01 5.4.0-150-generic #167-Ubuntu SMP x86_64 $ snmpwalk -v2c -c public 10.0.0.1 NET-SNMP-AGENT-MIB::nsV",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "Microsoft IIS",
+     "cpe": [
+      "microsoft:internet_information_services"
+     ],
+     "version": "10.0",
+     "evidence": "Server: Microsoft-IIS/10.0",
+     "cves": {},
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [
+    "libevent"
+   ],
+   "note": ""
+  },
+  "doc-012.txt": {
+   "format": "pip",
+   "products": [
+    {
+     "name": "Requests",
+     "cpe": [
+      "python:requests"
+     ],
+     "version": "2.19.1",
+     "evidence": "requests==2.19.1",
+     "cves": {
+      "CVE-2026-25645": [
+       "CWE-377"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "urllib3",
+     "cpe": [
+      "python:urllib3"
+     ],
+     "version": "1.26.4",
+     "evidence": "urllib3==1.26.4",
+     "cves": {
+      "CVE-2026-21441": [
+       "CWE-409"
+      ],
+      "CVE-2026-44431": [
+       "CWE-200"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Pillow",
+     "cpe": [
+      "python:pillow"
+     ],
+     "version": "8.0.0",
+     "evidence": "Pillow==8.0.0",
+     "cves": {
+      "CVE-2026-42308": [
+       "CWE-190"
+      ],
+      "CVE-2026-42310": [
+       "CWE-835"
+      ],
+      "CVE-2026-54058": [
+       "CWE-125"
+      ],
+      "CVE-2026-54059": [
+       "CWE-789"
+      ],
+      "CVE-2026-54060": [
+       "CWE-789"
+      ],
+      "CVE-2026-55379": [
+       "CWE-789"
+      ],
+      "CVE-2026-55380": [
+       "CWE-789"
+      ],
+      "CVE-2026-55798": [
+       "CWE-78"
+      ],
+      "CVE-2026-59197": [
+       "CWE-190",
+       "CWE-787"
+      ],
+      "CVE-2026-59198": [
+       "CWE-125"
+      ],
+      "CVE-2026-59199": [
+       "CWE-190",
+       "CWE-787"
+      ],
+      "CVE-2026-59200": [
+       "CWE-400",
+       "CWE-770"
+      ],
+      "CVE-2026-59205": [
+       "CWE-787"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-013.txt": {
+   "format": "fs-listing",
+   "products": [
+    {
+     "name": "phpMyAdmin",
+     "cpe": [
+      "phpmyadmin:phpmyadmin"
+     ],
+     "version": "4.8.1",
+     "evidence": "/usr/share/phpMyAdmin-4.8.1-all-languages/index.php",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "PyYAML",
+     "cpe": [
+      "pyyaml:pyyaml"
+     ],
+     "version": "5.3.1",
+     "evidence": "/usr/local/lib/python3.8/site-packages/PyYAML-5.3.1.dist-info/METADATA",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "Jinja2",
+     "cpe": [
+      "palletsprojects:jinja",
+      "pocoo:jinja2"
+     ],
+     "version": "2.11.2",
+     "evidence": "/usr/local/lib/python3.8/site-packages/Jinja2-2.11.2.dist-info/METADATA",
+     "cves": {},
+     "optional_cves": []
+    }
+   ],
+   "ignored": [
+    {
+     "name": "ISC BIND",
+     "cpe": [
+      "isc:bind"
+     ],
+     "evidence": "/usr/sbin/named"
+    },
+    {
+     "name": "nginx",
+     "cpe": [
+      "f5:nginx",
+      "nginx:nginx",
+      "f5:nginx_open_source"
+     ],
+     "evidence": "/usr/sbin/nginx"
+    }
+   ],
+   "tolerated": [
+    "python"
+   ],
+   "note": ""
+  },
+  "doc-014.xml": {
+   "format": "nmap-xml",
+   "products": [
+    {
+     "name": "Elasticsearch",
+     "cpe": [
+      "elastic:elasticsearch",
+      "elasticsearch:elasticsearch"
+     ],
+     "version": "5.6.16",
+     "evidence": "9200/tcp open http Elasticsearch REST API 5.6.16 (name: node-1; cluster: prod; Lucene 8.7.0)",
+     "cves": {
+      "CVE-2026-72683": [
+       "CWE-674"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "MySQL",
+     "cpe": [
+      "oracle:mysql",
+      "oracle:mysql_server",
+      "mysql_project:mysql"
+     ],
+     "version": "5.7.33",
+     "evidence": "3306/tcp open mysql MySQL 5.7.33-0ubuntu0.18.04.1",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "lighttpd",
+     "cpe": [
+      "lighttpd:lighttpd"
+     ],
+     "version": "1.4.55",
+     "evidence": "80/tcp open http lighttpd 1.4.55",
+     "cves": {},
+     "optional_cves": []
+    }
+   ],
+   "ignored": [
+    {
+     "name": "Dovecot",
+     "cpe": [
+      "dovecot:dovecot",
+      "open-xchange:dovecot"
+     ],
+     "evidence": "143/tcp open imap Dovecot imapd"
+    }
+   ],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-015.xml": {
+   "format": "maven-pom",
+   "products": [
+    {
+     "name": "Apache Commons Collections",
+     "cpe": [
+      "apache:commons_collections"
+     ],
+     "version": "4.0",
+     "evidence": "commons-collections:commons-collections 4.0",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "Apache Commons Text",
+     "cpe": [
+      "apache:commons_text"
+     ],
+     "version": "1.8",
+     "evidence": "org.apache.commons:commons-text 1.8",
+     "cves": {},
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-016.txt": {
+   "format": "windows-inventory",
+   "products": [
+    {
+     "name": "7-Zip",
+     "cpe": [
+      "7-zip:7-zip"
+     ],
+     "version": "21.07",
+     "evidence": "7-Zip 21.07 (x64) 21.07 Igor Pavlov",
+     "cves": {
+      "CVE-2026-14266": [
+       "CWE-122"
+      ],
+      "CVE-2026-48092": [
+       "CWE-125"
+      ],
+      "CVE-2026-48095": [
+       "CWE-190",
+       "CWE-787"
+      ],
+      "CVE-2026-48101": [
+       "CWE-908"
+      ],
+      "CVE-2026-48102": [
+       "CWE-125"
+      ],
+      "CVE-2026-48103": [
+       "CWE-125"
+      ],
+      "CVE-2026-48104": [
+       "CWE-125",
+       "CWE-908"
+      ],
+      "CVE-2026-48111": [
+       "CWE-125"
+      ],
+      "CVE-2026-48112": [
+       "CWE-125",
+       "CWE-190"
+      ],
+      "CVE-2026-58052": [
+       "CWE-693"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Notepad++",
+     "cpe": [
+      "notepad-plus-plus:notepad++",
+      "don_ho:notepad++",
+      "notepad_plus_plus:notepad++"
+     ],
+     "version": "8.4.1",
+     "evidence": "Notepad++ (64-bit x64) 8.4.1 Notepad++ Team",
+     "cves": {
+      "CVE-2026-25926": [
+       "CWE-426"
+      ],
+      "CVE-2026-48770": [
+       "CWE-125"
+      ],
+      "CVE-2026-48778": [
+       "CWE-78"
+      ],
+      "CVE-2026-48800": [
+       "CWE-78"
+      ],
+      "CVE-2026-52885": [
+       "CWE-367"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-017.txt": {
+   "format": "version-commands",
+   "products": [
+    {
+     "name": "MongoDB",
+     "cpe": [
+      "mongodb:mongodb"
+     ],
+     "version": "4.0.3",
+     "evidence": "mongod --version: db version v4.0.3",
+     "cves": {
+      "CVE-2026-9753": [
+       "CWE-1287",
+       "CWE-787"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "nginx",
+     "cpe": [
+      "f5:nginx",
+      "nginx:nginx",
+      "f5:nginx_open_source"
+     ],
+     "version": "1.18.0",
+     "evidence": "nginx -v: nginx version: nginx/1.18.0",
+     "cves": {
+      "CVE-2026-1642": [
+       "CWE-345",
+       "CWE-349"
+      ],
+      "CVE-2026-27651": [
+       "CWE-476"
+      ],
+      "CVE-2026-27654": [
+       "CWE-120",
+       "CWE-122"
+      ],
+      "CVE-2026-27784": [
+       "CWE-190"
+      ],
+      "CVE-2026-28753": [
+       "CWE-93"
+      ],
+      "CVE-2026-32647": [
+       "CWE-125"
+      ],
+      "CVE-2026-42055": [
+       "CWE-122",
+       "CWE-131",
+       "CWE-787"
+      ],
+      "CVE-2026-42934": [
+       "CWE-125"
+      ],
+      "CVE-2026-42945": [
+       "CWE-122",
+       "CWE-131"
+      ],
+      "CVE-2026-42946": [
+       "CWE-789",
+       "CWE-823"
+      ],
+      "CVE-2026-48142": [
+       "CWE-125"
+      ],
+      "CVE-2026-9256": [
+       "CWE-122"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Git",
+     "cpe": [
+      "git-scm:git",
+      "git_project:git"
+     ],
+     "version": "2.34.1",
+     "evidence": "git --version: git version 2.34.1",
+     "cves": {},
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-018.txt": {
+   "format": "ps-aux",
+   "products": [],
+   "ignored": [
+    {
+     "name": "PHP",
+     "cpe": [
+      "php:php"
+     ],
+     "evidence": "php-fpm: master process (/etc/php/php-fpm.conf)"
+    },
+    {
+     "name": "Samba",
+     "cpe": [
+      "samba:samba"
+     ],
+     "evidence": "/usr/sbin/smbd --foreground --no-process-group"
+    },
+    {
+     "name": "Dovecot",
+     "cpe": [
+      "dovecot:dovecot",
+      "open-xchange:dovecot"
+     ],
+     "evidence": "/usr/sbin/dovecot -F"
+    }
+   ],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-019.txt": {
+   "format": "whatweb",
+   "products": [
+    {
+     "name": "nginx",
+     "cpe": [
+      "f5:nginx",
+      "nginx:nginx",
+      "f5:nginx_open_source"
+     ],
+     "version": "1.16.1",
+     "evidence": "nginx[1.16.1] HTTPServer[nginx/1.16.1]",
+     "cves": {
+      "CVE-2026-1642": [
+       "CWE-345",
+       "CWE-349"
+      ],
+      "CVE-2026-27651": [
+       "CWE-476"
+      ],
+      "CVE-2026-27654": [
+       "CWE-120",
+       "CWE-122"
+      ],
+      "CVE-2026-27784": [
+       "CWE-190"
+      ],
+      "CVE-2026-28753": [
+       "CWE-93"
+      ],
+      "CVE-2026-32647": [
+       "CWE-125"
+      ],
+      "CVE-2026-42055": [
+       "CWE-122",
+       "CWE-131",
+       "CWE-787"
+      ],
+      "CVE-2026-42934": [
+       "CWE-125"
+      ],
+      "CVE-2026-42945": [
+       "CWE-122",
+       "CWE-131"
+      ],
+      "CVE-2026-42946": [
+       "CWE-789",
+       "CWE-823"
+      ],
+      "CVE-2026-48142": [
+       "CWE-125"
+      ],
+      "CVE-2026-9256": [
+       "CWE-122"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "phpMyAdmin",
+     "cpe": [
+      "phpmyadmin:phpmyadmin"
+     ],
+     "version": "4.9.0.1",
+     "evidence": "phpMyAdmin[4.9.0.1]",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "PHP",
+     "cpe": [
+      "php:php"
+     ],
+     "version": "5.6.40",
+     "evidence": "PHP[5.6.40]",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "Apache HTTP Server",
+     "cpe": [
+      "apache:http_server"
+     ],
+     "version": "2.4.29",
+     "evidence": "Apache[2.4.29] HTTPServer[Apache/2.4.29]",
+     "cves": {
+      "CVE-2026-24072": [
+       "CWE-269"
+      ],
+      "CVE-2026-28780": [
+       "CWE-122",
+       "CWE-787"
+      ],
+      "CVE-2026-29167": [
+       "CWE-416"
+      ],
+      "CVE-2026-29169": [
+       "CWE-476"
+      ],
+      "CVE-2026-29170": [
+       "CWE-79"
+      ],
+      "CVE-2026-33006": [
+       "CWE-208"
+      ],
+      "CVE-2026-33007": [
+       "CWE-476"
+      ],
+      "CVE-2026-33523": [
+       "CWE-443"
+      ],
+      "CVE-2026-33857": [
+       "CWE-125"
+      ],
+      "CVE-2026-34032": [
+       "CWE-125",
+       "CWE-170"
+      ],
+      "CVE-2026-34059": [
+       "CWE-126"
+      ],
+      "CVE-2026-34355": [
+       "CWE-120",
+       "CWE-122"
+      ],
+      "CVE-2026-34356": [
+       "CWE-122"
+      ],
+      "CVE-2026-42356": [
+       "CWE-430"
+      ],
+      "CVE-2026-42528": [
+       "CWE-789"
+      ],
+      "CVE-2026-42535": [
+       "CWE-668"
+      ],
+      "CVE-2026-42536": [
+       "CWE-120",
+       "CWE-122"
+      ],
+      "CVE-2026-43951": [
+       "CWE-125"
+      ],
+      "CVE-2026-44119": [
+       "CWE-269"
+      ],
+      "CVE-2026-44185": [
+       "CWE-125",
+       "CWE-126"
+      ],
+      "CVE-2026-44186": [
+       "CWE-835"
+      ],
+      "CVE-2026-44631": [
+       "CWE-124"
+      ],
+      "CVE-2026-46729": [
+       "CWE-476"
+      ],
+      "CVE-2026-48005": [
+       "CWE-306"
+      ],
+      "CVE-2026-49975": [
+       "CWE-409",
+       "CWE-789"
+      ],
+      "CVE-2026-56153": [
+       "CWE-787"
+      ],
+      "CVE-2026-56154": [
+       "CWE-416"
+      ],
+      "CVE-2026-56449": [
+       "CWE-787"
+      ],
+      "CVE-2026-57941": [
+       "CWE-416"
+      ],
+      "CVE-2026-58415": [
+       "CWE-552"
+      ],
+      "CVE-2026-59685": [
+       "CWE-787"
+      ],
+      "CVE-2026-59797": [
+       "CWE-269"
+      ],
+      "CVE-2026-63045": [
+       "CWE-284"
+      ],
+      "CVE-2026-63292": [
+       "CWE-121"
+      ],
+      "CVE-2026-63686": [
+       "CWE-476"
+      ],
+      "CVE-2026-73636": [
+       "CWE-294"
+      ],
+      "CVE-2026-73637": [
+       "CWE-416"
+      ],
+      "CVE-2026-79768": [
+       "CWE-55"
+      ],
+      "CVE-2026-93546": [
+       "CWE-190"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Apache Tomcat",
+     "cpe": [
+      "apache:tomcat"
+     ],
+     "version": "7.0.94",
+     "evidence": "Apache-Tomcat[7.0.94]",
+     "cves": {
+      "CVE-2026-41284": [
+       "CWE-770"
+      ],
+      "CVE-2026-42498": [
+       "CWE-200"
+      ],
+      "CVE-2026-43512": [
+       "CWE-592"
+      ],
+      "CVE-2026-43513": [
+       "CWE-178"
+      ],
+      "CVE-2026-43514": [
+       "CWE-208"
+      ],
+      "CVE-2026-43515": [
+       "CWE-285"
+      ],
+      "CVE-2026-50229": [
+       "CWE-80"
+      ],
+      "CVE-2026-55276": [
+       "CWE-670"
+      ],
+      "CVE-2026-55955": [
+       "CWE-287"
+      ],
+      "CVE-2026-55956": [
+       "CWE-285"
+      ],
+      "CVE-2026-55957": [
+       "CWE-304"
+      ],
+      "CVE-2026-59083": [
+       "CWE-177"
+      ],
+      "CVE-2026-65182": [
+       "CWE-284",
+       "CWE-863"
+      ],
+      "CVE-2026-65905": [
+       "CWE-294"
+      ],
+      "CVE-2026-68525": [
+       "CWE-863"
+      ],
+      "CVE-2026-68569": [
+       "CWE-287"
+      ],
+      "CVE-2026-73180": [
+       "CWE-613"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-020.txt": {
+   "format": "host-report",
+   "products": [
+    {
+     "name": "Elasticsearch",
+     "cpe": [
+      "elastic:elasticsearch",
+      "elasticsearch:elasticsearch"
+     ],
+     "version": "5.6.16",
+     "evidence": "9200/tcp open http Elasticsearch REST API 5.6.16 (name: node-1; cluster: prod; Lucene 8.7.0)",
+     "cves": {
+      "CVE-2026-72683": [
+       "CWE-674"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Exim",
+     "cpe": [
+      "exim:exim"
+     ],
+     "version": "4.92",
+     "evidence": "ii exim4-daemon-light 4.92-3ubuntu1",
+     "cves": {
+      "CVE-2026-40684": [
+       "CWE-684"
+      ],
+      "CVE-2026-40685": [
+       "CWE-684",
+       "CWE-787"
+      ],
+      "CVE-2026-40686": [
+       "CWE-125"
+      ],
+      "CVE-2026-40687": [
+       "CWE-909"
+      ],
+      "CVE-2026-48840": [
+       "CWE-839"
+      ],
+      "CVE-2026-66140": [
+       "CWE-24"
+      ],
+      "CVE-2026-66141": [
+       "CWE-829"
+      ],
+      "CVE-2026-94054": [
+       "CWE-787"
+      ],
+      "CVE-2026-94055": [
+       "CWE-416"
+      ],
+      "CVE-2026-94056": [
+       "CWE-908"
+      ],
+      "CVE-2026-94057": [
+       "CWE-93"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [
+    {
+     "name": "Net-SNMP",
+     "cpe": [
+      "net-snmp:net-snmp"
+     ],
+     "evidence": "161/tcp open snmp SNMPv1 server (net-snmp; public)"
+    }
+   ],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-021.txt": {
+   "format": "version-commands",
+   "products": [
+    {
+     "name": "polkit",
+     "cpe": [
+      "polkit_project:polkit",
+      "freedesktop:polkit"
+     ],
+     "version": "0.115",
+     "evidence": "pkexec --version: pkexec version 0.115",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "ISC BIND",
+     "cpe": [
+      "isc:bind"
+     ],
+     "version": "9.9.5",
+     "evidence": "named -v: BIND 9.9.5-Ubuntu (Stable Release) <id:a1b2c3d>",
+     "cves": {
+      "CVE-2026-3039": [
+       "CWE-770",
+       "CWE-771"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Redis",
+     "cpe": [
+      "redis:redis",
+      "redislabs:redis"
+     ],
+     "version": "3.2.12",
+     "evidence": "redis-server --version: Redis server v=3.2.12 sha=00000000:0 malloc=jemalloc-5.2.1 bits=64 build=636cde3b5c7a3923",
+     "cves": {
+      "CVE-2026-23631": [
+       "CWE-416"
+      ],
+      "CVE-2026-25243": [
+       "CWE-122"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [
+    "jemalloc"
+   ],
+   "note": ""
+  },
+  "doc-022.txt": {
+   "format": "dockerfile",
+   "products": [
+    {
+     "name": "Python",
+     "cpe": [
+      "python:python"
+     ],
+     "version": "3.8.10",
+     "evidence": "FROM python:3.8.10-slim",
+     "cves": {
+      "CVE-2026-0864": [
+       "CWE-74"
+      ],
+      "CVE-2026-15308": [
+       "CWE-400"
+      ],
+      "CVE-2026-3087": [
+       "CWE-22"
+      ],
+      "CVE-2026-3644": [
+       "CWE-116",
+       "CWE-20"
+      ],
+      "CVE-2026-4224": [
+       "CWE-674"
+      ],
+      "CVE-2026-4519": [
+       "CWE-20",
+       "CWE-88"
+      ],
+      "CVE-2026-6019": [
+       "CWE-116",
+       "CWE-150"
+      ],
+      "CVE-2026-7210": [
+       "CWE-331"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Pillow",
+     "cpe": [
+      "python:pillow"
+     ],
+     "version": "8.0.0",
+     "evidence": "python3-pil=8.0.0-8",
+     "cves": {
+      "CVE-2026-42308": [
+       "CWE-190"
+      ],
+      "CVE-2026-42310": [
+       "CWE-835"
+      ],
+      "CVE-2026-54058": [
+       "CWE-125"
+      ],
+      "CVE-2026-54059": [
+       "CWE-789"
+      ],
+      "CVE-2026-54060": [
+       "CWE-789"
+      ],
+      "CVE-2026-55379": [
+       "CWE-789"
+      ],
+      "CVE-2026-55380": [
+       "CWE-789"
+      ],
+      "CVE-2026-55798": [
+       "CWE-78"
+      ],
+      "CVE-2026-59197": [
+       "CWE-190",
+       "CWE-787"
+      ],
+      "CVE-2026-59198": [
+       "CWE-125"
+      ],
+      "CVE-2026-59199": [
+       "CWE-190",
+       "CWE-787"
+      ],
+      "CVE-2026-59200": [
+       "CWE-400",
+       "CWE-770"
+      ],
+      "CVE-2026-59205": [
+       "CWE-787"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-023.txt": {
+   "format": "dockerfile",
+   "products": [
+    {
+     "name": "nginx",
+     "cpe": [
+      "f5:nginx",
+      "nginx:nginx",
+      "f5:nginx_open_source"
+     ],
+     "version": "1.14.0",
+     "evidence": "FROM nginx:1.14.0",
+     "cves": {
+      "CVE-2026-1642": [
+       "CWE-345",
+       "CWE-349"
+      ],
+      "CVE-2026-27651": [
+       "CWE-476"
+      ],
+      "CVE-2026-27654": [
+       "CWE-120",
+       "CWE-122"
+      ],
+      "CVE-2026-27784": [
+       "CWE-190"
+      ],
+      "CVE-2026-28753": [
+       "CWE-93"
+      ],
+      "CVE-2026-32647": [
+       "CWE-125"
+      ],
+      "CVE-2026-42055": [
+       "CWE-122",
+       "CWE-131",
+       "CWE-787"
+      ],
+      "CVE-2026-42934": [
+       "CWE-125"
+      ],
+      "CVE-2026-42945": [
+       "CWE-122",
+       "CWE-131"
+      ],
+      "CVE-2026-42946": [
+       "CWE-789",
+       "CWE-823"
+      ],
+      "CVE-2026-48142": [
+       "CWE-125"
+      ],
+      "CVE-2026-9256": [
+       "CWE-122"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "GNU C Library",
+     "cpe": [
+      "gnu:glibc"
+     ],
+     "version": "2.31",
+     "evidence": "libc6=2.31-0ubuntu9.5",
+     "cves": {
+      "CVE-2026-0861": [
+       "CWE-190"
+      ],
+      "CVE-2026-0915": [
+       "CWE-908"
+      ],
+      "CVE-2026-4046": [
+       "CWE-617"
+      ],
+      "CVE-2026-5435": [
+       "CWE-787"
+      ],
+      "CVE-2026-5450": [
+       "CWE-122",
+       "CWE-787"
+      ],
+      "CVE-2026-5928": [
+       "CWE-127"
+      ],
+      "CVE-2026-6238": [
+       "CWE-126"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "SQLite",
+     "cpe": [
+      "sqlite:sqlite"
+     ],
+     "version": "3.22.0",
+     "evidence": "libsqlite3-0=3.22.0-9ubuntu0.14",
+     "cves": {
+      "CVE-2026-11822": [
+       "CWE-122"
+      ],
+      "CVE-2026-11824": [
+       "CWE-122"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "zlib",
+     "cpe": [
+      "zlib:zlib"
+     ],
+     "version": "1.2.12",
+     "evidence": "zlib1g=1:1.2.12.dfsg-8ubuntu1.20",
+     "cves": {
+      "CVE-2026-22184": [
+       "CWE-120",
+       "CWE-787"
+      ],
+      "CVE-2026-27171": [
+       "CWE-1284"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Flask",
+     "cpe": [
+      "palletsprojects:flask"
+     ],
+     "version": "2.2.4",
+     "evidence": "Flask==2.2.4",
+     "cves": {
+      "CVE-2026-27205": [
+       "CWE-524"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "PyYAML",
+     "cpe": [
+      "pyyaml:pyyaml"
+     ],
+     "version": "3.13",
+     "evidence": "PyYAML==3.13",
+     "cves": {},
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-024.txt": {
+   "format": "html",
+   "products": [
+    {
+     "name": "phpMyAdmin",
+     "cpe": [
+      "phpmyadmin:phpmyadmin"
+     ],
+     "version": "4.8.1",
+     "evidence": "<title>phpMyAdmin</title>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"./themes/pmahomme/css/theme.css?v=4.8.1&nocache=4652486383ltr&server=1\" />\n<script data-cfasync=\"false\" type=\"text/javascript\" sr",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "Drupal",
+     "cpe": [
+      "drupal:drupal"
+     ],
+     "version": "7.57",
+     "evidence": "Drupal 7.57, 2018-02-21\n-----------------------\n- Fixed security issues (multiple vulnerabilities). See SA-CORE-2018-001.",
+     "cves": {
+      "CVE-2026-55803": [
+       "CWE-915"
+      ],
+      "CVE-2026-55804": [
+       "CWE-915"
+      ],
+      "CVE-2026-55806": [
+       "CWE-601"
+      ],
+      "CVE-2026-55807": [
+       "CWE-918"
+      ],
+      "CVE-2026-55808": [
+       "CWE-79"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "axios",
+     "cpe": [
+      "axios:axios"
+     ],
+     "version": "0.21.1",
+     "evidence": "<script src=\"https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js\"></script>",
+     "cves": {
+      "CVE-2026-25639": [
+       "CWE-1287",
+       "CWE-754"
+      ],
+      "CVE-2026-40175": [
+       "CWE-113",
+       "CWE-444",
+       "CWE-915",
+       "CWE-918"
+      ],
+      "CVE-2026-42033": [
+       "CWE-1321",
+       "CWE-915"
+      ],
+      "CVE-2026-42034": [
+       "CWE-770"
+      ],
+      "CVE-2026-42035": [
+       "CWE-113",
+       "CWE-1321"
+      ],
+      "CVE-2026-42036": [
+       "CWE-770"
+      ],
+      "CVE-2026-42038": [
+       "CWE-918"
+      ],
+      "CVE-2026-42039": [
+       "CWE-674",
+       "CWE-770"
+      ],
+      "CVE-2026-42040": [
+       "CWE-116",
+       "CWE-626"
+      ],
+      "CVE-2026-42041": [
+       "CWE-1321",
+       "CWE-287",
+       "CWE-915"
+      ],
+      "CVE-2026-42042": [
+       "CWE-183",
+       "CWE-201"
+      ],
+      "CVE-2026-42043": [
+       "CWE-183",
+       "CWE-441",
+       "CWE-918"
+      ],
+      "CVE-2026-44486": [
+       "CWE-200",
+       "CWE-201"
+      ],
+      "CVE-2026-44487": [
+       "CWE-201"
+      ],
+      "CVE-2026-44490": [
+       "CWE-1321"
+      ],
+      "CVE-2026-44492": [
+       "CWE-289",
+       "CWE-918"
+      ],
+      "CVE-2026-44495": [
+       "CWE-1321",
+       "CWE-915",
+       "CWE-94"
+      ],
+      "CVE-2026-44496": [
+       "CWE-1333",
+       "CWE-400"
+      ],
+      "CVE-2026-67316": [
+       "CWE-1321"
+      ],
+      "CVE-2026-67319": [
+       "CWE-1321"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-025.txt": {
+   "format": "fs-listing",
+   "products": [
+    {
+     "name": "PyYAML",
+     "cpe": [
+      "pyyaml:pyyaml"
+     ],
+     "version": "5.1",
+     "evidence": "/usr/local/lib/python3.8/site-packages/PyYAML-5.1.dist-info/METADATA",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "WordPress",
+     "cpe": [
+      "wordpress:wordpress"
+     ],
+     "version": "5.4.2",
+     "evidence": "/var/www/html/wp-includes/version.php",
+     "cves": {
+      "CVE-2026-87902": [
+       "CWE-98"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [
+    "gutenberg",
+    "python"
+   ],
+   "note": ""
+  },
+  "doc-026.json": {
+   "format": "spdx-json",
+   "products": [
+    {
+     "name": "OpenSSH",
+     "cpe": [
+      "openbsd:openssh"
+     ],
+     "version": "9.3p1",
+     "evidence": "deb package openssh-server 1:9.3p1-5ubuntu0.8",
+     "cves": {
+      "CVE-2026-106587": [
+       "CWE-843"
+      ],
+      "CVE-2026-35385": [
+       "CWE-281"
+      ],
+      "CVE-2026-35387": [
+       "CWE-670"
+      ],
+      "CVE-2026-35388": [
+       "CWE-420"
+      ],
+      "CVE-2026-35414": [
+       "CWE-670"
+      ],
+      "CVE-2026-59995": [
+       "CWE-23"
+      ],
+      "CVE-2026-59996": [
+       "CWE-23"
+      ],
+      "CVE-2026-59997": [
+       "CWE-1284"
+      ],
+      "CVE-2026-59998": [
+       "CWE-573"
+      ],
+      "CVE-2026-59999": [
+       "CWE-348"
+      ],
+      "CVE-2026-60000": [
+       "CWE-770"
+      ],
+      "CVE-2026-60001": [
+       "CWE-770"
+      ],
+      "CVE-2026-60002": [
+       "CWE-416"
+      ],
+      "CVE-2026-73281": [
+       "CWE-669"
+      ],
+      "CVE-2026-73282": [
+       "CWE-416"
+      ],
+      "CVE-2026-73283": [
+       "CWE-670"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "axios",
+     "cpe": [
+      "axios:axios"
+     ],
+     "version": "1.5.1",
+     "evidence": "npm package axios 1.5.1",
+     "cves": {
+      "CVE-2026-25639": [
+       "CWE-1287",
+       "CWE-754"
+      ],
+      "CVE-2026-39865": [
+       "CWE-400",
+       "CWE-662"
+      ],
+      "CVE-2026-40175": [
+       "CWE-113",
+       "CWE-444",
+       "CWE-915",
+       "CWE-918"
+      ],
+      "CVE-2026-42033": [
+       "CWE-1321",
+       "CWE-915"
+      ],
+      "CVE-2026-42034": [
+       "CWE-770"
+      ],
+      "CVE-2026-42035": [
+       "CWE-113",
+       "CWE-1321"
+      ],
+      "CVE-2026-42036": [
+       "CWE-770"
+      ],
+      "CVE-2026-42037": [
+       "CWE-93"
+      ],
+      "CVE-2026-42038": [
+       "CWE-918"
+      ],
+      "CVE-2026-42039": [
+       "CWE-674",
+       "CWE-770"
+      ],
+      "CVE-2026-42040": [
+       "CWE-116",
+       "CWE-626"
+      ],
+      "CVE-2026-42041": [
+       "CWE-1321",
+       "CWE-287",
+       "CWE-915"
+      ],
+      "CVE-2026-42042": [
+       "CWE-183",
+       "CWE-201"
+      ],
+      "CVE-2026-42043": [
+       "CWE-183",
+       "CWE-441",
+       "CWE-918"
+      ],
+      "CVE-2026-42044": [
+       "CWE-1321",
+       "CWE-915"
+      ],
+      "CVE-2026-42264": [
+       "CWE-1321",
+       "CWE-915"
+      ],
+      "CVE-2026-44486": [
+       "CWE-200",
+       "CWE-201"
+      ],
+      "CVE-2026-44487": [
+       "CWE-201"
+      ],
+      "CVE-2026-44490": [
+       "CWE-1321"
+      ],
+      "CVE-2026-44492": [
+       "CWE-289",
+       "CWE-918"
+      ],
+      "CVE-2026-44494": [
+       "CWE-1321",
+       "CWE-441",
+       "CWE-915"
+      ],
+      "CVE-2026-44495": [
+       "CWE-1321",
+       "CWE-915",
+       "CWE-94"
+      ],
+      "CVE-2026-44496": [
+       "CWE-1333",
+       "CWE-400"
+      ],
+      "CVE-2026-67312": [
+       "CWE-400"
+      ],
+      "CVE-2026-67313": [
+       "CWE-400"
+      ],
+      "CVE-2026-67316": [
+       "CWE-1321"
+      ],
+      "CVE-2026-67319": [
+       "CWE-1321"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Lodash",
+     "cpe": [
+      "lodash:lodash"
+     ],
+     "version": "4.17.15",
+     "evidence": "npm package lodash 4.17.15",
+     "cves": {
+      "CVE-2026-2950": [
+       "CWE-1321"
+      ],
+      "CVE-2026-4800": [
+       "CWE-94"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-027.txt": {
+   "format": "analyst-notes",
+   "products": [],
+   "ignored": [
+    {
+     "name": "WinRAR",
+     "cpe": [
+      "rarlab:winrar"
+     ],
+     "evidence": "We saw WinRAR running, but could not determine which release."
+    },
+    {
+     "name": "nginx",
+     "cpe": [
+      "f5:nginx",
+      "nginx:nginx",
+      "f5:nginx_open_source"
+     ],
+     "evidence": "Something on port 80 looks like nginx, but it would not give us a version."
+    },
+    {
+     "name": "vsftpd",
+     "cpe": [
+      "vsftpd_project:vsftpd",
+      "beasts:vsftpd"
+     ],
+     "evidence": "There are signs of vsftpd (config files and a service account), version unknown."
+    }
+   ],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-028.json": {
+   "format": "spdx-json",
+   "products": [
+    {
+     "name": "PostgreSQL",
+     "cpe": [
+      "postgresql:postgresql"
+     ],
+     "version": "13.2",
+     "evidence": "apk package postgresql 13.2-r16",
+     "cves": {
+      "CVE-2026-6472": [
+       "CWE-862"
+      ],
+      "CVE-2026-6473": [
+       "CWE-190"
+      ],
+      "CVE-2026-6474": [
+       "CWE-134"
+      ],
+      "CVE-2026-6475": [
+       "CWE-61"
+      ],
+      "CVE-2026-6477": [
+       "CWE-120",
+       "CWE-242"
+      ],
+      "CVE-2026-6478": [
+       "CWE-385"
+      ],
+      "CVE-2026-6479": [
+       "CWE-674"
+      ],
+      "CVE-2026-6637": [
+       "CWE-121",
+       "CWE-89"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Django",
+     "cpe": [
+      "djangoproject:django"
+     ],
+     "version": "2.2.10",
+     "evidence": "pypi package Django 2.2.10",
+     "cves": {
+      "CVE-2026-15307": [
+       "CWE-73",
+       "CWE-918"
+      ],
+      "CVE-2026-15337": [
+       "CWE-789"
+      ],
+      "CVE-2026-15830": [
+       "CWE-674"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-029.txt": {
+   "format": "host-report",
+   "products": [
+    {
+     "name": "nginx",
+     "cpe": [
+      "f5:nginx",
+      "nginx:nginx",
+      "f5:nginx_open_source"
+     ],
+     "version": "1.14.0",
+     "evidence": "80/tcp open http nginx 1.14.0",
+     "cves": {
+      "CVE-2026-1642": [
+       "CWE-345",
+       "CWE-349"
+      ],
+      "CVE-2026-27651": [
+       "CWE-476"
+      ],
+      "CVE-2026-27654": [
+       "CWE-120",
+       "CWE-122"
+      ],
+      "CVE-2026-27784": [
+       "CWE-190"
+      ],
+      "CVE-2026-28753": [
+       "CWE-93"
+      ],
+      "CVE-2026-32647": [
+       "CWE-125"
+      ],
+      "CVE-2026-42055": [
+       "CWE-122",
+       "CWE-131",
+       "CWE-787"
+      ],
+      "CVE-2026-42934": [
+       "CWE-125"
+      ],
+      "CVE-2026-42945": [
+       "CWE-122",
+       "CWE-131"
+      ],
+      "CVE-2026-42946": [
+       "CWE-789",
+       "CWE-823"
+      ],
+      "CVE-2026-48142": [
+       "CWE-125"
+      ],
+      "CVE-2026-9256": [
+       "CWE-122"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Django",
+     "cpe": [
+      "djangoproject:django"
+     ],
+     "version": "2.2.10",
+     "evidence": "ii python3-django 2:2.2.10-1ubuntu0.7",
+     "cves": {
+      "CVE-2026-15307": [
+       "CWE-73",
+       "CWE-918"
+      ],
+      "CVE-2026-15337": [
+       "CWE-789"
+      ],
+      "CVE-2026-15830": [
+       "CWE-674"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Exim",
+     "cpe": [
+      "exim:exim"
+     ],
+     "version": "4.87",
+     "evidence": "ii exim4-daemon-light 4.87-1ubuntu1",
+     "cves": {
+      "CVE-2026-40684": [
+       "CWE-684"
+      ],
+      "CVE-2026-40685": [
+       "CWE-684",
+       "CWE-787"
+      ],
+      "CVE-2026-40686": [
+       "CWE-125"
+      ],
+      "CVE-2026-40687": [
+       "CWE-909"
+      ],
+      "CVE-2026-66140": [
+       "CWE-24"
+      ],
+      "CVE-2026-66141": [
+       "CWE-829"
+      ],
+      "CVE-2026-94054": [
+       "CWE-787"
+      ],
+      "CVE-2026-94055": [
+       "CWE-416"
+      ],
+      "CVE-2026-94056": [
+       "CWE-908"
+      ],
+      "CVE-2026-94057": [
+       "CWE-93"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [
+    {
+     "name": "Dovecot",
+     "cpe": [
+      "dovecot:dovecot",
+      "open-xchange:dovecot"
+     ],
+     "evidence": "143/tcp open imap Dovecot imapd"
+    }
+   ],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-030.txt": {
+   "format": "banners",
+   "products": [
+    {
+     "name": "Apache ActiveMQ",
+     "cpe": [
+      "apache:activemq",
+      "apache:activemq_broker"
+     ],
+     "version": "5.18.2",
+     "evidence": "\\x00\\x00\\x01\\x0c\\x01ActiveMQ\\x00\\x00\\x00\\x0c\\x01...ProviderName\\x09\\x00\\x08ActiveMQ...ProviderVersion\\x09\\x00\\x065.18.2..PlatformDetails\\x09\\x00\\x2bJVM: 11.0.19",
+     "cves": {
+      "CVE-2026-33227": [
+       "CWE-22"
+      ],
+      "CVE-2026-34197": [
+       "CWE-20",
+       "CWE-78",
+       "CWE-94"
+      ],
+      "CVE-2026-39304": [
+       "CWE-400",
+       "CWE-770"
+      ],
+      "CVE-2026-40466": [
+       "CWE-20",
+       "CWE-94"
+      ],
+      "CVE-2026-41043": [
+       "CWE-79",
+       "CWE-915"
+      ],
+      "CVE-2026-41044": [
+       "CWE-20",
+       "CWE-94"
+      ],
+      "CVE-2026-42253": [
+       "CWE-79"
+      ],
+      "CVE-2026-42588": [
+       "CWE-20",
+       "CWE-94"
+      ],
+      "CVE-2026-45505": [
+       "CWE-20",
+       "CWE-94"
+      ],
+      "CVE-2026-46605": [
+       "CWE-285"
+      ],
+      "CVE-2026-49157": [
+       "CWE-276"
+      ],
+      "CVE-2026-49270": [
+       "CWE-1230"
+      ],
+      "CVE-2026-49432": [
+       "CWE-20"
+      ],
+      "CVE-2026-49434": [
+       "CWE-20"
+      ],
+      "CVE-2026-49877": [
+       "CWE-285"
+      ],
+      "CVE-2026-50734": [
+       "CWE-789"
+      ],
+      "CVE-2026-52760": [
+       "CWE-79"
+      ],
+      "CVE-2026-53916": [
+       "CWE-789"
+      ],
+      "CVE-2026-53917": [
+       "CWE-789"
+      ],
+      "CVE-2026-54475": [
+       "CWE-862"
+      ],
+      "CVE-2026-59878": [
+       "CWE-20"
+      ],
+      "CVE-2026-61487": [
+       "CWE-285"
+      ],
+      "CVE-2026-74761": [
+       "CWE-20"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Samba",
+     "cpe": [
+      "samba:samba"
+     ],
+     "version": "4.13.17",
+     "evidence": "$ smbclient -L //fileserver -N Anonymous login successful Domain=[WORKGROUP] OS=[Windows 6.1] Server=[Samba 4.13.17]  \tSharename       Type      Comment \t---------       ----      ------- \tpublic",
+     "cves": {
+      "CVE-2026-2340": [
+       "CWE-280"
+      ],
+      "CVE-2026-4408": [
+       "CWE-78"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Net-SNMP",
+     "cpe": [
+      "net-snmp:net-snmp"
+     ],
+     "version": "5.7.3",
+     "evidence": "$ snmpget -v2c -c public 10.0.0.1 SNMPv2-MIB::sysDescr.0 SNMPv2-MIB::sysDescr.0 = STRING: Linux gw01 5.4.0-150-generic #167-Ubuntu SMP x86_64 $ snmpwalk -v2c -c public 10.0.0.1 NET-SNMP-AGENT-MIB::nsV",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "lighttpd",
+     "cpe": [
+      "lighttpd:lighttpd"
+     ],
+     "version": "1.4.35",
+     "evidence": "Server: lighttpd/1.4.35",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "Jenkins",
+     "cpe": [
+      "jenkins:jenkins"
+     ],
+     "version": "2.441",
+     "evidence": "X-Jenkins: 2.441; X-Hudson: 1.395; X-Jenkins-Session: a1b2c3d4",
+     "cves": {
+      "CVE-2026-27100": [
+       "CWE-200"
+      ],
+      "CVE-2026-33001": [
+       "CWE-22",
+       "CWE-59"
+      ],
+      "CVE-2026-33002": [
+       "CWE-350"
+      ],
+      "CVE-2026-53435": [
+       "CWE-502"
+      ],
+      "CVE-2026-53436": [
+       "CWE-601"
+      ],
+      "CVE-2026-53437": [
+       "CWE-601"
+      ],
+      "CVE-2026-53438": [
+       "CWE-862"
+      ],
+      "CVE-2026-53439": [
+       "CWE-862"
+      ],
+      "CVE-2026-53440": [
+       "CWE-601"
+      ],
+      "CVE-2026-53442": [
+       "CWE-311"
+      ],
+      "CVE-2026-70427": [
+       "CWE-59"
+      ],
+      "CVE-2026-70428": [
+       "CWE-22"
+      ],
+      "CVE-2026-70429": [
+       "CWE-178"
+      ],
+      "CVE-2026-70430": [
+       "CWE-284"
+      ],
+      "CVE-2026-84645": [
+       "CWE-915",
+       "CWE-94"
+      ],
+      "CVE-2026-84646": [
+       "CWE-502"
+      ],
+      "CVE-2026-84648": [
+       "CWE-79"
+      ],
+      "CVE-2026-84650": [
+       "CWE-502",
+       "CWE-566"
+      ],
+      "CVE-2026-84651": [
+       "CWE-284"
+      ],
+      "CVE-2026-84652": [
+       "CWE-384"
+      ],
+      "CVE-2026-84653": [
+       "CWE-862"
+      ],
+      "CVE-2026-84655": [
+       "CWE-116"
+      ],
+      "CVE-2026-84656": [
+       "CWE-862"
+      ],
+      "CVE-2026-84657": [
+       "CWE-862"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [
+    "java",
+    "jdk",
+    "jre",
+    "openjdk"
+   ],
+   "note": ""
+  },
+  "doc-031.txt": {
+   "format": "html",
+   "products": [
+    {
+     "name": "Elasticsearch",
+     "cpe": [
+      "elastic:elasticsearch",
+      "elasticsearch:elasticsearch"
+     ],
+     "version": "5.6.16",
+     "evidence": "{\n  \"name\" : \"node-1\",\n  \"cluster_name\" : \"prod\",\n  \"version\" : {\n    \"number\" : \"5.6.16\",\n    \"build_flavor\" : \"default\",\n    \"lucene_version\" : \"8.7.0\"\n  },\n  \"tagline\" : \"You Know, for Search\"\n}",
+     "cves": {
+      "CVE-2026-72683": [
+       "CWE-674"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "phpMyAdmin",
+     "cpe": [
+      "phpmyadmin:phpmyadmin"
+     ],
+     "version": "5.1.1",
+     "evidence": "<title>phpMyAdmin</title>\n<link rel=\"stylesheet\" type=\"text/css\" href=\"./themes/pmahomme/css/theme.css?v=5.1.1&nocache=4652486383ltr&server=1\" />\n<script data-cfasync=\"false\" type=\"text/javascript\" sr",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "Lodash",
+     "cpe": [
+      "lodash:lodash"
+     ],
+     "version": "4.17.20",
+     "evidence": "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js\"></script>",
+     "cves": {
+      "CVE-2026-2950": [
+       "CWE-1321"
+      ],
+      "CVE-2026-4800": [
+       "CWE-94"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Drupal",
+     "cpe": [
+      "drupal:drupal"
+     ],
+     "version": "8.5.0",
+     "evidence": "Drupal 8.5.0, 2018-02-21\n-----------------------\n- Fixed security issues (multiple vulnerabilities). See SA-CORE-2018-001.",
+     "cves": {
+      "CVE-2026-55803": [
+       "CWE-915"
+      ],
+      "CVE-2026-55804": [
+       "CWE-915"
+      ],
+      "CVE-2026-55806": [
+       "CWE-601"
+      ],
+      "CVE-2026-55807": [
+       "CWE-918"
+      ],
+      "CVE-2026-55808": [
+       "CWE-79"
+      ],
+      "CVE-2026-6365": [
+       "CWE-79"
+      ],
+      "CVE-2026-6366": [
+       "CWE-915"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-032.txt": {
+   "format": "analyst-notes",
+   "products": [],
+   "ignored": [],
+   "tolerated": [],
+   "note": "no software identified"
+  },
+  "doc-033.txt": {
+   "format": "nmap-normal",
+   "products": [
+    {
+     "name": "Redis",
+     "cpe": [
+      "redis:redis",
+      "redislabs:redis"
+     ],
+     "version": "5.0.7",
+     "evidence": "6379/tcp open redis Redis key-value store 5.0.7",
+     "cves": {
+      "CVE-2026-23631": [
+       "CWE-416"
+      ],
+      "CVE-2026-25243": [
+       "CWE-122"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "OpenSSH",
+     "cpe": [
+      "openbsd:openssh"
+     ],
+     "version": "7.4p1",
+     "evidence": "22/tcp open ssh OpenSSH 7.4p1 Ubuntu 2ubuntu0.6 (Ubuntu Linux; protocol 2.0)",
+     "cves": {
+      "CVE-2026-106587": [
+       "CWE-843"
+      ],
+      "CVE-2026-35385": [
+       "CWE-281"
+      ],
+      "CVE-2026-35387": [
+       "CWE-670"
+      ],
+      "CVE-2026-35388": [
+       "CWE-420"
+      ],
+      "CVE-2026-35414": [
+       "CWE-670"
+      ],
+      "CVE-2026-59995": [
+       "CWE-23"
+      ],
+      "CVE-2026-59996": [
+       "CWE-23"
+      ],
+      "CVE-2026-59997": [
+       "CWE-1284"
+      ],
+      "CVE-2026-59998": [
+       "CWE-573"
+      ],
+      "CVE-2026-59999": [
+       "CWE-348"
+      ],
+      "CVE-2026-60000": [
+       "CWE-770"
+      ],
+      "CVE-2026-60001": [
+       "CWE-770"
+      ],
+      "CVE-2026-60002": [
+       "CWE-416"
+      ],
+      "CVE-2026-73281": [
+       "CWE-669"
+      ],
+      "CVE-2026-73282": [
+       "CWE-416"
+      ],
+      "CVE-2026-73283": [
+       "CWE-670"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-034.json": {
+   "format": "syft-json",
+   "products": [
+    {
+     "name": "zlib",
+     "cpe": [
+      "zlib:zlib"
+     ],
+     "version": "1.2.11",
+     "evidence": "apk package zlib 1.2.11-r14",
+     "cves": {
+      "CVE-2026-22184": [
+       "CWE-120",
+       "CWE-787"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "lighttpd",
+     "cpe": [
+      "lighttpd:lighttpd"
+     ],
+     "version": "1.4.35",
+     "evidence": "apk package lighttpd 1.4.35-r4",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "OpenSSL",
+     "cpe": [
+      "openssl:openssl"
+     ],
+     "version": "3.0.2",
+     "evidence": "apk package libssl3 3.0.2-r1",
+     "cves": {
+      "CVE-2026-22795": [
+       "CWE-754"
+      ],
+      "CVE-2026-22796": [
+       "CWE-754"
+      ],
+      "CVE-2026-28387": [
+       "CWE-416"
+      ],
+      "CVE-2026-28388": [
+       "CWE-476"
+      ],
+      "CVE-2026-28389": [
+       "CWE-476"
+      ],
+      "CVE-2026-28390": [
+       "CWE-476"
+      ],
+      "CVE-2026-31789": [
+       "CWE-787"
+      ],
+      "CVE-2026-31790": [
+       "CWE-754"
+      ],
+      "CVE-2026-34180": [
+       "CWE-125"
+      ],
+      "CVE-2026-34182": [
+       "CWE-354"
+      ],
+      "CVE-2026-35189": [
+       "CWE-770"
+      ],
+      "CVE-2026-42766": [
+       "CWE-476"
+      ],
+      "CVE-2026-42767": [
+       "CWE-476"
+      ],
+      "CVE-2026-42770": [
+       "CWE-325"
+      ],
+      "CVE-2026-45445": [
+       "CWE-325"
+      ],
+      "CVE-2026-45446": [
+       "CWE-325"
+      ],
+      "CVE-2026-45447": [
+       "CWE-416",
+       "CWE-825"
+      ],
+      "CVE-2026-54872": [
+       "CWE-208"
+      ],
+      "CVE-2026-54874": [
+       "CWE-405"
+      ],
+      "CVE-2026-63072": [
+       "CWE-787"
+      ],
+      "CVE-2026-63074": [
+       "CWE-770"
+      ],
+      "CVE-2026-63076": [
+       "CWE-476"
+      ],
+      "CVE-2026-7383": [
+       "CWE-787"
+      ],
+      "CVE-2026-75803": [
+       "CWE-354"
+      ],
+      "CVE-2026-75805": [
+       "CWE-476"
+      ],
+      "CVE-2026-75806": [
+       "CWE-1284"
+      ],
+      "CVE-2026-77696": [
+       "CWE-208"
+      ],
+      "CVE-2026-84782": [
+       "CWE-125"
+      ],
+      "CVE-2026-9076": [
+       "CWE-125"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Redis",
+     "cpe": [
+      "redis:redis",
+      "redislabs:redis"
+     ],
+     "version": "5.0.7",
+     "evidence": "apk package redis 5.0.7-r19",
+     "cves": {
+      "CVE-2026-23631": [
+       "CWE-416"
+      ],
+      "CVE-2026-25243": [
+       "CWE-122"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-035.txt": {
+   "format": "dpkg-list",
+   "products": [
+    {
+     "name": "SQLite",
+     "cpe": [
+      "sqlite:sqlite"
+     ],
+     "version": "3.22.0",
+     "evidence": "ii  libsqlite3-0 3.22.0-6ubuntu0.10",
+     "cves": {
+      "CVE-2026-11822": [
+       "CWE-122"
+      ],
+      "CVE-2026-11824": [
+       "CWE-122"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Pillow",
+     "cpe": [
+      "python:pillow"
+     ],
+     "version": "6.2.1",
+     "evidence": "ii  python3-pil 6.2.1-3",
+     "cves": {
+      "CVE-2026-42308": [
+       "CWE-190"
+      ],
+      "CVE-2026-42310": [
+       "CWE-835"
+      ],
+      "CVE-2026-54058": [
+       "CWE-125"
+      ],
+      "CVE-2026-54059": [
+       "CWE-789"
+      ],
+      "CVE-2026-54060": [
+       "CWE-789"
+      ],
+      "CVE-2026-55379": [
+       "CWE-789"
+      ],
+      "CVE-2026-55380": [
+       "CWE-789"
+      ],
+      "CVE-2026-55798": [
+       "CWE-78"
+      ],
+      "CVE-2026-59197": [
+       "CWE-190",
+       "CWE-787"
+      ],
+      "CVE-2026-59198": [
+       "CWE-125"
+      ],
+      "CVE-2026-59199": [
+       "CWE-190",
+       "CWE-787"
+      ],
+      "CVE-2026-59200": [
+       "CWE-400",
+       "CWE-770"
+      ],
+      "CVE-2026-59205": [
+       "CWE-787"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-036.txt": {
+   "format": "banners",
+   "products": [
+    {
+     "name": "ProFTPD",
+     "cpe": [
+      "proftpd:proftpd",
+      "proftpd_project:proftpd"
+     ],
+     "version": "1.3.5b",
+     "evidence": "220 ProFTPD 1.3.5b Server (Debian) [::ffff:10.3.235.183]",
+     "cves": {
+      "CVE-2026-35025": [
+       "CWE-59"
+      ],
+      "CVE-2026-42167": [
+       "CWE-89"
+      ],
+      "CVE-2026-53994": [
+       "CWE-122"
+      ],
+      "CVE-2026-63090": [
+       "CWE-122"
+      ],
+      "CVE-2026-63091": [
+       "CWE-126",
+       "CWE-190"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "OpenSSH",
+     "cpe": [
+      "openbsd:openssh"
+     ],
+     "version": "7.2p2",
+     "evidence": "SSH-2.0-OpenSSH_7.2p2",
+     "cves": {
+      "CVE-2026-106587": [
+       "CWE-843"
+      ],
+      "CVE-2026-35385": [
+       "CWE-281"
+      ],
+      "CVE-2026-35387": [
+       "CWE-670"
+      ],
+      "CVE-2026-35388": [
+       "CWE-420"
+      ],
+      "CVE-2026-35414": [
+       "CWE-670"
+      ],
+      "CVE-2026-59995": [
+       "CWE-23"
+      ],
+      "CVE-2026-59996": [
+       "CWE-23"
+      ],
+      "CVE-2026-59997": [
+       "CWE-1284"
+      ],
+      "CVE-2026-59998": [
+       "CWE-573"
+      ],
+      "CVE-2026-59999": [
+       "CWE-348"
+      ],
+      "CVE-2026-60000": [
+       "CWE-770"
+      ],
+      "CVE-2026-60001": [
+       "CWE-770"
+      ],
+      "CVE-2026-60002": [
+       "CWE-416"
+      ],
+      "CVE-2026-73281": [
+       "CWE-669"
+      ],
+      "CVE-2026-73282": [
+       "CWE-416"
+      ],
+      "CVE-2026-73283": [
+       "CWE-670"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "MariaDB",
+     "cpe": [
+      "mariadb:mariadb"
+     ],
+     "version": "10.1.48",
+     "evidence": "[\\x00\\x00\\x00\\x0a5.5.5-10.1.48-MariaDB-0ubuntu0.20.04.1\\x00\\x2a\\x00\\x00\\x00...",
+     "cves": {
+      "CVE-2026-3494": [
+       "CWE-778"
+      ],
+      "CVE-2026-35549": [
+       "CWE-789"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [
+    {
+     "name": "Postfix",
+     "cpe": [
+      "postfix:postfix"
+     ],
+     "evidence": "220 mx1.corp.example ESMTP Postfix (Ubuntu)"
+    }
+   ],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-037.txt": {
+   "format": "nmap-grepable",
+   "products": [
+    {
+     "name": "lighttpd",
+     "cpe": [
+      "lighttpd:lighttpd"
+     ],
+     "version": "1.4.35",
+     "evidence": "80/tcp open http lighttpd 1.4.35",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "Elasticsearch",
+     "cpe": [
+      "elastic:elasticsearch",
+      "elasticsearch:elasticsearch"
+     ],
+     "version": "1.4.2",
+     "evidence": "9200/tcp open http Elasticsearch REST API 1.4.2 (name: node-1; cluster: prod; Lucene 8.7.0)",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "ISC BIND",
+     "cpe": [
+      "isc:bind"
+     ],
+     "version": "9.16.1",
+     "evidence": "53/tcp open domain ISC BIND 9.16.1",
+     "cves": {
+      "CVE-2026-1519": [
+       "CWE-606",
+       "CWE-770"
+      ],
+      "CVE-2026-3039": [
+       "CWE-770",
+       "CWE-771"
+      ],
+      "CVE-2026-3592": [
+       "CWE-408"
+      ],
+      "CVE-2026-5946": [
+       "CWE-125",
+       "CWE-1287",
+       "CWE-20",
+       "CWE-617",
+       "CWE-754",
+       "CWE-843"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "OpenSSH",
+     "cpe": [
+      "openbsd:openssh"
+     ],
+     "version": "8.2p1",
+     "evidence": "22/tcp open ssh OpenSSH 8.2p1 (protocol 2.0)",
+     "cves": {
+      "CVE-2026-106587": [
+       "CWE-843"
+      ],
+      "CVE-2026-35385": [
+       "CWE-281"
+      ],
+      "CVE-2026-35387": [
+       "CWE-670"
+      ],
+      "CVE-2026-35388": [
+       "CWE-420"
+      ],
+      "CVE-2026-35414": [
+       "CWE-670"
+      ],
+      "CVE-2026-59995": [
+       "CWE-23"
+      ],
+      "CVE-2026-59996": [
+       "CWE-23"
+      ],
+      "CVE-2026-59997": [
+       "CWE-1284"
+      ],
+      "CVE-2026-59998": [
+       "CWE-573"
+      ],
+      "CVE-2026-59999": [
+       "CWE-348"
+      ],
+      "CVE-2026-60000": [
+       "CWE-770"
+      ],
+      "CVE-2026-60001": [
+       "CWE-770"
+      ],
+      "CVE-2026-60002": [
+       "CWE-416"
+      ],
+      "CVE-2026-73281": [
+       "CWE-669"
+      ],
+      "CVE-2026-73282": [
+       "CWE-416"
+      ],
+      "CVE-2026-73283": [
+       "CWE-670"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Microsoft IIS",
+     "cpe": [
+      "microsoft:internet_information_services"
+     ],
+     "version": "10.0",
+     "evidence": "80/tcp open http Microsoft IIS httpd 10.0",
+     "cves": {},
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-038.txt": {
+   "format": "analyst-notes",
+   "products": [
+    {
+     "name": "Node.js",
+     "cpe": [
+      "nodejs:node.js"
+     ],
+     "version": "10.19.0",
+     "evidence": "The package manager lists Node.js at 10.19.0.",
+     "cves": {
+      "CVE-2026-21637": [
+       "CWE-400"
+      ],
+      "CVE-2026-21710": [
+       "CWE-770",
+       "CWE-843"
+      ],
+      "CVE-2026-21711": [
+       "CWE-284"
+      ],
+      "CVE-2026-21713": [
+       "CWE-208"
+      ],
+      "CVE-2026-21714": [
+       "CWE-401"
+      ],
+      "CVE-2026-21715": [
+       "CWE-732"
+      ],
+      "CVE-2026-21716": [
+       "CWE-862"
+      ],
+      "CVE-2026-21717": [
+       "CWE-328"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Microsoft IIS",
+     "cpe": [
+      "microsoft:internet_information_services"
+     ],
+     "version": "7.5",
+     "evidence": "Judging by the install directory, the deployed Microsoft IIS is probably 7.5.",
+     "cves": {},
+     "optional_cves": []
+    }
+   ],
+   "ignored": [
+    {
+     "name": "Net-SNMP",
+     "cpe": [
+      "net-snmp:net-snmp"
+     ],
+     "evidence": "There are signs of Net-SNMP (config files and a service account), version unknown."
+    }
+   ],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-039.txt": {
+   "format": "http-headers",
+   "products": [
+    {
+     "name": "nginx",
+     "cpe": [
+      "f5:nginx",
+      "nginx:nginx",
+      "f5:nginx_open_source"
+     ],
+     "version": "1.10.3",
+     "evidence": "Server: nginx/1.10.3",
+     "cves": {
+      "CVE-2026-1642": [
+       "CWE-345",
+       "CWE-349"
+      ],
+      "CVE-2026-27651": [
+       "CWE-476"
+      ],
+      "CVE-2026-27654": [
+       "CWE-120",
+       "CWE-122"
+      ],
+      "CVE-2026-27784": [
+       "CWE-190"
+      ],
+      "CVE-2026-28753": [
+       "CWE-93"
+      ],
+      "CVE-2026-32647": [
+       "CWE-125"
+      ],
+      "CVE-2026-42055": [
+       "CWE-122",
+       "CWE-131",
+       "CWE-787"
+      ],
+      "CVE-2026-42934": [
+       "CWE-125"
+      ],
+      "CVE-2026-42945": [
+       "CWE-122",
+       "CWE-131"
+      ],
+      "CVE-2026-42946": [
+       "CWE-789",
+       "CWE-823"
+      ],
+      "CVE-2026-48142": [
+       "CWE-125"
+      ],
+      "CVE-2026-9256": [
+       "CWE-122"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Microsoft IIS",
+     "cpe": [
+      "microsoft:internet_information_services"
+     ],
+     "version": "10.0",
+     "evidence": "Server: Microsoft-IIS/10.0",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "OpenSSL",
+     "cpe": [
+      "openssl:openssl"
+     ],
+     "version": "1.1.0g",
+     "evidence": "Server: ... OpenSSL/1.1.0g",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "PHP",
+     "cpe": [
+      "php:php"
+     ],
+     "version": "8.1.2",
+     "evidence": "Server: ... PHP/8.1.2",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "Apache HTTP Server",
+     "cpe": [
+      "apache:http_server"
+     ],
+     "version": "2.4.29",
+     "evidence": "Server: Apache/2.4.29 (Unix) OpenSSL/1.1.0g PHP/8.1.2",
+     "cves": {
+      "CVE-2026-24072": [
+       "CWE-269"
+      ],
+      "CVE-2026-28780": [
+       "CWE-122",
+       "CWE-787"
+      ],
+      "CVE-2026-29167": [
+       "CWE-416"
+      ],
+      "CVE-2026-29169": [
+       "CWE-476"
+      ],
+      "CVE-2026-29170": [
+       "CWE-79"
+      ],
+      "CVE-2026-33006": [
+       "CWE-208"
+      ],
+      "CVE-2026-33007": [
+       "CWE-476"
+      ],
+      "CVE-2026-33523": [
+       "CWE-443"
+      ],
+      "CVE-2026-33857": [
+       "CWE-125"
+      ],
+      "CVE-2026-34032": [
+       "CWE-125",
+       "CWE-170"
+      ],
+      "CVE-2026-34059": [
+       "CWE-126"
+      ],
+      "CVE-2026-34355": [
+       "CWE-120",
+       "CWE-122"
+      ],
+      "CVE-2026-34356": [
+       "CWE-122"
+      ],
+      "CVE-2026-42356": [
+       "CWE-430"
+      ],
+      "CVE-2026-42528": [
+       "CWE-789"
+      ],
+      "CVE-2026-42535": [
+       "CWE-668"
+      ],
+      "CVE-2026-42536": [
+       "CWE-120",
+       "CWE-122"
+      ],
+      "CVE-2026-43951": [
+       "CWE-125"
+      ],
+      "CVE-2026-44119": [
+       "CWE-269"
+      ],
+      "CVE-2026-44185": [
+       "CWE-125",
+       "CWE-126"
+      ],
+      "CVE-2026-44186": [
+       "CWE-835"
+      ],
+      "CVE-2026-44631": [
+       "CWE-124"
+      ],
+      "CVE-2026-46729": [
+       "CWE-476"
+      ],
+      "CVE-2026-48005": [
+       "CWE-306"
+      ],
+      "CVE-2026-49975": [
+       "CWE-409",
+       "CWE-789"
+      ],
+      "CVE-2026-56153": [
+       "CWE-787"
+      ],
+      "CVE-2026-56154": [
+       "CWE-416"
+      ],
+      "CVE-2026-56449": [
+       "CWE-787"
+      ],
+      "CVE-2026-57941": [
+       "CWE-416"
+      ],
+      "CVE-2026-58415": [
+       "CWE-552"
+      ],
+      "CVE-2026-59685": [
+       "CWE-787"
+      ],
+      "CVE-2026-59797": [
+       "CWE-269"
+      ],
+      "CVE-2026-63045": [
+       "CWE-284"
+      ],
+      "CVE-2026-63292": [
+       "CWE-121"
+      ],
+      "CVE-2026-63686": [
+       "CWE-476"
+      ],
+      "CVE-2026-73636": [
+       "CWE-294"
+      ],
+      "CVE-2026-73637": [
+       "CWE-416"
+      ],
+      "CVE-2026-79768": [
+       "CWE-55"
+      ],
+      "CVE-2026-93546": [
+       "CWE-190"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-040.txt": {
+   "format": "banners",
+   "products": [
+    {
+     "name": "NTP",
+     "cpe": [
+      "ntp:ntp"
+     ],
+     "version": "4.2.6p5",
+     "evidence": "$ ntpq -c rv timesrv associd=0 status=0615 leap_none, sync_ntp, 1 event, clock_sync,\nversion=\"ntpd 4.2.6p5@1.2483-o Fri Mar 13 2020 UTC (1)\",\nprocessor=\"x86_64\", system=\"Linux/5.4.0-150-generic\", leap",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "vsftpd",
+     "cpe": [
+      "vsftpd_project:vsftpd",
+      "beasts:vsftpd"
+     ],
+     "version": "3.0.3",
+     "evidence": "220 (vsFTPd 3.0.3)",
+     "cves": {},
+     "optional_cves": []
+    }
+   ],
+   "ignored": [
+    {
+     "name": "Postfix",
+     "cpe": [
+      "postfix:postfix"
+     ],
+     "evidence": "220 mail.corp.example ESMTP Postfix (Ubuntu)"
+    }
+   ],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-041.txt": {
+   "format": "ps-aux",
+   "products": [],
+   "ignored": [
+    {
+     "name": "OpenSSH",
+     "cpe": [
+      "openbsd:openssh"
+     ],
+     "evidence": "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
+    },
+    {
+     "name": "OpenVPN",
+     "cpe": [
+      "openvpn:openvpn"
+     ],
+     "evidence": "/usr/sbin/openvpn --daemon ovpn-server --config /etc/openvpn/server.conf"
+    }
+   ],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-042.json": {
+   "format": "syft-json",
+   "products": [
+    {
+     "name": "Apache Tomcat",
+     "cpe": [
+      "apache:tomcat"
+     ],
+     "version": "9.0.30",
+     "evidence": "deb package tomcat9 9.0.30-5",
+     "cves": {
+      "CVE-2026-24733": [
+       "CWE-20"
+      ],
+      "CVE-2026-24880": [
+       "CWE-444"
+      ],
+      "CVE-2026-25854": [
+       "CWE-601"
+      ],
+      "CVE-2026-29146": [
+       "CWE-1240",
+       "CWE-209",
+       "CWE-642"
+      ],
+      "CVE-2026-34487": [
+       "CWE-532"
+      ],
+      "CVE-2026-41284": [
+       "CWE-770"
+      ],
+      "CVE-2026-41293": [
+       "CWE-20"
+      ],
+      "CVE-2026-42498": [
+       "CWE-200"
+      ],
+      "CVE-2026-43512": [
+       "CWE-592"
+      ],
+      "CVE-2026-43513": [
+       "CWE-178"
+      ],
+      "CVE-2026-43514": [
+       "CWE-208"
+      ],
+      "CVE-2026-43515": [
+       "CWE-285"
+      ],
+      "CVE-2026-50229": [
+       "CWE-80"
+      ],
+      "CVE-2026-53404": [
+       "CWE-670"
+      ],
+      "CVE-2026-55276": [
+       "CWE-670"
+      ],
+      "CVE-2026-55955": [
+       "CWE-287"
+      ],
+      "CVE-2026-55956": [
+       "CWE-285"
+      ],
+      "CVE-2026-55957": [
+       "CWE-304"
+      ],
+      "CVE-2026-59083": [
+       "CWE-177"
+      ],
+      "CVE-2026-59084": [
+       "CWE-1059"
+      ],
+      "CVE-2026-65182": [
+       "CWE-284",
+       "CWE-863"
+      ],
+      "CVE-2026-65905": [
+       "CWE-294"
+      ],
+      "CVE-2026-65927": [
+       "CWE-193"
+      ],
+      "CVE-2026-66422": [
+       "CWE-285"
+      ],
+      "CVE-2026-68525": [
+       "CWE-863"
+      ],
+      "CVE-2026-68569": [
+       "CWE-287"
+      ],
+      "CVE-2026-68763": [
+       "CWE-400"
+      ],
+      "CVE-2026-73180": [
+       "CWE-613"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Postfix",
+     "cpe": [
+      "postfix:postfix"
+     ],
+     "version": "3.6.4",
+     "evidence": "deb package postfix 3.6.4-1ubuntu15",
+     "cves": {
+      "CVE-2026-43964": [
+       "CWE-193"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "PostgreSQL",
+     "cpe": [
+      "postgresql:postgresql"
+     ],
+     "version": "13.2",
+     "evidence": "deb package postgresql-13 13.2-1.pgdg20.04+7",
+     "cves": {
+      "CVE-2026-6472": [
+       "CWE-862"
+      ],
+      "CVE-2026-6473": [
+       "CWE-190"
+      ],
+      "CVE-2026-6474": [
+       "CWE-134"
+      ],
+      "CVE-2026-6475": [
+       "CWE-61"
+      ],
+      "CVE-2026-6477": [
+       "CWE-120",
+       "CWE-242"
+      ],
+      "CVE-2026-6478": [
+       "CWE-385"
+      ],
+      "CVE-2026-6479": [
+       "CWE-674"
+      ],
+      "CVE-2026-6637": [
+       "CWE-121",
+       "CWE-89"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Flask",
+     "cpe": [
+      "palletsprojects:flask"
+     ],
+     "version": "0.12.2",
+     "evidence": "pypi package Flask 0.12.2",
+     "cves": {
+      "CVE-2026-27205": [
+       "CWE-524"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Apache Struts",
+     "cpe": [
+      "apache:struts"
+     ],
+     "version": "2.3.31",
+     "evidence": "maven package org.apache.struts:struts2-core 2.3.31",
+     "cves": {
+      "CVE-2026-104711": [
+       "CWE-917"
+      ],
+      "CVE-2026-104713": [
+       "CWE-770"
+      ],
+      "CVE-2026-104714": [
+       "CWE-362"
+      ],
+      "CVE-2026-73633": [
+       "CWE-400"
+      ],
+      "CVE-2026-73635": [
+       "CWE-770"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [
+    "python"
+   ],
+   "note": ""
+  },
+  "doc-043.txt": {
+   "format": "nmap-grepable",
+   "products": [
+    {
+     "name": "ISC BIND",
+     "cpe": [
+      "isc:bind"
+     ],
+     "version": "9.16.1",
+     "evidence": "53/tcp open domain ISC BIND 9.16.1",
+     "cves": {
+      "CVE-2026-1519": [
+       "CWE-606",
+       "CWE-770"
+      ],
+      "CVE-2026-3039": [
+       "CWE-770",
+       "CWE-771"
+      ],
+      "CVE-2026-3592": [
+       "CWE-408"
+      ],
+      "CVE-2026-5946": [
+       "CWE-125",
+       "CWE-1287",
+       "CWE-20",
+       "CWE-617",
+       "CWE-754",
+       "CWE-843"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [
+    {
+     "name": "Postfix",
+     "cpe": [
+      "postfix:postfix"
+     ],
+     "evidence": "25/tcp open smtp Postfix smtpd"
+    }
+   ],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-044.json": {
+   "format": "cyclonedx-json",
+   "products": [
+    {
+     "name": "OpenSSL",
+     "cpe": [
+      "openssl:openssl"
+     ],
+     "version": "1.0.2k",
+     "evidence": "apk package libssl1.0.2 1.0.2k-r7",
+     "cves": {},
+     "optional_cves": [
+      "CVE-2026-22796",
+      "CVE-2026-28388",
+      "CVE-2026-28389",
+      "CVE-2026-28390",
+      "CVE-2026-34180",
+      "CVE-2026-35189",
+      "CVE-2026-42766",
+      "CVE-2026-45447",
+      "CVE-2026-54872",
+      "CVE-2026-54874",
+      "CVE-2026-7383",
+      "CVE-2026-84782",
+      "CVE-2026-9076"
+     ]
+    },
+    {
+     "name": "OpenVPN",
+     "cpe": [
+      "openvpn:openvpn"
+     ],
+     "version": "2.4.4",
+     "evidence": "apk package openvpn 2.4.4-r3",
+     "cves": {
+      "CVE-2026-11771": [
+       "CWE-121",
+       "CWE-193",
+       "CWE-787"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Memcached",
+     "cpe": [
+      "memcached:memcached"
+     ],
+     "version": "1.5.6",
+     "evidence": "apk package memcached 1.5.6-r20",
+     "cves": {
+      "CVE-2026-47783": [
+       "CWE-208"
+      ],
+      "CVE-2026-47784": [
+       "CWE-208"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Node.js",
+     "cpe": [
+      "nodejs:node.js"
+     ],
+     "version": "16.13.0",
+     "evidence": "apk package nodejs 16.13.0-r4",
+     "cves": {
+      "CVE-2026-21637": [
+       "CWE-400"
+      ],
+      "CVE-2026-21710": [
+       "CWE-770",
+       "CWE-843"
+      ],
+      "CVE-2026-21711": [
+       "CWE-284"
+      ],
+      "CVE-2026-21713": [
+       "CWE-208"
+      ],
+      "CVE-2026-21714": [
+       "CWE-401"
+      ],
+      "CVE-2026-21715": [
+       "CWE-732"
+      ],
+      "CVE-2026-21716": [
+       "CWE-862"
+      ],
+      "CVE-2026-21717": [
+       "CWE-328"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-045.txt": {
+   "format": "analyst-notes",
+   "products": [
+    {
+     "name": "Apache Commons Collections",
+     "cpe": [
+      "apache:commons_collections"
+     ],
+     "version": "3.2.1",
+     "evidence": "The package manager lists Apache Commons Collections at 3.2.1.",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "GNU C Library",
+     "cpe": [
+      "gnu:glibc"
+     ],
+     "version": "2.31",
+     "evidence": "`ldd --version | head -1` on the box prints version 2.31 for GNU C Library.",
+     "cves": {
+      "CVE-2026-0861": [
+       "CWE-190"
+      ],
+      "CVE-2026-0915": [
+       "CWE-908"
+      ],
+      "CVE-2026-4046": [
+       "CWE-617"
+      ],
+      "CVE-2026-5435": [
+       "CWE-787"
+      ],
+      "CVE-2026-5450": [
+       "CWE-122",
+       "CWE-787"
+      ],
+      "CVE-2026-5928": [
+       "CWE-127"
+      ],
+      "CVE-2026-6238": [
+       "CWE-126"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "MySQL",
+     "cpe": [
+      "oracle:mysql",
+      "oracle:mysql_server",
+      "mysql_project:mysql"
+     ],
+     "version": "8.0.32",
+     "evidence": "Port 3306 answers with a banner that identifies it as MySQL 8.0.32.",
+     "cves": {
+      "CVE-2026-21936": [],
+      "CVE-2026-21937": [],
+      "CVE-2026-21941": [
+       "CWE-400"
+      ],
+      "CVE-2026-21948": [
+       "CWE-400"
+      ],
+      "CVE-2026-21964": [],
+      "CVE-2026-21968": [],
+      "CVE-2026-21998": [
+       "CWE-400"
+      ],
+      "CVE-2026-22001": [
+       "CWE-200"
+      ],
+      "CVE-2026-22002": [
+       "CWE-400"
+      ],
+      "CVE-2026-22004": [
+       "CWE-400"
+      ],
+      "CVE-2026-22005": [
+       "CWE-400"
+      ],
+      "CVE-2026-22009": [
+       "CWE-400"
+      ],
+      "CVE-2026-22015": [
+       "CWE-200"
+      ],
+      "CVE-2026-22017": [
+       "CWE-400"
+      ],
+      "CVE-2026-34267": [
+       "CWE-400"
+      ],
+      "CVE-2026-34270": [
+       "CWE-400"
+      ],
+      "CVE-2026-34271": [
+       "CWE-400"
+      ],
+      "CVE-2026-34276": [
+       "CWE-400"
+      ],
+      "CVE-2026-34278": [
+       "CWE-400"
+      ],
+      "CVE-2026-34293": [
+       "CWE-400"
+      ],
+      "CVE-2026-34303": [
+       "CWE-400"
+      ],
+      "CVE-2026-34304": [
+       "CWE-400"
+      ],
+      "CVE-2026-34308": [
+       "CWE-400"
+      ],
+      "CVE-2026-34317": [
+       "CWE-404"
+      ],
+      "CVE-2026-34318": [
+       "CWE-200"
+      ],
+      "CVE-2026-34319": [
+       "CWE-204"
+      ],
+      "CVE-2026-35236": [
+       "CWE-284"
+      ],
+      "CVE-2026-35237": [
+       "CWE-284"
+      ],
+      "CVE-2026-35238": [
+       "CWE-284"
+      ],
+      "CVE-2026-35239": [
+       "CWE-284"
+      ],
+      "CVE-2026-35240": [
+       "CWE-284"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-046.txt": {
+   "format": "http-headers",
+   "products": [
+    {
+     "name": "lighttpd",
+     "cpe": [
+      "lighttpd:lighttpd"
+     ],
+     "version": "1.4.55",
+     "evidence": "Server: lighttpd/1.4.55",
+     "cves": {},
+     "optional_cves": []
+    }
+   ],
+   "ignored": [
+    {
+     "name": "Drupal",
+     "cpe": [
+      "drupal:drupal"
+     ],
+     "evidence": "X-Generator: Drupal 7 (https://www.drupal.org)"
+    }
+   ],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-047.json": {
+   "format": "npm-lock",
+   "products": [
+    {
+     "name": "minimist",
+     "cpe": [
+      "substack:minimist"
+     ],
+     "version": "0.0.8",
+     "evidence": "node_modules/minimist 0.0.8",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "axios",
+     "cpe": [
+      "axios:axios"
+     ],
+     "version": "1.5.1",
+     "evidence": "node_modules/axios 1.5.1",
+     "cves": {
+      "CVE-2026-25639": [
+       "CWE-1287",
+       "CWE-754"
+      ],
+      "CVE-2026-39865": [
+       "CWE-400",
+       "CWE-662"
+      ],
+      "CVE-2026-40175": [
+       "CWE-113",
+       "CWE-444",
+       "CWE-915",
+       "CWE-918"
+      ],
+      "CVE-2026-42033": [
+       "CWE-1321",
+       "CWE-915"
+      ],
+      "CVE-2026-42034": [
+       "CWE-770"
+      ],
+      "CVE-2026-42035": [
+       "CWE-113",
+       "CWE-1321"
+      ],
+      "CVE-2026-42036": [
+       "CWE-770"
+      ],
+      "CVE-2026-42037": [
+       "CWE-93"
+      ],
+      "CVE-2026-42038": [
+       "CWE-918"
+      ],
+      "CVE-2026-42039": [
+       "CWE-674",
+       "CWE-770"
+      ],
+      "CVE-2026-42040": [
+       "CWE-116",
+       "CWE-626"
+      ],
+      "CVE-2026-42041": [
+       "CWE-1321",
+       "CWE-287",
+       "CWE-915"
+      ],
+      "CVE-2026-42042": [
+       "CWE-183",
+       "CWE-201"
+      ],
+      "CVE-2026-42043": [
+       "CWE-183",
+       "CWE-441",
+       "CWE-918"
+      ],
+      "CVE-2026-42044": [
+       "CWE-1321",
+       "CWE-915"
+      ],
+      "CVE-2026-42264": [
+       "CWE-1321",
+       "CWE-915"
+      ],
+      "CVE-2026-44486": [
+       "CWE-200",
+       "CWE-201"
+      ],
+      "CVE-2026-44487": [
+       "CWE-201"
+      ],
+      "CVE-2026-44490": [
+       "CWE-1321"
+      ],
+      "CVE-2026-44492": [
+       "CWE-289",
+       "CWE-918"
+      ],
+      "CVE-2026-44494": [
+       "CWE-1321",
+       "CWE-441",
+       "CWE-915"
+      ],
+      "CVE-2026-44495": [
+       "CWE-1321",
+       "CWE-915",
+       "CWE-94"
+      ],
+      "CVE-2026-44496": [
+       "CWE-1333",
+       "CWE-400"
+      ],
+      "CVE-2026-67312": [
+       "CWE-400"
+      ],
+      "CVE-2026-67313": [
+       "CWE-400"
+      ],
+      "CVE-2026-67316": [
+       "CWE-1321"
+      ],
+      "CVE-2026-67319": [
+       "CWE-1321"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Express",
+     "cpe": [
+      "openjsf:express"
+     ],
+     "version": "4.18.2",
+     "evidence": "node_modules/express 4.18.2",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "jQuery",
+     "cpe": [
+      "jquery:jquery"
+     ],
+     "version": "3.4.1",
+     "evidence": "node_modules/jquery 3.4.1",
+     "cves": {},
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-048.xml": {
+   "format": "nmap-xml",
+   "products": [
+    {
+     "name": "ProFTPD",
+     "cpe": [
+      "proftpd:proftpd",
+      "proftpd_project:proftpd"
+     ],
+     "version": "1.3.5",
+     "evidence": "21/tcp open ftp ProFTPD 1.3.5",
+     "cves": {
+      "CVE-2026-35025": [
+       "CWE-59"
+      ],
+      "CVE-2026-42167": [
+       "CWE-89"
+      ],
+      "CVE-2026-53994": [
+       "CWE-122"
+      ],
+      "CVE-2026-63090": [
+       "CWE-122"
+      ],
+      "CVE-2026-63091": [
+       "CWE-126",
+       "CWE-190"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "MariaDB",
+     "cpe": [
+      "mariadb:mariadb"
+     ],
+     "version": "10.1.48",
+     "evidence": "3306/tcp open mysql MySQL 5.5.5-10.1.48-MariaDB-0ubuntu0.20.04.1",
+     "cves": {
+      "CVE-2026-3494": [
+       "CWE-778"
+      ],
+      "CVE-2026-35549": [
+       "CWE-789"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "nginx",
+     "cpe": [
+      "f5:nginx",
+      "nginx:nginx",
+      "f5:nginx_open_source"
+     ],
+     "version": "1.20.1",
+     "evidence": "80/tcp open http nginx 1.20.1",
+     "cves": {
+      "CVE-2026-1642": [
+       "CWE-345",
+       "CWE-349"
+      ],
+      "CVE-2026-27651": [
+       "CWE-476"
+      ],
+      "CVE-2026-27654": [
+       "CWE-120",
+       "CWE-122"
+      ],
+      "CVE-2026-27784": [
+       "CWE-190"
+      ],
+      "CVE-2026-28753": [
+       "CWE-93"
+      ],
+      "CVE-2026-32647": [
+       "CWE-125"
+      ],
+      "CVE-2026-40701": [
+       "CWE-416"
+      ],
+      "CVE-2026-42055": [
+       "CWE-122",
+       "CWE-131",
+       "CWE-787"
+      ],
+      "CVE-2026-42934": [
+       "CWE-125"
+      ],
+      "CVE-2026-42945": [
+       "CWE-122",
+       "CWE-131"
+      ],
+      "CVE-2026-42946": [
+       "CWE-789",
+       "CWE-823"
+      ],
+      "CVE-2026-48142": [
+       "CWE-125"
+      ],
+      "CVE-2026-9256": [
+       "CWE-122"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Apache ActiveMQ",
+     "cpe": [
+      "apache:activemq",
+      "apache:activemq_broker"
+     ],
+     "version": "5.15.3",
+     "evidence": "61616/tcp open apachemq ActiveMQ OpenWire transport 5.15.3",
+     "cves": {
+      "CVE-2026-33227": [
+       "CWE-22"
+      ],
+      "CVE-2026-34197": [
+       "CWE-20",
+       "CWE-78",
+       "CWE-94"
+      ],
+      "CVE-2026-39304": [
+       "CWE-400",
+       "CWE-770"
+      ],
+      "CVE-2026-40466": [
+       "CWE-20",
+       "CWE-94"
+      ],
+      "CVE-2026-41043": [
+       "CWE-79",
+       "CWE-915"
+      ],
+      "CVE-2026-41044": [
+       "CWE-20",
+       "CWE-94"
+      ],
+      "CVE-2026-42253": [
+       "CWE-79"
+      ],
+      "CVE-2026-42588": [
+       "CWE-20",
+       "CWE-94"
+      ],
+      "CVE-2026-45505": [
+       "CWE-20",
+       "CWE-94"
+      ],
+      "CVE-2026-46605": [
+       "CWE-285"
+      ],
+      "CVE-2026-49157": [
+       "CWE-276"
+      ],
+      "CVE-2026-49270": [
+       "CWE-1230"
+      ],
+      "CVE-2026-49432": [
+       "CWE-20"
+      ],
+      "CVE-2026-49434": [
+       "CWE-20"
+      ],
+      "CVE-2026-49877": [
+       "CWE-285"
+      ],
+      "CVE-2026-50734": [
+       "CWE-789"
+      ],
+      "CVE-2026-52760": [
+       "CWE-79"
+      ],
+      "CVE-2026-53916": [
+       "CWE-789"
+      ],
+      "CVE-2026-53917": [
+       "CWE-789"
+      ],
+      "CVE-2026-54475": [
+       "CWE-862"
+      ],
+      "CVE-2026-59878": [
+       "CWE-20"
+      ],
+      "CVE-2026-61487": [
+       "CWE-285"
+      ],
+      "CVE-2026-74761": [
+       "CWE-20"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-049.json": {
+   "format": "cyclonedx-json",
+   "products": [
+    {
+     "name": "SQLite",
+     "cpe": [
+      "sqlite:sqlite"
+     ],
+     "version": "3.22.0",
+     "evidence": "deb package libsqlite3-0 3.22.0-9ubuntu0.17",
+     "cves": {
+      "CVE-2026-11822": [
+       "CWE-122"
+      ],
+      "CVE-2026-11824": [
+       "CWE-122"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "phpMyAdmin",
+     "cpe": [
+      "phpmyadmin:phpmyadmin"
+     ],
+     "version": "4.9.0.1",
+     "evidence": "deb package phpmyadmin 4:4.9.0.1+dfsg1-3",
+     "cves": {},
+     "optional_cves": []
+    },
+    {
+     "name": "curl",
+     "cpe": [
+      "haxx:curl",
+      "curl_project:curl"
+     ],
+     "version": "8.3.0",
+     "evidence": "deb package curl 8.3.0-1ubuntu1.7",
+     "cves": {
+      "CVE-2026-10536": [
+       "CWE-416"
+      ],
+      "CVE-2026-11856": [
+       "CWE-294"
+      ],
+      "CVE-2026-12064": [
+       "CWE-295",
+       "CWE-297"
+      ],
+      "CVE-2026-13608": [
+       "CWE-923"
+      ],
+      "CVE-2026-18924": [
+       "CWE-416"
+      ],
+      "CVE-2026-1965": [
+       "CWE-305"
+      ],
+      "CVE-2026-19931": [
+       "CWE-488"
+      ],
+      "CVE-2026-3783": [
+       "CWE-522"
+      ],
+      "CVE-2026-3784": [
+       "CWE-305"
+      ],
+      "CVE-2026-4873": [
+       "CWE-295",
+       "CWE-319"
+      ],
+      "CVE-2026-5545": [
+       "CWE-305",
+       "CWE-613"
+      ],
+      "CVE-2026-5773": [
+       "CWE-488",
+       "CWE-918"
+      ],
+      "CVE-2026-6253": [
+       "CWE-522"
+      ],
+      "CVE-2026-6276": [
+       "CWE-319",
+       "CWE-346"
+      ],
+      "CVE-2026-6429": [
+       "CWE-200"
+      ],
+      "CVE-2026-7168": [
+       "CWE-294"
+      ],
+      "CVE-2026-80230": [
+       "CWE-295"
+      ],
+      "CVE-2026-80231": [
+       "CWE-488"
+      ],
+      "CVE-2026-82209": [
+       "CWE-201"
+      ],
+      "CVE-2026-8286": [
+       "CWE-295"
+      ],
+      "CVE-2026-8458": [
+       "CWE-488"
+      ],
+      "CVE-2026-8924": [
+       "CWE-201"
+      ],
+      "CVE-2026-8927": [
+       "CWE-294"
+      ],
+      "CVE-2026-8932": [
+       "CWE-305"
+      ],
+      "CVE-2026-9547": [
+       "CWE-297"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Django",
+     "cpe": [
+      "djangoproject:django"
+     ],
+     "version": "2.2.10",
+     "evidence": "pypi package Django 2.2.10",
+     "cves": {
+      "CVE-2026-15307": [
+       "CWE-73",
+       "CWE-918"
+      ],
+      "CVE-2026-15337": [
+       "CWE-789"
+      ],
+      "CVE-2026-15830": [
+       "CWE-674"
+      ]
+     },
+     "optional_cves": []
+    },
+    {
+     "name": "Pillow",
+     "cpe": [
+      "python:pillow"
+     ],
+     "version": "8.0.0",
+     "evidence": "pypi package Pillow 8.0.0",
+     "cves": {
+      "CVE-2026-42308": [
+       "CWE-190"
+      ],
+      "CVE-2026-42310": [
+       "CWE-835"
+      ],
+      "CVE-2026-54058": [
+       "CWE-125"
+      ],
+      "CVE-2026-54059": [
+       "CWE-789"
+      ],
+      "CVE-2026-54060": [
+       "CWE-789"
+      ],
+      "CVE-2026-55379": [
+       "CWE-789"
+      ],
+      "CVE-2026-55380": [
+       "CWE-789"
+      ],
+      "CVE-2026-55798": [
+       "CWE-78"
+      ],
+      "CVE-2026-59197": [
+       "CWE-190",
+       "CWE-787"
+      ],
+      "CVE-2026-59198": [
+       "CWE-125"
+      ],
+      "CVE-2026-59199": [
+       "CWE-190",
+       "CWE-787"
+      ],
+      "CVE-2026-59200": [
+       "CWE-400",
+       "CWE-770"
+      ],
+      "CVE-2026-59205": [
+       "CWE-787"
+      ]
+     },
+     "optional_cves": []
+    }
+   ],
+   "ignored": [],
+   "tolerated": [],
+   "note": ""
+  },
+  "doc-050.txt": {
+   "format": "dpkg-list",
+   "products": [],
+   "ignored": [],
+   "tolerated": [],
+   "note": "only base packages"
+  }
+ }
+}

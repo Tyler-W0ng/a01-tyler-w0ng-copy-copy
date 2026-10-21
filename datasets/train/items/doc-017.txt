@@ -1,0 +1,9 @@
+user@stage08:~$ uname -a
+Linux stage08 5.4.0-90-generic #84-Ubuntu SMP x86_64 GNU/Linux
+user@stage08:~$ mongod --version
+db version v4.0.3
+git version: 913d6b62acfbb344dde1b116f4161360acd8fd13
+user@stage08:~$ nginx -v
+nginx version: nginx/1.18.0
+user@stage08:~$ git --version
+git version 2.34.1

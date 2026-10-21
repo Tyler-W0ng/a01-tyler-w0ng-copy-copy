@@ -1,0 +1,23 @@
+$ rpm -qa
+ncurses-base-5.9-14.20130511.el7_4.x86_64
+tar-1.26-35.el7.x86_64
+grep-2.20-3.el7.x86_64
+basesystem-10.0-7.el7.centos.x86_64
+kmod-20-28.el7.x86_64
+sed-4.2.2-7.el7.x86_64
+sqlite-libs-3.22.0-11.el8.x86_64
+bash-completion-2.1-8.el7.x86_64
+libgcrypt-1.5.3-14.el7.x86_64
+git-2.34.1-10.el8.x86_64
+diffutils-3.3-6.el7_9.x86_64
+filesystem-3.2-25.el7.x86_64
+shadow-utils-4.6-5.el7.x86_64
+e2fsprogs-1.42.9-19.el7.x86_64
+nodejs-10.19.0-16.el8.x86_64
+runc-1.0.0-rc6-17.el8.x86_64
+libcap-2.22-11.el7.x86_64
+libacl-2.2.51-15.el7.x86_64
+yum-3.4.3-168.el7.centos.x86_64
+openssh-server-7.4p1-3.el7.x86_64
+systemd-219-78.el7_9.7.x86_64
+rpm-4.11.3-48.el7_9.x86_64

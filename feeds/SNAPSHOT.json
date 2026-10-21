@@ -1,0 +1,11 @@
+{
+ "snapshot": "2026-10-12",
+ "note": "The A01 feeds, frozen: the students' template, the grader and the answer keys all use these files.",
+ "sources": {
+  "nvdcve-2.0-2026.json.gz": {"url": "https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-2026.json.gz", "lastModifiedDate": "2026-10-12T03:00:38-04:00", "sha256_uncompressed": "FBA321B28B85D631F02933D04BBBC79DF135B13847057CF32B972FEDE36FB275"},
+  "nvdcpe-2.0.tar.gz": {"url": "https://nvd.nist.gov/feeds/json/cpe/2.0/nvdcpe-2.0.tar.gz", "lastModifiedDate": "2026-10-09T23:50:01-04:00", "size_uncompressed": 901648756},
+  "cwec_latest.xml.zip": {"url": "https://cwe.mitre.org/data/xml/cwec_latest.xml.zip", "version": "CWE 4.20 (2026-04-30)"},
+  "capec_latest.xml": {"url": "https://capec.mitre.org/data/xml/capec_latest.xml", "version": "CAPEC 3.9 (2023-01-24)"},
+  "known_exploited_vulnerabilities.json": {"url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json", "version": "KEV 2026.10.08", "count": 1739}
+ }
+}

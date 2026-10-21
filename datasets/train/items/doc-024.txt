@@ -1,0 +1,20 @@
+$ curl -s http://ci02.prod.example.net/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Status</title>
+<title>phpMyAdmin</title>
+<link rel="stylesheet" type="text/css" href="./themes/pmahomme/css/theme.css?v=4.8.1&nocache=4652486383ltr&server=1" />
+<script data-cfasync="false" type="text/javascript" src="js/messages.php?l=en&v=4.8.1"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+</head>
+<body>
+<div id="app">Loading…</div>
+</body>
+</html>
+
+$ curl -s http://ci02.prod.example.net/CHANGELOG.txt | head -4
+Drupal 7.57, 2018-02-21
+-----------------------
+- Fixed security issues (multiple vulnerabilities). See SA-CORE-2018-001.

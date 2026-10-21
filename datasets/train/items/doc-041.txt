@@ -1,0 +1,9 @@
+$ ps auxww
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root          64  0.1  8.3 226291 52488 ?        Ss   Sep01   0:47 [kworker/0:1-events]
+systemd+      14  0.9  6.2 808353  1628 ?        Ss   Sep01   0:42 /lib/systemd/systemd-resolved
+root          84  0.3  6.1 496139 71691 ?        Ss   Sep01   0:21 /lib/systemd/systemd-journald
+syslog        12  0.7  5.1  68258 80768 ?        Ss   Sep01   0:45 /usr/sbin/rsyslogd -n -iNONE
+root          60  0.4  7.9 553288 48244 ?        Ss   Sep01   0:49 /lib/systemd/systemd-logind
+root         426  0.4  5.4 415203 94495 ?        Ss   Sep01   0:19 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+app          490  0.4  4.9 580636 60162 ?        Ss   Sep01   0:22 /usr/sbin/openvpn --daemon ovpn-server --config /etc/openvpn/server.conf

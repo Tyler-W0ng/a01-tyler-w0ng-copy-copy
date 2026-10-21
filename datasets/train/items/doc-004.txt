@@ -1,0 +1,20 @@
+$ curl -s http://dev03.corp.example/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Intranet Portal</title>
+<meta name="generator" content="WordPress 5.4.2" />
+<link rel="stylesheet" href="/wp-includes/css/dist/block-library/style.min.css?ver=5.4.2" />
+</head>
+<body>
+<div id="app">Loading…</div>
+</body>
+</html>
+
+$ curl -s 'http://dev03.corp.example:8983/solr/admin/info/system?wt=json' | jq .lucene
+{
+  "solr-spec-version": "7.7.2",
+  "solr-impl-version": "7.7.2 31d7ec7bbfdcd2c4cc61d9d35e962165410b65fe - ivera - 2019-07-19 15:11:04",
+  "lucene-spec-version": "7.7.2"
+}

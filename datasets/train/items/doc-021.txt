@@ -1,0 +1,8 @@
+user@stage03:~$ uname -a
+Linux stage03 5.4.0-129-generic #154-Ubuntu SMP x86_64 GNU/Linux
+user@stage03:~$ pkexec --version
+pkexec version 0.115
+user@stage03:~$ named -v
+BIND 9.9.5-Ubuntu (Stable Release) <id:a1b2c3d>
+user@stage03:~$ redis-server --version
+Redis server v=3.2.12 sha=00000000:0 malloc=jemalloc-5.2.1 bits=64 build=636cde3b5c7a3923

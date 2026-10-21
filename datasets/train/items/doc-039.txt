@@ -1,0 +1,23 @@
+$ curl -sI http://api03.corp.example/
+HTTP/1.1 200 OK
+Date: Mon, 07 Sep 2026 19:50:12 GMT
+Server: nginx/1.10.3
+Content-Type: text/html; charset=UTF-8
+Content-Length: 30747
+Vary: Accept-Encoding
+
+$ curl -sI http://web01.lab.example/
+HTTP/1.1 200 OK
+Date: Mon, 07 Sep 2026 10:21:12 GMT
+Server: Microsoft-IIS/10.0
+Content-Type: text/html; charset=UTF-8
+Content-Length: 11891
+Vary: Accept-Encoding
+
+$ curl -sI http://proxy09.prod.example.net/
+HTTP/1.1 200 OK
+Date: Mon, 07 Sep 2026 11:24:12 GMT
+Server: Apache/2.4.29 (Unix) OpenSSL/1.1.0g PHP/8.1.2
+Content-Type: text/html; charset=UTF-8
+Content-Length: 32933
+Connection: keep-alive

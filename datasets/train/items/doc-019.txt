@@ -1,0 +1,2 @@
+http://mon04.corp.example:8080 [200 OK] IP[10.19.88.235], phpMyAdmin[4.9.0.1], Title[Home], Country[RESERVED][ZZ], HTTPServer[nginx/1.16.1], nginx[1.16.1], X-Powered-By[PHP/5.6.40], PHP[5.6.40]
+http://files04.int.example.org:8080 [200 OK] Apache-Tomcat[7.0.94], HTTPServer[Apache/2.4.29], Apache[2.4.29], Country[RESERVED][ZZ], IP[172.23.4.61], Title[Home]
