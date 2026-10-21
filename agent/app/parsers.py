@@ -11,6 +11,25 @@ look up CVEs here - that is resolver.py and the MCP server.
 
 import json
 import re
+import xml.etree.ElementTree as ET
+
+
+def _ln(tag: str) -> str:
+    """XML local name, stripping any namespace."""
+    return tag.rsplit("}", 1)[-1]
+
+
+def _cpe_vp(cpe: str):
+    """(vendor, product) from a CPE 2.2 URI or 2.3 string, or None."""
+    cpe = (cpe or "").strip()
+    if not cpe.startswith("cpe:"):
+        return None
+    parts = cpe.split(":")
+    if len(parts) >= 5 and parts[1] == "2.3":
+        return (parts[3].lower(), parts[4].lower())
+    if len(parts) >= 4 and parts[1].startswith("/"):   # cpe:/a:vendor:product:...
+        return (parts[2].lower(), parts[3].lower())
+    return None
 
 # A packaging suffix after '-': distro build metadata, not the upstream version.
 _PKG_SUFFIX = re.compile(
@@ -143,6 +162,67 @@ def _parse_text(text):
     return _dedup(cands)
 
 
+# --- structured XML formats -----------------------------------------------
+
+def _parse_nmap_xml(text):
+    """nmap -oX: <service product=.. version=..> with an embedded <cpe>, which
+    gives the exact NVD vendor:product - better than any name guess."""
+    try:
+        root = ET.fromstring(text)
+    except ET.ParseError:
+        return []
+    cands = []
+    for svc in root.iter():
+        if _ln(svc.tag) != "service":
+            continue
+        product, ver = svc.get("product"), svc.get("version")
+        if not ver:
+            continue
+        vp = next((_cpe_vp(ch.text) for ch in svc if _ln(ch.tag) == "cpe"), None)
+        name = product or (vp[1] if vp else None)
+        if not name:
+            continue
+        c = _cand(name, ver, f"{name} {ver}")
+        if vp:
+            c["vp"] = vp          # resolve uses this directly, skipping search
+        cands.append(c)
+    return _dedup(cands)
+
+
+def _parse_maven_pom(text):
+    """Maven pom.xml: the <dependencies> artifactId + version (resolving
+    ${property} refs). Skips test scope and the schema's modelVersion."""
+    try:
+        root = ET.fromstring(text)
+    except ET.ParseError:
+        return []
+    props = {}
+    for el in root.iter():
+        if _ln(el.tag) == "properties":
+            for p in el:
+                props[_ln(p.tag)] = (p.text or "").strip()
+    cands = []
+    for dep in root.iter():
+        if _ln(dep.tag) != "dependency":
+            continue
+        aid = ver = scope = None
+        for ch in dep:
+            t = _ln(ch.tag)
+            if t == "artifactId":
+                aid = (ch.text or "").strip()
+            elif t == "version":
+                ver = (ch.text or "").strip()
+            elif t == "scope":
+                scope = (ch.text or "").strip()
+        if scope == "test":
+            continue
+        if ver and ver.startswith("${") and ver.endswith("}"):
+            ver = props.get(ver[2:-1], "")
+        if aid and ver and ver[:1].isdigit():
+            cands.append(_cand(aid, ver, f"{aid} {ver}"))
+    return _dedup(cands)
+
+
 def detect(text):
     """A coarse family label, for logging and the messy/structured decision."""
     head = text.lstrip()[:1]
@@ -161,6 +241,17 @@ def extract(text):
         cands, ok = _parse_json(text)
         if ok:
             return "json", cands, True
+
+    if fmt == "xml":
+        low = text.lower()
+        if "nmaprun" in low or "<service" in low:
+            cands = _parse_nmap_xml(text)
+            if cands:
+                return "nmap-xml", cands, True
+        if "modelversion" in low or "maven.apache.org/pom" in low:
+            cands = _parse_maven_pom(text)
+            if cands:
+                return "maven-pom", cands, True
 
     line_cands = _parse_lines(text)
     if line_cands:

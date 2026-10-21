@@ -46,7 +46,8 @@ ALIASES = {
     "libcurl": {("haxx", "curl"), ("curl", "curl")},
     # Node's CPE product is "node.js"; the bare word "node" shares no token.
     "node": {("nodejs", "node.js")},
-    # MySQL's daemon/binary name.
+    # Oracle owns MySQL; NVD files its CVEs under oracle:mysql, not mysql:mysql.
+    "mysql": {("oracle", "mysql")},
     "mysqld": {("oracle", "mysql")},
     # Debian/Ubuntu package name for Django.
     "python3-django": {("djangoproject", "django")},

@@ -114,11 +114,22 @@ def build(local, remote, only: set[str] | None = None):
             if resolver.is_neutral(c["name"]):
                 c["aliases"] = set()
                 continue
+            if c.get("vp"):                 # a parser gave the exact CPE (e.g. nmap)
+                c["aliases"] = {tuple(c["vp"])}
+                continue
             aliases = resolver.table(c["name"])
             if not aliases:
                 query = resolver.clean_name(c["name"])
                 hits = (await clients.call(
                     remote, "search_products", {"query": query}))["candidates"]
+                if not hits:
+                    # separators differ between package names and CPE products
+                    # ("commons-collections" vs "commons_collections"): retry
+                    # with '-/_/.' flattened to spaces (matches the CPE title).
+                    alt = query.replace("-", " ").replace("_", " ").replace(".", " ")
+                    if alt != query:
+                        hits = (await clients.call(
+                            remote, "search_products", {"query": alt}))["candidates"]
                 if not hits:
                     try:
                         kw = await llm.suggest_name(c["name"], config)
