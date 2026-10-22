@@ -1,0 +1,381 @@
+{
+ "dataset": "train",
+ "database": {
+  "snapshot": "2026-10-12",
+  "built_at": "2026-10-13T04:52:23+00:00",
+  "years": "2026",
+  "cpe_dictionary": "cve",
+  "nvd_feed_timestamp": "2026-10-12T03:00:38-04:00",
+  "kev_catalog_version": "2026.10.08"
+ },
+ "weights": {
+  "products": 0.4,
+  "cves": 0.4,
+  "cwe": 0.2
+ },
+ "overall": {
+  "documents": 15,
+  "products": 0.9533,
+  "cves": 1.0,
+  "cwe": 1.0,
+  "score": 98.13
+ },
+ "by_format": {
+  "analyst-notes": {
+   "documents": 2,
+   "products": 0.75,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 90.0
+  },
+  "banners": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "cyclonedx-json": {
+   "documents": 2,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "dpkg-list": {
+   "documents": 2,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "html": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "http-headers": {
+   "documents": 2,
+   "products": 0.9,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 96.0
+  },
+  "nmap-grepable": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "nmap-normal": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "nmap-xml": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "ps-aux": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": null,
+   "cwe": null,
+   "score": 100.0
+  },
+  "syft-json": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  }
+ },
+ "missing_outputs": [],
+ "documents": {
+  "doc-031.txt": {
+   "format": "html",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 4,
+    "found_products": 4,
+    "extra_products": 0,
+    "required_cves": 10,
+    "reported_cves": 10,
+    "correct_cves": 10
+   }
+  },
+  "doc-032.txt": {
+   "format": "analyst-notes",
+   "metrics": {
+    "products": 1.0,
+    "cves": null,
+    "cwe": null
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 0,
+    "found_products": 0,
+    "extra_products": 0,
+    "required_cves": 0,
+    "reported_cves": 0,
+    "correct_cves": 0
+   }
+  },
+  "doc-033.txt": {
+   "format": "nmap-normal",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "extra product amilia:store:5.0.7",
+    "extra product pretix:double_opt_in_step:346.53",
+    "4 reported CVE(s) do not apply"
+   ],
+   "counts": {
+    "expected_products": 2,
+    "found_products": 2,
+    "extra_products": 2,
+    "required_cves": 18,
+    "reported_cves": 22,
+    "correct_cves": 18
+   }
+  },
+  "doc-034.json": {
+   "format": "syft-json",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "extra product openssl:openssl:1.34.1",
+    "1 reported CVE(s) do not apply"
+   ],
+   "counts": {
+    "expected_products": 4,
+    "found_products": 4,
+    "extra_products": 1,
+    "required_cves": 32,
+    "reported_cves": 33,
+    "correct_cves": 32
+   }
+  },
+  "doc-035.txt": {
+   "format": "dpkg-list",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 2,
+    "found_products": 2,
+    "extra_products": 0,
+    "required_cves": 15,
+    "reported_cves": 15,
+    "correct_cves": 15
+   }
+  },
+  "doc-036.txt": {
+   "format": "banners",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "extra product uxgroupllc:cast_to_tv:172.22.47.14",
+    "4 reported CVE(s) do not apply"
+   ],
+   "counts": {
+    "expected_products": 3,
+    "found_products": 3,
+    "extra_products": 1,
+    "required_cves": 23,
+    "reported_cves": 27,
+    "correct_cves": 23
+   }
+  },
+  "doc-038.txt": {
+   "format": "analyst-notes",
+   "metrics": {
+    "products": 0.5,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "missed Microsoft IIS 7.5",
+    "extra product bordeaux-metropole:at_internet_piano_analytics:10.19.0",
+    "extra product microsoft:iis:7.5"
+   ],
+   "counts": {
+    "expected_products": 2,
+    "found_products": 1,
+    "extra_products": 2,
+    "required_cves": 8,
+    "reported_cves": 8,
+    "correct_cves": 8
+   }
+  },
+  "doc-039.txt": {
+   "format": "http-headers",
+   "metrics": {
+    "products": 0.8,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "missed Microsoft IIS 10.0",
+    "extra product microsoft:iis:10.0"
+   ],
+   "counts": {
+    "expected_products": 5,
+    "found_products": 4,
+    "extra_products": 1,
+    "required_cves": 51,
+    "reported_cves": 51,
+    "correct_cves": 51
+   }
+  },
+  "doc-041.txt": {
+   "format": "ps-aux",
+   "metrics": {
+    "products": 1.0,
+    "cves": null,
+    "cwe": null
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 0,
+    "found_products": 0,
+    "extra_products": 0,
+    "required_cves": 0,
+    "reported_cves": 0,
+    "correct_cves": 0
+   }
+  },
+  "doc-043.txt": {
+   "format": "nmap-grepable",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "extra product pretix:double_opt_in_step:97.31"
+   ],
+   "counts": {
+    "expected_products": 1,
+    "found_products": 1,
+    "extra_products": 1,
+    "required_cves": 4,
+    "reported_cves": 4,
+    "correct_cves": 4
+   }
+  },
+  "doc-044.json": {
+   "format": "cyclonedx-json",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "extra product openssl:openssl:1.34.1"
+   ],
+   "counts": {
+    "expected_products": 4,
+    "found_products": 4,
+    "extra_products": 1,
+    "required_cves": 11,
+    "reported_cves": 24,
+    "correct_cves": 11
+   }
+  },
+  "doc-046.txt": {
+   "format": "http-headers",
+   "metrics": {
+    "products": 1.0,
+    "cves": null,
+    "cwe": null
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 1,
+    "found_products": 1,
+    "extra_products": 0,
+    "required_cves": 0,
+    "reported_cves": 0,
+    "correct_cves": 0
+   }
+  },
+  "doc-048.xml": {
+   "format": "nmap-xml",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 4,
+    "found_products": 4,
+    "extra_products": 0,
+    "required_cves": 43,
+    "reported_cves": 43,
+    "correct_cves": 43
+   }
+  },
+  "doc-049.json": {
+   "format": "cyclonedx-json",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 5,
+    "found_products": 5,
+    "extra_products": 0,
+    "required_cves": 43,
+    "reported_cves": 43,
+    "correct_cves": 43
+   }
+  },
+  "doc-050.txt": {
+   "format": "dpkg-list",
+   "metrics": {
+    "products": 1.0,
+    "cves": null,
+    "cwe": null
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 0,
+    "found_products": 0,
+    "extra_products": 0,
+    "required_cves": 0,
+    "reported_cves": 0,
+    "correct_cves": 0
+   }
+  }
+ }
+}

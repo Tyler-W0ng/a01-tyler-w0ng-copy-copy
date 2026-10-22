@@ -1,0 +1,71 @@
+ Image agentlab/agent:latest Building 
+ Image agentlab/agent:latest Built 
+docker compose run --rm agent doc-031.txt doc-032.txt doc-033.txt doc-034.json doc-035.txt doc-036.txt doc-038.txt doc-039.txt doc-041.txt doc-043.txt doc-044.json doc-046.txt doc-048.xml doc-049.json doc-050.txt
+ Container agentlab-gateway-1 Running 
+ Container agentlab-mock-llm-1 Running 
+ Container agentlab-mcp-1 Running 
+ Container agentlab-mock-llm-1 Waiting 
+ Container agentlab-mock-llm-1 Healthy 
+ Container agentlab-mcp-1 Waiting 
+ Container agentlab-gateway-1 Waiting 
+ Container agentlab-mcp-1 Healthy 
+ Container agentlab-gateway-1 Healthy 
+ Container agentlab-agent-run-1aeac304b65c Creating 
+ Container agentlab-agent-run-1aeac304b65c Created 
+03:24:53 INFO    agent  mode: pipeline + processing server
+03:24:53 INFO    agent  model: external via http://gateway:4000/v1
+03:24:53 INFO    agent  tracing: off
+03:24:54 INFO    app.clients  mcp: local io offers list_inputs, read_input, write_output
+03:24:54 INFO    app.clients  mcp: http://mcp:8000/mcp offers db_info, get_capec, get_cve, get_cwe, get_kev, list_versions, search_products, vulnerabilities_for
+03:24:55 INFO    app.graph  inputs: doc-031.txt, doc-032.txt, doc-033.txt, doc-034.json, doc-035.txt, doc-036.txt, doc-038.txt, doc-039.txt, doc-041.txt, doc-043.txt, doc-044.json, doc-046.txt, doc-048.xml, doc-049.json, doc-050.txt
+03:24:58 INFO    app.graph  doc-031.txt [text]: 5 candidate(s)
+03:25:02 INFO    app.graph  item doc-031.txt      text 5 product(s), 10 CVE(s)
+03:25:04 INFO    app.graph  doc-032.txt [text]: 0 candidate(s)
+03:25:04 INFO    app.graph  item doc-032.txt      text 0 product(s), 0 CVE(s)
+03:25:05 INFO    app.graph  doc-033.txt [text]: 5 candidate(s)
+03:25:09 INFO    app.graph  item doc-033.txt      text 4 product(s), 22 CVE(s)
+03:25:09 INFO    app.graph  doc-034.json [json]: 13 candidate(s)
+03:25:16 INFO    app.graph  item doc-034.json     json 5 product(s), 33 CVE(s)
+03:25:16 INFO    app.graph  doc-035.txt [text]: 19 candidate(s)
+03:25:28 INFO    app.graph  item doc-035.txt      text 7 product(s), 18 CVE(s)
+03:25:29 INFO    app.graph  doc-036.txt [text]: 6 candidate(s)
+03:25:33 INFO    app.graph  item doc-036.txt      text 4 product(s), 27 CVE(s)
+03:25:34 INFO    app.graph  doc-038.txt [text]: 4 candidate(s)
+03:25:36 INFO    app.graph  item doc-038.txt      text 3 product(s), 8 CVE(s)
+03:25:38 INFO    app.graph  doc-039.txt [text]: 5 candidate(s)
+03:25:42 INFO    app.graph  item doc-039.txt      text 5 product(s), 51 CVE(s)
+03:25:43 INFO    app.graph  doc-041.txt [text]: 0 candidate(s)
+03:25:43 INFO    app.graph  item doc-041.txt      text 0 product(s), 0 CVE(s)
+03:25:44 INFO    app.graph  doc-043.txt [text]: 3 candidate(s)
+03:25:44 INFO    app.graph  item doc-043.txt      text 2 product(s), 4 CVE(s)
+03:25:44 INFO    app.graph  doc-044.json [json]: 14 candidate(s)
+03:25:56 INFO    app.graph  item doc-044.json     json 5 product(s), 24 CVE(s)
+03:25:58 INFO    app.graph  doc-046.txt [text]: 2 candidate(s)
+03:25:59 INFO    app.graph  item doc-046.txt      text 2 product(s), 5 CVE(s)
+03:25:59 INFO    app.graph  doc-048.xml [nmap-xml]: 4 candidate(s)
+03:25:59 INFO    app.graph  item doc-048.xml      nmap-xml 4 product(s), 43 CVE(s)
+03:25:59 INFO    app.graph  doc-049.json [json]: 26 candidate(s)
+03:26:16 INFO    app.graph  item doc-049.json     json 12 product(s), 47 CVE(s)
+03:26:16 INFO    app.graph  doc-050.txt [text]: 30 candidate(s)
+03:26:33 INFO    app.graph  item doc-050.txt      text 8 product(s), 9 CVE(s)
+
+item               kind     source      status  summary
+------------------------------------------------------------------------------
+doc-031.txt        text     ok          ok      5 product(s), 10 CVE(s)
+doc-032.txt        text     ok          ok      0 product(s), 0 CVE(s)
+doc-033.txt        text     ok          ok      4 product(s), 22 CVE(s)
+doc-034.json       json     ok          ok      5 product(s), 33 CVE(s)
+doc-035.txt        text     ok          ok      7 product(s), 18 CVE(s)
+doc-036.txt        text     ok          ok      4 product(s), 27 CVE(s)
+doc-038.txt        text     ok          ok      3 product(s), 8 CVE(s)
+doc-039.txt        text     ok          ok      5 product(s), 51 CVE(s)
+doc-041.txt        text     ok          ok      0 product(s), 0 CVE(s)
+doc-043.txt        text     ok          ok      2 product(s), 4 CVE(s)
+doc-044.json       json     ok          ok      5 product(s), 24 CVE(s)
+doc-046.txt        text     ok          ok      2 product(s), 5 CVE(s)
+doc-048.xml        nmap-xml ok          ok      4 product(s), 43 CVE(s)
+doc-049.json       json     ok          ok      12 product(s), 47 CVE(s)
+doc-050.txt        text     ok          ok      8 product(s), 9 CVE(s)
+
+  written to /work/output/items/ and run.json
+

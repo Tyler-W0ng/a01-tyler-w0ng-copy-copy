@@ -1,0 +1,231 @@
+{
+  "id": "doc-045.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:bordeaux-metropole:at_internet_piano_analytics:3.2.1:*:*:*:*:*:*:*",
+      "evidence": [
+        "The package manager lists Apache Commons Collections at 3.2.1. Port 3306 answers with a banner that identifies it as MySQL 8.0.32."
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:oracle:mysql_server:8.0.32:*:*:*:*:*:*:*",
+      "evidence": [
+        "The package manager lists Apache Commons Collections at 3.2.1. Port 3306 answers with a banner that identifies it as MySQL 8.0.32."
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-21964",
+          "cwes": []
+        },
+        {
+          "id": "CVE-2026-34317",
+          "cwes": [
+            "CWE-404"
+          ]
+        },
+        {
+          "id": "CVE-2026-34318",
+          "cwes": [
+            "CWE-200"
+          ]
+        },
+        {
+          "id": "CVE-2026-34319",
+          "cwes": [
+            "CWE-204"
+          ]
+        },
+        {
+          "id": "CVE-2026-21936",
+          "cwes": []
+        },
+        {
+          "id": "CVE-2026-21937",
+          "cwes": []
+        },
+        {
+          "id": "CVE-2026-21941",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-21948",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-21968",
+          "cwes": []
+        },
+        {
+          "id": "CVE-2026-21998",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-22001",
+          "cwes": [
+            "CWE-200"
+          ]
+        },
+        {
+          "id": "CVE-2026-22002",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-22004",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-22005",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-22009",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-22015",
+          "cwes": [
+            "CWE-200"
+          ]
+        },
+        {
+          "id": "CVE-2026-22017",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-34267",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-34270",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-34271",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-34276",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-34278",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-34293",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-34303",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-34304",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-34308",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-35236",
+          "cwes": [
+            "CWE-284"
+          ]
+        },
+        {
+          "id": "CVE-2026-35237",
+          "cwes": [
+            "CWE-284"
+          ]
+        },
+        {
+          "id": "CVE-2026-35238",
+          "cwes": [
+            "CWE-284"
+          ]
+        },
+        {
+          "id": "CVE-2026-35239",
+          "cwes": [
+            "CWE-284"
+          ]
+        },
+        {
+          "id": "CVE-2026-35240",
+          "cwes": [
+            "CWE-284"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:thelibrarian:the_librarian:192.168.18.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "Scope for this engagement was the 192.168.18.0/24 segment; testing window 2026-09-10 15:41-09:06 UTC. The host responded to ICMP and had a TTL of 64, consistent with Linux."
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-0612",
+          "cwes": []
+        },
+        {
+          "id": "CVE-2026-0613",
+          "cwes": [
+            "CWE-918"
+          ]
+        },
+        {
+          "id": "CVE-2026-0615",
+          "cwes": []
+        },
+        {
+          "id": "CVE-2026-0616",
+          "cwes": []
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:apache:commons_collections:3.2.1:*:*:*:*:*:*:*",
+      "evidence": [
+        "The package manager lists Apache Commons Collections at 3.2.1."
+      ],
+      "cves": []
+    }
+  ]
+}

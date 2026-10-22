@@ -1,0 +1,45 @@
+make: getcwd: No such file or directory
+ Image agentlab/agent:latest Building 
+ Image agentlab/agent:latest Built 
+docker compose run --rm agent doc-030.txt doc-037.txt doc-040.txt doc-042.json doc-045.txt doc-047.json
+ Container agentlab-mcp-1 Running 
+ Container agentlab-mock-llm-1 Running 
+ Container agentlab-gateway-1 Running 
+ Container agentlab-mock-llm-1 Waiting 
+ Container agentlab-mock-llm-1 Healthy 
+ Container agentlab-mcp-1 Waiting 
+ Container agentlab-gateway-1 Waiting 
+ Container agentlab-mcp-1 Healthy 
+ Container agentlab-gateway-1 Healthy 
+ Container agentlab-agent-run-368dce9e932e Creating 
+ Container agentlab-agent-run-368dce9e932e Created 
+03:21:27 INFO    agent  mode: pipeline + processing server
+03:21:27 INFO    agent  model: external via http://gateway:4000/v1
+03:21:27 INFO    agent  tracing: off
+03:21:28 INFO    app.clients  mcp: local io offers list_inputs, read_input, write_output
+03:21:28 INFO    app.clients  mcp: http://mcp:8000/mcp offers db_info, get_capec, get_cve, get_cwe, get_kev, list_versions, search_products, vulnerabilities_for
+03:21:28 INFO    app.graph  inputs: doc-030.txt, doc-037.txt, doc-040.txt, doc-042.json, doc-045.txt, doc-047.json
+03:21:32 INFO    app.graph  doc-030.txt [text]: 12 candidate(s)
+03:21:43 INFO    app.graph  item doc-030.txt      text 9 product(s), 49 CVE(s)
+03:21:45 INFO    app.graph  doc-037.txt [text]: 9 candidate(s)
+03:21:51 INFO    app.graph  item doc-037.txt      text 8 product(s), 24 CVE(s)
+03:21:53 INFO    app.graph  doc-040.txt [text]: 7 candidate(s)
+03:21:58 INFO    app.graph  item doc-040.txt      text 5 product(s), 1033 CVE(s)
+03:21:58 INFO    app.graph  doc-042.json [json]: 20 candidate(s)
+03:22:20 INFO    app.graph  item doc-042.json     json 9 product(s), 49 CVE(s)
+03:22:22 INFO    app.graph  doc-045.txt [text]: 4 candidate(s)
+03:22:24 INFO    app.graph  item doc-045.txt      text 4 product(s), 35 CVE(s)
+03:22:24 INFO    app.graph  doc-047.json [json]: 10 candidate(s)
+03:22:32 INFO    app.graph  item doc-047.json     json 7 product(s), 27 CVE(s)
+
+item               kind     source      status  summary
+------------------------------------------------------------------------------
+doc-030.txt        text     ok          ok      9 product(s), 49 CVE(s)
+doc-037.txt        text     ok          ok      8 product(s), 24 CVE(s)
+doc-040.txt        text     ok          ok      5 product(s), 1033 CVE(s)
+doc-042.json       json     ok          ok      9 product(s), 49 CVE(s)
+doc-045.txt        text     ok          ok      4 product(s), 35 CVE(s)
+doc-047.json       json     ok          ok      7 product(s), 27 CVE(s)
+
+  written to /work/output/items/ and run.json
+

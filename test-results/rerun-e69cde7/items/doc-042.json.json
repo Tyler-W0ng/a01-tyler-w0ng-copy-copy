@@ -1,0 +1,374 @@
+{
+  "id": "doc-042.json",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:gmplib:gmp:6.2.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "artifacts: libgmp10 2:6.2.0+dfsg-4"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:palletsprojects:flask:0.12.2:*:*:*:*:*:*:*",
+      "evidence": [
+        "artifacts: Flask 0.12.2"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-27205",
+          "cwes": [
+            "CWE-524"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:tqdm_project:tqdm:4.62.3:*:*:*:*:*:*:*",
+      "evidence": [
+        "artifacts: tqdm 4.62.3"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:pcre:pcre2:10.34:*:*:*:*:*:*:*",
+      "evidence": [
+        "artifacts: libpcre2-8-0 10.34-7ubuntu0.1"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-89156",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-89157",
+          "cwes": [
+            "CWE-190"
+          ]
+        },
+        {
+          "id": "CVE-2026-89158",
+          "cwes": [
+            "CWE-190"
+          ]
+        },
+        {
+          "id": "CVE-2026-89160",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-89161",
+          "cwes": [
+            "CWE-590"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:postgresql:postgresql:13.2-1.pgdg20.04+7:*:*:*:*:*:*:*",
+      "evidence": [
+        "artifacts: postgresql-13 13.2-1.pgdg20.04+7"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-6472",
+          "cwes": [
+            "CWE-862"
+          ]
+        },
+        {
+          "id": "CVE-2026-6473",
+          "cwes": [
+            "CWE-190"
+          ]
+        },
+        {
+          "id": "CVE-2026-6474",
+          "cwes": [
+            "CWE-134"
+          ]
+        },
+        {
+          "id": "CVE-2026-6475",
+          "cwes": [
+            "CWE-61"
+          ]
+        },
+        {
+          "id": "CVE-2026-6477",
+          "cwes": [
+            "CWE-242",
+            "CWE-120"
+          ]
+        },
+        {
+          "id": "CVE-2026-6478",
+          "cwes": [
+            "CWE-385"
+          ]
+        },
+        {
+          "id": "CVE-2026-6479",
+          "cwes": [
+            "CWE-674"
+          ]
+        },
+        {
+          "id": "CVE-2026-6637",
+          "cwes": [
+            "CWE-89",
+            "CWE-121"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:gnu:gnutls:3.6.13:*:*:*:*:*:*:*",
+      "evidence": [
+        "artifacts: libgnutls30 3.6.13-2ubuntu1.8"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-1584",
+          "cwes": [
+            "CWE-476"
+          ]
+        },
+        {
+          "id": "CVE-2026-33845",
+          "cwes": [
+            "CWE-191"
+          ]
+        },
+        {
+          "id": "CVE-2026-3832",
+          "cwes": [
+            "CWE-179"
+          ]
+        },
+        {
+          "id": "CVE-2026-3833",
+          "cwes": [
+            "CWE-178"
+          ]
+        },
+        {
+          "id": "CVE-2026-42009",
+          "cwes": [
+            "CWE-475"
+          ]
+        },
+        {
+          "id": "CVE-2026-42010",
+          "cwes": [
+            "CWE-170",
+            "CWE-626"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:apache:tomcat:9.0.30-5:*:*:*:*:*:*:*",
+      "evidence": [
+        "artifacts: tomcat9 9.0.30-5"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-24733",
+          "cwes": [
+            "CWE-20"
+          ]
+        },
+        {
+          "id": "CVE-2026-24880",
+          "cwes": [
+            "CWE-444"
+          ]
+        },
+        {
+          "id": "CVE-2026-25854",
+          "cwes": [
+            "CWE-601"
+          ]
+        },
+        {
+          "id": "CVE-2026-29146",
+          "cwes": [
+            "CWE-209",
+            "CWE-642",
+            "CWE-1240"
+          ]
+        },
+        {
+          "id": "CVE-2026-34487",
+          "cwes": [
+            "CWE-532"
+          ]
+        },
+        {
+          "id": "CVE-2026-41284",
+          "cwes": [
+            "CWE-770"
+          ]
+        },
+        {
+          "id": "CVE-2026-41293",
+          "cwes": [
+            "CWE-20"
+          ]
+        },
+        {
+          "id": "CVE-2026-42498",
+          "cwes": [
+            "CWE-200"
+          ]
+        },
+        {
+          "id": "CVE-2026-43512",
+          "cwes": [
+            "CWE-592"
+          ]
+        },
+        {
+          "id": "CVE-2026-43513",
+          "cwes": [
+            "CWE-178"
+          ]
+        },
+        {
+          "id": "CVE-2026-43514",
+          "cwes": [
+            "CWE-208"
+          ]
+        },
+        {
+          "id": "CVE-2026-43515",
+          "cwes": [
+            "CWE-285"
+          ]
+        },
+        {
+          "id": "CVE-2026-50229",
+          "cwes": [
+            "CWE-80"
+          ]
+        },
+        {
+          "id": "CVE-2026-53404",
+          "cwes": [
+            "CWE-670"
+          ]
+        },
+        {
+          "id": "CVE-2026-55276",
+          "cwes": [
+            "CWE-670"
+          ]
+        },
+        {
+          "id": "CVE-2026-55955",
+          "cwes": [
+            "CWE-287"
+          ]
+        },
+        {
+          "id": "CVE-2026-55956",
+          "cwes": [
+            "CWE-285"
+          ]
+        },
+        {
+          "id": "CVE-2026-55957",
+          "cwes": [
+            "CWE-304"
+          ]
+        },
+        {
+          "id": "CVE-2026-59083",
+          "cwes": [
+            "CWE-177"
+          ]
+        },
+        {
+          "id": "CVE-2026-59084",
+          "cwes": [
+            "CWE-1059"
+          ]
+        },
+        {
+          "id": "CVE-2026-65182",
+          "cwes": [
+            "CWE-284",
+            "CWE-863"
+          ]
+        },
+        {
+          "id": "CVE-2026-65905",
+          "cwes": [
+            "CWE-294"
+          ]
+        },
+        {
+          "id": "CVE-2026-65927",
+          "cwes": [
+            "CWE-193"
+          ]
+        },
+        {
+          "id": "CVE-2026-66422",
+          "cwes": [
+            "CWE-285"
+          ]
+        },
+        {
+          "id": "CVE-2026-68525",
+          "cwes": [
+            "CWE-863"
+          ]
+        },
+        {
+          "id": "CVE-2026-68569",
+          "cwes": [
+            "CWE-287"
+          ]
+        },
+        {
+          "id": "CVE-2026-68763",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-73180",
+          "cwes": [
+            "CWE-613"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:postfix:postfix:3.6.4:*:*:*:*:*:*:*",
+      "evidence": [
+        "artifacts: postfix 3.6.4-1ubuntu15"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-43964",
+          "cwes": [
+            "CWE-193"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:lz4_project:lz4:1.9.2:*:*:*:*:*:*:*",
+      "evidence": [
+        "artifacts: liblz4-1 1.9.2-2ubuntu0.20.04.1"
+      ],
+      "cves": []
+    }
+  ]
+}

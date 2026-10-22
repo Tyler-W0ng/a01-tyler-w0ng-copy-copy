@@ -1,0 +1,118 @@
+{
+  "id": "doc-050.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:gnu:gcc:10.5.0-1ubuntu1~20.04:*:*:*:*:*:*:*",
+      "evidence": [
+        "ii  gcc-10-base:amd64              10.5.0-1ubuntu1~20.04            amd64        GCC, the GNU Compiler Collection (base package)"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:visionsoft:audit:2.8.5:*:*:*:*:*:*:*",
+      "evidence": [
+        "ii  libaudit1:amd64                1:2.8.5-2ubuntu6                 amd64        Dynamic library for security auditing"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:libcap-ng_project:libcap-ng:0.7.9-2.1build1:*:*:*:*:*:*:*",
+      "evidence": [
+        "ii  libcap-ng0:amd64               0.7.9-2.1build1                  amd64        An alternate POSIX capabilities library"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:gmplib:gmp:6.2.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "ii  libgmp10:amd64                 2:6.2.0+dfsg-4                   amd64        Multiprecision arithmetic library"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:gnu:gnutls:3.6.13:*:*:*:*:*:*:*",
+      "evidence": [
+        "ii  libgnutls30:amd64              3.6.13-2ubuntu1.8                amd64        GNU TLS library - main runtime library"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-1584",
+          "cwes": [
+            "CWE-476"
+          ]
+        },
+        {
+          "id": "CVE-2026-33845",
+          "cwes": [
+            "CWE-191"
+          ]
+        },
+        {
+          "id": "CVE-2026-3832",
+          "cwes": [
+            "CWE-179"
+          ]
+        },
+        {
+          "id": "CVE-2026-3833",
+          "cwes": [
+            "CWE-178"
+          ]
+        },
+        {
+          "id": "CVE-2026-42009",
+          "cwes": [
+            "CWE-475"
+          ]
+        },
+        {
+          "id": "CVE-2026-42010",
+          "cwes": [
+            "CWE-170",
+            "CWE-626"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:lz4_project:lz4:1.9.2:*:*:*:*:*:*:*",
+      "evidence": [
+        "ii  liblz4-1:amd64                 1.9.2-2ubuntu0.20.04.1           amd64        Fast LZ compression algorithm library - runtime"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:systemd_project:systemd:245.4:*:*:*:*:*:*:*",
+      "evidence": [
+        "ii  libsystemd0:amd64              245.4-4ubuntu3.22                amd64        systemd utility library"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-29111",
+          "cwes": [
+            "CWE-269"
+          ]
+        },
+        {
+          "id": "CVE-2026-40225",
+          "cwes": [
+            "CWE-669"
+          ]
+        },
+        {
+          "id": "CVE-2026-40226",
+          "cwes": [
+            "CWE-348"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:gnu:libtasn1:4.16.0-2:*:*:*:*:*:*:*",
+      "evidence": [
+        "ii  libtasn1-6:amd64               4.16.0-2                         amd64        Manage ASN.1 structures (runtime)"
+      ],
+      "cves": []
+    }
+  ]
+}

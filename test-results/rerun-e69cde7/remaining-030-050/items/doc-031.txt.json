@@ -1,0 +1,103 @@
+{
+  "id": "doc-031.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:lodash:lodash:4.17.20:*:*:*:*:*:*:*",
+      "evidence": [
+        "<script src=\"https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js\"></script>"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-2950",
+          "cwes": [
+            "CWE-1321"
+          ]
+        },
+        {
+          "id": "CVE-2026-4800",
+          "cwes": [
+            "CWE-94"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:drupal:drupal:8.5.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "Drupal 8.5.0, 2018-02-21"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-55803",
+          "cwes": [
+            "CWE-915"
+          ]
+        },
+        {
+          "id": "CVE-2026-55804",
+          "cwes": [
+            "CWE-915"
+          ]
+        },
+        {
+          "id": "CVE-2026-55806",
+          "cwes": [
+            "CWE-601"
+          ]
+        },
+        {
+          "id": "CVE-2026-55807",
+          "cwes": [
+            "CWE-918"
+          ]
+        },
+        {
+          "id": "CVE-2026-55808",
+          "cwes": [
+            "CWE-79"
+          ]
+        },
+        {
+          "id": "CVE-2026-6365",
+          "cwes": [
+            "CWE-79"
+          ]
+        },
+        {
+          "id": "CVE-2026-6366",
+          "cwes": [
+            "CWE-915"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:phpmyadmin:phpmyadmin:5.1.1:*:*:*:*:*:*:*",
+      "evidence": [
+        "<link rel=\"stylesheet\" type=\"text/css\" href=\"./themes/pmahomme/css/theme.css?v=5.1.1&nocache=4652486383ltr&server=1\" />"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:elastic:elasticsearch:5.6.16:*:*:*:*:*:*:*",
+      "evidence": [
+        "\"number\" : \"5.6.16\","
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-72683",
+          "cwes": [
+            "CWE-674"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:apache:lucene:8.7.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "\"lucene_version\" : \"8.7.0\""
+      ],
+      "cves": []
+    }
+  ]
+}

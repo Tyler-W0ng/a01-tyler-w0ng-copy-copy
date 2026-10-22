@@ -1,0 +1,43 @@
+ Image agentlab/gateway:latest Building 
+ Image agentlab/mcp-processors:latest Building 
+ Image agentlab/mock-llm:latest Building 
+ Image agentlab/mock-llm:latest Built 
+ Image agentlab/gateway:latest Built 
+ Image agentlab/mcp-processors:latest Built 
+docker compose up -d --wait --wait-timeout 600
+ Container agentlab-gateway-1 Running 
+ Container agentlab-mock-llm-1 Running 
+ Container agentlab-mcp-1 Recreate 
+ Container agentlab-mcp-1 Recreated 
+ Container agentlab-mcp-1 Starting 
+ Container agentlab-mock-llm-1 Waiting 
+ Container agentlab-mcp-1 Started 
+ Container agentlab-mock-llm-1 Healthy 
+ Container agentlab-mock-llm-1 Waiting 
+ Container agentlab-gateway-1 Waiting 
+ Container agentlab-mcp-1 Waiting 
+ Container agentlab-mock-llm-1 Healthy 
+ Container agentlab-gateway-1 Healthy 
+ Container agentlab-mcp-1 Healthy 
+ Container agentlab-gateway-1 Running 
+ Container agentlab-mock-llm-1 Running 
+ Container agentlab-mock-llm-1 Waiting 
+ Container agentlab-mock-llm-1 Healthy 
+ Image ghcr.io/berriai/litellm:v1.106.1@sha256:1acf80698f7eb47021b0bf5aed01ba9e80098cf74cdb3e588515bdd48a129fa6 Pulling 
+ Image ghcr.io/berriai/litellm:v1.106.1@sha256:1acf80698f7eb47021b0bf5aed01ba9e80098cf74cdb3e588515bdd48a129fa6 Pulled 
+ Container agentlab-gateway-1 Waiting 
+ Container agentlab-gateway-1 Healthy 
+ Container agentlab-gateway-keys-run-a6e23aebca74 Creating 
+ Container agentlab-gateway-keys-run-a6e23aebca74 Created 
+gateway-keys: syncing 3 agent(s) from agents.yaml
+  updated  pipeline       models=['mock-model', 'external'], max_budget=3.0, budget_duration=1d, rpm_limit=120, tpm_limit=200000, max_parallel_requests=4
+  updated  cli            models=['mock-model', 'mock-embed', 'external', 'gpt-4o-mini', 'claude', 'text-embedding-3-small'], max_budget=1.0, budget_duration=1d, rpm_limit=30
+  updated  intern         models=['mock-model'], max_budget=0.004, rpm_limit=6
+
+  MODE=agent
+  Gateway         http://localhost:4000/v1   (try: make ask Q="hello")
+  MCP server      http://mcp:8000/mcp   (agent network only)
+
+  next:  make run  &&  make eval
+ Container agentlab-gateway-1 Restarting 
+ Container agentlab-gateway-1 Started 

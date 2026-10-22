@@ -1,0 +1,36 @@
+
+format               docs  products      cves       cwe   score
+---------------------------------------------------------------
+analyst-notes           1     0.667     1.000     1.000   86.67
+banners                 2     0.750     1.000     1.000   90.00
+nmap-grepable           1     0.800     1.000     1.000   92.00
+npm-lock                1     0.750     1.000     1.000   90.00
+syft-json               1     0.800     1.000     1.000   92.00
+---------------------------------------------------------------
+OVERALL                 6     0.753     1.000     1.000   90.11
+
+  doc-030.txt (banners):
+      - extra product uxgroupllc:cast_to_tv:192.168.7.160
+      - extra product public_project:public:10.0.0.1
+      - extra product jorisvm:jvm_gutenberg_rich_text_icons:11.0.19
+  doc-037.txt (nmap-grepable):
+      - missed Microsoft IIS 10.0
+      - extra product apache:http_server:10.0
+      - extra product pretix:double_opt_in_step:97.31
+      - extra product microsoft:iis:10.0
+      - 4 reported CVE(s) do not apply
+  doc-040.txt (banners):
+      - missed NTP 4.2.6p5
+      - extra product uxgroupllc:cast_to_tv:10.17.148.5
+      - extra product ntpd_driver_project:ntpd_driver:4.2.6p5
+  doc-042.json (syft-json):
+      - missed Apache Struts 2.3.31
+  doc-045.txt (analyst-notes):
+      - missed GNU C Library 2.31
+      - extra product bordeaux-metropole:at_internet_piano_analytics:3.2.1
+      - extra product thelibrarian:the_librarian:192.168.18.0
+  doc-047.json (npm-lock):
+      - missed Express 4.18.2
+      - extra product express:express:4.18.2
+  SCORE 90.11 / 100
+

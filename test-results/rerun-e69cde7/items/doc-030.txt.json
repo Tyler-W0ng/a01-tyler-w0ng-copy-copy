@@ -1,0 +1,376 @@
+{
+  "id": "doc-030.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:uxgroupllc:cast_to_tv:192.168.7.160:*:*:*:*:*:*:*",
+      "evidence": [
+        "Connection to 192.168.7.160 61616 port [tcp/apachemq] succeeded!"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:microsoft:windows:6.1:*:*:*:*:*:*:*",
+      "evidence": [
+        "Domain=[WORKGROUP] OS=[Windows 6.1] Server=[Samba 4.13.17]"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:samba:samba:4.13.17:*:*:*:*:*:*:*",
+      "evidence": [
+        "Domain=[WORKGROUP] OS=[Windows 6.1] Server=[Samba 4.13.17]"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-2340",
+          "cwes": [
+            "CWE-280"
+          ]
+        },
+        {
+          "id": "CVE-2026-4408",
+          "cwes": [
+            "CWE-78"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:public_project:public:10.0.0.1:*:*:*:*:*:*:*",
+      "evidence": [
+        "$ snmpget -v2c -c public 10.0.0.1 SNMPv2-MIB::sysDescr.0"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:lighttpd:lighttpd:1.4.35:*:*:*:*:*:*:*",
+      "evidence": [
+        "Server: lighttpd/1.4.35"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:apache:activemq:5.18.2:*:*:*:*:*:*:*",
+      "evidence": [
+        "ProviderVersion\\x09\\x00\\x065.18.2"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-33227",
+          "cwes": [
+            "CWE-22"
+          ]
+        },
+        {
+          "id": "CVE-2026-34197",
+          "cwes": [
+            "CWE-20",
+            "CWE-94",
+            "CWE-78"
+          ]
+        },
+        {
+          "id": "CVE-2026-39304",
+          "cwes": [
+            "CWE-400",
+            "CWE-770"
+          ]
+        },
+        {
+          "id": "CVE-2026-40466",
+          "cwes": [
+            "CWE-20",
+            "CWE-94"
+          ]
+        },
+        {
+          "id": "CVE-2026-41044",
+          "cwes": [
+            "CWE-20",
+            "CWE-94"
+          ]
+        },
+        {
+          "id": "CVE-2026-42588",
+          "cwes": [
+            "CWE-20",
+            "CWE-94"
+          ]
+        },
+        {
+          "id": "CVE-2026-45505",
+          "cwes": [
+            "CWE-20",
+            "CWE-94"
+          ]
+        },
+        {
+          "id": "CVE-2026-46605",
+          "cwes": [
+            "CWE-285"
+          ]
+        },
+        {
+          "id": "CVE-2026-49270",
+          "cwes": [
+            "CWE-1230"
+          ]
+        },
+        {
+          "id": "CVE-2026-49434",
+          "cwes": [
+            "CWE-20"
+          ]
+        },
+        {
+          "id": "CVE-2026-53917",
+          "cwes": [
+            "CWE-789"
+          ]
+        },
+        {
+          "id": "CVE-2026-54475",
+          "cwes": [
+            "CWE-862"
+          ]
+        },
+        {
+          "id": "CVE-2026-61487",
+          "cwes": [
+            "CWE-285"
+          ]
+        },
+        {
+          "id": "CVE-2026-74761",
+          "cwes": [
+            "CWE-20"
+          ]
+        },
+        {
+          "id": "CVE-2026-59878",
+          "cwes": [
+            "CWE-20"
+          ]
+        },
+        {
+          "id": "CVE-2026-41043",
+          "cwes": [
+            "CWE-79",
+            "CWE-915"
+          ]
+        },
+        {
+          "id": "CVE-2026-42253",
+          "cwes": [
+            "CWE-79"
+          ]
+        },
+        {
+          "id": "CVE-2026-52760",
+          "cwes": [
+            "CWE-79"
+          ]
+        },
+        {
+          "id": "CVE-2026-49157",
+          "cwes": [
+            "CWE-276"
+          ]
+        },
+        {
+          "id": "CVE-2026-49432",
+          "cwes": [
+            "CWE-20"
+          ]
+        },
+        {
+          "id": "CVE-2026-49877",
+          "cwes": [
+            "CWE-285"
+          ]
+        },
+        {
+          "id": "CVE-2026-50734",
+          "cwes": [
+            "CWE-789"
+          ]
+        },
+        {
+          "id": "CVE-2026-53916",
+          "cwes": [
+            "CWE-789"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:jorisvm:jvm_gutenberg_rich_text_icons:11.0.19:*:*:*:*:*:*:*",
+      "evidence": [
+        "PlatformDetails\\x09\\x00\\x2bJVM: 11.0.19"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:net-snmp:net-snmp:5.7.3:*:*:*:*:*:*:*",
+      "evidence": [
+        "NET-SNMP-AGENT-MIB::nsVersion.0 = STRING: \"5.7.3\""
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:jenkins:jenkins:2.441:*:*:*:*:*:*:*",
+      "evidence": [
+        "X-Jenkins: 2.441"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-27100",
+          "cwes": [
+            "CWE-200"
+          ]
+        },
+        {
+          "id": "CVE-2026-33001",
+          "cwes": [
+            "CWE-59",
+            "CWE-22"
+          ]
+        },
+        {
+          "id": "CVE-2026-33002",
+          "cwes": [
+            "CWE-350"
+          ]
+        },
+        {
+          "id": "CVE-2026-53435",
+          "cwes": [
+            "CWE-502"
+          ]
+        },
+        {
+          "id": "CVE-2026-53436",
+          "cwes": [
+            "CWE-601"
+          ]
+        },
+        {
+          "id": "CVE-2026-53437",
+          "cwes": [
+            "CWE-601"
+          ]
+        },
+        {
+          "id": "CVE-2026-53438",
+          "cwes": [
+            "CWE-862"
+          ]
+        },
+        {
+          "id": "CVE-2026-53439",
+          "cwes": [
+            "CWE-862"
+          ]
+        },
+        {
+          "id": "CVE-2026-53440",
+          "cwes": [
+            "CWE-601"
+          ]
+        },
+        {
+          "id": "CVE-2026-53442",
+          "cwes": [
+            "CWE-311"
+          ]
+        },
+        {
+          "id": "CVE-2026-70427",
+          "cwes": [
+            "CWE-59"
+          ]
+        },
+        {
+          "id": "CVE-2026-70428",
+          "cwes": [
+            "CWE-22"
+          ]
+        },
+        {
+          "id": "CVE-2026-70429",
+          "cwes": [
+            "CWE-178"
+          ]
+        },
+        {
+          "id": "CVE-2026-70430",
+          "cwes": [
+            "CWE-284"
+          ]
+        },
+        {
+          "id": "CVE-2026-84645",
+          "cwes": [
+            "CWE-94",
+            "CWE-915"
+          ]
+        },
+        {
+          "id": "CVE-2026-84646",
+          "cwes": [
+            "CWE-502"
+          ]
+        },
+        {
+          "id": "CVE-2026-84648",
+          "cwes": [
+            "CWE-79"
+          ]
+        },
+        {
+          "id": "CVE-2026-84650",
+          "cwes": [
+            "CWE-502",
+            "CWE-566"
+          ]
+        },
+        {
+          "id": "CVE-2026-84651",
+          "cwes": [
+            "CWE-284"
+          ]
+        },
+        {
+          "id": "CVE-2026-84652",
+          "cwes": [
+            "CWE-384"
+          ]
+        },
+        {
+          "id": "CVE-2026-84653",
+          "cwes": [
+            "CWE-862"
+          ]
+        },
+        {
+          "id": "CVE-2026-84655",
+          "cwes": [
+            "CWE-116"
+          ]
+        },
+        {
+          "id": "CVE-2026-84656",
+          "cwes": [
+            "CWE-862"
+          ]
+        },
+        {
+          "id": "CVE-2026-84657",
+          "cwes": [
+            "CWE-862"
+          ]
+        }
+      ]
+    }
+  ]
+}

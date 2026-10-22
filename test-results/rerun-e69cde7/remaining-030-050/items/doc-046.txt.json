@@ -1,0 +1,50 @@
+{
+  "id": "doc-046.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:lighttpd:lighttpd:1.4.55:*:*:*:*:*:*:*",
+      "evidence": [
+        "Server: lighttpd/1.4.55"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:drupal:drupal:7:*:*:*:*:*:*:*",
+      "evidence": [
+        "X-Generator: Drupal 7 (https://www.drupal.org)"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-55803",
+          "cwes": [
+            "CWE-915"
+          ]
+        },
+        {
+          "id": "CVE-2026-55804",
+          "cwes": [
+            "CWE-915"
+          ]
+        },
+        {
+          "id": "CVE-2026-55806",
+          "cwes": [
+            "CWE-601"
+          ]
+        },
+        {
+          "id": "CVE-2026-55807",
+          "cwes": [
+            "CWE-918"
+          ]
+        },
+        {
+          "id": "CVE-2026-55808",
+          "cwes": [
+            "CWE-79"
+          ]
+        }
+      ]
+    }
+  ]
+}
