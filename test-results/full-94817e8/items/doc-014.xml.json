@@ -1,0 +1,33 @@
+{
+  "id": "doc-014.xml",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:elastic:elasticsearch:5.6.16:*:*:*:*:*:*:*",
+      "evidence": [
+        "Elasticsearch REST API 5.6.16"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-72683",
+          "cwes": [
+            "CWE-674"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:oracle:mysql:5.7.33:*:*:*:*:*:*:*",
+      "evidence": [
+        "MySQL 5.7.33-0ubuntu0.18.04.1"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:lighttpd:lighttpd:1.4.55:*:*:*:*:*:*:*",
+      "evidence": [
+        "lighttpd 1.4.55"
+      ],
+      "cves": []
+    }
+  ]
+}

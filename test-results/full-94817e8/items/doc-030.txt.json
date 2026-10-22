@@ -1,0 +1,46 @@
+{
+  "id": "doc-030.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:microsoft:windows:6.1:*:*:*:*:*:*:*",
+      "evidence": [
+        "Domain=[WORKGROUP] OS=[Windows 6.1] Server=[Samba 4.13.17]"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:samba:samba:4.13.17:*:*:*:*:*:*:*",
+      "evidence": [
+        "Domain=[WORKGROUP] OS=[Windows 6.1] Server=[Samba 4.13.17]"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-2340",
+          "cwes": [
+            "CWE-280"
+          ]
+        },
+        {
+          "id": "CVE-2026-4408",
+          "cwes": [
+            "CWE-78"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:public_project:public:10.0.0.1:*:*:*:*:*:*:*",
+      "evidence": [
+        "$ snmpget -v2c -c public 10.0.0.1 SNMPv2-MIB::sysDescr.0"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:lighttpd:lighttpd:1.4.35:*:*:*:*:*:*:*",
+      "evidence": [
+        "Server: lighttpd/1.4.35"
+      ],
+      "cves": []
+    }
+  ]
+}

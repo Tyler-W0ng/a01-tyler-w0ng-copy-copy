@@ -1,0 +1,98 @@
+
+format               docs  products      cves       cwe   score
+---------------------------------------------------------------
+analyst-notes           4     0.917     0.565     1.000   79.25
+apk-info                1     1.000     1.000     1.000  100.00
+banners                 4     0.725     1.000     1.000   89.00
+cyclonedx-json          2     1.000     1.000     1.000  100.00
+dockerfile              2     1.000     1.000     1.000  100.00
+dpkg-list               2     1.000     1.000     1.000  100.00
+fs-listing              3     1.000     1.000     1.000  100.00
+host-report             2     1.000     1.000     1.000  100.00
+html                    3     1.000     1.000     1.000  100.00
+http-headers            3     1.000     1.000     1.000  100.00
+maven-pom               1     1.000       nan       nan  100.00
+nmap-grepable           2     0.900     1.000     1.000   96.00
+nmap-normal             3     1.000     1.000     1.000  100.00
+nmap-xml                2     0.875     0.842     1.000   88.66
+npm-lock                1     0.750     1.000     1.000   90.00
+pip                     1     1.000     1.000     1.000  100.00
+ps-aux                  2     1.000       nan       nan  100.00
+rpm-qa                  2     1.000     1.000     1.000  100.00
+spdx-json               2     1.000     1.000     1.000  100.00
+syft-json               2     0.900     1.000     1.000   96.00
+version-commands        3     1.000     1.000     1.000  100.00
+whatweb                 2     1.000     1.000     1.000  100.00
+windows-inventory       1     1.000     1.000     1.000  100.00
+---------------------------------------------------------------
+OVERALL                50     0.953     0.971     1.000   96.97
+
+  doc-001.txt (http-headers):
+      - extra product eclipse:hudson:1.395
+  doc-003.txt (nmap-normal):
+      - extra product ca:advantage_data_transport:5.17.5
+  doc-005.txt (nmap-normal):
+      - extra product oracle:mysql:5.5.5-10.5.15-MariaDB
+      - extra product ca:advantage_data_transport:5.15.3
+  doc-006.txt (rpm-qa):
+      - 4 reported CVE(s) do not apply
+  doc-009.txt (apk-info):
+      - extra product openssl:openssl:1.34.1
+  doc-010.txt (version-commands):
+      - extra product goforandroid:go_bookmark_widget:1.17.10
+  doc-011.txt (banners):
+      - extra product public_project:public:10.0.0.1
+  doc-012.txt (pip):
+      - extra product ibm:packaging_utility:21.3
+  doc-016.txt (windows-inventory):
+      - extra product info-zip_project:zip:21.07
+      - extra product nuance:visual_c++_runtime_for_dragon_naturallyspeaking:14.29.30133
+  doc-021.txt (version-commands):
+      - 1 reported CVE(s) do not apply
+  doc-023.txt (dockerfile):
+      - 1 reported CVE(s) do not apply
+  doc-026.json (spdx-json):
+      - 4 reported CVE(s) do not apply
+  doc-027.txt (analyst-notes):
+      - extra product cisco:80-7111-01_for_the_unity-svrx255-1a:10.23.13.0
+  doc-028.json (spdx-json):
+      - extra product openssl:openssl:1.34.1
+  doc-030.txt (banners):
+      - missed Apache ActiveMQ 5.18.2
+      - missed Net-SNMP 5.7.3
+      - missed Jenkins 2.441
+      - extra product public_project:public:10.0.0.1
+  doc-033.txt (nmap-normal):
+      - extra product nopcommerce:store:5.0.7
+      - 4 reported CVE(s) do not apply
+  doc-034.json (syft-json):
+      - extra product openssl:openssl:1.34.1
+      - 1 reported CVE(s) do not apply
+  doc-036.txt (banners):
+      - 4 reported CVE(s) do not apply
+  doc-037.txt (nmap-grepable):
+      - missed Microsoft IIS 10.0
+      - extra product apache:http_server:10.0
+      - extra product microsoft:iis:10.0
+      - 4 reported CVE(s) do not apply
+  doc-040.txt (banners):
+      - missed NTP 4.2.6p5
+      - extra product ntpd_driver_project:ntpd_driver:4.2.6p5
+      - extra product conectiva:linux:5.4.0-150-generic
+  doc-042.json (syft-json):
+      - missed Apache Struts 2.3.31
+  doc-044.json (cyclonedx-json):
+      - extra product openssl:openssl:1.34.1
+  doc-045.txt (analyst-notes):
+      - missed GNU C Library 2.31
+      - extra product cisco:80-7111-01_for_the_unity-svrx255-1a:192.168.18.0
+      - missed 27 CVE(s): CVE-2026-21936, CVE-2026-21937, CVE-2026-21941, CVE-2026-21948, CVE-2026-21968, CVE-2026-21998 ...
+  doc-047.json (npm-lock):
+      - missed Express 4.18.2
+      - extra product express:express:4.18.2
+  doc-048.xml (nmap-xml):
+      - missed MariaDB 10.1.48 (reported version '5.5.5-10.1.48-MariaDB')
+      - extra product mariadb:mariadb:5.5.5-10.1.48-MariaDB
+      - missed 13 CVE(s): CVE-2026-1642, CVE-2026-27651, CVE-2026-27654, CVE-2026-27784, CVE-2026-28753, CVE-2026-32647 ...
+  SCORE 96.97 / 100
+

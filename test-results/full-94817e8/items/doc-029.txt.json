@@ -1,0 +1,217 @@
+{
+  "id": "doc-029.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:djangoproject:django:2.2.10:*:*:*:*:*:*:*",
+      "evidence": [
+        "ii  python3-django               2:2.2.10-1ubuntu0.7            amd64",
+        "ii  python3-django               2:2.2.10-1ubuntu0.7            amd64"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-15307",
+          "cwes": [
+            "CWE-73",
+            "CWE-918"
+          ]
+        },
+        {
+          "id": "CVE-2026-15337",
+          "cwes": [
+            "CWE-789"
+          ]
+        },
+        {
+          "id": "CVE-2026-15830",
+          "cwes": [
+            "CWE-674"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:exim:exim:4.87:*:*:*:*:*:*:*",
+      "evidence": [
+        "ii  exim4-daemon-light           4.87-1ubuntu1                  amd64",
+        "ii  exim4-daemon-light           4.87-1ubuntu1                  amd64"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-40684",
+          "cwes": [
+            "CWE-684"
+          ]
+        },
+        {
+          "id": "CVE-2026-40685",
+          "cwes": [
+            "CWE-684",
+            "CWE-787"
+          ]
+        },
+        {
+          "id": "CVE-2026-40686",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-40687",
+          "cwes": [
+            "CWE-909"
+          ]
+        },
+        {
+          "id": "CVE-2026-66140",
+          "cwes": [
+            "CWE-24"
+          ]
+        },
+        {
+          "id": "CVE-2026-66141",
+          "cwes": [
+            "CWE-829"
+          ]
+        },
+        {
+          "id": "CVE-2026-94054",
+          "cwes": [
+            "CWE-787"
+          ]
+        },
+        {
+          "id": "CVE-2026-94055",
+          "cwes": [
+            "CWE-416"
+          ]
+        },
+        {
+          "id": "CVE-2026-94056",
+          "cwes": [
+            "CWE-908"
+          ]
+        },
+        {
+          "id": "CVE-2026-94057",
+          "cwes": [
+            "CWE-93"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:kernel:util-linux:2.34:*:*:*:*:*:*:*",
+      "evidence": [
+        "ii  bsdutils                     1:2.34-0.1ubuntu9.3            amd64"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-13595",
+          "cwes": [
+            "CWE-416"
+          ]
+        },
+        {
+          "id": "CVE-2026-27456",
+          "cwes": [
+            "CWE-59",
+            "CWE-269",
+            "CWE-367"
+          ]
+        },
+        {
+          "id": "CVE-2026-3184",
+          "cwes": [
+            "CWE-289"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:f5:nginx_open_source:1.14.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "80/tcp open http nginx 1.14.0"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-1642",
+          "cwes": [
+            "CWE-349",
+            "CWE-345"
+          ]
+        },
+        {
+          "id": "CVE-2026-27651",
+          "cwes": [
+            "CWE-476"
+          ]
+        },
+        {
+          "id": "CVE-2026-27654",
+          "cwes": [
+            "CWE-122",
+            "CWE-120"
+          ]
+        },
+        {
+          "id": "CVE-2026-27784",
+          "cwes": [
+            "CWE-190"
+          ]
+        },
+        {
+          "id": "CVE-2026-28753",
+          "cwes": [
+            "CWE-93"
+          ]
+        },
+        {
+          "id": "CVE-2026-32647",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-42055",
+          "cwes": [
+            "CWE-122",
+            "CWE-787",
+            "CWE-131"
+          ]
+        },
+        {
+          "id": "CVE-2026-42934",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-42945",
+          "cwes": [
+            "CWE-122",
+            "CWE-131"
+          ]
+        },
+        {
+          "id": "CVE-2026-42946",
+          "cwes": [
+            "CWE-789",
+            "CWE-823"
+          ]
+        },
+        {
+          "id": "CVE-2026-48142",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-9256",
+          "cwes": [
+            "CWE-122"
+          ]
+        }
+      ]
+    }
+  ]
+}

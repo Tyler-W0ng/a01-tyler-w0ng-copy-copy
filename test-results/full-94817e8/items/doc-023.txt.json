@@ -1,0 +1,211 @@
+{
+  "id": "doc-023.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:gnu:glibc:2.31:*:*:*:*:*:*:*",
+      "evidence": [
+        "libc6=2.31-0ubuntu9.5 \\"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-0861",
+          "cwes": [
+            "CWE-190"
+          ]
+        },
+        {
+          "id": "CVE-2026-0915",
+          "cwes": [
+            "CWE-908"
+          ]
+        },
+        {
+          "id": "CVE-2026-4046",
+          "cwes": [
+            "CWE-617"
+          ]
+        },
+        {
+          "id": "CVE-2026-5435",
+          "cwes": [
+            "CWE-787"
+          ]
+        },
+        {
+          "id": "CVE-2026-5450",
+          "cwes": [
+            "CWE-122",
+            "CWE-787"
+          ]
+        },
+        {
+          "id": "CVE-2026-5928",
+          "cwes": [
+            "CWE-127"
+          ]
+        },
+        {
+          "id": "CVE-2026-6238",
+          "cwes": [
+            "CWE-126"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:sqlite:sqlite:3.22.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "libsqlite3-0=3.22.0-9ubuntu0.14 \\"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-11822",
+          "cwes": [
+            "CWE-122"
+          ]
+        },
+        {
+          "id": "CVE-2026-11824",
+          "cwes": [
+            "CWE-122"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:zlib:zlib:1.2.12:*:*:*:*:*:*:*",
+      "evidence": [
+        "zlib1g=1:1.2.12.dfsg-8ubuntu1.20 \\"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-27820",
+          "cwes": [
+            "CWE-120",
+            "CWE-131"
+          ]
+        },
+        {
+          "id": "CVE-2026-22184",
+          "cwes": [
+            "CWE-787",
+            "CWE-120"
+          ]
+        },
+        {
+          "id": "CVE-2026-27171",
+          "cwes": [
+            "CWE-1284"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:f5:nginx_open_source:1.14.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "FROM nginx:1.14.0"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-1642",
+          "cwes": [
+            "CWE-349",
+            "CWE-345"
+          ]
+        },
+        {
+          "id": "CVE-2026-27651",
+          "cwes": [
+            "CWE-476"
+          ]
+        },
+        {
+          "id": "CVE-2026-27654",
+          "cwes": [
+            "CWE-122",
+            "CWE-120"
+          ]
+        },
+        {
+          "id": "CVE-2026-27784",
+          "cwes": [
+            "CWE-190"
+          ]
+        },
+        {
+          "id": "CVE-2026-28753",
+          "cwes": [
+            "CWE-93"
+          ]
+        },
+        {
+          "id": "CVE-2026-32647",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-42055",
+          "cwes": [
+            "CWE-122",
+            "CWE-787",
+            "CWE-131"
+          ]
+        },
+        {
+          "id": "CVE-2026-42934",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-42945",
+          "cwes": [
+            "CWE-122",
+            "CWE-131"
+          ]
+        },
+        {
+          "id": "CVE-2026-42946",
+          "cwes": [
+            "CWE-789",
+            "CWE-823"
+          ]
+        },
+        {
+          "id": "CVE-2026-48142",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-9256",
+          "cwes": [
+            "CWE-122"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:palletsprojects:flask:2.2.4:*:*:*:*:*:*:*",
+      "evidence": [
+        "RUN pip install --no-cache-dir Flask==2.2.4 PyYAML==3.13"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-27205",
+          "cwes": [
+            "CWE-524"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:pyyaml:pyyaml:3.13:*:*:*:*:*:*:*",
+      "evidence": [
+        "RUN pip install --no-cache-dir Flask==2.2.4 PyYAML==3.13"
+      ],
+      "cves": []
+    }
+  ]
+}

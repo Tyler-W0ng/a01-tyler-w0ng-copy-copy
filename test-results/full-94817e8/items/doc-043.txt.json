@@ -1,0 +1,45 @@
+{
+  "id": "doc-043.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:isc:bind:9.16.1:*:*:*:*:*:*:*",
+      "evidence": [
+        "Host: 10.29.205.22 (vpn12.lab.example)\tPorts: 25/open/tcp//smtp//Postfix smtpd/, 53/open/tcp//domain//ISC BIND 9.16.1/, 49152/open/tcp//unknown///, 9100/open/tcp//jetdirect?///\tIgnored State: closed (",
+        "53/open/tcp//domain//ISC BIND 9.16.1/"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-1519",
+          "cwes": [
+            "CWE-606",
+            "CWE-770"
+          ]
+        },
+        {
+          "id": "CVE-2026-3039",
+          "cwes": [
+            "CWE-771",
+            "CWE-770"
+          ]
+        },
+        {
+          "id": "CVE-2026-3592",
+          "cwes": [
+            "CWE-408"
+          ]
+        },
+        {
+          "id": "CVE-2026-5946",
+          "cwes": [
+            "CWE-20",
+            "CWE-125",
+            "CWE-617",
+            "CWE-754",
+            "CWE-843",
+            "CWE-1287"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "id": "doc-028.json",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:palletsprojects:click:7.1.2:*:*:*:*:*:*:*",
+      "evidence": [
+        "package: click 7.1.2"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-7246",
+          "cwes": [
+            "CWE-77",
+            "CWE-78"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:certifi:certifi:2021.10.8:*:*:*:*:*:*:*",
+      "evidence": [
+        "package: certifi 2021.10.8"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:djangoproject:django:2.2.10:*:*:*:*:*:*:*",
+      "evidence": [
+        "package: Django 2.2.10"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-15307",
+          "cwes": [
+            "CWE-73",
+            "CWE-918"
+          ]
+        },
+        {
+          "id": "CVE-2026-15337",
+          "cwes": [
+            "CWE-789"
+          ]
+        },
+        {
+          "id": "CVE-2026-15830",
+          "cwes": [
+            "CWE-674"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:openssl:openssl:1.34.1:*:*:*:*:*:*:*",
+      "evidence": [
+        "package: ssl_client 1.34.1-r3"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:postgresql:postgresql:13.2:*:*:*:*:*:*:*",
+      "evidence": [
+        "package: postgresql 13.2-r16"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-6472",
+          "cwes": [
+            "CWE-862"
+          ]
+        },
+        {
+          "id": "CVE-2026-6473",
+          "cwes": [
+            "CWE-190"
+          ]
+        },
+        {
+          "id": "CVE-2026-6474",
+          "cwes": [
+            "CWE-134"
+          ]
+        },
+        {
+          "id": "CVE-2026-6475",
+          "cwes": [
+            "CWE-61"
+          ]
+        },
+        {
+          "id": "CVE-2026-6477",
+          "cwes": [
+            "CWE-242",
+            "CWE-120"
+          ]
+        },
+        {
+          "id": "CVE-2026-6478",
+          "cwes": [
+            "CWE-385"
+          ]
+        },
+        {
+          "id": "CVE-2026-6479",
+          "cwes": [
+            "CWE-674"
+          ]
+        },
+        {
+          "id": "CVE-2026-6637",
+          "cwes": [
+            "CWE-89",
+            "CWE-121"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "id": "doc-033.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:openbsd:openssh:7.4p1:*:*:*:*:*:*:*",
+      "evidence": [
+        "22/tcp    open  ssh         OpenSSH 7.4p1 Ubuntu 2ubuntu0.6 (Ubuntu Linux; protocol 2.0)"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-106587",
+          "cwes": [
+            "CWE-843"
+          ]
+        },
+        {
+          "id": "CVE-2026-3497",
+          "cwes": [
+            "CWE-908",
+            "CWE-824"
+          ]
+        },
+        {
+          "id": "CVE-2026-35385",
+          "cwes": [
+            "CWE-281"
+          ]
+        },
+        {
+          "id": "CVE-2026-35387",
+          "cwes": [
+            "CWE-670"
+          ]
+        },
+        {
+          "id": "CVE-2026-35388",
+          "cwes": [
+            "CWE-420"
+          ]
+        },
+        {
+          "id": "CVE-2026-35414",
+          "cwes": [
+            "CWE-670"
+          ]
+        },
+        {
+          "id": "CVE-2026-55653",
+          "cwes": [
+            "CWE-415"
+          ]
+        },
+        {
+          "id": "CVE-2026-55654",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-55655",
+          "cwes": [
+            "CWE-923"
+          ]
+        },
+        {
+          "id": "CVE-2026-59995",
+          "cwes": [
+            "CWE-23"
+          ]
+        },
+        {
+          "id": "CVE-2026-59996",
+          "cwes": [
+            "CWE-23"
+          ]
+        },
+        {
+          "id": "CVE-2026-59997",
+          "cwes": [
+            "CWE-1284"
+          ]
+        },
+        {
+          "id": "CVE-2026-59998",
+          "cwes": [
+            "CWE-573"
+          ]
+        },
+        {
+          "id": "CVE-2026-59999",
+          "cwes": [
+            "CWE-348"
+          ]
+        },
+        {
+          "id": "CVE-2026-60000",
+          "cwes": [
+            "CWE-770"
+          ]
+        },
+        {
+          "id": "CVE-2026-60001",
+          "cwes": [
+            "CWE-770"
+          ]
+        },
+        {
+          "id": "CVE-2026-60002",
+          "cwes": [
+            "CWE-416"
+          ]
+        },
+        {
+          "id": "CVE-2026-73281",
+          "cwes": [
+            "CWE-669"
+          ]
+        },
+        {
+          "id": "CVE-2026-73282",
+          "cwes": [
+            "CWE-416"
+          ]
+        },
+        {
+          "id": "CVE-2026-73283",
+          "cwes": [
+            "CWE-670"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:nopcommerce:store:5.0.7:*:*:*:*:*:*:*",
+      "evidence": [
+        "6379/tcp  open  redis       Redis key-value store 5.0.7"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:redis:redis:5.0.7:*:*:*:*:*:*:*",
+      "evidence": [
+        "6379/tcp  open  redis       Redis key-value store 5.0.7"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-23631",
+          "cwes": [
+            "CWE-416"
+          ]
+        },
+        {
+          "id": "CVE-2026-25243",
+          "cwes": [
+            "CWE-122"
+          ]
+        }
+      ]
+    }
+  ]
+}

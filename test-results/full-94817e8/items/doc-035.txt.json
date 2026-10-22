@@ -1,0 +1,175 @@
+{
+  "id": "doc-035.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:gnu:diffutils:3.7-3:*:*:*:*:*:*:*",
+      "evidence": [
+        "ii  diffutils                      1:3.7-3                          amd64        File comparison utilities"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:gnu:gcc:10.5.0-1ubuntu1~20.04:*:*:*:*:*:*:*",
+      "evidence": [
+        "ii  gcc-10-base:amd64              10.5.0-1ubuntu1~20.04            amd64        GCC, the GNU Compiler Collection (base package)"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:acl:acl:2.2.53-6:*:*:*:*:*:*:*",
+      "evidence": [
+        "ii  libacl1:amd64                  2.2.53-6                         amd64        access control list - shared library"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:gnu:ncurses:6.2:*:*:*:*:*:*:*",
+      "evidence": [
+        "ii  libncurses6:amd64              6.2-0ubuntu2.1                   amd64        shared libraries for terminal handling"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:sqlite:sqlite:3.22.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "ii  libsqlite3-0                   3.22.0-6ubuntu0.10               amd64        SQLite (packaged)"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-11822",
+          "cwes": [
+            "CWE-122"
+          ]
+        },
+        {
+          "id": "CVE-2026-11824",
+          "cwes": [
+            "CWE-122"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:systemd_project:systemd:245.4:*:*:*:*:*:*:*",
+      "evidence": [
+        "ii  libsystemd0:amd64              245.4-4ubuntu3.22                amd64        systemd utility library"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-29111",
+          "cwes": [
+            "CWE-269"
+          ]
+        },
+        {
+          "id": "CVE-2026-40225",
+          "cwes": [
+            "CWE-669"
+          ]
+        },
+        {
+          "id": "CVE-2026-40226",
+          "cwes": [
+            "CWE-348"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:facebook:zstandard:1.4.4:*:*:*:*:*:*:*",
+      "evidence": [
+        "ii  libzstd1:amd64                 1.4.4+dfsg-3ubuntu0.1            amd64        fast lossless compression algorithm"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:python:pillow:6.2.1-3:*:*:*:*:*:*:*",
+      "evidence": [
+        "ii  python3-pil                    6.2.1-3                          amd64        Pillow (packaged)"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-42308",
+          "cwes": [
+            "CWE-190"
+          ]
+        },
+        {
+          "id": "CVE-2026-42310",
+          "cwes": [
+            "CWE-835"
+          ]
+        },
+        {
+          "id": "CVE-2026-54058",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-54059",
+          "cwes": [
+            "CWE-789"
+          ]
+        },
+        {
+          "id": "CVE-2026-54060",
+          "cwes": [
+            "CWE-789"
+          ]
+        },
+        {
+          "id": "CVE-2026-55379",
+          "cwes": [
+            "CWE-789"
+          ]
+        },
+        {
+          "id": "CVE-2026-55380",
+          "cwes": [
+            "CWE-789"
+          ]
+        },
+        {
+          "id": "CVE-2026-55798",
+          "cwes": [
+            "CWE-78"
+          ]
+        },
+        {
+          "id": "CVE-2026-59197",
+          "cwes": [
+            "CWE-190",
+            "CWE-787"
+          ]
+        },
+        {
+          "id": "CVE-2026-59198",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-59199",
+          "cwes": [
+            "CWE-190",
+            "CWE-787"
+          ]
+        },
+        {
+          "id": "CVE-2026-59200",
+          "cwes": [
+            "CWE-400",
+            "CWE-770"
+          ]
+        },
+        {
+          "id": "CVE-2026-59205",
+          "cwes": [
+            "CWE-787"
+          ]
+        }
+      ]
+    }
+  ]
+}

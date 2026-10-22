@@ -1,0 +1,40 @@
+{
+  "id": "doc-040.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:ntpd_driver_project:ntpd_driver:4.2.6p5:*:*:*:*:*:*:*",
+      "evidence": [
+        "version=\"ntpd 4.2.6p5@1.2483-o Fri Mar 13 2020 UTC (1)\","
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:conectiva:linux:5.4.0-150-generic:*:*:*:*:*:*:*",
+      "evidence": [
+        "processor=\"x86_64\", system=\"Linux/5.4.0-150-generic\", leap=00, stratum=3"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:vsftpd_project:vsftpd:3.0.3:*:*:*:*:*:*:*",
+      "evidence": [
+        "220 (vsFTPd 3.0.3)"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:postfix:postfix:Ubuntu:*:*:*:*:*:*:*",
+      "evidence": [
+        "220 mail.corp.example ESMTP Postfix (Ubuntu)"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-43964",
+          "cwes": [
+            "CWE-193"
+          ]
+        }
+      ]
+    }
+  ]
+}

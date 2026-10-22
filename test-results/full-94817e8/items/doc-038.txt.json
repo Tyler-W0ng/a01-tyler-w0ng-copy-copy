@@ -1,0 +1,69 @@
+{
+  "id": "doc-038.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:microsoft:internet_information_services:7.5:*:*:*:*:*:*:*",
+      "evidence": [
+        "Judging by the install directory, the deployed Microsoft IIS is probably 7.5."
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:nodejs:node.js:10.19.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "The package manager lists Node.js at 10.19.0."
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-21637",
+          "cwes": [
+            "CWE-400"
+          ]
+        },
+        {
+          "id": "CVE-2026-21710",
+          "cwes": [
+            "CWE-770",
+            "CWE-843"
+          ]
+        },
+        {
+          "id": "CVE-2026-21711",
+          "cwes": [
+            "CWE-284"
+          ]
+        },
+        {
+          "id": "CVE-2026-21713",
+          "cwes": [
+            "CWE-208"
+          ]
+        },
+        {
+          "id": "CVE-2026-21714",
+          "cwes": [
+            "CWE-401"
+          ]
+        },
+        {
+          "id": "CVE-2026-21715",
+          "cwes": [
+            "CWE-732"
+          ]
+        },
+        {
+          "id": "CVE-2026-21716",
+          "cwes": [
+            "CWE-862"
+          ]
+        },
+        {
+          "id": "CVE-2026-21717",
+          "cwes": [
+            "CWE-328"
+          ]
+        }
+      ]
+    }
+  ]
+}

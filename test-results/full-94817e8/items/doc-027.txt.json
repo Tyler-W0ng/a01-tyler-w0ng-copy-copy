@@ -1,0 +1,12 @@
+{
+  "id": "doc-027.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:cisco:80-7111-01_for_the_unity-svrx255-1a:10.23.13.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "Scope for this engagement was the 10.23.13.0/24 segment; testing window 2026-03-25 08:15-21:54 UTC. Default credentials were tried on the admin interfaces and rejected."
+      ],
+      "cves": []
+    }
+  ]
+}

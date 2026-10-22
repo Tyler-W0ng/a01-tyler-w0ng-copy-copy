@@ -1,0 +1,113 @@
+{
+  "id": "doc-017.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:f5:nginx_open_source:1.18.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "nginx version: nginx/1.18.0"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-1642",
+          "cwes": [
+            "CWE-349",
+            "CWE-345"
+          ]
+        },
+        {
+          "id": "CVE-2026-27651",
+          "cwes": [
+            "CWE-476"
+          ]
+        },
+        {
+          "id": "CVE-2026-27654",
+          "cwes": [
+            "CWE-122",
+            "CWE-120"
+          ]
+        },
+        {
+          "id": "CVE-2026-27784",
+          "cwes": [
+            "CWE-190"
+          ]
+        },
+        {
+          "id": "CVE-2026-28753",
+          "cwes": [
+            "CWE-93"
+          ]
+        },
+        {
+          "id": "CVE-2026-32647",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-42055",
+          "cwes": [
+            "CWE-122",
+            "CWE-787",
+            "CWE-131"
+          ]
+        },
+        {
+          "id": "CVE-2026-42934",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-42945",
+          "cwes": [
+            "CWE-122",
+            "CWE-131"
+          ]
+        },
+        {
+          "id": "CVE-2026-42946",
+          "cwes": [
+            "CWE-789",
+            "CWE-823"
+          ]
+        },
+        {
+          "id": "CVE-2026-48142",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-9256",
+          "cwes": [
+            "CWE-122"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:mongodb:mongodb:4.0.3:*:*:*:*:*:*:*",
+      "evidence": [
+        "db version v4.0.3"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-9753",
+          "cwes": [
+            "CWE-1287",
+            "CWE-787"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:git_project:git:2.34.1:*:*:*:*:*:*:*",
+      "evidence": [
+        "git version 2.34.1"
+      ],
+      "cves": []
+    }
+  ]
+}
