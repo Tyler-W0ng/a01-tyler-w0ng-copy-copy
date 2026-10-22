@@ -39,6 +39,11 @@ _PKG_SUFFIX = re.compile(
 def normalize_version(v: str) -> str:
     """Upstream version: drop a Debian epoch and a distro packaging suffix."""
     v = v.strip()
+    # MariaDB answers the MySQL protocol as "5.5.5-<real>-MariaDB-<pkg>"; the
+    # leading 5.5.5 is a MySQL-compat marker and the real version is the middle.
+    m = re.search(r"(?:5\.5\.5-)?(\d+\.\d+\.\d+)-mariadb", v, re.I)
+    if m:
+        return m.group(1)
     if re.match(r"^\d+:", v):            # epoch, e.g. "1:7.6p1-4ubuntu0.7"
         v = v.split(":", 1)[1]
     v = re.sub(r"[.+~]dfsg.*$", "", v)   # Debian repack marker: "1.2.12.dfsg" -> "1.2.12"

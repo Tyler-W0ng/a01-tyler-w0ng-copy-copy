@@ -115,7 +115,11 @@ def build(local, remote, only: set[str] | None = None):
                 c["aliases"] = set()
                 continue
             if c.get("vp"):                 # a parser gave the exact CPE (e.g. nmap)
-                c["aliases"] = {tuple(c["vp"])}
+                # Trust the embedded CPE, but enrich it with the table's known
+                # multi-identity mappings: nmap reports nginx as f5:nginx, yet
+                # NVD files nginx CVEs under f5:nginx_open_source. Union so the
+                # lookup sees every identity that may carry the CVEs.
+                c["aliases"] = {tuple(c["vp"])} | (resolver.table(c["name"]) or set())
                 continue
             aliases = resolver.table(c["name"])
             if not aliases:
