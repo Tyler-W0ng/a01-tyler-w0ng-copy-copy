@@ -1,0 +1,65 @@
+{
+  "finished_at": "2026-10-22T00:43:33.717116+00:00",
+  "seconds": 35.25,
+  "model": "external",
+  "capabilities": [],
+  "trace_url": null,
+  "items": [
+    {
+      "id": "doc-030.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "4 product(s), 2 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-037.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "7 product(s), 24 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-040.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "4 product(s), 1 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-042.json",
+      "kind": "json",
+      "source": "ok",
+      "status": "ok",
+      "summary": "9 product(s), 49 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-045.txt",
+      "kind": "text",
+      "source": "ok",
+      "status": "ok",
+      "summary": "3 product(s), 4 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-047.json",
+      "kind": "json",
+      "source": "ok",
+      "status": "ok",
+      "summary": "7 product(s), 27 CVE(s)",
+      "error": null
+    },
+    {
+      "id": "doc-048.xml",
+      "kind": "nmap-xml",
+      "source": "ok",
+      "status": "ok",
+      "summary": "4 product(s), 43 CVE(s)",
+      "error": null
+    }
+  ]
+}

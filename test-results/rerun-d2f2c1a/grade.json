@@ -1,0 +1,212 @@
+{
+ "dataset": "train",
+ "database": {
+  "snapshot": "2026-10-12",
+  "built_at": "2026-10-13T04:52:23+00:00",
+  "years": "2026",
+  "cpe_dictionary": "cve",
+  "nvd_feed_timestamp": "2026-10-12T03:00:38-04:00",
+  "kev_catalog_version": "2026.10.08"
+ },
+ "weights": {
+  "products": 0.4,
+  "cves": 0.4,
+  "cwe": 0.2
+ },
+ "overall": {
+  "documents": 7,
+  "products": 0.7024,
+  "cves": 0.8548,
+  "cwe": 1.0,
+  "score": 82.29
+ },
+ "by_format": {
+  "analyst-notes": {
+   "documents": 1,
+   "products": 0.6667,
+   "cves": 0.129,
+   "cwe": 1.0,
+   "score": 51.83
+  },
+  "banners": {
+   "documents": 2,
+   "products": 0.45,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 78.0
+  },
+  "nmap-grepable": {
+   "documents": 1,
+   "products": 0.8,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 92.0
+  },
+  "nmap-xml": {
+   "documents": 1,
+   "products": 1.0,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 100.0
+  },
+  "npm-lock": {
+   "documents": 1,
+   "products": 0.75,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 90.0
+  },
+  "syft-json": {
+   "documents": 1,
+   "products": 0.8,
+   "cves": 1.0,
+   "cwe": 1.0,
+   "score": 92.0
+  }
+ },
+ "missing_outputs": [],
+ "documents": {
+  "doc-030.txt": {
+   "format": "banners",
+   "metrics": {
+    "products": 0.4,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "missed Apache ActiveMQ 5.18.2",
+    "missed Net-SNMP 5.7.3",
+    "missed Jenkins 2.441",
+    "extra product public_project:public:10.0.0.1"
+   ],
+   "counts": {
+    "expected_products": 5,
+    "found_products": 2,
+    "extra_products": 1,
+    "required_cves": 2,
+    "reported_cves": 2,
+    "correct_cves": 2
+   }
+  },
+  "doc-037.txt": {
+   "format": "nmap-grepable",
+   "metrics": {
+    "products": 0.8,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "missed Microsoft IIS 10.0",
+    "extra product apache:http_server:10.0",
+    "extra product microsoft:iis:10.0",
+    "4 reported CVE(s) do not apply"
+   ],
+   "counts": {
+    "expected_products": 5,
+    "found_products": 4,
+    "extra_products": 2,
+    "required_cves": 20,
+    "reported_cves": 24,
+    "correct_cves": 20
+   }
+  },
+  "doc-040.txt": {
+   "format": "banners",
+   "metrics": {
+    "products": 0.5,
+    "cves": null,
+    "cwe": null
+   },
+   "failures": [
+    "missed NTP 4.2.6p5",
+    "extra product ntpd_driver_project:ntpd_driver:4.2.6p5",
+    "extra product conectiva:linux:5.4.0-150-generic"
+   ],
+   "counts": {
+    "expected_products": 2,
+    "found_products": 1,
+    "extra_products": 2,
+    "required_cves": 0,
+    "reported_cves": 0,
+    "correct_cves": 0
+   }
+  },
+  "doc-042.json": {
+   "format": "syft-json",
+   "metrics": {
+    "products": 0.8,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "missed Apache Struts 2.3.31"
+   ],
+   "counts": {
+    "expected_products": 5,
+    "found_products": 4,
+    "extra_products": 0,
+    "required_cves": 38,
+    "reported_cves": 38,
+    "correct_cves": 38
+   }
+  },
+  "doc-045.txt": {
+   "format": "analyst-notes",
+   "metrics": {
+    "products": 0.6666666666666666,
+    "cves": 0.12903225806451613,
+    "cwe": 1.0
+   },
+   "failures": [
+    "missed GNU C Library 2.31",
+    "extra product cisco:80-7111-01_for_the_unity-svrx255-1a:192.168.18.0",
+    "missed 27 CVE(s): CVE-2026-21936, CVE-2026-21937, CVE-2026-21941, CVE-2026-21948, CVE-2026-21968, CVE-2026-21998 ..."
+   ],
+   "counts": {
+    "expected_products": 3,
+    "found_products": 2,
+    "extra_products": 1,
+    "required_cves": 31,
+    "reported_cves": 4,
+    "correct_cves": 4
+   }
+  },
+  "doc-047.json": {
+   "format": "npm-lock",
+   "metrics": {
+    "products": 0.75,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [
+    "missed Express 4.18.2",
+    "extra product express:express:4.18.2"
+   ],
+   "counts": {
+    "expected_products": 4,
+    "found_products": 3,
+    "extra_products": 1,
+    "required_cves": 27,
+    "reported_cves": 27,
+    "correct_cves": 27
+   }
+  },
+  "doc-048.xml": {
+   "format": "nmap-xml",
+   "metrics": {
+    "products": 1.0,
+    "cves": 1.0,
+    "cwe": 1.0
+   },
+   "failures": [],
+   "counts": {
+    "expected_products": 4,
+    "found_products": 4,
+    "extra_products": 0,
+    "required_cves": 43,
+    "reported_cves": 43,
+    "correct_cves": 43
+   }
+  }
+ }
+}

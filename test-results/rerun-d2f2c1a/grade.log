@@ -1,0 +1,37 @@
+
+format               docs  products      cves       cwe   score
+---------------------------------------------------------------
+analyst-notes           1     0.667     0.129     1.000   51.83
+banners                 2     0.450     1.000     1.000   78.00
+nmap-grepable           1     0.800     1.000     1.000   92.00
+nmap-xml                1     1.000     1.000     1.000  100.00
+npm-lock                1     0.750     1.000     1.000   90.00
+syft-json               1     0.800     1.000     1.000   92.00
+---------------------------------------------------------------
+OVERALL                 7     0.702     0.855     1.000   82.29
+
+  doc-030.txt (banners):
+      - missed Apache ActiveMQ 5.18.2
+      - missed Net-SNMP 5.7.3
+      - missed Jenkins 2.441
+      - extra product public_project:public:10.0.0.1
+  doc-037.txt (nmap-grepable):
+      - missed Microsoft IIS 10.0
+      - extra product apache:http_server:10.0
+      - extra product microsoft:iis:10.0
+      - 4 reported CVE(s) do not apply
+  doc-040.txt (banners):
+      - missed NTP 4.2.6p5
+      - extra product ntpd_driver_project:ntpd_driver:4.2.6p5
+      - extra product conectiva:linux:5.4.0-150-generic
+  doc-042.json (syft-json):
+      - missed Apache Struts 2.3.31
+  doc-045.txt (analyst-notes):
+      - missed GNU C Library 2.31
+      - extra product cisco:80-7111-01_for_the_unity-svrx255-1a:192.168.18.0
+      - missed 27 CVE(s): CVE-2026-21936, CVE-2026-21937, CVE-2026-21941, CVE-2026-21948, CVE-2026-21968, CVE-2026-21998 ...
+  doc-047.json (npm-lock):
+      - missed Express 4.18.2
+      - extra product express:express:4.18.2
+  SCORE 82.29 / 100
+

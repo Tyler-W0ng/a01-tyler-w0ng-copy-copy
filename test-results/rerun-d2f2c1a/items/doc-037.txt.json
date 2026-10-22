@@ -1,0 +1,209 @@
+{
+  "id": "doc-037.txt",
+  "products": [
+    {
+      "cpe": "cpe:2.3:a:lighttpd:lighttpd:1.4.35:*:*:*:*:*:*:*",
+      "evidence": [
+        "Host: 10.29.142.46 (files07.int.example.org)\tPorts: 80/open/tcp//http//lighttpd 1.4.35/, 9200/open/tcp//http//Elasticsearch REST API 1.4.2 (name: node-1; cluster: prod; Lucene 8.7.0)/, 53/open/tcp//do"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:isc:bind:9.16.1:*:*:*:*:*:*:*",
+      "evidence": [
+        "Host: 10.29.142.46 (files07.int.example.org)\tPorts: 80/open/tcp//http//lighttpd 1.4.35/, 9200/open/tcp//http//Elasticsearch REST API 1.4.2 (name: node-1; cluster: prod; Lucene 8.7.0)/, 53/open/tcp//do",
+        "53/open/tcp//domain//ISC BIND 9.16.1/"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-1519",
+          "cwes": [
+            "CWE-606",
+            "CWE-770"
+          ]
+        },
+        {
+          "id": "CVE-2026-3039",
+          "cwes": [
+            "CWE-771",
+            "CWE-770"
+          ]
+        },
+        {
+          "id": "CVE-2026-3592",
+          "cwes": [
+            "CWE-408"
+          ]
+        },
+        {
+          "id": "CVE-2026-5946",
+          "cwes": [
+            "CWE-20",
+            "CWE-125",
+            "CWE-617",
+            "CWE-754",
+            "CWE-843",
+            "CWE-1287"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:openbsd:openssh:8.2p1:*:*:*:*:*:*:*",
+      "evidence": [
+        "Host: 172.27.78.247 (app10.int.example.org)\tPorts: 22/open/tcp//ssh//OpenSSH 8.2p1 (protocol 2.0)/, 80/open/tcp//http//Microsoft IIS httpd 10.0/, 49152/open/tcp//unknown///\tIgnored State: closed (997)"
+      ],
+      "cves": [
+        {
+          "id": "CVE-2026-106587",
+          "cwes": [
+            "CWE-843"
+          ]
+        },
+        {
+          "id": "CVE-2026-3497",
+          "cwes": [
+            "CWE-908",
+            "CWE-824"
+          ]
+        },
+        {
+          "id": "CVE-2026-35385",
+          "cwes": [
+            "CWE-281"
+          ]
+        },
+        {
+          "id": "CVE-2026-35387",
+          "cwes": [
+            "CWE-670"
+          ]
+        },
+        {
+          "id": "CVE-2026-35388",
+          "cwes": [
+            "CWE-420"
+          ]
+        },
+        {
+          "id": "CVE-2026-35414",
+          "cwes": [
+            "CWE-670"
+          ]
+        },
+        {
+          "id": "CVE-2026-55653",
+          "cwes": [
+            "CWE-415"
+          ]
+        },
+        {
+          "id": "CVE-2026-55654",
+          "cwes": [
+            "CWE-125"
+          ]
+        },
+        {
+          "id": "CVE-2026-55655",
+          "cwes": [
+            "CWE-923"
+          ]
+        },
+        {
+          "id": "CVE-2026-59995",
+          "cwes": [
+            "CWE-23"
+          ]
+        },
+        {
+          "id": "CVE-2026-59996",
+          "cwes": [
+            "CWE-23"
+          ]
+        },
+        {
+          "id": "CVE-2026-59997",
+          "cwes": [
+            "CWE-1284"
+          ]
+        },
+        {
+          "id": "CVE-2026-59998",
+          "cwes": [
+            "CWE-573"
+          ]
+        },
+        {
+          "id": "CVE-2026-59999",
+          "cwes": [
+            "CWE-348"
+          ]
+        },
+        {
+          "id": "CVE-2026-60000",
+          "cwes": [
+            "CWE-770"
+          ]
+        },
+        {
+          "id": "CVE-2026-60001",
+          "cwes": [
+            "CWE-770"
+          ]
+        },
+        {
+          "id": "CVE-2026-60002",
+          "cwes": [
+            "CWE-416"
+          ]
+        },
+        {
+          "id": "CVE-2026-73281",
+          "cwes": [
+            "CWE-669"
+          ]
+        },
+        {
+          "id": "CVE-2026-73282",
+          "cwes": [
+            "CWE-416"
+          ]
+        },
+        {
+          "id": "CVE-2026-73283",
+          "cwes": [
+            "CWE-670"
+          ]
+        }
+      ]
+    },
+    {
+      "cpe": "cpe:2.3:a:apache:http_server:10.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "Host: 172.27.78.247 (app10.int.example.org)\tPorts: 22/open/tcp//ssh//OpenSSH 8.2p1 (protocol 2.0)/, 80/open/tcp//http//Microsoft IIS httpd 10.0/, 49152/open/tcp//unknown///\tIgnored State: closed (997)"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:elasticsearch:elasticsearch:1.4.2:*:*:*:*:*:*:*",
+      "evidence": [
+        "9200/open/tcp//http//Elasticsearch REST API 1.4.2 (name: node-1; cluster: prod; Lucene 8.7.0)/"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:apache:lucene:8.7.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "9200/open/tcp//http//Elasticsearch REST API 1.4.2 (name: node-1; cluster: prod; Lucene 8.7.0)/"
+      ],
+      "cves": []
+    },
+    {
+      "cpe": "cpe:2.3:a:microsoft:iis:10.0:*:*:*:*:*:*:*",
+      "evidence": [
+        "80/open/tcp//http//Microsoft IIS httpd 10.0/"
+      ],
+      "cves": []
+    }
+  ]
+}
