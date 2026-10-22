@@ -31,6 +31,28 @@ def _cpe_vp(cpe: str):
         return (parts[2].lower(), parts[3].lower())
     return None
 
+
+# Generic reverse-DNS prefixes in a Maven groupId, which do not name the product
+# (org.apache.struts -> "apache struts"; the vendor token like "apache" is kept).
+_GENERIC_GROUP = {"com", "org", "io", "net", "edu", "gov", "me", "dev", "www",
+                  "software"}
+
+
+def _purl_hint(purl):
+    """A resolution hint from a Package URL's namespace.
+
+    For Maven, the groupId names the project better than the artifactId:
+    `pkg:maven/org.apache.struts/struts2-core` -> "apache struts", which search
+    resolves to apache:struts (the artifact name "struts2-core" does not). Other
+    purl types carry a distro/ecosystem namespace that does not help a CPE
+    lookup, so we skip them and let the plain name resolve.
+    """
+    if not isinstance(purl, str) or not purl.startswith("pkg:maven/"):
+        return None
+    group = purl[len("pkg:maven/"):].split("/", 1)[0].split("@", 1)[0]
+    toks = [t for t in group.split(".") if t and t not in _GENERIC_GROUP]
+    return " ".join(toks) if toks else None
+
 # A packaging suffix after '-': distro build metadata, not the upstream version.
 _PKG_SUFFIX = re.compile(
     r"-(?:r\d+|\d+ubuntu[\w.]*|\d+\.el\d[\w.]*|\d+build\d+|\d+deb[\w.]*|\d+\+[\w.]*|\d+[\w.]*ubuntu[\w.]*)$")
@@ -59,6 +81,37 @@ def _clean_version(v: str) -> str:
     return v.strip().strip(".,;)")
 
 
+_IPV4 = re.compile(r"^\d{1,3}(?:\.\d{1,3}){3}$")
+
+
+def _is_private_ip(v: str) -> bool:
+    """A private/reserved IPv4 address - a scan target, never a product version.
+    Restricted to internal ranges so a real four-part version like 4.9.0.1
+    (a public range) is NOT mistaken for an address."""
+    if not _IPV4.match(v):
+        return False
+    o = [int(x) for x in v.split(".")]
+    if any(x > 255 for x in o):
+        return False
+    return (o[0] == 10 or (o[0] == 172 and 16 <= o[1] <= 31)
+            or (o[0] == 192 and o[1] == 168) or o[0] == 127
+            or (o[0] == 169 and o[1] == 254))
+
+
+def _valid_version(v: str) -> bool:
+    """A plausible software version: contains a digit and is not an internal IP.
+    Drops junk the loose/model extractors invent from scan IPs, CIDR bases and
+    words like 'Ubuntu' - which would otherwise become products (and, since
+    search now ranks CVE-bearing names first, could pull in a high-CVE
+    look-alike). Public four-part versions (4.9.0.1) are kept."""
+    v = v.strip()
+    if not any(ch.isdigit() for ch in v):
+        return False
+    if _is_private_ip(v):
+        return False
+    return True
+
+
 def _cand(name, version, evidence):
     return {"name": name.strip(), "version": _clean_version(version),
             "evidence": evidence.strip()[:200]}
@@ -67,7 +120,7 @@ def _cand(name, version, evidence):
 def _dedup(cands):
     seen, out = set(), []
     for c in cands:
-        if not c["name"] or not c["version"]:
+        if not c["name"] or not c["version"] or not _valid_version(c["version"]):
             continue
         key = (c["name"].lower(), c["version"])
         if key not in seen:
@@ -90,8 +143,12 @@ def _parse_json(text):
     for key in ("components", "artifacts"):
         for c in (data.get(key) or []) if isinstance(data, dict) else []:
             if isinstance(c, dict) and c.get("name") and c.get("version"):
-                cands.append(_cand(c["name"], str(c["version"]),
-                                   f"{key}: {c['name']} {c['version']}"))
+                cand = _cand(c["name"], str(c["version"]),
+                             f"{key}: {c['name']} {c['version']}")
+                hint = _purl_hint(c.get("purl"))
+                if hint:
+                    cand["hint"] = hint          # resolve falls back to this
+                cands.append(cand)
 
     # SPDX: packages[] with name + versionInfo
     if isinstance(data, dict):

@@ -24,11 +24,14 @@ log = logging.getLogger(__name__)
 
 _EXTRACT_PROMPT = (
     "You are a security analyst reading one reconnaissance artifact (a scan, "
-    "an SBOM, banners, or notes). List the software products that appear WITH "
-    "A CONCRETE VERSION. Ignore operating-system base packages (libc, systemd, "
-    "coreutils, ...) and anything without a version. Reply with ONLY a JSON "
-    "array of objects: [{\"name\": \"...\", \"version\": \"...\", "
-    "\"evidence\": \"the line you saw it on\"}]. Empty array if none."
+    "an SBOM, banners, a package list, or notes). List EVERY software product "
+    "that appears WITH A CONCRETE VERSION - applications, servers, libraries "
+    "and services alike. Include low-level components such as shared libraries "
+    "as long as they have a version; do NOT try to decide whether something is "
+    "\"part of the operating system\". Skip only entries that have no version "
+    "at all. Use the product's name as written in the document. Reply with "
+    "ONLY a JSON array of objects: [{\"name\": \"...\", \"version\": \"...\", "
+    "\"evidence\": \"the exact line you saw it on\"}]. Empty array if none."
 )
 
 _SUGGEST_PROMPT = (

@@ -59,13 +59,15 @@ def _cpe(alias: tuple, version: str) -> str:
     return f"cpe:2.3:a:{vendor}:{product}:{version or '*'}:*:*:*:*:*:*:*"
 
 
-def _pick_alias(aliases: set, counts: dict) -> tuple:
-    """Which CPE identity to report: the one with the most CVEs, then the
-    canonical vendor==product form, then alphabetical - so a product resolves
-    to the name NVD actually files its CVEs under (webmin:webmin, not
-    gentoo:webmin)."""
+def _pick_alias(aliases: set, counts: dict, seed: set = frozenset()) -> tuple:
+    """Which CPE identity to report: the one with the most CVEs, then a curated
+    (table/embedded) identity, then the canonical vendor==product form, then
+    alphabetical. The seed preference breaks ties so a hand-verified name wins
+    over a look-alike the data path also found (microsoft:internet_information_services
+    over microsoft:iis), without overriding a genuine higher-CVE identity."""
     return min(aliases, key=lambda a: (-counts.get(a, 0),
-                                       0 if a[0] == a[1] else 1, a[0]))
+                                       0 if a in seed else 1,
+                                       0 if a[0] == a[1] else 1, a[0], a[1]))
 
 
 def build(local, remote, only: set[str] | None = None):
@@ -124,6 +126,7 @@ def build(local, remote, only: set[str] | None = None):
                 # NVD files nginx CVEs under f5:nginx_open_source. Union so the
                 # lookup sees every identity that may carry the CVEs.
                 c["aliases"] = {tuple(c["vp"])} | (resolver.table(c["name"]) or set())
+                c["seed"] = c["aliases"]    # the embedded CPE is authoritative
                 continue
 
             # The hand table is now a SEED/backstop, not a short-circuit: the
@@ -143,6 +146,14 @@ def build(local, remote, only: set[str] | None = None):
                     hits = await search(alt)
 
             aliases = resolver.rank_pick(query, hits)
+            if not aliases and c.get("hint"):
+                # an SBOM purl named the project better than the build artifact
+                # ("struts2-core" -> groupId "org.apache.struts" -> "apache struts").
+                hq = resolver.clean_name(c["hint"])
+                hhits = await search(hq)
+                halias = resolver.rank_pick(hq, hhits)
+                if halias:
+                    query, hits, aliases = hq, hhits, halias
             if not aliases:
                 # Deterministic search placed nothing (hits empty, or only
                 # loose look-alikes rank_pick rejects). Ask the model for the
@@ -169,6 +180,7 @@ def build(local, remote, only: set[str] | None = None):
                     log.warning("%s: llm same_product failed: %s", c["name"], exc)
 
             c["aliases"] = seed | aliases
+            c["seed"] = seed               # curated identities win report ties
         return {"candidates": state["candidates"]}
 
     async def lookup(state: State) -> dict:
@@ -188,7 +200,7 @@ def build(local, remote, only: set[str] | None = None):
                 counts[(vendor, product)] = len(found)
                 for cve in found:
                     cves[cve["id"]] = cve.get("cwes", [])
-            cpe = _cpe(_pick_alias(aliases, counts), version)
+            cpe = _cpe(_pick_alias(aliases, counts, c.get("seed") or set()), version)
             if cpe in products:                          # same product seen twice
                 products[cpe]["_cves"].update(cves)
                 products[cpe]["evidence"].append(c["evidence"])
