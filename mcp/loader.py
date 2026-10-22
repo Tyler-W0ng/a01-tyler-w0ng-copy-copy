@@ -219,6 +219,11 @@ def load() -> sqlite3.Connection:
     _load_cwe(db)
     _load_capec(db)
     _load_meta(db)
+    # Distinct (vendor, product) that carry a 2026 CVE (~6k rows). Lets
+    # search_products cheaply flag/prioritise CVE-bearing names without
+    # scanning the full cve_match table on every call.
+    db.execute("CREATE TABLE cve_product AS "
+               "SELECT DISTINCT vendor, product FROM cve_match")
     db.executescript(
         """
         CREATE INDEX i_match ON cve_match(vendor, product);
@@ -227,6 +232,8 @@ def load() -> sqlite3.Connection:
         CREATE INDEX i_ver ON cpe_version(vendor, product);
         CREATE INDEX i_cwecap ON cwe_capec(cwe_id);
         CREATE INDEX i_capcwe ON capec_cwe(capec_id);
+        CREATE INDEX i_cveprod ON cve_product(product);
+        CREATE INDEX i_cveprodv ON cve_product(vendor);
         """
     )
     db.commit()

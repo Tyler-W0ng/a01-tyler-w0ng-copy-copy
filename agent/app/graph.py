@@ -110,6 +110,10 @@ def build(local, remote, only: set[str] | None = None):
         return {"fmt": fmt, "candidates": cands}
 
     async def resolve(state: State, config: RunnableConfig) -> dict:
+        async def search(query: str) -> list:
+            return (await clients.call(
+                remote, "search_products", {"query": query}))["candidates"]
+
         for c in state["candidates"]:
             if resolver.is_neutral(c["name"]):
                 c["aliases"] = set()
@@ -121,30 +125,50 @@ def build(local, remote, only: set[str] | None = None):
                 # lookup sees every identity that may carry the CVEs.
                 c["aliases"] = {tuple(c["vp"])} | (resolver.table(c["name"]) or set())
                 continue
-            aliases = resolver.table(c["name"])
+
+            # The hand table is now a SEED/backstop, not a short-circuit: the
+            # data path always runs and unions with it, so an incomplete entry
+            # (mysql listed only as oracle:mysql) still gains its other NVD
+            # identities (oracle:mysql_server, mysql_project:mysql).
+            seed = resolver.table(c["name"]) or set()
+
+            query = resolver.clean_name(c["name"])
+            hits = await search(query)
+            if not hits:
+                # separators differ between package names and CPE products
+                # ("commons-collections" vs "commons_collections"): retry with
+                # '-/_/.' flattened to spaces (matches the CPE title).
+                alt = query.replace("-", " ").replace("_", " ").replace(".", " ")
+                if alt != query:
+                    hits = await search(alt)
+
+            aliases = resolver.rank_pick(query, hits)
             if not aliases:
-                query = resolver.clean_name(c["name"])
-                hits = (await clients.call(
-                    remote, "search_products", {"query": query}))["candidates"]
-                if not hits:
-                    # separators differ between package names and CPE products
-                    # ("commons-collections" vs "commons_collections"): retry
-                    # with '-/_/.' flattened to spaces (matches the CPE title).
-                    alt = query.replace("-", " ").replace("_", " ").replace(".", " ")
-                    if alt != query:
-                        hits = (await clients.call(
-                            remote, "search_products", {"query": alt}))["candidates"]
-                if not hits:
-                    try:
-                        kw = await llm.suggest_name(c["name"], config)
-                        if kw and kw != query:
-                            hits = (await clients.call(
-                                remote, "search_products", {"query": kw}))["candidates"]
-                            query = kw
-                    except Exception as exc:            # noqa: BLE001
-                        log.warning("%s: llm suggest failed: %s", c["name"], exc)
-                aliases = resolver.rank_pick(query, hits)
-            c["aliases"] = aliases
+                # Deterministic search placed nothing (hits empty, or only
+                # loose look-alikes rank_pick rejects). Ask the model for the
+                # canonical name and try once more - this is what maps package
+                # or artifact names like "struts2-core" -> "struts".
+                try:
+                    kw = await llm.suggest_name(c["name"], config)
+                    if kw and kw != query:
+                        query, hits = kw, await search(kw)
+                        aliases = resolver.rank_pick(query, hits)
+                except Exception as exc:                # noqa: BLE001
+                    log.warning("%s: llm suggest failed: %s", c["name"], exc)
+
+            # Expand to the product's other NVD identities. Same-base family
+            # members are adjudicated by the model (naming only): it keeps or
+            # drops real search hits, never invents one. A failed call leaves
+            # the deterministic aliases untouched.
+            variants = resolver.variant_candidates(aliases, hits)
+            if variants:
+                try:
+                    aliases = aliases | await llm.same_product(
+                        c["name"], c.get("version"), variants, config)
+                except Exception as exc:                # noqa: BLE001
+                    log.warning("%s: llm same_product failed: %s", c["name"], exc)
+
+            c["aliases"] = seed | aliases
         return {"candidates": state["candidates"]}
 
     async def lookup(state: State) -> dict:

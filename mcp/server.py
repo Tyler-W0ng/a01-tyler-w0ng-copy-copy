@@ -110,27 +110,43 @@ def get_kev(cve_id: str) -> dict:
 
 @server.tool()
 def search_products(query: str) -> dict:
-    """CPE vendor:product candidates whose name or title matches `query`."""
+    """CPE vendor:product candidates whose name or title matches `query`.
+
+    Names that actually carry a 2026 CVE are ranked first and never dropped,
+    so a query like "mysql" also surfaces its CVE-bearing siblings
+    (oracle:mysql_server, oracle:mysql_cluster) rather than only oracle:mysql.
+    A caller resolving a product needs those to union its CVEs across every
+    name NVD files it under. Each candidate carries a `has_cves` flag.
+    """
     q = query.strip().lower()
     like = f"%{q}%"
+    # Names that appear in a 2026 CVE match (from the small derived table).
+    cve_vp = {(r["vendor"], r["product"]) for r in _q(
+        """SELECT vendor, product FROM cve_product
+           WHERE product LIKE ? OR vendor LIKE ?""", (like, like))}
+    # Name/title matches from the full CPE dictionary (titles, 0-CVE names).
     rows = _q("""SELECT vendor, product, title FROM cpe_product
                  WHERE product LIKE ? OR vendor LIKE ? OR LOWER(title) LIKE ?
-                 LIMIT 200""", (like, like, like))
+                 LIMIT 1000""", (like, like, like))
+    title = {(r["vendor"], r["product"]): r["title"] for r in rows}
+    cand = set(title) | cve_vp
 
-    def score(r):
-        p = r["product"].lower()
+    def score(vp):
+        p = vp[1].lower()
+        base = 0 if vp in cve_vp else 10          # CVE-bearing names first
         if p == q:
-            return 0
+            return base
         if p.startswith(q) or q in p.split("_"):
-            return 1
+            return base + 1
         if q in p:
-            return 2
-        return 3
+            return base + 2
+        return base + 3
 
-    ranked = sorted(rows, key=score)[:25]
+    ranked = sorted(cand, key=score)[:40]
     return {"query": query,
-            "candidates": [{"vendor": r["vendor"], "product": r["product"],
-                            "title": r["title"]} for r in ranked]}
+            "candidates": [{"vendor": v, "product": p,
+                            "title": title.get((v, p), p),
+                            "has_cves": (v, p) in cve_vp} for v, p in ranked]}
 
 
 @server.tool()

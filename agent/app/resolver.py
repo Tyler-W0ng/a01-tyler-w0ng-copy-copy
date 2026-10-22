@@ -100,14 +100,21 @@ def _tokens(s: str) -> set:
     return {t for t in re.split(r"[^a-z0-9]+", s.lower()) if t}
 
 
+def _title_tokens(title) -> set:
+    return {t for t in re.split(r"[^a-z0-9]+", (title or "").lower()) if t}
+
+
 def rank_pick(name: str, candidates: list):
     """From search_products candidates, pick the best product's identities.
 
-    We only accept a candidate whose product name genuinely matches the query
-    (equal, a shared whole word, or the normalized forms agree); candidates
-    that merely matched on a title substring are rejected, so stray version
-    numbers do not resolve to random products. Returns the set of (vendor,
-    product) pairs sharing the best product name (its aliases), or empty.
+    We accept a candidate whose product name genuinely matches the query
+    (equal, a shared whole word, or the normalized forms agree). When nothing
+    matches on the product name, we fall back to the CPE *title*: a multi-word
+    name like "GNU C Library" shares no token with the slug "glibc", but the
+    title carries it. Single-word title matches are not trusted (too many
+    titles contain a common word), so a stray version number still cannot
+    resolve to a random product. Returns the set of (vendor, product) pairs
+    sharing the best product name (its aliases), or empty.
     """
     if not candidates:
         return set()
@@ -131,6 +138,8 @@ def rank_pick(name: str, candidates: list):
             s = 2
         elif qtokens & ptokens:                    # share at least one whole word
             s = 3
+        elif len(qtokens) >= 2 and qtokens <= _title_tokens(c.get("title")):
+            s = 4                                  # the title carries the match
         else:
             continue                               # no real overlap -> reject
         scored.append((s, c))
@@ -150,3 +159,33 @@ def rank_pick(name: str, candidates: list):
     best_product = min((c["product"].lower() for s, c in scored if s == best_s))
     return {(c["vendor"].lower(), c["product"].lower())
             for c in candidates if c["product"].lower() == best_product}
+
+
+def variant_candidates(primary: set, candidates: list) -> list:
+    """Same-base-family search hits that are NOT already in `primary`, for the
+    model to adjudicate.
+
+    NVD files one product's CVEs under several slugs: "mysql" also appears as
+    "mysql_server", "nginx" as "nginx_open_source", "activemq" as
+    "activemq_broker". We surface every hit whose slug extends a primary slug
+    by one or more tokens ("mysql" is a leading-token prefix of
+    "mysql_server"). This also sweeps in genuinely different siblings
+    ("mysql_connectors", "mysql_workbench"); the caller asks the model which
+    are the same software, so there is no hand-written suffix list here.
+    """
+    if not primary:
+        return []
+    bases = [p.split("_") for (_v, p) in primary]
+    out, seen = [], set()
+    for c in candidates:
+        vp = (c["vendor"].lower(), c["product"].lower())
+        if vp in primary or vp in seen:
+            continue
+        ptoks = vp[1].split("_")
+        if any(len(ptoks) > len(b) and ptoks[:len(b)] == b for b in bases):
+            seen.add(vp)
+            out.append({"vendor": vp[0], "product": vp[1],
+                        "title": c.get("title", "")})
+        if len(out) >= 12:
+            break
+    return out
