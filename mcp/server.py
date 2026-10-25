@@ -21,6 +21,7 @@ from starlette.requests import Request
 from starlette.responses import JSONResponse
 
 import loader
+import resolve
 import version as vercmp
 
 server = MCPServer(name="vulndb", version="1.0.0")
@@ -108,23 +109,18 @@ def get_kev(cve_id: str) -> dict:
             "vendor": r["vendor"], "product": r["product"], "name": r["name"]}
 
 
-@server.tool()
-def search_products(query: str) -> dict:
-    """CPE vendor:product candidates whose name or title matches `query`.
+def _candidates(query: str) -> list:
+    """Ranked CPE vendor:product candidates matching `query` by name or title.
 
-    Names that actually carry a 2026 CVE are ranked first and never dropped,
-    so a query like "mysql" also surfaces its CVE-bearing siblings
-    (oracle:mysql_server, oracle:mysql_cluster) rather than only oracle:mysql.
-    A caller resolving a product needs those to union its CVEs across every
-    name NVD files it under. Each candidate carries a `has_cves` flag.
+    Names that carry a 2026 CVE are ranked first and never dropped, so a query
+    like "mysql" also surfaces its CVE-bearing siblings (oracle:mysql_server)
+    rather than only oracle:mysql. Each candidate carries a `has_cves` flag.
     """
     q = query.strip().lower()
     like = f"%{q}%"
-    # Names that appear in a 2026 CVE match (from the small derived table).
     cve_vp = {(r["vendor"], r["product"]) for r in _q(
         """SELECT vendor, product FROM cve_product
            WHERE product LIKE ? OR vendor LIKE ?""", (like, like))}
-    # Name/title matches from the full CPE dictionary (titles, 0-CVE names).
     rows = _q("""SELECT vendor, product, title FROM cpe_product
                  WHERE product LIKE ? OR vendor LIKE ? OR LOWER(title) LIKE ?
                  LIMIT 1000""", (like, like, like))
@@ -143,10 +139,55 @@ def search_products(query: str) -> dict:
         return base + 3
 
     ranked = sorted(cand, key=score)[:40]
-    return {"query": query,
-            "candidates": [{"vendor": v, "product": p,
-                            "title": title.get((v, p), p),
-                            "has_cves": (v, p) in cve_vp} for v, p in ranked]}
+    return [{"vendor": v, "product": p, "title": title.get((v, p), p),
+             "has_cves": (v, p) in cve_vp} for v, p in ranked]
+
+
+@server.tool()
+def search_products(query: str) -> dict:
+    """CPE vendor:product candidates whose name or title matches `query`.
+
+    A caller resolving a product needs the CVE-bearing siblings (e.g.
+    oracle:mysql_server for "mysql") to union its CVEs across every name NVD
+    files it under. Each candidate carries a `has_cves` flag.
+    """
+    return {"query": query, "candidates": _candidates(query)}
+
+
+def _has_cves(vendor: str, product: str) -> bool:
+    return bool(_q("SELECT 1 FROM cve_product WHERE vendor = ? AND product = ? LIMIT 1",
+                   (vendor, product)))
+
+
+@server.tool()
+def resolve_name(name: str) -> dict:
+    """Map a product / package / banner name to its CPE vendor:product identities.
+
+    Strips sub-package suffixes (openssh-server -> openssh), applies a small
+    table of structural naming facts (httpd -> apache:http_server, libssl ->
+    openssl:openssl), searches the CPE dictionary and ranks by confidence,
+    dropping look-alikes that match only on a generic word (so "zend engine"
+    does not resolve to docker:engine). Returns the best product's identities
+    (`aliases`), the table `seed`, and same-family `variants` a caller may
+    adjudicate; each alias notes `has_cves`.
+    """
+    clean = resolve.clean_name(name)
+    seed = resolve.table(name)
+    cands = _candidates(clean)
+    if not cands:
+        # separators differ between package names and CPE products
+        # ("commons-collections" vs "commons_collections"); retry flattened.
+        alt = clean.replace("-", " ").replace("_", " ").replace(".", " ")
+        if alt != clean:
+            cands = _candidates(alt)
+    primary = resolve.rank_pick(clean, cands)
+    variants = resolve.variant_candidates(primary, cands)
+    allv = sorted(primary | seed)
+    return {"name": name,
+            "aliases": [{"vendor": v, "product": p, "has_cves": _has_cves(v, p)}
+                        for v, p in allv],
+            "seed": [{"vendor": v, "product": p} for v, p in sorted(seed)],
+            "variants": variants}
 
 
 @server.tool()
@@ -160,8 +201,13 @@ def list_versions(vendor: str, product: str) -> dict:
 
 @server.tool()
 def vulnerabilities_for(vendor: str, product: str, version: str) -> dict:
-    """The 2026 CVEs that apply to an exact vendor/product/version."""
+    """The 2026 CVEs that apply to an exact vendor/product/version.
+
+    The version is normalised first (epoch, distro suffix, MariaDB marker), so
+    a caller can pass a packaging version like "1:7.6p1-4ubuntu0.7" directly.
+    """
     vendor, product = vendor.strip().lower(), product.strip().lower()
+    version = vercmp.normalize(version)
     rows = _q("""SELECT cve_id, exact, v_start, start_incl, v_end, end_incl
                  FROM cve_match WHERE vendor = ? AND product = ?""",
               (vendor, product))

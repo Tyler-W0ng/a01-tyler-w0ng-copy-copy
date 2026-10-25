@@ -21,7 +21,7 @@ from app import config
 
 log = logging.getLogger(__name__)
 
-PROCESSORS = ("search_products", "vulnerabilities_for")
+PROCESSORS = ("search_products", "resolve_name", "vulnerabilities_for")
 
 
 class ToolError(RuntimeError):

@@ -95,13 +95,20 @@ def _load_cve(db: sqlite3.Connection) -> None:
                     if len(parts) < 6:
                         continue
                     vendor, product, version = parts[3], parts[4], parts[5]
+                    v_start = (m.get("versionStartIncluding")
+                               or m.get("versionStartExcluding"))
+                    v_end = (m.get("versionEndIncluding")
+                             or m.get("versionEndExcluding"))
+                    # Only "*" with no range means "every version". A "-" (N/A)
+                    # with no range matched everything before, which is wrong;
+                    # skip those entries so they do not over-report CVEs.
+                    if version == "-" and not v_start and not v_end:
+                        continue
                     exact = version if version not in ("*", "-") else None
                     matches.append((
                         cid, vendor, product, exact,
-                        m.get("versionStartIncluding") or m.get("versionStartExcluding"),
-                        1 if m.get("versionStartIncluding") else 0,
-                        m.get("versionEndIncluding") or m.get("versionEndExcluding"),
-                        1 if m.get("versionEndIncluding") else 0,
+                        v_start, 1 if m.get("versionStartIncluding") else 0,
+                        v_end, 1 if m.get("versionEndIncluding") else 0,
                     ))
     db.executemany("INSERT OR IGNORE INTO cve VALUES (?,?,?,?,0)", cves)
     db.executemany("INSERT INTO cve_cwe VALUES (?,?)", cwes)

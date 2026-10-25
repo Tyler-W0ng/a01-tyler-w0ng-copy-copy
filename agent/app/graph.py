@@ -11,9 +11,10 @@ Who decides what:
 
   * the GRAPH decides order and the output ID (the input's own name). Not
     negotiable by a model or by a file's content.
-  * CODE does the deterministic work: parse the document (parsers.py), map
-    names to CPE identities (resolver.py), and ask the MCP server for the
-    CVEs (lookup). The vulnerability facts come only from the server.
+  * CODE does the deterministic work: parse the document (parsers.py), drop
+    OS plumbing (neutral.py), map names to CPE identities (the server's
+    resolve_name), and ask the MCP server for the CVEs (lookup). The
+    vulnerability facts come only from the server.
   * the MODEL helps with naming only, inside extract (read a messy document)
     and resolve (clean a name search could not place). It never emits a CVE.
 
@@ -30,7 +31,7 @@ from typing import Annotated, Any, TypedDict
 from langchain_core.runnables import RunnableConfig
 from langgraph.graph import END, START, StateGraph
 
-from app import clients, llm, parsers, resolver
+from app import clients, llm, neutral, parsers
 from app import config as settings
 
 log = logging.getLogger(__name__)
@@ -105,73 +106,61 @@ def build(local, remote, only: set[str] | None = None):
         # For loose text, also ask the model - it reads what regex cannot.
         if not structured:
             try:
-                cands = parsers._dedup(cands + await llm.extract_products(text, config))
+                model_cands = await llm.extract_products(text, config)
             except Exception as exc:                    # noqa: BLE001
                 log.warning("%s: llm extract failed: %s", item["id"], exc)
+                model_cands = []
+            # Re-ground: keep only versions that actually appear in the source,
+            # dropping ones the model invents (e.g. from a ps listing).
+            model_cands = [c for c in model_cands
+                           if c["version"].lstrip("vV") in text]
+            cands = parsers._dedup(cands + model_cands)
         log.info("%s [%s]: %d candidate(s)", item["id"], fmt, len(cands))
         return {"fmt": fmt, "candidates": cands}
 
     async def resolve(state: State, config: RunnableConfig) -> dict:
-        async def search(query: str) -> list:
-            return (await clients.call(
-                remote, "search_products", {"query": query}))["candidates"]
+        async def resolve_name(query: str) -> dict:
+            return await clients.call(remote, "resolve_name", {"name": query})
+
+        def unpack(r: dict):
+            aliases = {(a["vendor"], a["product"]) for a in r.get("aliases", [])}
+            seed = {(a["vendor"], a["product"]) for a in r.get("seed", [])}
+            return aliases, seed, r.get("variants", [])
 
         for c in state["candidates"]:
-            if resolver.is_neutral(c["name"]):
+            if neutral.is_neutral(c["name"]):
                 c["aliases"] = set()
                 continue
+
+            # The server resolves the name to CPE identities (sub-package
+            # stripping, the structural alias table, ranked confidence search).
+            aliases, seed, variants = unpack(await resolve_name(c["name"]))
+
             if c.get("vp"):                 # a parser gave the exact CPE (e.g. nmap)
-                # Trust the embedded CPE, but enrich it with the table's known
+                # Trust the embedded CPE, enriched with the table's known
                 # multi-identity mappings: nmap reports nginx as f5:nginx, yet
-                # NVD files nginx CVEs under f5:nginx_open_source. Union so the
-                # lookup sees every identity that may carry the CVEs.
-                c["aliases"] = {tuple(c["vp"])} | (resolver.table(c["name"]) or set())
+                # NVD files nginx CVEs under f5:nginx_open_source.
+                c["aliases"] = {tuple(c["vp"])} | seed
                 c["seed"] = c["aliases"]    # the embedded CPE is authoritative
                 continue
 
-            # The hand table is now a SEED/backstop, not a short-circuit: the
-            # data path always runs and unions with it, so an incomplete entry
-            # (mysql listed only as oracle:mysql) still gains its other NVD
-            # identities (oracle:mysql_server, mysql_project:mysql).
-            seed = resolver.table(c["name"]) or set()
-
-            query = resolver.clean_name(c["name"])
-            hits = await search(query)
-            if not hits:
-                # separators differ between package names and CPE products
-                # ("commons-collections" vs "commons_collections"): retry with
-                # '-/_/.' flattened to spaces (matches the CPE title).
-                alt = query.replace("-", " ").replace("_", " ").replace(".", " ")
-                if alt != query:
-                    hits = await search(alt)
-
-            aliases = resolver.rank_pick(query, hits)
             if not aliases and c.get("hint"):
                 # an SBOM purl named the project better than the build artifact
                 # ("struts2-core" -> groupId "org.apache.struts" -> "apache struts").
-                hq = resolver.clean_name(c["hint"])
-                hhits = await search(hq)
-                halias = resolver.rank_pick(hq, hhits)
-                if halias:
-                    query, hits, aliases = hq, hhits, halias
+                aliases, _, variants = unpack(await resolve_name(c["hint"]))
             if not aliases:
-                # Deterministic search placed nothing (hits empty, or only
-                # loose look-alikes rank_pick rejects). Ask the model for the
-                # canonical name and try once more - this is what maps package
-                # or artifact names like "struts2-core" -> "struts".
+                # The server placed nothing (or only look-alikes it rejects).
+                # Ask the model for the canonical name and resolve once more.
                 try:
                     kw = await llm.suggest_name(c["name"], config)
-                    if kw and kw != query:
-                        query, hits = kw, await search(kw)
-                        aliases = resolver.rank_pick(query, hits)
+                    if kw and kw != c["name"].strip().lower():
+                        aliases, _, variants = unpack(await resolve_name(kw))
                 except Exception as exc:                # noqa: BLE001
                     log.warning("%s: llm suggest failed: %s", c["name"], exc)
 
-            # Expand to the product's other NVD identities. Same-base family
-            # members are adjudicated by the model (naming only): it keeps or
-            # drops real search hits, never invents one. A failed call leaves
-            # the deterministic aliases untouched.
-            variants = resolver.variant_candidates(aliases, hits)
+            # Same-base family members are adjudicated by the model (naming
+            # only): it keeps or drops real identities, never invents one. A
+            # failed call leaves the deterministic aliases untouched.
             if variants:
                 try:
                     aliases = aliases | await llm.same_product(

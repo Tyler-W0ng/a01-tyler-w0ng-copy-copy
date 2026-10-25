@@ -6,7 +6,7 @@ text (banners, headers, scans) gets a conservative regex pass; genuinely
 free-form notes fall through with little, and the graph then asks the model.
 
 Each candidate is {"name", "version", "evidence"}. We do not resolve CPEs or
-look up CVEs here - that is resolver.py and the MCP server.
+look up CVEs here - that is the MCP server (resolve_name, vulnerabilities_for).
 """
 
 import json
@@ -72,9 +72,10 @@ def normalize_version(v: str) -> str:
     v = _PKG_SUFFIX.sub("", v)            # "16.13.0-r4" -> "16.13.0"
     return v
 
-# A product token followed by a dotted version: "nginx/1.10.3", "OpenSSH 7.6p1".
+# A product token followed by a dotted version: "nginx/1.10.3", "OpenSSH 7.6p1",
+# "OpenSSH_7.2p2" (underscore separator in SSH banners).
 _NAME_VER = re.compile(
-    r"([A-Za-z][A-Za-z0-9._+-]{1,40}?)[ /]v?(\d+\.\d+[A-Za-z0-9.+_-]*)")
+    r"([A-Za-z][A-Za-z0-9._+-]{1,40}?)[ /_]v?(\d+\.\d+[A-Za-z0-9.+_-]*)")
 
 
 def _clean_version(v: str) -> str:
@@ -222,21 +223,32 @@ def _parse_lines(text):
 
 # --- loose text: banners, headers, scans, version commands ----------------
 
-# tokens the "name version" regex captures that are never a product
+# tokens the "name version" regex captures that are never a product. Includes
+# the prose words that leak out of tool-summary lines ("scanned in 346.53
+# seconds" -> name "in"; "Redis key-value store 5.0.7" -> name "store").
 _STOP = {"http", "https", "date", "content", "x", "ver", "version", "nmap",
          "api", "lucene", "uptime", "pid", "release", "host", "status",
-         "ports", "name", "cluster", "node-", "protocol", "server", "connection"}
+         "ports", "name", "cluster", "node-", "protocol", "server", "connection",
+         "in", "at", "up", "of", "store", "value"}
 
 
 # Shared-library files in a filesystem listing: "liblzma.so.5.6.0" -> (liblzma, 5.6.0).
 # The dotted .so suffix is not matched by _NAME_VER, so handle it explicitly.
 _SO_FILE = re.compile(r"(lib[a-z0-9_+-]+)\.so\.(\d+(?:\.\d+)+)")
 
+# A versioned path segment in a filesystem listing, where name and version are
+# joined by '-' (so _NAME_VER's space/slash separator misses them):
+# ".../Jinja2-3.1.2.dist-info", ".../phpMyAdmin-4.8.1-all-languages",
+# ".../wordpress-5.4.2.zip".
+_PATH_NV = re.compile(r"/([A-Za-z][A-Za-z0-9._+]*?)-(\d+(?:\.\d+)+)")
+
 
 def _parse_text(text):
     cands = []
     for line in text.splitlines():
         for name, ver in _SO_FILE.findall(line):
+            cands.append(_cand(name, ver, line.strip()))
+        for name, ver in _PATH_NV.findall(line):
             cands.append(_cand(name, ver, line.strip()))
         for name, ver in _NAME_VER.findall(line):
             if name.lower() in _STOP:

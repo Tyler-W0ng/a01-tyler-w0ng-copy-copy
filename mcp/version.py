@@ -14,6 +14,23 @@ import re
 
 _TOKEN = re.compile(r"\d+|[a-z]+")
 
+_PKG_SUFFIX = re.compile(
+    r"-(?:r\d+|\d+ubuntu[\w.]*|\d+\.el\d[\w.]*|\d+build\d+|\d+deb[\w.]*|\d+\+[\w.]*)$")
+
+
+def normalize(v: str) -> str:
+    """Upstream version from a packaging string: drop a Debian epoch and a
+    distro packaging suffix, and read MariaDB's MySQL-protocol marker. So a
+    caller can pass "1:7.6p1-4ubuntu0.7" or "5.5.5-10.1.48-MariaDB-..." and
+    still match. Idempotent on an already-clean version."""
+    v = (v or "").strip()
+    m = re.search(r"(?:5\.5\.5-)?(\d+\.\d+\.\d+)-mariadb", v, re.I)
+    if m:
+        return m.group(1)
+    v = re.sub(r"^\d+:", "", v)           # epoch, e.g. "1:7.6p1-4ubuntu0.7"
+    v = re.sub(r"[.+~]dfsg.*$", "", v)    # Debian repack marker
+    return _PKG_SUFFIX.sub("", v)
+
 
 def _key(version: str) -> list:
     parts = []

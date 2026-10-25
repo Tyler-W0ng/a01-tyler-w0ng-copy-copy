@@ -29,9 +29,13 @@ _EXTRACT_PROMPT = (
     "and services alike. Include low-level components such as shared libraries "
     "as long as they have a version; do NOT try to decide whether something is "
     "\"part of the operating system\". Skip only entries that have no version "
-    "at all. Use the product's name as written in the document. Reply with "
-    "ONLY a JSON array of objects: [{\"name\": \"...\", \"version\": \"...\", "
-    "\"evidence\": \"the exact line you saw it on\"}]. Empty array if none."
+    "at all. A product and its version may sit on different lines, or the "
+    "version may be buried in protocol/binary noise (a service handshake); "
+    "pair each product with the version that is really its own, and copy the "
+    "version exactly as it appears. Use the product's name as written in the "
+    "document. Reply with ONLY a JSON array of objects: [{\"name\": \"...\", "
+    "\"version\": \"...\", \"evidence\": \"the exact line you saw it on\"}]. "
+    "Empty array if none."
 )
 
 _SUGGEST_PROMPT = (
@@ -78,7 +82,7 @@ def _first_json(text: str):
 async def extract_products(text: str, run_config) -> list:
     reply = await _model().ainvoke(
         [{"role": "system", "content": _EXTRACT_PROMPT},
-         {"role": "user", "content": text[:8000]}], run_config)
+         {"role": "user", "content": text[:12000]}], run_config)
     value = _first_json(reply.content)
     if not isinstance(value, list):
         return []
