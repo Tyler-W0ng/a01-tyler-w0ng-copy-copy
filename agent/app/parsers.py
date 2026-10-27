@@ -229,12 +229,22 @@ def _parse_lines(text):
 _STOP = {"http", "https", "date", "content", "x", "ver", "version", "nmap",
          "api", "lucene", "uptime", "pid", "release", "host", "status",
          "ports", "name", "cluster", "node-", "protocol", "server", "connection",
-         "in", "at", "up", "of", "store", "value"}
+         "in", "at", "up", "of", "store", "value", "httpd"}
 
 
 # Shared-library files in a filesystem listing: "liblzma.so.5.6.0" -> (liblzma, 5.6.0).
 # The dotted .so suffix is not matched by _NAME_VER, so handle it explicitly.
 _SO_FILE = re.compile(r"(lib[a-z0-9_+-]+)\.so\.(\d+(?:\.\d+)+)")
+
+# Well-known service-banner shapes where the version is not adjacent to the
+# product name the way _NAME_VER expects: a MariaDB protocol handshake, an
+# smbclient "Samba x" line, a memcached stats "version" field. These are
+# standard protocol outputs, identical on any host that runs the service.
+_BANNERS = [
+    ("mariadb", re.compile(r"(\d+\.\d+\.\d+)-MariaDB", re.I)),
+    ("samba", re.compile(r"\bSamba[ /](\d+\.\d+[\w.]*)", re.I)),
+    ("memcached", re.compile(r"\bSTAT version (\d+\.\d+[\w.]*)", re.I)),
+]
 
 # A versioned path segment in a filesystem listing, where name and version are
 # joined by '-' (so _NAME_VER's space/slash separator misses them):
@@ -250,6 +260,9 @@ def _parse_text(text):
             cands.append(_cand(name, ver, line.strip()))
         for name, ver in _PATH_NV.findall(line):
             cands.append(_cand(name, ver, line.strip()))
+        for name, patt in _BANNERS:
+            for ver in patt.findall(line):
+                cands.append(_cand(name, ver, line.strip()))
         for name, ver in _NAME_VER.findall(line):
             if name.lower() in _STOP:
                 continue

@@ -109,7 +109,7 @@ def get_kev(cve_id: str) -> dict:
             "vendor": r["vendor"], "product": r["product"], "name": r["name"]}
 
 
-def _candidates(query: str) -> list:
+def _candidates(query: str, limit: int = 40) -> list:
     """Ranked CPE vendor:product candidates matching `query` by name or title.
 
     Names that carry a 2026 CVE are ranked first and never dropped, so a query
@@ -138,7 +138,7 @@ def _candidates(query: str) -> list:
             return base + 2
         return base + 3
 
-    ranked = sorted(cand, key=score)[:40]
+    ranked = sorted(cand, key=score)[:limit]
     return [{"vendor": v, "product": p, "title": title.get((v, p), p),
              "has_cves": (v, p) in cve_vp} for v, p in ranked]
 
@@ -149,9 +149,10 @@ def search_products(query: str) -> dict:
 
     A caller resolving a product needs the CVE-bearing siblings (e.g.
     oracle:mysql_server for "mysql") to union its CVEs across every name NVD
-    files it under. Each candidate carries a `has_cves` flag.
+    files it under. Each candidate carries a `has_cves` flag. Capped at the 20
+    best so the list stays small enough for a model to read.
     """
-    return {"query": query, "candidates": _candidates(query)}
+    return {"query": query, "candidates": _candidates(query, 20)}
 
 
 def _has_cves(vendor: str, product: str) -> bool:
@@ -211,6 +212,12 @@ def vulnerabilities_for(vendor: str, product: str, version: str) -> dict:
     rows = _q("""SELECT cve_id, exact, v_start, start_incl, v_end, end_incl
                  FROM cve_match WHERE vendor = ? AND product = ?""",
               (vendor, product))
+    # `known` lets a caller tell a misresolution (no such product) from a
+    # genuine clean result (a real product with no 2026 CVEs) - both of which
+    # otherwise return an empty `cves` list.
+    known = bool(rows) or bool(_q(
+        "SELECT 1 FROM cpe_product WHERE vendor = ? AND product = ? LIMIT 1",
+        (vendor, product)))
     hits = {}
     for r in rows:
         if vercmp.matches(version, r["exact"], r["v_start"], r["start_incl"],
@@ -222,7 +229,8 @@ def vulnerabilities_for(vendor: str, product: str, version: str) -> dict:
         cvss = crow[0]["cvss"] if crow else None
         kev = bool(crow[0]["in_kev"]) if crow else False
         cves.append({"id": cid, "cwes": _cwes_for(cid), "cvss": cvss, "kev": kev})
-    return {"vendor": vendor, "product": product, "version": version, "cves": cves}
+    return {"vendor": vendor, "product": product, "version": version,
+            "known": known, "cves": cves}
 
 
 @server.custom_route("/health", methods=["GET"])

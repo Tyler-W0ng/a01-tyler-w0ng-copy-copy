@@ -59,10 +59,14 @@ call it directly:
 - **`search_products`** ranks names that carry a 2026 CVE first and never drops
   them (`has_cves` on each), because NVD files one product's CVEs under several
   slugs: a search for `mysql` must surface `oracle:mysql_server`, not only
-  `oracle:mysql`, or the caller can never find where the CVEs live.
+  `oracle:mysql`, or the caller can never find where the CVEs live. It is
+  capped at the 20 best candidates so the list stays small for a model to read.
 - **`vulnerabilities_for`** is the core lookup: it **normalises the version**
   (epoch, distro suffix, MariaDB marker — `mcp/version.py`) so any caller may
   pass `1:7.6p1-4ubuntu0.7` directly, then tests each CPE match row in Python.
+  It returns a **`known`** flag (is this vendor:product in the data at all), so
+  a caller can tell a misresolution from a genuine product with no 2026 CVEs —
+  both of which otherwise return an empty `cves` list.
 
 **Version matching (`mcp/version.py`).** Versions are tokenised into numeric
 and alphabetic runs and compared as lists, so `2.4.29 < 2.4.58` and
@@ -185,15 +189,18 @@ The recurring categories, each a *general* cause rather than a per-document
 quirk:
 
 - **Loose-text recall.** Banners and analyst notes depend on the model reading
-  prose, which varies run to run; a version buried in a service handshake or on
-  a line away from its product is the hard case. The prompt now names these
-  shapes and several standard banners (`OpenSSH_7.2p2`, FTP/SMB) parse
-  deterministically, but this is the inherent limit of reading untrusted text.
+  prose, which varies run to run. Standard banner shapes now parse
+  deterministically — `OpenSSH_7.2p2`, `ProFTPD 1.3.5b`, the MariaDB handshake
+  (`5.5.5-10.1.48-MariaDB`), the smbclient `Samba 4.13.17` line, and the
+  memcached `STAT version` field — so the model is left only with the genuinely
+  hard residue: a version embedded in a binary handshake (ActiveMQ OpenWire) or
+  on a line away from its product (an SNMP `nsVersion`). That residue is the
+  inherent limit of reading untrusted text, not a mechanism gap.
 - **Zero-CVE naming edge cases** (e.g. `ntpd` or Express's `openjsf` vendor)
   affect one product on one document, carry no CVE impact, and admit no general
   signal — the only "fix" would be a per-product hard-code, so they are left.
 
-**Two general bugs the feedback named, and how each is now fixed at the
+**General bugs the feedback named, and how each is now fixed at the
 mechanism, not the document:**
 
 - **Look-alike CPE resolution.** CVE-first search ranking let a product win on
@@ -211,6 +218,13 @@ mechanism, not the document:**
   dropped (prose stop-words) and, crucially, a model-extracted version is kept
   only if it **appears verbatim in the source** — so a version hallucinated
   from a `ps aux` listing never becomes a product.
+- **Bare-word banner aliases.** A bare `httpd` resolved to
+  `apache:http_server`, so a banner like `CouchDB httpd 3.1.0` was misfiled
+  under Apache. `httpd` is now a stop-word in loose-text extraction (the real
+  product, `CouchDB`, is read instead), while the package name `httpd` still
+  resolves to Apache from `rpm`/`apk` lines, which do not consult the stop
+  list. `vulnerabilities_for`'s new `known` flag also lets the agent tell a
+  misresolution from a clean no-CVE result.
 
 **Deliberately not "fixed" (chasing these would be overfitting):** the
 "N reported CVEs do not apply" notes come from NVD all-versions matches under
