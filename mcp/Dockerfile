@@ -5,7 +5,7 @@ FROM python:3.13-slim
 RUN pip install --no-cache-dir "mcp>=2.2,<3" \
  && useradd --create-home --uid 1000 mcp
 WORKDIR /app
-COPY server.py loader.py version.py ./
+COPY server.py loader.py version.py resolve.py ./
 USER mcp
 EXPOSE 8000
 # python is on PATH for the compose healthcheck (GET /health).
