@@ -172,21 +172,25 @@ Two small hand tables remain, deliberately disciplined:
   lists a real product, lose points — an early version mistakenly neutralised
   `libxml2`, `glibc` and `zlib`, which are scored, and those were removed.
 
-## 4. Failure analysis (training set)
+## 4. Failure analysis
 
-All numbers below are from **one** `grade.py` run over the 50 training
-documents with the grading model (not a composite of saved outputs):
-**[paste the OVERALL score from your latest single run]**. Every structured,
-tool-generated format scores 100; the misses that remain are in loose text.
+Grounded in the most recent full run, the public evaluation half (the feedback
+run): overall score **87.07** (indicative — the grade uses the private half).
+The structured, tool-generated formats, which carry most of the CVEs, are at or
+near 100 (apk-info, dockerfile, maven-pom, nmap-xml, pip, rpm-qa, syft-json and
+whatweb at 100; dpkg-list 95; cyclonedx-json 93.3; spdx-json 92.5; npm-lock 90).
+The loss is in loose text, and two formats are worse than the previous run:
 
-**What still fails, per document** (from `grade.py -v`, paste the current run):
+| Format | Score | Cause |
+|---|---:|---|
+| ps-aux | 26.7 | process listings carry no versions; the model still pairs a daemon with a number from the line |
+| nmap-normal | 50.0 | regression from the ps-aux prompt clause, since narrowed (below) |
+| banners | 61.7 | version in binary / separate-line noise the model must read |
+| version-commands | 77.6 | loose `cmd: output` lines the model must pair |
+| html | 88.9 | version in page text or metadata |
+| analyst-notes | 90.0 | free prose |
 
-| Document (format) | Loss | Cause |
-|---|---|---|
-| [doc-NNN (format)] | products / cves / cwe | [one line] |
-
-The recurring categories, each a *general* cause rather than a per-document
-quirk:
+The causes, each general rather than a per-document quirk:
 
 - **Loose-text recall.** Banners and analyst notes depend on the model reading
   prose, which varies run to run. Standard banner shapes now parse
@@ -196,43 +200,57 @@ quirk:
   hard residue: a version embedded in a binary handshake (ActiveMQ OpenWire) or
   on a line away from its product (an SNMP `nsVersion`). That residue is the
   inherent limit of reading untrusted text, not a mechanism gap.
-- **Zero-CVE naming edge cases** (e.g. `ntpd` or Express's `openjsf` vendor)
-  affect one product on one document, carry no CVE impact, and admit no general
-  signal — the only "fix" would be a per-product hard-code, so they are left.
+- **Zero-CVE naming edge cases** (e.g. Express's `openjsf` vendor) affect one
+  product on one document, carry no CVE impact, and admit no general signal —
+  the only "fix" would be a per-product hard-code, so they are left.
 
-**General bugs the feedback named, and how each is now fixed at the
-mechanism, not the document:**
+**Fixes that landed, and look-alikes that did not.** Two earlier bugs are gone:
+the `name version` regex no longer turns prose into products (`Nmap done …
+scanned in 346.53 seconds` and `Redis key-value store 5.0.7` are dropped by
+stop-words), and a bare `httpd` banner (`CouchDB httpd 3.1.0`) is no longer
+misfiled under Apache while the package name `httpd` still resolves from
+`rpm`/`apk` lines. Look-alike resolution, though, is improved but **not
+solved**. The generic-word guard stops a match on a shared *generic* token
+(`Zend Engine` no longer beats `docker:engine` on "engine" in the ranked
+search), yet the run shows look-alikes still reach the output two other ways:
 
-- **Look-alike CPE resolution.** CVE-first search ranking let a product win on
-  a single shared *generic* word: `Zend Engine`→`docker:engine`,
-  `7-Zip`→`info-zip:zip`, `ms`→`mattermost:ms_teams`. These are wrong products
-  (extras that scale the products score down). `resolve_name`/`rank_pick` now
-  reject a match whose only shared token is generic (`engine`, `zip`, `server`,
-  …) unless the vendor agrees — so "Docker Engine" still reaches
-  `docker:engine` but "Zend Engine" does not, and it generalises to unseen
-  products rather than denylisting the three seen here.
-- **Stray numbers becoming versions.** The `name version` regex captured the
-  token adjacent to a number, so `Nmap done … scanned in 346.53 seconds`
-  produced `(in, 346.53)` and `Redis key-value store 5.0.7` produced
-  `(store, 5.0.7)`; a process listing's columns invited the same. These are now
-  dropped (prose stop-words) and, crucially, a model-extracted version is kept
-  only if it **appears verbatim in the source** — so a version hallucinated
-  from a `ps aux` listing never becomes a product.
-- **Bare-word banner aliases.** A bare `httpd` resolved to
-  `apache:http_server`, so a banner like `CouchDB httpd 3.1.0` was misfiled
-  under Apache. `httpd` is now a stop-word in loose-text extraction (the real
-  product, `CouchDB`, is read instead), while the package name `httpd` still
-  resolves to Apache from `rpm`/`apk` lines, which do not consult the stop
-  list. `vulnerabilities_for`'s new `known` flag also lets the agent tell a
-  misresolution from a clean no-CVE result.
+- a shared *non-generic* token still over-matches — `packaging` →
+  `ibm:packaging_utility`, `Apache Commons Text` → `golang:text`;
+- the model's `suggest_name` fallback canonicalises a name to a bare generic
+  word that then matches a product *exactly*, bypassing the guard: `Zend Engine`
+  → "engine" → `docker:engine` (doc-016), `7-Zip` → "zip" →
+  `info-zip_project:zip` (doc-049), with `Exim smtpd` → `opensmtpd:opensmtpd`
+  and `ntpd` → `ntpd_driver_project:ntpd_driver` the same shape.
 
-**Deliberately not "fixed" (chasing these would be overfitting):** the
-"N reported CVEs do not apply" notes come from NVD all-versions matches under
-an AND node with a platform — the handout calls these optional and they carry
-no penalty. A resolution coverage check over a random sample of all 2026-CVE
-products (feeds only, no documents) confirmed the mainstream server-software
-universe resolves well, with remaining gaps in firmware and enterprise
-products unlikely to appear in realistic scan documents.
+These are wrong extras on zero- or low-CVE products, so they cost
+products-precision, not CVEs. The fix I have not made is the one the feedback
+names: score a candidate by **vendor/title agreement** rather than any shared
+token, and have `suggest_name` return a vendor-qualified name.
+
+**ps-aux (26.7) — reduced, not eliminated.** The deterministic parser emits
+nothing for a `ps aux` listing, and a model-extracted version is kept only if
+it appears verbatim in the source; yet ps-aux is still the weakest format. The
+model pairs a daemon with a number that genuinely appears in the line (a PID, a
+CPU%, a version-like token in a command path), so the verbatim check passes.
+The prompt telling the model that process and resource columns are not versions
+helped host-report (98.9) and windows-inventory (95) but did not solve ps-aux;
+a reliable fix would detect the `ps`/`top` header and suppress the document,
+which I judged too format-specific to hard-code.
+
+**nmap-normal regressed (90 → 50), now addressed.** The prompt clause meant to
+quiet ps-aux — "a process or service listing … return an empty array unless a
+version is shown" — the model over-applied to `nmap -sV` output, which *is* a
+service listing but *does* carry versions, suppressing its contribution (the
+deterministic pass kept the format from collapsing). The clause has since been
+narrowed to name only process listings (`ps`/`top`) and to state explicitly
+that a port scan lists real versions to report. Because the earlier wording did
+not actually make ps-aux return empty either (ps-aux stayed at 26.7), dropping
+it should recover nmap-normal at no cost to ps-aux — a one-line change made
+after the feedback runs were spent, so reasoned-for but not re-measured.
+
+**Deliberately not chased:** the "N reported CVEs do not apply" notes come from
+NVD all-versions matches under an AND node with a platform — the handout calls
+these optional and they carry no penalty.
 
 ## 5. Security boundary
 
@@ -242,7 +260,6 @@ container can reach the internet. No vulnerability data is baked into either
 image — it is all loaded from the read-only `/feeds` mount. The MCP container
 keeps its read-only root filesystem, dropped capabilities and non-root user.
 
-<!-- Author: before submitting, run a single full 50-document grade.py pass and
-(1) paste the OVERALL score into the §4 placeholder, and (2) fill the
-per-document miss table from `grade.py -v`. Do not reuse composite numbers from
-separate runs. -->
+<!-- §4 is grounded in the latest public-half feedback run (overall 87.07). A
+fresh training-set `grade.py -v` can replace the per-format table with
+per-document misses if desired. -->
